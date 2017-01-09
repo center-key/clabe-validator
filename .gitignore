@@ -1,0 +1,7 @@
+# CLABE Validator
+
+# Generated and downloaded files
+/node_modules/
+
+# Extraneous system files
+.DS_Store
