@@ -1,37 +1,65 @@
-## Welcome to GitHub Pages
+### CLABE Validator
 
-You can use the [editor on GitHub](https://github.com/center-key/clabe-validator/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+*JavaScript library to analyze a CLABE number for a Mexican bank account*
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+---
+Current release: **v0.0.1**
 
-### Markdown
+Clave Bancaria Estandarizada (Spanish for "standardized banking cipher") is a banking
+standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM) for
+uniform numbering of bank accounts.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### 1. Online form
 
-```markdown
-Syntax highlighted code block
+Try it out:<br>
+[centerkey.com/clabe](http://centerkey.com/clabe/)
 
-# Header 1
-## Header 2
-### Header 3
+### 2. JavaScript usage
 
-- Bulleted
-- List
+Include both `clabe.js` and `clabe-codes.js` (or just the minified `clabe.min.js`) in your project
+and then pass the CLABE number as an 18-character string into `clabe.validator.check(clabeNum)`.
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+#### a) Example code
+```javascript
+var clabeNum = '002010077777777771';
+var clabeCheck = clabe.validator.check(clabeNum);
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+#### b) Example result for valid CLABE number
 
-### Jekyll Themes
+```javascript
+{
+   bank: 'Banco Nacional de México',
+   city: 'Aguascalientes'
+}
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/center-key/clabe-validator/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+#### c) Example result for invalid CLABE number
 
-### Support or Contact
+```javascript
+{
+   error:   true,
+   message: 'Invalid city code'
+}
+```
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+#### d) Possible error messages
+
+| Error message                            |
+| ---------------------------------------- |
+| Must be exactly 18 digits long           |
+| Must be only numeric digits (no letters) |
+| Invalid checksum                         |
+| Invalid bank code                        |
+| Invalid city code                        |
+
+### Questions
+
+Feel free to submit a questions at:<br>
+https://github.com/center-key/clabe-validator/issues
+
+===
+CLABE Validator code is open source under the
+[MIT license](https://github.com/center-key/clabe-validator/blob/master/LICENSE.txt),
+and the documentation is published under the
+[CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0) license.
