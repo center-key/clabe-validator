@@ -3,30 +3,27 @@
 *JavaScript library to analyze a CLABE number for a Mexican bank account*
 
 ---
-Current release: **v0.0.1**
+Current release: **v0.0.2**
 
 Clave Bancaria Estandarizada (Spanish for "standardized banking cipher") is a banking
 standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM) for
 uniform numbering of bank accounts.
 
 ### 1. Online form
-
 Try it out:<br>
 [centerkey.com/clabe](http://centerkey.com/clabe/)
 
-### 2. JavaScript usage
-
+### 2. Usage
 Include both `clabe.js` and `clabe-codes.js` (or just the minified `clabe.min.js`) in your project
 and then pass the CLABE number as an 18-character string into `clabe.validator.check(clabeNum)`.
 
-#### a) Example code
+#### a) Example JavaScript code
 ```javascript
 var clabeNum = '002010077777777771';
 var clabeCheck = clabe.validator.check(clabeNum);
 ```
 
-#### b) Example result for valid CLABE number
-
+#### b) Example JSON result for valid CLABE number
 ```javascript
 {
    bank: 'Banco Nacional de México',
@@ -34,8 +31,7 @@ var clabeCheck = clabe.validator.check(clabeNum);
 }
 ```
 
-#### c) Example result for invalid CLABE number
-
+#### c) Example JSON result for invalid CLABE number
 ```javascript
 {
    error:   true,
@@ -44,7 +40,6 @@ var clabeCheck = clabe.validator.check(clabeNum);
 ```
 
 #### d) Possible error messages
-
 | Error message                            |
 | ---------------------------------------- |
 | Must be exactly 18 digits long           |
@@ -53,8 +48,7 @@ var clabeCheck = clabe.validator.check(clabeNum);
 | Invalid bank code                        |
 | Invalid city code                        |
 
-### Questions
-
+### 3. Questions
 Feel free to submit a questions at:<br>
 https://github.com/center-key/clabe-validator/issues
 

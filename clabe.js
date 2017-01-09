@@ -1,4 +1,4 @@
-// CLABE Validator v0.0.1
+// CLABE Validator v0.0.2
 // https://github.com/center-key/clabe-validator
 // MIT License
 
