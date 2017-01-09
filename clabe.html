@@ -1,0 +1,74 @@
+<!doctype html>
+<!-- - - - - - - - - -->
+<!-- CLABE Validator -->
+<!-- - - - - - - - - -->
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<title>CLABE Validator &bull; Online tool to check a CLABE number</title>
+<link rel=icon             href=http://centerkey.com/graphics/bookmark.png>
+<link rel=apple-touch-icon href=http://centerkey.com/graphics/mobile-home-screen.png>
+<link rel=stylesheet       href=https://cdn.jsdelivr.net/fontawesome/4.7/css/font-awesome.min.css>
+<link rel=stylesheet       href=https://cdn.jsdelivr.net/dna.js/1.2/dna.css>
+<link rel=stylesheet       href=http://centerkey.com/css/reset.css>
+<style>
+   form .message { color: firebrick; }
+   footer img { height: 40px; }
+   footer p { max-width: 60%; margin: 5px auto; }
+   footer a { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<header>
+   <h1>CLABE Validator</h1>
+   <h2>Online tool to check a CLABE number</h2>
+   <a id=fork-me href=https://github.com/center-key/clabe-validator>Fork me on GitHub</a>
+</header>
+
+<main>
+
+   <section>
+      <h2>Online form</h2>
+      <p>
+         Clave Bancaria Estandarizada (Spanish for "standardized banking cipher") is a banking
+         standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM) for
+         uniform numbering of bank accounts.
+      </p>
+      <form>
+         <label>
+            <span>CLABE:</span>
+            <input data-smart-update=clabe.validator.checkInput
+               placeholder="Enter CLABE number" autofocus>
+         </label>
+         <p class=message>&nbsp;</p>
+      </form>
+      <p>
+         CLABE validation is calculated by your browser &ndash; the CLABE number is not sent over
+         the internet.
+      </p>
+   </section>
+
+</main>
+
+<footer>
+   <div>
+      <p>
+         CLABE Validator code is open source under the
+         <a href=https://github.com/center-key/clabe-validator/blob/master/LICENSE.txt>MIT license</a>,
+         and documentation is licensed under
+         <a href=https://creativecommons.org/licenses/by-sa/4.0>CC BY-SA 4.0</a>.
+      </p>
+      <a href=http://centerkey.com/clabe>
+         <img src=http://centerkey.com/graphics/avatar.png alt=logo>
+      </a>
+   </div>
+</footer>
+
+<script src=https://cdn.jsdelivr.net/jquery/3.1/jquery.min.js></script>
+<script src=https://cdn.jsdelivr.net/dna.js/1.2/dna.min.js></script>
+<script src=http://centerkey.com/js/library.js></script>
+<script src=clabe.js></script>
+<script src=clabe-codes.js></script>
+</body>
+</html>
