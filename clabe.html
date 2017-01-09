@@ -13,6 +13,8 @@
 <link rel=stylesheet       href=http://centerkey.com/css/reset.css>
 <style>
    form .message { color: firebrick; }
+   table tbody tr td { text-align: left; }
+   table.clabe-examples tbody tr td:first-child { font-family: monospace; font-size: 1.2rem; }
    footer img { height: 40px; }
    footer p { max-width: 60%; margin: 5px auto; }
    footer a { white-space: nowrap; }
@@ -47,6 +49,31 @@
          CLABE validation is calculated by your browser &ndash; the CLABE number is not sent over
          the internet.
       </p>
+   </section>
+
+   <section>
+      <h2>CLABE number</h2>
+      <table class=clabe-examples>
+         <caption>Example CLABE numbers</caption>
+         <thead><tr><th>CLABE</th><th>Result</th></thead>
+         <tbody>
+            <tr><td>002010077777777779</td><td>Invalid checksum, should be: 1</td></tr>
+            <tr><td>002010077777777771</td><td>Valid: Banco Nacional de México (Calvillo)</td></tr>
+            <tr><td>032180000118359719</td><td>Valid: IXE Banco (Atizapan, ...)</td></tr>
+            <tr><td>014028000005555557</td><td>Valid: Banco Santander (La Mesa, Rosarito, Tijuana)</td></tr>
+            <tr><td>002115016003269411</td><td>Invalid city code</td></tr>
+         </tbody>
+      </table>
+      <table>
+         <caption>18-digit CLABE</caption>
+         <thead><tr><th>Digits</th><th>Part</th></thead>
+         <tbody class=external-site>
+            <tr><td>3</td> <td><a href=https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco>Bank code</a></td></tr>
+            <tr><td>3</td> <td><a href=https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza>City (branch) code</a></td></tr>
+            <tr><td>11</td><td>Account number (padded with leading zeros)</td></tr>
+            <tr><td>1</td> <td><a href=https://en.wikipedia.org/wiki/CLABE#Control_digit>Control digit (checksum)</a></td></tr>
+         </tbody>
+      </table>
    </section>
 
 </main>
