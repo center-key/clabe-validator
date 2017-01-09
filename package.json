@@ -1,0 +1,23 @@
+{
+   "name":         "clabe-validator",
+   "version":      "0.0.1",
+   "description":  "JavaScript library to analyze a CLABE number for a Mexican bank account",
+   "license":      "MIT",
+   "keywords":     ["clabe", "validator", "bank", "javascript"],
+   "homepage":     "https://github.com/center-key/clabe-validator",
+   "docs":         "http://centerkey.com/clabe",
+   "bugs":         "https://github.com/center-key/clabe-validator/issues",
+   "author":       { "name": "Center Key", "url": "http://centerkey.com" },
+   "repository":   { "type": "git",        "url": "https://github.com/center-key/clabe-validator.git" },
+   "devDependencies": {
+      "gulp":          "~3.9",
+      "gulp-concat":   "~2.6",
+      "gulp-header":   "~1.8",
+      "gulp-htmlhint": "~0.3",
+      "gulp-jshint":   "~2.0",
+      "gulp-replace":  "~0.5",
+      "gulp-uglify":   "~2.0",
+      "gulp-w3cjs":    "~1.3",
+      "jshint":        "~2.9"
+      }
+}
