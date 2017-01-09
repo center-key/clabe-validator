@@ -49,7 +49,7 @@ var clabeCheck = clabe.validator.check(clabeNum);
 | Invalid city code                        |
 
 ### 3. Questions
-Feel free to submit a questions at:<br>
+Feel free to submit a question at:<br>
 https://github.com/center-key/clabe-validator/issues
 
 ===
