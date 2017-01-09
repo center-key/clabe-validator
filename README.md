@@ -50,7 +50,7 @@ var clabeCheck = clabe.validator.check(clabeNum);
 
 ### 3. Questions
 Feel free to submit a question at:<br>
-https://github.com/center-key/clabe-validator/issues
+[github.com/center-key/clabe-validator/issues](https://github.com/center-key/clabe-validator/issues)
 
 ===
 CLABE Validator code is open source under the
