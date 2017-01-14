@@ -5,6 +5,8 @@
 <html lang=en>
 <head>
 <meta charset=utf-8>
+<meta name=viewport                   content="width=device-width, initial-scale=1">
+<meta name=apple-mobile-web-app-title content="CLABE">
 <title>CLABE Validator &bull; Online tool to check a CLABE number</title>
 <link rel=icon             href=http://centerkey.com/graphics/bookmark.png>
 <link rel=apple-touch-icon href=http://centerkey.com/graphics/mobile-home-screen.png>
@@ -16,8 +18,11 @@
    table tbody tr td { text-align: left; }
    table.clabe-examples tbody tr td:first-child { font-family: monospace; font-size: 1.2rem; }
    footer img { height: 40px; }
-   footer p { max-width: 60%; margin: 5px auto; }
+   footer p { max-width: 70%; margin: 5px auto; }
    footer a { white-space: nowrap; }
+   @media (max-width: 667px) {  /* selects iPhone 6/6s/7 landscape and anything narrower */
+      table.clabe-examples tbody tr td:first-child { font-size: 0.9rem; }
+      }
 </style>
 </head>
 <body>
