@@ -15,12 +15,12 @@ Try it out:<br>
 
 ### 2. Usage
 Include both `clabe.js` and `clabe-codes.js` (or just the minified `clabe.min.js`) in your project
-and then pass the CLABE number as an 18-character string into `clabe.validator.check(clabeNum)`.
+and then pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
 
 #### a) Example JavaScript code
 ```javascript
 var clabeNum = '002010077777777771';
-var clabeCheck = clabe.validator.check(clabeNum);
+var clabeCheck = clabe.validate(clabeNum);
 ```
 
 #### b) Example JSON result for valid CLABE number
