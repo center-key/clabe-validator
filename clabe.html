@@ -87,8 +87,8 @@
          <caption>Example CLABE numbers</caption>
          <thead><tr><th>CLABE</th><th>Result</th></tr></thead>
          <tbody>
-            <tr><td>002010077777777779</td><td>Invalid checksum, should be: 1</td></tr>
-            <tr><td>002010077777777771</td><td>Valid: Banco Nacional de México (Calvillo)</td></tr>
+            <tr><td>002010077777777779</td><td>Invalid checksum, last digit should be: 1</td></tr>
+            <tr><td>002010077777777771</td><td>Valid: Banco Nacional de México (Aguascalientes)</td></tr>
             <tr><td>032180000118359719</td><td>Valid: IXE Banco (Atizapan, ...)</td></tr>
             <tr><td>014028000005555557</td><td>Valid: Banco Santander (La Mesa, Rosarito, Tijuana)</td></tr>
             <tr><td>002115016003269411</td><td>Invalid city code</td></tr>
@@ -137,9 +137,11 @@ var app = {
       var form = elem.closest('form');
       var bankCode = form.find('select').first().val();
       var cityCode = form.find('select').last().val();
-      var account = parseInt(form.find('input').val());
+      var account = form.find('input').val();
       var clabeNum = bankCode + cityCode + ('00000000000' + (account ? account : '')).slice(-11);
       var message = 'CLABE: ' + clabeNum + clabe.calcCheckSum(clabeNum);
+      if (!/^[0-9]*$/.test(account))
+         message = 'Account must be only numeric digits';
       form.find('.message').text(message).stop().hide().fadeIn();
       },
    setupCalculator: function() {
