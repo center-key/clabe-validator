@@ -45,11 +45,11 @@
          <a href=#>Validator</a>
          <a href=#>Calculator</a>
       </nav>
-      <div id=clabe-panels class=dna-panels data-on-load=clabe.app.setupCalculator>
+      <div id=clabe-panels class=dna-panels data-on-load=app.setupCalculator>
          <form>
             <label>
                <span>CLABE:</span>
-               <input maxlength=18 data-smart-update=clabe.app.validateInput
+               <input maxlength=18 data-smart-update=app.validateInput
                   placeholder="Enter CLABE number" autofocus>
             </label>
             <p class=message>&nbsp;</p>
@@ -57,19 +57,19 @@
          <form id=calculator class=dna-template>
             <label>
                <span>Bank:</span>
-               <select data-change=clabe.app.updateCalculation>
+               <select data-change=app.updateCalculation>
                   <option data-array=~~banks~~ value=~~code~~>~~label~~</option>
                </select>
             </label>
             <label>
                <span>City:</span>
-               <select data-change=clabe.app.updateCalculation>
+               <select data-change=app.updateCalculation>
                   <option data-array=~~cities~~ value=~~code~~>~~label~~</option>
                </select>
             </label>
             <label>
                <span>Bank account number:</span>
-               <input maxlength=11 data-smart-update=clabe.app.updateCalculation
+               <input maxlength=11 data-smart-update=app.updateCalculation
                   placeholder="Enter bank account number">
             </label>
             <p class=message>&nbsp;</p>
@@ -127,5 +127,41 @@
 <script src=http://centerkey.com/js/library.js></script>
 <script src=clabe.js></script>
 <script src=clabe-codes.js></script>
+<script>
+var app = {
+   validateInput: function(elem) {
+      var message = clabe.validate(elem.val()).message;
+      elem.closest('form').find('.message').text(message).stop().hide().fadeIn();
+      },
+   updateCalculation: function(elem) {
+      var form = elem.closest('form');
+      var bankCode = form.find('select').first().val();
+      var cityCode = form.find('select').last().val();
+      var account = parseInt(form.find('input').val());
+      var clabeNum = bankCode + cityCode + ('00000000000' + (account ? account : '')).slice(-11);
+      var message = 'CLABE: ' + clabeNum + clabe.calcCheckSum(clabeNum);
+      form.find('.message').text(message).stop().hide().fadeIn();
+      },
+   setupCalculator: function() {
+      function pad(int) { return ('' + int).length < 3 ? pad('0' + int) : int; }
+      function codeObj(code, name) {
+         return { code: pad(code), name: name, label: pad(code) + ': ' + name };
+         }
+      function mapToArray(map) {
+         var array = [];
+         for (var property in map)
+            array.push(codeObj(property, map[property]));
+         return array;
+         }
+      function toCityObj(data) { return codeObj(data[0], data[1]); }
+      function compare(a, b) { return a.name.localeCompare(b.name); }
+      var codes = {
+         banks:  mapToArray(clabe.bank).sort(compare),
+         cities: clabe.cities.map(toCityObj).sort(compare)
+         };
+      dna.clone('calculator', codes);
+      }
+   };
+</script>
 </body>
 </html>

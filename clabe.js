@@ -47,38 +47,3 @@ clabe.validate = function(clabeNum) {
       city:    city
       };
    };
-
-clabe.app = {
-   validateInput: function(elem) {
-      var message = clabe.validate(elem.val()).message;
-      elem.closest('form').find('.message').text(message).stop().hide().fadeIn();
-      },
-   updateCalculation: function(elem) {
-      var form = elem.closest('form');
-      var bankCode = form.find('select').first().val();
-      var cityCode = form.find('select').last().val();
-      var account = parseInt(form.find('input').val());
-      var clabeNum = bankCode + cityCode + ('00000000000' + (account ? account : '')).slice(-11);
-      var message = 'CLABE: ' + clabeNum + clabe.calcCheckSum(clabeNum);
-      form.find('.message').text(message).stop().hide().fadeIn();
-      },
-   setupCalculator: function() {
-      function pad(int) { return ('' + int).length < 3 ? pad('0' + int) : int; }
-      function codeObj(code, name) {
-         return { code: pad(code), name: name, label: pad(code) + ': ' + name };
-         }
-      function mapToArray(map) {
-         var array = [];
-         for (var property in map)
-            array.push(codeObj(property, map[property]));
-         return array;
-         }
-      function toCityObj(data) { return codeObj(data[0], data[1]); }
-      function compare(a, b) { return a.name.localeCompare(b.name); }
-      var codes = {
-         banks:  mapToArray(clabe.bank).sort(compare),
-         cities: clabe.cities.map(toCityObj).sort(compare)
-         };
-      dna.clone('calculator', codes);
-      }
-   };

@@ -20,7 +20,7 @@ var w3cjs =    require('gulp-w3cjs');
 var pkg = require('./package.json');
 var banner = '//CLABE Validator v' + [pkg.version, pkg.license, pkg.homepage].join(', ') + '\n';
 var htmlHintConfig = { 'attr-value-double-quotes': false };
-var jsHintConfig = { undef: true, unused: true, predef: ['require', 'window', 'dna'] };
+var jsHintConfig = { undef: true, unused: true, predef: ['require', 'window'] };
 
 function setVersion() {
    var stream = gulp.src(['clabe.js', 'clabe-codes.js', 'README.md'])
