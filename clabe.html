@@ -19,7 +19,6 @@
    table.clabe-examples tbody tr td:first-child { font-family: monospace; font-size: 1.2rem; }
    footer img { height: 40px; }
    footer p { max-width: 70%; margin: 5px auto; }
-   footer a { white-space: nowrap; }
    @media (max-width: 667px) {  /* selects iPhone 6/6s/7 landscape and anything narrower */
       table.clabe-examples tbody tr td:first-child { font-size: 0.9rem; }
       }
@@ -42,15 +41,40 @@
          standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM) for
          uniform numbering of bank accounts.
       </p>
-      <form>
-         <label>
-            <span>CLABE:</span>
-            <input data-smart-update=clabe.app.validateInput
-               data-change=clabe.app.validateInput
-               placeholder="Enter CLABE number" autofocus>
-         </label>
-         <p class=message>&nbsp;</p>
-      </form>
+      <nav id=clabe class=dna-menu>
+         <a href=#>Validator</a>
+         <a href=#>Calculator</a>
+      </nav>
+      <div id=clabe-panels class=dna-panels data-on-load=clabe.app.setupCalculator>
+         <form>
+            <label>
+               <span>CLABE:</span>
+               <input maxlength=18 data-smart-update=clabe.app.validateInput
+                  placeholder="Enter CLABE number" autofocus>
+            </label>
+            <p class=message>&nbsp;</p>
+         </form>
+         <form id=calculator class=dna-template>
+            <label>
+               <span>Bank:</span>
+               <select data-change=clabe.app.updateCalculation>
+                  <option data-array=~~banks~~ value=~~code~~>~~label~~</option>
+               </select>
+            </label>
+            <label>
+               <span>City:</span>
+               <select data-change=clabe.app.updateCalculation>
+                  <option data-array=~~cities~~ value=~~code~~>~~label~~</option>
+               </select>
+            </label>
+            <label>
+               <span>Bank account number:</span>
+               <input maxlength=11 data-smart-update=clabe.app.updateCalculation
+                  placeholder="Enter bank account number">
+            </label>
+            <p class=message>&nbsp;</p>
+         </form>
+      </div>
       <p>
          CLABE validation is calculated by your browser &ndash; the CLABE number is not sent over
          the internet.
