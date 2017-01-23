@@ -1,5 +1,5 @@
 // CLABE Validator
-// https://github.com/center-key/clabe-validator
+// github.com/center-key/clabe-validator
 // MIT License
 
 // Periodically check dependencies:
@@ -19,7 +19,8 @@ var uglify =   require('gulp-uglify');
 var w3cjs =    require('gulp-w3cjs');
 
 var pkg = require('./package.json');
-var banner = '//CLABE Validator v' + [pkg.version, pkg.license, pkg.homepage].join(', ') + '\n';
+var home = pkg.homepage.replace('https://', '');
+var banner = '//CLABE Validator v' + [pkg.version, home, pkg.license].join(' ~ ') + '\n';
 var htmlHintConfig = { 'attr-value-double-quotes': false };
 var jsHintConfig = { undef: true, unused: true, esversion: 6, predef: ['module', 'require'] };
 
