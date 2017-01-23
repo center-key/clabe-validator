@@ -13,9 +13,19 @@ uniform numbering of bank accounts.
 Try it out:<br>
 [centerkey.com/clabe](http://centerkey.com/clabe/)
 
-### 2. Usage
-Include both `clabe.js` and `clabe-codes.js` (or just the minified `clabe.min.js`) in your project
-and then pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
+### 2. Include
+In a web page:
+```html
+<script src=clabe.js></script>
+```
+
+In a Node.js project:
+```javascript
+var clabe = require('./clabe.js');
+```
+
+### 3. Usage
+Pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
 
 #### a) Example JavaScript code
 ```javascript
@@ -26,8 +36,9 @@ var clabeCheck = clabe.validate(clabeNum);
 #### b) Example JSON result for valid CLABE number
 ```javascript
 {
-   bank: 'Banco Nacional de México',
-   city: 'Aguascalientes'
+   error: false,
+   bank:  'Banco Nacional de México',
+   city:  'Aguascalientes'
 }
 ```
 
@@ -48,7 +59,7 @@ var clabeCheck = clabe.validate(clabeNum);
 | Invalid bank code                        |
 | Invalid city code                        |
 
-### 3. Questions
+### 4. Questions
 Feel free to submit a question at:<br>
 [github.com/center-key/clabe-validator/issues](https://github.com/center-key/clabe-validator/issues)
 

@@ -11,10 +11,11 @@
    "repository":   { "type": "git",        "url": "https://github.com/center-key/clabe-validator.git" },
    "devDependencies": {
       "gulp":          "~3.9",
-      "gulp-concat":   "~2.6",
       "gulp-header":   "~1.8",
       "gulp-htmlhint": "~0.3",
+      "gulp-jasmine":  "~2.4",
       "gulp-jshint":   "~2.0",
+      "gulp-rename":   "~1.2",
       "gulp-replace":  "~0.5",
       "gulp-size":     "~2.1",
       "gulp-uglify":   "~2.0",

@@ -77,7 +77,7 @@ publish() {
    publishFolder=$publishWebRoot/centerkey.com/clabe
    copyWebFiles() {
       echo "Publishing:"
-      cp -v clabe.js clabe-codes.js $publishFolder
+      cp -v clabe.js $publishFolder
       cp -v clabe.html $publishFolder/index.html
       echo
       }
