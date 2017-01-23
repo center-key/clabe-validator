@@ -146,7 +146,7 @@ clabe.cities = [
    [ 27, 'Tijuana'],
    [ 28, 'La Mesa'],
    [ 28, 'Rosarito'],
-   [ 28, 'Tijuana'],
+   [ 28, 'Tijuana [alternate]'],  //see first occurrence at 27
    [ 40, 'La Paz'],
    [ 41, 'Cabo San Lucas'],
    [ 42, 'Ciudad Constitución'],
@@ -296,7 +296,7 @@ clabe.cities = [
    [320, 'Guadalajara'],
    [320, 'San Pedro Tlaquepaque'],
    [320, 'Tlajomulco'],
-   [320, 'Tonala'],
+   [320, 'Tonala [alternate]'],  //see first occurrence at 135
    [320, 'Zapopan'],
    [326, 'Ameca'],
    [327, 'Arandas'],
@@ -407,7 +407,7 @@ clabe.cities = [
    [566, 'Ixtlán del Río'],
    [571, 'San Blas'],
    [573, 'Santiago Ixcuintla'],
-   [575, 'Túxpam'],
+   [575, 'Túxpam [alternate]'],  //see first occurrence at 404
    [580, 'Apodaca'],
    [580, 'Cadereyta'],
    [580, 'Cd. Guadalupe'],
@@ -432,7 +432,7 @@ clabe.cities = [
    [619, 'Loma Bonita'],
    [620, 'Matías Romero'],
    [621, 'Miahuatlán'],
-   [622, 'Ocotlán'],
+   [622, 'Ocotlán [alternate]'],  //see first occurrence at 370
    [624, 'Puerto Escondido'],
    [626, 'Salina Cruz'],
    [627, 'Lagunas'],
