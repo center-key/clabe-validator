@@ -31,6 +31,7 @@ Pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
 ```javascript
 var clabeNum = '002010077777777771';
 var clabeCheck = clabe.validate(clabeNum);
+console.log(clabeCheck.error ? '¡Muy mal!' : '¡Que bueno!');
 ```
 
 #### b) Example JSON result for valid CLABE number
