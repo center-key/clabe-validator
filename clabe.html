@@ -14,11 +14,52 @@
 <link rel=stylesheet       href=https://cdn.jsdelivr.net/dna.js/1.2/dna.css>
 <link rel=stylesheet       href=http://centerkey.com/css/reset.css>
 <style>
-   form .message { color: firebrick; }
-   table tbody tr td { text-align: left; }
-   table.clabe-examples tbody tr td:first-child { font-family: monospace; font-size: 1.2rem; }
-   footer img { height: 40px; }
-   footer p { max-width: 70%; margin: 5px auto; }
+   nav.dna-menu {
+      display: flex;
+      font-size: 0.8rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      }
+   nav.dna-menu span {
+      color: darkgray;
+      background-color: gainsboro;
+      padding: 5px 30px;
+      transition: all 0.4s;
+      }
+   nav.dna-menu span:first-child {
+      border-radius: 20px 0px 0px 20px;
+      }
+   nav.dna-menu span:last-child {
+      border-radius: 0px 20px 20px 0px;
+      }
+   nav.dna-menu span.selected, nav.dna-menu span:hover {
+      color: dimgray;
+      background-color: lightsteelblue;
+      }
+   nav.dna-menu span.selected {
+      cursor: default;
+      }
+   .dna-panels {
+      min-height: 240px;
+      }
+   form .message {
+      color: firebrick;
+      }
+   table tbody tr td {
+      text-align: left;
+      }
+   table.clabe-examples tbody tr td:first-child {
+      font-size: 1.2rem;
+      font-family: monospace;
+      }
+   footer img {
+      height: 40px;
+      }
+   footer p {
+      max-width: 70%;
+      margin: 5px auto;
+      }
    @media (max-width: 667px) {  /* selects iPhone 6/6s/7 landscape and anything narrower */
       table.clabe-examples tbody tr td:first-child { font-size: 0.9rem; }
       }
@@ -42,8 +83,8 @@
          uniform numbering of bank accounts.
       </p>
       <nav id=clabe class=dna-menu>
-         <a href=#>Validator</a>
-         <a href=#>Calculator</a>
+         <span>Validator</span>
+         <span>Calculator</span>
       </nav>
       <div id=clabe-panels class=dna-panels data-on-load=app.setupCalculator>
          <form>
