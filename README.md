@@ -3,7 +3,7 @@
 *JavaScript library to analyze a CLABE number for a Mexican bank account*
 
 ---
-Current release: **v0.0.2**
+Current release: **v0.0.3**
 
 Clave Bancaria Estandarizada (Spanish for "standardized banking cipher") is a banking
 standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM) for
