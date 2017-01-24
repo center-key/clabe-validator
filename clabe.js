@@ -48,6 +48,13 @@ var clabe = {
          };
       },
 
+   calculate: function(bankCode, cityCode, accountNumber) {
+      function pad(num, len) { return num.length < len ? pad('0' + num, len) : num; }
+      function fit(num, len) { return pad('' + num, len).slice(-len); }
+      var clabeNum = fit(bankCode, 3) + fit(cityCode, 3) + fit(accountNumber, 11);
+      return clabeNum + clabe.calcCheckSum(clabeNum);
+      },
+
    bank: {
         2: 'Banco Nacional de México',
        12: 'BBVA Bancomer',

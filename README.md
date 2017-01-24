@@ -24,7 +24,7 @@ In a Node.js project:
 var clabe = require('./clabe.js');
 ```
 
-### 3. Usage
+### 3. Validator usage
 Pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
 
 #### a) Example JavaScript code
@@ -60,7 +60,15 @@ console.log(clabeCheck.error ? '¡Muy mal!' : '¡Que bueno!');
 | Invalid bank code                        |
 | Invalid city code                        |
 
-### 4. Questions
+### 4. Calculator usage
+Pass the bank code, city code, and account number into `clabe.calculate(bankCode, cityCode, accountNumber)` and get the 18-character CLABE number back.
+
+```javascript
+var clabeNum = clabe.calculate(2, 10, 7777777777);
+console.log(clabeNum === '002010077777777771');
+```
+
+### 5. Questions
 Feel free to submit a question at:<br>
 [github.com/center-key/clabe-validator/issues](https://github.com/center-key/clabe-validator/issues)
 

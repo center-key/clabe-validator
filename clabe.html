@@ -175,12 +175,11 @@ var app = {
       },
    updateCalculation: function(elem) {
       var form = elem.closest('form');
-      var bankCode = form.find('select').first().val();
-      var cityCode = form.find('select').last().val();
-      var account = form.find('input').val();
-      var clabeNum = bankCode + cityCode + ('00000000000' + (account ? account : '')).slice(-11);
-      var message = 'CLABE: ' + clabeNum + clabe.calcCheckSum(clabeNum);
-      if (!/^[0-9]*$/.test(account))
+      var bankCode =      form.find('select').first().val();
+      var cityCode =      form.find('select').last().val();
+      var accountNumber = form.find('input').val();
+      var message = 'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber);
+      if (!/^[0-9]*$/.test(accountNumber))
          message = 'Account must be only numeric digits';
       form.find('.message').text(message).stop().hide().fadeIn();
       },

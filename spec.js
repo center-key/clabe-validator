@@ -65,3 +65,19 @@ describe('CLABE validator', () => {
       dataSet.forEach(evalData);
       });
    });
+
+describe('CLABE calculator', () => {
+   it('builds the correct CLABE number', () => {
+      var dataSet = [
+         { input: { bank:  2, city:  10, acct: 7777777777 }, expected: '002010077777777771' },
+         { input: { bank: 32, city: 180, acct:   11835971 }, expected: '032180000118359719' },
+         { input: { bank: 14, city:  27, acct:     555555 }, expected: '014027000005555558' },
+         { input: { bank: 14, city:  28, acct:     555555 }, expected: '014028000005555557' }
+         ];
+      function evalData(data) {
+         var clabeNum = clabe.calculate(data.input.bank, data.input.city, data.input.acct);
+         expect(clabeNum).toBe(data.expected);
+         }
+      dataSet.forEach(evalData);
+      });
+   });
