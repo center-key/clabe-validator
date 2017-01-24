@@ -34,7 +34,7 @@ var clabeCheck = clabe.validate(clabeNum);
 console.log(clabeCheck.error ? '¡Muy mal!' : '¡Que bueno!');
 ```
 
-#### b) Example JSON result for valid CLABE number
+#### b) Example JSON result for a valid CLABE number
 ```javascript
 {
    error: false,
@@ -43,7 +43,7 @@ console.log(clabeCheck.error ? '¡Muy mal!' : '¡Que bueno!');
 }
 ```
 
-#### c) Example JSON result for invalid CLABE number
+#### c) Example JSON result for an invalid CLABE number
 ```javascript
 {
    error:   true,
