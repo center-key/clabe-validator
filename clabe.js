@@ -4,10 +4,9 @@
 
 var clabe = {
 
-   calcCheckSum: function(clabeNum) {
-      var weights = [3, 7, 1];
+   calcChecksum: function(clabeNum) {
       var sum = 0;
-      function add(digit, index) { sum += (parseInt(digit) * weights[index % 3]) % 10; }
+      function add(digit, index) { sum += (parseInt(digit) * [3, 7, 1][index % 3]) % 10; }
       clabeNum.split('').slice(0, 17).forEach(add);
       return (10 - (sum % 10)) % 10;
       },
@@ -28,12 +27,12 @@ var clabe = {
          makeCityMap();
       var bank = clabe.bank[parseInt(bankCode)];
       var city = clabe.city[parseInt(cityCode)];
-      function calcCheckSum() { return clabe.calcCheckSum(clabeNum); }
+      function calcChecksum() { return clabe.calcChecksum(clabeNum); }
       function getErrorMessage() {
          return (
             clabeNum.length !== 18 ?      'Must be exactly 18 digits long' :
             !/[0-9]{18}/.test(clabeNum) ? 'Must be only numeric digits (no letters)' :
-            calcCheckSum() !== checksum ? 'Invalid checksum, last digit should be: ' + calcCheckSum() :
+            calcChecksum() !== checksum ? 'Invalid checksum, last digit should be: ' + calcChecksum() :
             !bank ?                       'Invalid bank code' :
             !city ?                       'Invalid city code' :
             false
@@ -52,7 +51,7 @@ var clabe = {
       function pad(num, len) { return num.length < len ? pad('0' + num, len) : num; }
       function fit(num, len) { return pad('' + num, len).slice(-len); }
       var clabeNum = fit(bankCode, 3) + fit(cityCode, 3) + fit(accountNumber, 11);
-      return clabeNum + clabe.calcCheckSum(clabeNum);
+      return clabeNum + clabe.calcChecksum(clabeNum);
       },
 
    bank: {
