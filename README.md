@@ -21,7 +21,7 @@ In a web page:
 
 In a Node.js project:
 ```javascript
-var clabe = require('./clabe.js');
+var clabe = require('clabe-validator');
 ```
 
 ### 3. Validator usage
