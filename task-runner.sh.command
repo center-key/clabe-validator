@@ -68,6 +68,7 @@ releaseInstructions() {
    echo "   git tag -af $version -m \"Stable release\""
    echo "   git remote -v"
    echo "   git push origin --tags --force"
+   echo "   npm publish"
    echo
    }
 
