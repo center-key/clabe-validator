@@ -5,6 +5,9 @@
 var clabe = {
 
    calcChecksum: function(clabeNum) {
+      // Returns the checksum calculated from the first 17 characters of CLABE number.
+      // Example:
+      //    var checksum = clabe.calcChecksum('00201007777777777');  //value: 1
       var sum = 0;
       function add(digit, index) { sum += (parseInt(digit) * [3, 7, 1][index % 3]) % 10; }
       clabeNum.split('').slice(0, 17).forEach(add);
@@ -12,6 +15,9 @@ var clabe = {
       },
 
    validate: function(clabeNum) {
+      // Returns information in a map (object literal) about the CLABE number.
+      // Example:
+      //    var city = clabe.validate('002010077777777771').city;  //value: "Banco Nacional de México"
       if (typeof clabeNum !== 'string')
          throw 'clabe.validator.check(clabeNum) -- Parameter must be a string';
       var bankCode = clabeNum.substr(0, 3);
@@ -48,13 +54,16 @@ var clabe = {
       },
 
    calculate: function(bankCode, cityCode, accountNumber) {
+      // Returns an 18-character CLABE number.
+      // Example:
+      //    var clabeNum = clabe.calculate(2, 10, 7777777777);  //value: "002010077777777771"
       function pad(num, len) { return num.length < len ? pad('0' + num, len) : num; }
       function fit(num, len) { return pad('' + num, len).slice(-len); }
       var clabeNum = fit(bankCode, 3) + fit(cityCode, 3) + fit(accountNumber, 11);
       return clabeNum + clabe.calcChecksum(clabeNum);
       },
 
-   bank: {
+   bank: {  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco
         2: 'Banco Nacional de México',
        12: 'BBVA Bancomer',
        14: 'Banco Santander',
@@ -142,7 +151,7 @@ var clabe = {
       902: 'SD. INDEVAL'
       },
 
-   cities: [
+   cities: [  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza
       [ 10, 'Aguascalientes'],
       [ 12, 'Calvillo'],
       [ 14, 'Jesús María'],
