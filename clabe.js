@@ -63,7 +63,7 @@ var clabe = {
       return clabeNum + clabe.calcChecksum(clabeNum);
       },
 
-   bank: {  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco
+   bank: {  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco (Jan 9, 2017)
         2: 'Banco Nacional de México',
        12: 'BBVA Bancomer',
        14: 'Banco Santander',
@@ -151,7 +151,7 @@ var clabe = {
       902: 'SD. INDEVAL'
       },
 
-   cities: [  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza
+   cities: [  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza (Jan 9, 2017)
       [ 10, 'Aguascalientes'],
       [ 12, 'Calvillo'],
       [ 14, 'Jesús María'],
