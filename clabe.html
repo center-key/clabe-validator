@@ -14,32 +14,6 @@
 <link rel=stylesheet       href=https://cdn.jsdelivr.net/dna.js/1.2/dna.css>
 <link rel=stylesheet       href=http://centerkey.com/css/reset.css>
 <style>
-   nav.dna-menu {
-      display: flex;
-      font-size: 0.8rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      }
-   nav.dna-menu span {
-      color: darkgray;
-      background-color: gainsboro;
-      padding: 5px 30px;
-      transition: all 0.4s;
-      }
-   nav.dna-menu span:first-child {
-      border-radius: 20px 0px 0px 20px;
-      }
-   nav.dna-menu span:last-child {
-      border-radius: 0px 20px 20px 0px;
-      }
-   nav.dna-menu span.selected, nav.dna-menu span:hover {
-      color: dimgray;
-      background-color: lightsteelblue;
-      }
-   nav.dna-menu span.selected {
-      cursor: default;
-      }
    .dna-panels {
       min-height: 240px;
       }
@@ -82,7 +56,7 @@
          standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM) for
          uniform numbering of bank accounts.
       </p>
-      <nav id=clabe class=dna-menu>
+      <nav id=clabe class=dna-menu data-style=pill-box-tabs>
          <span>Validator</span>
          <span>Calculator</span>
       </nav>
