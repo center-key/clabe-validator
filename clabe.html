@@ -95,19 +95,21 @@
             </label>
             <p class=message>&nbsp;</p>
          </form>
-         <form id=calculator class=dna-template>
-            <label>
-               <span>Bank:</span>
-               <select data-change=app.updateCalculation>
-                  <option data-array=~~banks~~ value=~~code~~>~~label~~</option>
-               </select>
-            </label>
-            <label>
-               <span>City:</span>
-               <select data-change=app.updateCalculation>
-                  <option data-array=~~cities~~ value=~~code~~>~~label~~</option>
-               </select>
-            </label>
+         <form>
+            <div id=calculator class=dna-template>
+               <label>
+                  <span>Bank:</span>
+                  <select data-change=app.updateCalculation>
+                     <option data-array=~~banks~~ value=~~code~~>~~label~~</option>
+                  </select>
+               </label>
+               <label>
+                  <span>City:</span>
+                  <select data-change=app.updateCalculation>
+                     <option data-array=~~cities~~ value=~~code~~>~~label~~</option>
+                  </select>
+               </label>
+            </div>
             <label>
                <span>Bank account number:</span>
                <input maxlength=11 data-smart-update=app.updateCalculation
