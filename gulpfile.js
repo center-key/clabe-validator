@@ -22,7 +22,7 @@ var pkg = require('./package.json');
 var home = pkg.homepage.replace('https://', '');
 var banner = '//CLABE Validator v' + [pkg.version, home, pkg.license].join(' ~ ') + '\n';
 var htmlHintConfig = { 'attr-value-double-quotes': false };
-var jsHintConfig = { undef: true, unused: true, esversion: 6, predef: ['module', 'require'] };
+var jsHintConfig = { strict: 'implied', undef: true, unused: true };
 
 function setVersion() {
    var stream = gulp.src(['clabe.js', 'README.md'])
@@ -32,12 +32,13 @@ function setVersion() {
    }
 
 function analyze() {
+   jsHintConfig.globals = { module: false };
    gulp.src('*.html')
       .pipe(w3cjs())
       .pipe(w3cjs.reporter())
       .pipe(htmlhint(htmlHintConfig))
       .pipe(htmlhint.reporter());
-   gulp.src(['clabe.js', 'gulpfile.js'])
+   gulp.src('clabe.js')
       .pipe(jshint(jsHintConfig))
       .pipe(jshint.reporter());
    }
@@ -52,9 +53,9 @@ function minify() {
    }
 
 function specRunner() {
-   var specTerms = ['describe', 'it', 'expect'];
-   jsHintConfig.predef = jsHintConfig.predef.concat(specTerms);
-   gulp.src('spec.js')
+   jsHintConfig.esversion = 6;
+   jsHintConfig.globals = { describe: false, expect: false, it: false, require: false };
+   gulp.src(['spec.js', 'gulpfile.js'])
       .pipe(jshint(jsHintConfig))
       .pipe(jshint.reporter())
       .pipe(jasmine({ verbose: true }));
