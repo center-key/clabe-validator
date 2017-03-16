@@ -72,8 +72,7 @@ console.log(clabeNum === '002010077777777771');
 Feel free to submit a question at:<br>
 [github.com/center-key/clabe-validator/issues](https://github.com/center-key/clabe-validator/issues)
 
-===
-CLABE Validator code is open source under the
-[MIT license](https://github.com/center-key/clabe-validator/blob/master/LICENSE.txt),
+---
+CLABE Validator code is open source under the [MIT License](LICENSE.txt),
 and the documentation is published under the
 [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0) license.
