@@ -8,8 +8,11 @@
    "homepage":     "https://github.com/center-key/clabe-validator",
    "docs":         "http://centerkey.com/clabe",
    "bugs":         "https://github.com/center-key/clabe-validator/issues",
+   "repository":   "center-key/clabe-validator",
    "author":       { "name": "Center Key", "url": "http://centerkey.com" },
-   "repository":   { "type": "git",        "url": "https://github.com/center-key/clabe-validator.git" },
+   "scripts": {
+      "gulp": "gulp"
+      },
    "devDependencies": {
       "gulp":          "~3.9",
       "gulp-header":   "~1.8",

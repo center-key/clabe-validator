@@ -9,51 +9,15 @@
 
 projectHome=$(cd $(dirname $0); pwd)
 
-needNpm() {
-   echo "**********************************"
-   echo "Need to install Node.js to get npm"
-   echo "**********************************"
-   open "http://nodejs.org/"
-   exit
-   }
-
-needGulp() {
-   echo "***************************************"
-   echo "Need to install Gulp:                  "
-   echo "   $ sudo npm install --global gulp-cli"
-   echo "***************************************"
-   exit
-   }
-
-needGulpLocal() {
-   echo "***************************************"
-   echo "Need to install Gulp locally:          "
-   echo "   $ cd $(dirname $0)"
-   echo "   $ npm install gulp                  "
-   echo "   $ npm update                        "
-   echo "***************************************"
-   exit
-   }
-
 info() {
    cd $projectHome
-   echo "npm:"
-   which npm || needNpm
-   npm --version
-   echo
-   echo "Gulp:"
-   which gulp || needGulp
-   gulp --version
-   test -d node_modules || needGulpLocal
-   echo
-   }
-
-runTasks() {
-   cd $projectHome
-   echo "Tasks:"
    pwd
-   echo "To get latest modules --> $ npm update"
-   gulp
+   echo
+   echo "node:"
+   which node || { echo "Need to install Node.js: https://nodejs.org"; exit; }
+   node --version
+   test -d node_modules || npm install
+   npm update
    echo
    }
 
@@ -88,9 +52,12 @@ publish() {
 echo
 echo "Task Runner"
 echo "==========="
-echo
+cd $projectHome
 info
-runTasks
+echo "Tasks:"
+npm run gulp
+echo
 releaseInstructions
 publish
+sleep 2
 open clabe.html
