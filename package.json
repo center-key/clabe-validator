@@ -12,14 +12,14 @@
    "author":       { "name": "Center Key", "url": "http://centerkey.com" },
    "scripts": {
       "build": "gulp",
-      "spec":  "jasmine spec.js"
+      "spec":  "mocha spec.js"
    },
    "devDependencies": {
       "gulp":          "~3.9",
       "gulp-header":   "~1.8",
       "gulp-htmlhint": "~0.3",
-      "gulp-jasmine":  "~2.4",
       "gulp-jshint":   "~2.0",
+      "gulp-mocha":    "~4.3",
       "gulp-rename":   "~1.2",
       "gulp-replace":  "~0.5",
       "gulp-size":     "~2.1",

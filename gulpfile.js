@@ -5,8 +5,8 @@
 var gulp =     require('gulp');
 var header =   require('gulp-header');
 var htmlhint = require('gulp-htmlhint');
-var jasmine =  require('gulp-jasmine');
 var jshint =   require('gulp-jshint');
+var mocha =    require('gulp-mocha');
 var rename =   require('gulp-rename');
 var replace =  require('gulp-replace');
 var size =     require('gulp-size');
@@ -48,11 +48,11 @@ function minify() {
 
 function specRunner() {
    jsHintConfig.esversion = 6;
-   jsHintConfig.jasmine = true;
+   jsHintConfig.mocha = true;
    gulp.src(['spec.js', 'gulpfile.js'])
       .pipe(jshint(jsHintConfig))
       .pipe(jshint.reporter())
-      .pipe(jasmine({ verbose: true }));
+      .pipe(mocha());
     }
 
 gulp.task('version', setVersion);

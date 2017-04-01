@@ -1,11 +1,12 @@
 // CLABE Validator
-// Jasmine Specifications Cases
+// Mocha Specifications Cases
 //
 // Run:
 //    $ cd clabe-validator
 //    $ npm run spec
 
-var clabe = require('./clabe.js');
+var assert = require('assert');
+var clabe =  require('./clabe.js');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE banks', () => {
@@ -16,7 +17,7 @@ describe('List of CLABE banks', () => {
          { input: '640', expected: 'J.P. Morgan Casa de Bolsa' }
          ];
       function evalData(data) {
-         expect(clabe.bank[parseInt(data.input)]).toBe(data.expected);
+         assert.equal(clabe.bank[parseInt(data.input)], data.expected);
          }
       dataSet.forEach(evalData);
       });
@@ -37,7 +38,7 @@ describe('List of CLABE cities', () => {
          { input: 'Jerez de G. Salinas', expected: '936' }
          ];
       function evalData(data) {
-         expect(cityMap[data.input]).toBe(parseInt(data.expected));
+         assert.equal(cityMap[data.input], parseInt(data.expected));
          }
       dataSet.forEach(evalData);
       });
@@ -45,7 +46,7 @@ describe('List of CLABE cities', () => {
    it('has no duplicate city names', () => {
       function checkForDuplicate(city) {
          if (cityMap[city[1]] !== city[0])
-            expect(city).toBe('unique -- see: ' + cityMap[city[1]]);
+            assert.equal(city, 'unique -- see: ' + cityMap[city[1]]);
          }
       clabe.cities.forEach(checkForDuplicate);
       });
@@ -62,7 +63,7 @@ describe('CLABE validator', () => {
          { input: '002115016003269411', expected: 'Invalid city code' }
          ];
       function evalData(data) {
-         expect(clabe.validate(data.input).message).toBe(data.expected);
+         assert.equal(clabe.validate(data.input).message, data.expected);
          }
       dataSet.forEach(evalData);
       });
@@ -75,7 +76,7 @@ describe('CLABE validator', () => {
          '014028000005555557'
          ];
       function evalData(data) {
-         expect(clabe.validate(data).message.substr(0, 6)).toBe('Valid:');
+         assert.equal(clabe.validate(data).message.substr(0, 6), 'Valid:');
          }
       dataSet.forEach(evalData);
       });
@@ -94,7 +95,7 @@ describe('CLABE calculator', () => {
          ];
       function evalData(data) {
          var clabeNum = clabe.calculate(data.input.bank, data.input.city, data.input.acct);
-         expect(clabeNum).toBe(data.expected);
+         assert.equal(clabeNum, data.expected);
          }
       dataSet.forEach(evalData);
       });
