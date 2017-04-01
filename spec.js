@@ -1,8 +1,15 @@
 // CLABE Validator
+// Jasmine Specifications Cases
+//
+// Run:
+//    $ cd clabe-validator
+//    $ npm run spec
 
 var clabe = require('./clabe.js');
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE banks', () => {
+
    it('contains the correct code to look up a bank name', () => {
       var dataSet = [
          { input: '002', expected: 'Banco Nacional de México' },
@@ -13,12 +20,15 @@ describe('List of CLABE banks', () => {
          }
       dataSet.forEach(evalData);
       });
+
    });
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE cities', () => {
    var cityMap = {};
    function addCity(city) { cityMap[city[1]] = city[0]; }
    clabe.cities.forEach(addCity);
+
    it('contains the correct code for a city', () => {
       var dataSet = [
          { input: 'Tecate',              expected: '027' },
@@ -31,6 +41,7 @@ describe('List of CLABE cities', () => {
          }
       dataSet.forEach(evalData);
       });
+
    it('has no duplicate city names', () => {
       function checkForDuplicate(city) {
          if (cityMap[city[1]] !== city[0])
@@ -38,9 +49,12 @@ describe('List of CLABE cities', () => {
          }
       clabe.cities.forEach(checkForDuplicate);
       });
+
    });
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('CLABE validator', () => {
+
    it('rejects an invalid CLABE number', () => {
       var dataSet = [
          { input: '002010077777777779', expected: 'Invalid checksum, last digit should be: 1' },
@@ -52,6 +66,7 @@ describe('CLABE validator', () => {
          }
       dataSet.forEach(evalData);
       });
+
    it('accepts a valid CLABE number', () => {
       var dataSet = [
          '002010077777777771',
@@ -64,9 +79,12 @@ describe('CLABE validator', () => {
          }
       dataSet.forEach(evalData);
       });
+
    });
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('CLABE calculator', () => {
+
    it('builds the correct CLABE number', () => {
       var dataSet = [
          { input: { bank:  2, city:  10, acct: 7777777777 }, expected: '002010077777777771' },
@@ -80,4 +98,5 @@ describe('CLABE calculator', () => {
          }
       dataSet.forEach(evalData);
       });
+
    });
