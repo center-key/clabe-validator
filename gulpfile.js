@@ -2,11 +2,6 @@
 // github.com/center-key/clabe-validator
 // MIT License
 
-// Periodically check dependencies:
-//    $ cd clabe-validator
-//    $ npm outdated
-//    $ npm update
-
 var gulp =     require('gulp');
 var header =   require('gulp-header');
 var htmlhint = require('gulp-htmlhint');

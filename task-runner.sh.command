@@ -13,11 +13,12 @@ info() {
    cd $projectHome
    pwd
    echo
-   echo "node:"
+   echo "Node.js:"
    which node || { echo "Need to install Node.js: https://nodejs.org"; exit; }
    node --version
    test -d node_modules || npm install
    npm update
+   npm outdated
    echo
    }
 
@@ -52,10 +53,10 @@ publish() {
 echo
 echo "Task Runner"
 echo "==========="
-cd $projectHome
 info
-echo "Tasks:"
-npm run gulp
+cd $projectHome
+echo "Build:"
+npm run build
 echo
 releaseInstructions
 publish
