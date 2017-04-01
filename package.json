@@ -12,7 +12,7 @@
    "author":       { "name": "Center Key", "url": "http://centerkey.com" },
    "scripts": {
       "build": "gulp",
-      "spec":  "mocha spec.js"
+      "test":  "mocha spec.js"
    },
    "devDependencies": {
       "gulp":          "~3.9",
