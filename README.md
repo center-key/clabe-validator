@@ -3,6 +3,7 @@
 *JavaScript library to analyze a CLABE number for a Mexican bank account*
 
 [![npm](https://img.shields.io/npm/v/clabe-validator.svg)](https://github.com/center-key/clabe-validator)
+[![Build Status](https://travis-ci.org/center-key/clabe-validator.svg)](https://travis-ci.org/center-key/clabe-validator)
 
 ---
 

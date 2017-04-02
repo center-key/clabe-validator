@@ -13,7 +13,7 @@ describe('List of CLABE banks', () => {
 
    it('contains the correct code to look up a bank name', () => {
       var dataSet = [
-         { input: '002', expected: 'Banco Nacional de México' },
+         { input: '002', expected: 'Banco Nacional de México!!!' },
          { input: '640', expected: 'J.P. Morgan Casa de Bolsa' }
          ];
       function evalData(data) {
