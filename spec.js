@@ -3,7 +3,7 @@
 //
 // Run:
 //    $ cd clabe-validator
-//    $ npm run spec
+//    $ npm test
 
 var assert = require('assert');
 var clabe =  require('./clabe.js');
