@@ -70,7 +70,7 @@ var clabeNum = clabe.calculate(2, 10, 7777777777);
 console.log(clabeNum === '002010077777777771');
 ```
 
-### F) Notes
+### E) Notes
 1. Feel free to submit questions at:
 [github.com/center-key/clabe-validator/issues](https://github.com/center-key/clabe-validator/issues)
 1. To be a contributor, fork the project and execute the `task-runner.sh.command` script.  Make
