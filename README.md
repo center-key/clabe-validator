@@ -21,7 +21,7 @@ In a web page:
 <script src=clabe.js></script>
 ```
 
-From a CDN:
+From a [CDN](https://www.jsdelivr.com/projects/clabe-validator):
 ```html
 <script src=https://cdn.jsdelivr.net/clabe-validator/1.0/clabe.min.js></script>
 ```
