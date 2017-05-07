@@ -56,7 +56,7 @@ echo "==========="
 info
 cd $projectHome
 echo "Build:"
-npm run build
+npm test
 echo
 releaseInstructions
 publish
