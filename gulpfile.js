@@ -2,37 +2,31 @@
 // github.com/center-key/clabe-validator
 // MIT License
 
-var gulp =      require('gulp');
-var header =    require('gulp-header');
-var htmlhint =  require('gulp-htmlhint');
-var jshint =    require('gulp-jshint');
-var gulpMerge = require('gulp-merge');
-var rename =    require('gulp-rename');
-var replace =   require('gulp-replace');
-var size =      require('gulp-size');
-var uglify =    require('gulp-uglify');
-var w3cjs =     require('gulp-w3cjs');
+const gulp =      require('gulp');
+const header =    require('gulp-header');
+const htmlHint =  require('gulp-htmlhint');
+const jshint =    require('gulp-jshint');
+const gulpMerge = require('gulp-merge');
+const rename =    require('gulp-rename');
+const replace =   require('gulp-replace');
+const size =      require('gulp-size');
+const uglify =    require('gulp-uglify');
+const w3cjs =     require('gulp-w3cjs');
 
-var pkg = require('./package.json');
-var home = pkg.homepage.replace('https://', '');
-var banner = '//CLABE Validator v' + [pkg.version, home, pkg.license].join(' ~ ') + '\n';
-var htmlHintConfig = { 'attr-value-double-quotes': false };
-var jsHintConfig = { strict: 'implied', undef: true, unused: true, node: true };
-var jsHintConfigEs6 = Object.assign({ mocha: true, esversion: 6 }, jsHintConfig);
-
-function setVersion() {
-   return gulp.src('clabe.js')
-      .pipe(replace(/v\d+[.]\d+[.]\d+/, 'v' + pkg.version))  //example: "v0.0.0"
-      .pipe(gulp.dest('.'));
-   }
+const pkg = require('./package.json');
+const home = pkg.homepage.replace('https://', '');
+const banner = '//CLABE Validator v' + [pkg.version, home, pkg.license].join(' ~ ') + '\n';
+const htmlHintConfig = { 'attr-value-double-quotes': false };
+const jsHintConfig = { strict: 'implied', undef: true, unused: true, node: true };
+const jsHintConfigEs6 = Object.assign({ mocha: true, esversion: 6 }, jsHintConfig);
 
 function analyze() {
    return gulpMerge(
       gulp.src('*.html')
          .pipe(w3cjs())
          .pipe(w3cjs.reporter())
-         .pipe(htmlhint(htmlHintConfig))
-         .pipe(htmlhint.reporter()),
+         .pipe(htmlHint(htmlHintConfig))
+         .pipe(htmlHint.reporter()),
       gulp.src('clabe.js')
          .pipe(jshint(jsHintConfig))
          .pipe(jshint.reporter()),
@@ -40,6 +34,12 @@ function analyze() {
          .pipe(jshint(jsHintConfigEs6))
          .pipe(jshint.reporter())
       );
+   }
+
+function setVersion() {
+   return gulp.src('clabe.js')
+      .pipe(replace(/v\d+[.]\d+[.]\d+/, 'v' + pkg.version))  //example: "v0.0.0"
+      .pipe(gulp.dest('.'));
    }
 
 function minify() {
@@ -51,6 +51,6 @@ function minify() {
       .pipe(gulp.dest('.'));
    }
 
-gulp.task('version', setVersion);
 gulp.task('lint',    analyze);
-gulp.task('build',   ['version', 'lint'], minify);
+gulp.task('version', setVersion);
+gulp.task('build',   ['version'], minify);
