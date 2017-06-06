@@ -2,17 +2,17 @@
    "name":         "clabe-validator",
    "version":      "1.0.0",
    "description":  "JavaScript library to analyze a CLABE number for a Mexican bank account",
-   "main":         "clabe.js",
    "license":      "MIT",
-   "keywords":     ["clabe", "validator", "calculator", "bank", "mexico", "javascript"],
-   "homepage":     "https://github.com/center-key/clabe-validator",
-   "docs":         "http://centerkey.com/clabe",
-   "bugs":         "https://github.com/center-key/clabe-validator/issues",
+   "main":         "clabe.js",
    "repository":   "center-key/clabe-validator",
+   "homepage":     "https://github.com/center-key/clabe-validator",
+   "bugs":         "https://github.com/center-key/clabe-validator/issues",
+   "docs":         "http://centerkey.com/clabe",
+   "keywords":     ["clabe", "validator", "calculator", "bank", "mexico", "javascript"],
    "author":       { "name": "Center Key", "url": "http://centerkey.com" },
    "scripts": {
-      "pretest":  "gulp lint && gulp build",
-      "test":     "mocha spec.js"
+      "pretest": "gulp lint && gulp build",
+      "test":    "mocha spec.js"
    },
    "devDependencies": {
       "gulp":          "~3.9",
@@ -23,7 +23,7 @@
       "gulp-rename":   "~1.2",
       "gulp-replace":  "~0.5",
       "gulp-size":     "~2.1",
-      "gulp-uglify":   "~2.1",
+      "gulp-uglify":   "~3.0",
       "gulp-w3cjs":    "~1.3",
       "jshint":        "~2.9",
       "mocha":         "~3.4"
