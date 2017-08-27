@@ -21,11 +21,11 @@
       "gulp-jshint":   "~2.0",
       "gulp-merge":    "~0.1",
       "gulp-rename":   "~1.2",
-      "gulp-replace":  "~0.5",
+      "gulp-replace":  "~0.6",
       "gulp-size":     "~2.1",
       "gulp-uglify":   "~3.0",
       "gulp-w3cjs":    "~1.3",
       "jshint":        "~2.9",
-      "mocha":         "~3.4"
+      "mocha":         "~3.5"
    }
 }
