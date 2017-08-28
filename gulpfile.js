@@ -11,7 +11,7 @@ const rename =    require('gulp-rename');
 const replace =   require('gulp-replace');
 const size =      require('gulp-size');
 const uglify =    require('gulp-uglify');
-const w3cjs =     require('gulp-w3cjs');
+const w3cJs =     require('gulp-w3cjs');
 
 const pkg = require('./package.json');
 const home = pkg.homepage.replace('https://', '');
@@ -23,8 +23,8 @@ const jsHintConfigEs6 = Object.assign({ mocha: true, esversion: 6 }, jsHintConfi
 function analyze() {
    return gulpMerge(
       gulp.src('*.html')
-         .pipe(w3cjs())
-         .pipe(w3cjs.reporter())
+         .pipe(w3cJs())
+         .pipe(w3cJs.reporter())
          .pipe(htmlHint(htmlHintConfig))
          .pipe(htmlHint.reporter()),
       gulp.src('clabe.js')
