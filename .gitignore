@@ -1,7 +1,8 @@
 # CLABE Validator
 
-# Generated and downloaded files
+# Downloaded and generated files
 /node_modules/
+/package-lock.json
 
 # Extraneous system files
 .DS_Store
