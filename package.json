@@ -1,6 +1,6 @@
 {
    "name": "clabe-validator",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "description": "JavaScript library to analyze a CLABE number for a Mexican bank account",
    "license": "MIT",
    "main": "clabe.js",

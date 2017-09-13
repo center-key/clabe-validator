@@ -1,4 +1,4 @@
-// CLABE Validator v1.0.0
+// CLABE Validator v1.0.1
 // github.com/center-key/clabe-validator
 // MIT License
 
@@ -618,4 +618,4 @@ var clabe = {
    };
 
 if (typeof module === 'object')
-   module.exports = clabe;  //Node.js module loading system
+   module.exports = clabe;  //Node.js module loading system (CommonJS)
