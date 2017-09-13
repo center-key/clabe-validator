@@ -18,7 +18,6 @@ const home = pkg.homepage.replace('https://', '');
 const banner = '//CLABE Validator v' + [pkg.version, home, pkg.license].join(' ~ ') + '\n';
 const htmlHintConfig = { 'attr-value-double-quotes': false };
 const jsHintConfig = { strict: 'implied', undef: true, unused: true, node: true };
-const jsHintConfigEs6 = Object.assign({ mocha: true, esversion: 6 }, jsHintConfig);
 
 function analyze() {
    return gulpMerge(
@@ -29,9 +28,6 @@ function analyze() {
          .pipe(htmlHint.reporter()),
       gulp.src('clabe.js')
          .pipe(jshint(jsHintConfig))
-         .pipe(jshint.reporter()),
-      gulp.src(['gulpfile.js', 'spec.js'])
-         .pipe(jshint(jsHintConfigEs6))
          .pipe(jshint.reporter())
       );
    }
