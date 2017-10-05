@@ -37,7 +37,6 @@
       "gulp-header": "~1.8",
       "gulp-htmlhint": "~0.3",
       "gulp-jshint": "~2.0",
-      "gulp-merge": "~0.1",
       "gulp-rename": "~1.2",
       "gulp-replace": "~0.6",
       "gulp-size": "~2.1",
