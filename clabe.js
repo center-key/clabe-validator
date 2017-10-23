@@ -318,6 +318,7 @@ var clabe = {
       [330, 'Atotonilco el Alto'],
       [331, 'Atequiza'],
       [333, 'Autlán'],
+      [334, 'Azteca'],
       [340, 'Casimiro Castillo'],
       [341, 'Cihuatlán'],
       [342, 'Ciudad Guzmán'],
