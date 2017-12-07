@@ -489,6 +489,7 @@ var clabe = {
       [691, 'Cancún'],
       [691, 'Col. Puerto Juárez'],
       [692, 'Cozumel'],
+      [693, 'NA'],
       [694, 'Playa del Carmen'],
       [700, 'San Luis Potosí'],
       [703, 'Cerritos'],
