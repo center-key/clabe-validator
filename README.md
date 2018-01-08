@@ -30,10 +30,10 @@ From the jsdelivr.com CDN:
 
 In a Node.js project:
 ```shell
-$ npm install clabe-validator --save
+$ npm install clabe-validator
 ```
 ```javascript
-var clabe = require('clabe-validator');
+const clabe = require('clabe-validator');
 ```
 
 ### C) Validator usage
