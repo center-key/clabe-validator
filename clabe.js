@@ -65,6 +65,8 @@ var clabe = {
 
    bank: {  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco (Jan 9, 2017)
         2: 'Banco Nacional de México',
+        6: 'Banco Nacional de Comercio Exterior',
+        9: 'Banco Nacional de Obras y Servicios Públicos',
        12: 'BBVA Bancomer',
        14: 'Banco Santander',
        19: 'Banco Nacional del Ejército',
@@ -110,6 +112,7 @@ var clabe = {
       145: 'Banco BASE de I.B.M.',
       147: 'Bankaool, Institución de Banca Múltiple',
       150: 'Banco Inmobiliario Mexicano',
+      156: 'Banco Sabadell, S.A. I.B.M.',
       166: 'Banco del Ahorro Nacional y Servicios Financieros',
       168: 'Sociedad Hipotecaria Federal',
       600: 'Monex Casa de Bolsa',
@@ -134,6 +137,7 @@ var clabe = {
       622: 'Actinver',
       623: 'Skandia Vida',
       624: 'Consultoría Internacional Casa de Cambio',
+      626: 'Deutsche Securities, S.A. de C.V.',
       627: 'Zurich Compañía de Seguros',
       628: 'Zurich Vida, Compañía de Seguros',
       629: 'Hipotecaria su Casita',
@@ -142,13 +146,25 @@ var clabe = {
       632: 'Bulltick Casa de Bolsa',
       633: 'Sterling Casa de Cambio',
       634: 'Fincomún, Servicios Financieros Comunitarios',
+      636: 'HDI Seguros, S.A. de C.V.',
       637: 'OrderExpress Casa de Cambio AAC',
       638: 'Akala, Sociedad Financiera Popular',
       640: 'J.P. Morgan Casa de Bolsa',
+      642: 'Operadora de Recursos Reforma, S.A. de C.V.',
       646: 'Sistema de Transferencias y Pagos STP',
+      647: 'Telecomunicaciones de México',
+      648: 'Evercore Casa de Bolsa, S.A. de C.V.',
       649: 'Skandia Operadora',
+      651: 'Seguros Monterrey New York Life, S.A de C.V.',
+      652: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular',
+      653: 'Kuspit Casa de Bolsa, S.A. de C.V.',
+      655: 'J.P. SOFIEXPRESS, S.A. de C.V., S.F.P.',
+      656: 'UNAGRA, S.A. de C.V., S.F.P.',
+      659: 'Opciones Empresariales Del Noreste, S.A. DE C.V.',
+      670: 'Libertad Servicios Financieros, S.A. De C.V.',
       901: 'CLS Bank International',
-      902: 'SD. INDEVAL'
+      902: 'SD. INDEVAL',
+      999: 'NA'
       },
 
    cities: [  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza (Jan 9, 2017)
