@@ -482,6 +482,7 @@ var clabe = {
       [650, 'La Resurrección'],
       [650, 'Puebla'],
       [650, 'San Baltazar Campeche'],
+      [651, 'NA'],
       [652, 'Acatzingo'],
       [654, 'Atlixco'],
       [656, 'Cuetzalan'],
