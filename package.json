@@ -35,7 +35,7 @@
    "devDependencies": {
       "gulp": "~3.9",
       "gulp-header": "~2.0",
-      "gulp-htmlhint": "~2.0",
+      "gulp-htmlhint": "~2.1",
       "gulp-jshint": "~2.1",
       "gulp-rename": "~1.2",
       "gulp-replace": "~0.6",
