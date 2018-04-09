@@ -1,5 +1,5 @@
 # CLABE Validator
-*JavaScript library to analyze a CLABE number for a Mexican bank account*
+*JavaScript library to analyze or create a CLABE number for a Mexican bank account*
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/center-key/clabe-validator/blob/master/LICENSE.txt)
 [![npm](https://img.shields.io/npm/v/clabe-validator.svg)](https://www.npmjs.com/package/clabe-validator)
