@@ -38,11 +38,11 @@
       "gulp-htmlhint": "~2.1",
       "gulp-jshint": "~2.1",
       "gulp-rename": "~1.2",
-      "gulp-replace": "~0.6",
+      "gulp-replace": "~1.0",
       "gulp-size": "~3.0",
       "gulp-uglify": "~3.0",
       "gulp-w3cjs": "~1.3",
       "jshint": "~2.9",
-      "mocha": "~5.1"
+      "mocha": "~5.2"
    }
 }
