@@ -48,8 +48,8 @@ function minify() {
       .pipe(gulp.dest('.'));
    }
 
-gulp.task('lint-html', analyze.html);
-gulp.task('lint-js',   analyze.js);
-gulp.task('lint',      ['lint-html', 'lint-js']);
-gulp.task('version',   setVersion);
-gulp.task('build',     ['version'], minify);
+gulp.task('lint-html', gulp.series(analyze.html));
+gulp.task('lint-js',   gulp.series(analyze.js));
+gulp.task('lint',      gulp.series(['lint-html', 'lint-js']));
+gulp.task('version',   gulp.series(setVersion));
+gulp.task('build',     gulp.series(['version'], minify));

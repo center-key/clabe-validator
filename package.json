@@ -33,7 +33,7 @@
       "test": "mocha spec.js"
    },
    "devDependencies": {
-      "gulp": "~3.9",
+      "gulp": "~4.0",
       "gulp-header": "~2.0",
       "gulp-htmlhint": "~2.1",
       "gulp-jshint": "~2.1",
