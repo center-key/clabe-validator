@@ -12,7 +12,7 @@ uniform numbering of bank accounts.
 
 ### A) Online form
 Try it out:<br>
-[centerkey.com/clabe](http://centerkey.com/clabe/)
+[centerkey.com/clabe](https://centerkey.com/clabe/)
 
 ### B) Include
 In a web page:

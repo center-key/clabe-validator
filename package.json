@@ -7,7 +7,7 @@
    "repository": "center-key/clabe-validator",
    "homepage": "https://github.com/center-key/clabe-validator",
    "bugs": "https://github.com/center-key/clabe-validator/issues",
-   "docs": "http://centerkey.com/clabe",
+   "docs": "https://centerkey.com/clabe",
    "keywords": [
       "clabe",
       "validator",
@@ -18,7 +18,7 @@
    ],
    "author": {
       "name": "Center Key",
-      "url": "http://centerkey.com"
+      "url": "https://centerkey.com"
    },
    "jshintConfig": {
       "esversion": 6,
