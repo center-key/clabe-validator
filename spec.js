@@ -14,12 +14,17 @@ describe('List of CLABE banks', () => {
    it('contains the correct code to look up a bank name', () => {
       const dataSet = [
          { input: '002', expected: 'Banco Nacional de México' },
-         { input: '640', expected: 'J.P. Morgan Casa de Bolsa' }
+         { input: '640', expected: 'J.P. Morgan Casa de Bolsa' },
+         { input: '652', expected: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular' }
          ];
       function evalData(data) {
          assert.equal(clabe.bank[parseInt(data.input)], data.expected);
          }
       dataSet.forEach(evalData);
+      });
+
+   it('has a default "N/A" bank for code 999', () => {
+      assert.equal(clabe.bank[999], 'N/A');
       });
 
    });
