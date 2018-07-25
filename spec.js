@@ -26,8 +26,8 @@ describe('List of CLABE banks', () => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE cities', () => {
-   let cityMap = {};
-   function addCity(city) { cityMap[city[1]] = city[0]; }
+   let cityNamesMap = {};
+   function addCity(city) { cityNamesMap[city[1]] = city[0]; }
    clabe.cities.forEach(addCity);
 
    it('contains the correct code for a city', () => {
@@ -38,15 +38,15 @@ describe('List of CLABE cities', () => {
          { input: 'Jerez de G. Salinas', expected: '936' }
          ];
       function evalData(data) {
-         assert.equal(cityMap[data.input], parseInt(data.expected));
+         assert.equal(cityNamesMap[data.input], parseInt(data.expected));
          }
       dataSet.forEach(evalData);
       });
 
    it('has no duplicate city names', () => {
       function checkForDuplicate(city) {
-         if (cityMap[city[1]] !== city[0])
-            assert.equal(city, 'unique -- see: ' + cityMap[city[1]]);
+         if (cityNamesMap[city[1]] !== city[0] && city[1] !== 'N/A')
+            assert.equal(city, 'Not unique -- see: ' + cityNamesMap[city[1]]);
          }
       clabe.cities.forEach(checkForDuplicate);
       });
