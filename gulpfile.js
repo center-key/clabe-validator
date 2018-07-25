@@ -2,15 +2,15 @@
 // github.com/center-key/clabe-validator
 // MIT License
 
-const gulp =      require('gulp');
-const header =    require('gulp-header');
-const htmlHint =  require('gulp-htmlhint');
-const jshint =    require('gulp-jshint');
-const rename =    require('gulp-rename');
-const replace =   require('gulp-replace');
-const size =      require('gulp-size');
-const uglify =    require('gulp-uglify');
-const w3cJs =     require('gulp-w3cjs');
+const gulp =     require('gulp');
+const header =   require('gulp-header');
+const htmlHint = require('gulp-htmlhint');
+const jshint =   require('gulp-jshint');
+const rename =   require('gulp-rename');
+const replace =  require('gulp-replace');
+const size =     require('gulp-size');
+const uglify =   require('gulp-uglify');
+const w3cJs =    require('gulp-w3cjs');
 
 const pkg = require('./package.json');
 const home = pkg.homepage.replace('https://', '');
@@ -34,8 +34,9 @@ const analyze = {
    };
 
 function setVersion() {
+   const semVerPattern = /v\d+[.]\d+[.]\d+/;
    return gulp.src('clabe.js')
-      .pipe(replace(/v\d+[.]\d+[.]\d+/, 'v' + pkg.version))  //example: "v0.0.0"
+      .pipe(replace(semVerPattern, 'v' + pkg.version))  //example: "v0.0.0"
       .pipe(gulp.dest('.'));
    }
 

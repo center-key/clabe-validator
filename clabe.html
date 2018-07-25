@@ -63,7 +63,7 @@
          standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM) for
          uniform numbering of bank accounts.
       </p>
-      <nav id=clabe class=dna-menu data-style=pillbox-tabs>
+      <nav id=clabe-menu class=dna-menu data-style=pillbox-tabs>
          <span>Validator</span>
          <span>Calculator</span>
       </nav>
@@ -167,6 +167,7 @@ var app = {
       form.find('.message').text(message).stop().hide().fadeIn();
       },
    setupCalculator: function() {
+      console.log(clabe.release);
       function pad(int) { return ('' + int).length < 3 ? pad('0' + int) : int; }
       function codeObj(code, name) {
          return { code: pad(code), name: name, label: pad(code) + ': ' + name };
@@ -180,7 +181,7 @@ var app = {
       function toCityObj(data) { return codeObj(data[0], data[1]); }
       function compare(a, b) { return a.name.localeCompare(b.name); }
       var codes = {
-         banks:  mapToArray(clabe.bank).sort(compare),
+         banks:  mapToArray(clabe.banksMap).sort(compare),
          cities: clabe.cities.map(toCityObj).sort(compare)
          };
       dna.clone('calculator', codes);

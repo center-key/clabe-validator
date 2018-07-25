@@ -4,6 +4,8 @@
 
 var clabe = {
 
+   release: 'v1.0.3',
+
    calcChecksum: function(clabeNum) {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
       // Example:
@@ -23,16 +25,16 @@ var clabe = {
       var bankCode = clabeNum.substr(0, 3);
       var cityCode = clabeNum.substr(3, 3);
       var checksum = parseInt(clabeNum.substr(17, 1));
-      function makeCityMap() {
-         clabe.city = {};
-         function prefix(code) { return clabe.city[code] ? clabe.city[code] + ', ' : ''; }
-         function addCity(city) { clabe.city[city[0]] = prefix(city[0]) + city[1]; }  //0: code, 1: name
+      function makeCitiesMap() {
+         clabe.citiesMap = {};
+         function prefix(code) { return clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : ''; }
+         function addCity(city) { clabe.citiesMap[city[0]] = prefix(city[0]) + city[1]; }  //0: code, 1: name
          clabe.cities.forEach(addCity);
          }
-      if (!clabe.city)
-         makeCityMap();
-      var bank = clabe.bank[parseInt(bankCode)];
-      var city = clabe.city[parseInt(cityCode)];
+      if (!clabe.citiesMap)
+         makeCitiesMap();
+      var bank = clabe.banksMap[parseInt(bankCode)];
+      var city = clabe.citiesMap[parseInt(cityCode)];
       function calcChecksum() { return clabe.calcChecksum(clabeNum); }
       function getErrorMessage() {
          return (
@@ -63,7 +65,7 @@ var clabe = {
       return clabeNum + clabe.calcChecksum(clabeNum);
       },
 
-   bank: {  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco (Jan 9, 2017)
+   banksMap: {  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco (Jan 9, 2017)
         2: 'Banco Nacional de México',
         6: 'Banco Nacional de Comercio Exterior',
         9: 'Banco Nacional de Obras y Servicios Públicos',

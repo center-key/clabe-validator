@@ -9,6 +9,16 @@ const assert = require('assert');
 const clabe =  require('./clabe.js');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+describe('Library release number', () => {
+
+   it('follows semantic version formatting', () => {
+      const semVerPattern = /v\d+[.]\d+[.]\d+/;
+      assert.ok(semVerPattern.test(clabe.release), 'Incorrect format: ' + clabe.release);
+      });
+
+   });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE banks', () => {
 
    it('contains the correct code to look up a bank name', () => {
@@ -18,13 +28,13 @@ describe('List of CLABE banks', () => {
          { input: '652', expected: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular' }
          ];
       function evalData(data) {
-         assert.equal(clabe.bank[parseInt(data.input)], data.expected);
+         assert.equal(clabe.banksMap[parseInt(data.input)], data.expected);
          }
       dataSet.forEach(evalData);
       });
 
    it('has a default "N/A" bank for code 999', () => {
-      assert.equal(clabe.bank[999], 'N/A');
+      assert.equal(clabe.banksMap[999], 'N/A');
       });
 
    });
@@ -37,7 +47,7 @@ describe('List of CLABE cities', () => {
 
    it('is in numerical order', () => {
       function checkOrder(city, i) {
-         var priorCode = i > 0 ? clabe.cities[i - 1][0] : 0;
+         const priorCode = i > 0 ? clabe.cities[i - 1][0] : 0;
          assert.ok(city[0] >= priorCode, 'After #' + priorCode + ', out of order city: #' + city);
          }
       clabe.cities.forEach(checkOrder);
