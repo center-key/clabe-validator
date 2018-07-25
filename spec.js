@@ -30,6 +30,14 @@ describe('List of CLABE cities', () => {
    function addCity(city) { cityNamesMap[city[1]] = city[0]; }
    clabe.cities.forEach(addCity);
 
+   it('is in numerical order', () => {
+      function checkOrder(city, i) {
+         var priorCode = i > 0 ? clabe.cities[i - 1][0] : 0;
+         assert.ok(city[0] >= priorCode, 'After #' + priorCode + ', out of order city: #' + city);
+         }
+      clabe.cities.forEach(checkOrder);
+      });
+
    it('contains the correct code for a city', () => {
       const dataSet = [
          { input: 'Tecate',              expected: '027' },
