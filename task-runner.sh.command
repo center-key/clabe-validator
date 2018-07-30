@@ -9,7 +9,7 @@
 
 projectHome=$(cd $(dirname $0); pwd)
 
-info() {
+setupTools() {
    # Check for Node.js installation and download project dependencies
    cd $projectHome
    pwd
@@ -20,6 +20,13 @@ info() {
    npm install
    npm update
    npm outdated
+   echo
+   }
+
+buildProject() {
+   cd $projectHome
+   echo "Build:"
+   npm test
    echo
    }
 
@@ -38,7 +45,7 @@ releaseInstructions() {
    echo
    }
 
-publish() {
+publishWebPage() {
    cd $projectHome
    publishWebRoot=$(grep ^DocumentRoot /private/etc/apache2/httpd.conf | awk -F\" '{ print $2 }')
    publishFolder=$publishWebRoot/centerkey.com/clabe
@@ -54,12 +61,10 @@ publish() {
 echo
 echo "Task Runner"
 echo "==========="
-info
-cd $projectHome
-echo "Build:"
-npm test
 echo
+setupTools
+buildProject
 releaseInstructions
-publish
+publishWebPage
 sleep 2
 open clabe.html

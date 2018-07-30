@@ -14,43 +14,42 @@ const w3cJs =    require('gulp-w3cjs');
 
 const pkg = require('./package.json');
 const home = pkg.homepage.replace('https://', '');
-const banner = '//CLABE Validator v' + [pkg.version, home, pkg.license].join(' ~ ') + '\n';
+const license = pkg.license + ' License';
+const banner = '//! CLABE Validator v' + [pkg.version, home, license].join(' ~ ') + '\n';
 const htmlHintConfig = { 'attr-value-double-quotes': false };
 const jsHintConfig = { strict: 'implied', undef: true, unused: true, browser: true, node: true };
 
-const analyze = {
-   html: function() {
+// Tasks
+const task = {
+   analyzeHtml: function() {
       return gulp.src('*.html')
          .pipe(w3cJs())
          .pipe(w3cJs.reporter())
          .pipe(htmlHint(htmlHintConfig))
          .pipe(htmlHint.reporter());
       },
-   js: function() {
+   analyzeJs: function() {
       return gulp.src('clabe.js')
          .pipe(jshint(jsHintConfig))
          .pipe(jshint.reporter());
+      },
+   setVersion: function() {
+      const semVerPattern = /v\d+[.]\d+[.]\d+/;
+      return gulp.src('clabe.js')
+         .pipe(replace(semVerPattern, 'v' + pkg.version))  //example: "v0.0.0"
+         .pipe(gulp.dest('.'));
+      },
+   minify: function() {
+      return gulp.src('clabe.js')
+         .pipe(rename('clabe.min.js'))
+         .pipe(uglify())
+         .pipe(header(banner))
+         .pipe(size({ showFiles: true }))
+         .pipe(gulp.dest('.'));
       }
    };
 
-function setVersion() {
-   const semVerPattern = /v\d+[.]\d+[.]\d+/;
-   return gulp.src('clabe.js')
-      .pipe(replace(semVerPattern, 'v' + pkg.version))  //example: "v0.0.0"
-      .pipe(gulp.dest('.'));
-   }
-
-function minify() {
-   return gulp.src('clabe.js')
-      .pipe(rename('clabe.min.js'))
-      .pipe(uglify())
-      .pipe(header(banner))
-      .pipe(size({ showFiles: true }))
-      .pipe(gulp.dest('.'));
-   }
-
-gulp.task('lint-html', gulp.series(analyze.html));
-gulp.task('lint-js',   gulp.series(analyze.js));
-gulp.task('lint',      gulp.series(['lint-html', 'lint-js']));
-gulp.task('version',   gulp.series(setVersion));
-gulp.task('build',     gulp.series(['version'], minify));
+gulp.task('lint-html', task.analyzeHtml);
+gulp.task('lint-js',   task.analyzeJs);
+gulp.task('version',   task.setVersion);
+gulp.task('minify',    task.minify);

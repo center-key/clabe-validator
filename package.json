@@ -29,7 +29,7 @@
       "mocha": true
    },
    "scripts": {
-      "pretest": "jshint gulpfile.js spec.js && gulp lint && gulp build",
+      "pretest": "jshint gulpfile.js spec.js && gulp lint-html && gulp lint-js && gulp version && gulp minify",
       "test": "mocha spec.js"
    },
    "devDependencies": {
