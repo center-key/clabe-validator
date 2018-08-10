@@ -1,6 +1,7 @@
 # CLABE Validator
 <img src=https://centerkey.com/graphics/center-key-logo.svg align=right width=200 alt=logo>
-*JavaScript library to analyze or create a CLABE number for a Mexican bank account*
+
+_JavaScript library to analyze or create a CLABE number for a Mexican bank account_
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/center-key/clabe-validator/blob/master/LICENSE.txt)
 [![npm](https://img.shields.io/npm/v/clabe-validator.svg)](https://www.npmjs.com/package/clabe-validator)
