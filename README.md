@@ -1,5 +1,6 @@
 # CLABE Validator
-*JavaScript library to analyze or create a CLABE number for a Mexican bank account*
+<img src=https://centerkey.com/graphics/center-key-logo.svg align=right width=200 alt=logo>
+_JavaScript library to analyze or create a CLABE number for a Mexican bank account_
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/center-key/clabe-validator/blob/master/LICENSE.txt)
 [![npm](https://img.shields.io/npm/v/clabe-validator.svg)](https://www.npmjs.com/package/clabe-validator)
@@ -8,7 +9,7 @@
 
 Clave Bancaria Estandarizada (Spanish for "standardized banking cipher") is a banking
 standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM) for
-uniform numbering of bank accounts.
+uniform numbering of bank accounts.  See: https://en.wikipedia.org/wiki/CLABE
 
 ### A) Online form
 Try it out:<br>
