@@ -5,7 +5,7 @@
 ###################
 
 # To make this file runnable:
-#    $ chmod +x *.sh.command
+#     $ chmod +x *.sh.command
 
 projectHome=$(cd $(dirname $0); pwd)
 
@@ -45,17 +45,19 @@ releaseInstructions() {
    echo
    }
 
-publishWebPage() {
+publishWebFiles() {
    cd $projectHome
    publishWebRoot=$(grep ^DocumentRoot /private/etc/apache2/httpd.conf | awk -F\" '{ print $2 }')
-   publishFolder=$publishWebRoot/centerkey.com/clabe
-   copyWebFiles() {
+   publishSite=$publishWebRoot/centerkey.com
+   publishFolder=$publishSite/clabe
+   publish() {
       echo "Publishing:"
-      cp -v clabe.js $publishFolder
+      mkdir -p $publishFolder
+      cp -v clabe.js   $publishFolder
       cp -v clabe.html $publishFolder/index.html
       echo
       }
-   test -w $publishFolder && copyWebFiles
+   test -w $publishSite && publish
    }
 
 echo
@@ -65,6 +67,6 @@ echo
 setupTools
 buildProject
 releaseInstructions
-publishWebPage
+publishWebFiles
 sleep 2
 open clabe.html
