@@ -7,11 +7,15 @@
 # To make this file runnable:
 #     $ chmod +x *.sh.command
 
+banner="CLABE Validator"
 projectHome=$(cd $(dirname $0); pwd)
 
 setupTools() {
    # Check for Node.js installation and download project dependencies
    cd $projectHome
+   echo
+   echo $banner
+   echo $(echo $banner | sed -e "s/./=/g")
    pwd
    echo
    echo "Node.js:"
@@ -60,10 +64,6 @@ publishWebFiles() {
    test -w $publishSite && publish
    }
 
-echo
-echo "Task Runner"
-echo "==========="
-echo
 setupTools
 buildProject
 releaseInstructions
