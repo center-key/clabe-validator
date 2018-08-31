@@ -19,10 +19,10 @@ Try it out:<br>
 ### B) Include
 In a web page:
 ```html
-<script src=clabe.js></script>
+<script src=clabe.min.js></script>
 ```
 
-From the jsdelivr.com CDN:
+From the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-validator):
 ```html
 <script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.0/clabe.min.js></script>
 ```

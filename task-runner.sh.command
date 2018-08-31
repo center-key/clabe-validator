@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 ###################
 # Task Runner     #
 # CLABE Validator #
@@ -42,7 +42,7 @@ releaseInstructions() {
    echo
    echo "To tag this release:"
    echo "   cd $(pwd)"
-   echo "   git tag --annotate --force --message 'Stable release' $version"
+   echo "   git tag --annotate --force --message 'Release' $version"
    echo "   git remote --verbose"
    echo "   git push origin --tags --force"
    echo "   npm publish"
