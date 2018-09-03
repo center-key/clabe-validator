@@ -21,7 +21,7 @@ var clabe = {
       // Example:
       //    var city = clabe.validate('002010077777777771').city;  //value: "Banco Nacional de México"
       if (typeof clabeNum !== 'string')
-         throw 'clabe.validator.check(clabeNum) -- Parameter must be a string';
+         throw 'clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum;
       var bankCode = clabeNum.substr(0, 3);
       var cityCode = clabeNum.substr(3, 3);
       var checksum = parseInt(clabeNum.substr(17, 1));
