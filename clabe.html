@@ -151,17 +151,18 @@
 <script src=https://centerkey.com/js/library.js></script>
 <script src=clabe.js></script>
 <script>
-var app = {
+const app = {
    validateInput: function(elem) {
-      var message = clabe.validate(elem.val()).message;
+      console.log(elem.val(), clabe.validate(elem.val()));
+      const message = clabe.validate(elem.val()).message;
       elem.closest('form').find('.message').text(message).stop().hide().fadeIn();
       },
    updateCalculation: function(elem) {
-      var form = elem.closest('form');
-      var bankCode =      form.find('select').first().val();
-      var cityCode =      form.find('select').last().val();
-      var accountNumber = form.find('input').val();
-      var message = 'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber);
+      const form = elem.closest('form');
+      const bankCode =      form.find('select').first().val();
+      const cityCode =      form.find('select').last().val();
+      const accountNumber = form.find('input').val();
+      const message = 'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber);
       if (!/^[0-9]*$/.test(accountNumber))
          message = 'Account must be only numeric digits';
       form.find('.message').text(message).stop().hide().fadeIn();
@@ -173,14 +174,14 @@ var app = {
          return { code: pad(code), name: name, label: pad(code) + ': ' + name };
          }
       function mapToArray(map) {
-         var array = [];
-         for (var property in map)
+         const array = [];
+         for (let property in map)
             array.push(codeObj(property, map[property]));
          return array;
          }
       function toCityObj(data) { return codeObj(data[0], data[1]); }
       function compare(a, b) { return a.name.localeCompare(b.name); }
-      var codes = {
+      const codes = {
          banks:  mapToArray(clabe.banksMap).sort(compare),
          cities: clabe.cities.map(toCityObj).sort(compare)
          };

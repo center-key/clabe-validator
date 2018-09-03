@@ -40,8 +40,8 @@ Pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
 
 #### 1. Example JavaScript code
 ```javascript
-var clabeNum = '002010077777777771';
-var clabeCheck = clabe.validate(clabeNum);
+const clabeNum = '002010077777777771';
+const clabeCheck = clabe.validate(clabeNum);
 console.log(clabeCheck.error ? '¡Muy mal!' : '¡Que bueno!');
 ```
 
@@ -75,7 +75,7 @@ console.log(clabeCheck.error ? '¡Muy mal!' : '¡Que bueno!');
 Pass the bank code, city code, and account number into `clabe.calculate(bankCode, cityCode, accountNumber)` and get the 18-character CLABE number back.
 
 ```javascript
-var clabeNum = clabe.calculate(2, 10, 7777777777);
+const clabeNum = clabe.calculate(2, 10, 7777777777);
 console.log(clabeNum === '002010077777777771');
 ```
 
