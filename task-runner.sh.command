@@ -27,13 +27,6 @@ setupTools() {
    echo
    }
 
-buildProject() {
-   cd $projectHome
-   echo "Build:"
-   npm test
-   echo
-   }
-
 releaseInstructions() {
    cd $projectHome
    repository=$(grep repository package.json | awk -F'"' '{print $4}' | sed s/github://)
@@ -79,6 +72,13 @@ releaseInstructions() {
    echo
    }
 
+buildProject() {
+   cd $projectHome
+   echo "Build:"
+   npm test
+   echo
+   }
+
 publishWebFiles() {
    cd $projectHome
    publishWebRoot=$(grep ^DocumentRoot /private/etc/apache2/httpd.conf | awk -F\" '{ print $2 }')
@@ -95,8 +95,8 @@ publishWebFiles() {
    }
 
 setupTools
-buildProject
 releaseInstructions
+buildProject
 publishWebFiles
 sleep 2
 open clabe.html
