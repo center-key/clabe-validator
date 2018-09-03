@@ -30,9 +30,9 @@ setupTools() {
 releaseInstructions() {
    cd $projectHome
    repository=$(grep repository package.json | awk -F'"' '{print $4}' | sed s/github://)
-   package="https://raw.githubusercontent.com/$repository/master/package.json"
-   version=$(grep '"version"' package.json | awk -F'"' '{print $4}')
-   pushed=$(curl --silent $package | grep '"version":' | awk -F'"' '{print $4}')
+   package=https://raw.githubusercontent.com/$repository/master/package.json
+   version=v$(grep '"version"' package.json | awk -F'"' '{print $4}')
+   pushed=v$(curl --silent $package | grep '"version":' | awk -F'"' '{print $4}')
    released=$(git tag | tail -1)
    echo "Local changes:"
    git status --short
@@ -46,18 +46,18 @@ releaseInstructions() {
    echo "Next release action:"
    nextActionUpdate() {
       echo "   === Increment version ==="
-      echo "   Edit pacakge.json to bump version $version to next version number"
+      echo "   Edit pacakge.json to bump $version to next version number"
       echo "   $projectHome/package.json"
       }
    nextActionCommit() {
       echo "   === Commit and push ==="
-      echo "   Check in changed source files for v$version with the message:"
+      echo "   Check in changed source files for $version with the message:"
       echo "   Set version for next release"
       }
    nextActionTag() {
       echo "   === Release checkin ==="
       echo "   Check in remaining changed files with the message:"
-      echo "   Release v$version"
+      echo "   Release $version"
       echo "   === Tag and publish ==="
       echo "   cd $projectHome"
       echo "   git tag --annotate --message 'Release' $version"
@@ -66,9 +66,9 @@ releaseInstructions() {
       echo "   npm publish"
       }
    checkStatus() {
-      test $version \> $pushed && nextActionCommit || nextActionUpdate
+      test $version ">" $pushed && nextActionCommit || nextActionUpdate
       }
-   test $pushed \> $released && nextActionTag || checkStatus
+   test $pushed ">" $released && nextActionTag || checkStatus
    echo
    }
 
