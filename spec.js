@@ -5,7 +5,8 @@
 //    $ cd clabe-validator
 //    $ npm test
 
-const assert = require('assert');
+// Imports
+const assert = require('assert').strict;
 const clabe =  require('./clabe.js');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -13,7 +14,9 @@ describe('Library release number', () => {
 
    it('follows semantic version formatting', () => {
       const semVerPattern = /v\d+[.]\d+[.]\d+/;
-      assert.ok(semVerPattern.test(clabe.release), 'Incorrect format: ' + clabe.release);
+      const actual =   { valid: semVerPattern.test(clabe.release) };
+      const expected = { valid: true };
+      assert.deepEqual(actual, expected);
       });
 
    });
@@ -28,27 +31,34 @@ describe('List of CLABE banks', () => {
          { input: '652', expected: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular' }
          ];
       function evalData(data) {
-         assert.equal(clabe.banksMap[parseInt(data.input)], data.expected);
+         const actual =   { code: data.input, name: clabe.banksMap[parseInt(data.input)] };
+         const expected = { code: data.input, name: data.expected };
+         assert.deepEqual(actual, expected);
          }
       dataSet.forEach(evalData);
       });
 
    it('has a default "N/A" bank for code 999', () => {
-      assert.equal(clabe.banksMap[999], 'N/A');
+      const actual =   { code: 999, name: clabe.banksMap[999] };
+      const expected = { code: 999, name: 'N/A' };
+      assert.deepEqual(actual, expected);
       });
 
    });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE cities', () => {
-   let cityNamesMap = {};
+   const cityNamesMap = {};  //{ Aguascalientes: 10, Calvillo: 12, ... }
    function addCity(city) { cityNamesMap[city[1]] = city[0]; }
    clabe.cities.forEach(addCity);
 
    it('is in numerical order', () => {
-      function checkOrder(city, i) {
+      function checkOrder(city, i) {  //example city: [10, 'Aguascalientes']
          const priorCode = i > 0 ? clabe.cities[i - 1][0] : 0;
-         assert.ok(city[0] >= priorCode, 'After #' + priorCode + ', out of order city: #' + city);
+         const ordered = city[0] >= priorCode;
+         const actual =   { city: city[1], code: city[0], prior: priorCode, ordered: ordered };
+         const expected = { city: city[1], code: city[0], prior: priorCode, ordered: true };
+         assert.deepEqual(actual, expected);
          }
       clabe.cities.forEach(checkOrder);
       });
@@ -61,15 +71,20 @@ describe('List of CLABE cities', () => {
          { input: 'Jerez de G. Salinas', expected: '936' }
          ];
       function evalData(data) {
-         assert.equal(cityNamesMap[data.input], parseInt(data.expected));
+         const actual =   { city: data.input, code: cityNamesMap[data.input] };
+         const expected = { city: data.input, code: parseInt(data.expected) };
+         assert.deepEqual(actual, expected);
          }
       dataSet.forEach(evalData);
       });
 
    it('has no duplicate city names', () => {
       function checkForDuplicate(city) {
-         if (cityNamesMap[city[1]] !== city[0] && city[1] !== 'N/A')
-            assert.equal(city, 'Not unique -- see: ' + cityNamesMap[city[1]]);
+         const code = cityNamesMap[city[1]];
+         const unique = city[0] === code || city[1] === 'N/A';
+         const actual =   { city: city[1], code1: city[0], code2: code, unique: unique };
+         const expected = { city: city[1], code1: city[0], code2: code, unique: true };
+         assert.deepEqual(actual, expected);
          }
       clabe.cities.forEach(checkForDuplicate);
       });
@@ -86,7 +101,10 @@ describe('CLABE validator', () => {
          { input: '002115016003269411', expected: 'Invalid city code' }
          ];
       function evalData(data) {
-         assert.equal(clabe.validate(data.input).message, data.expected);
+         const result = clabe.validate(data.input);
+         const actual =   { clabe: data.input, error: result.error, message: result.message };
+         const expected = { clabe: data.input, error: true,         message: data.expected };
+         assert.deepEqual(actual, expected);
          }
       dataSet.forEach(evalData);
       });
@@ -99,7 +117,11 @@ describe('CLABE validator', () => {
          '014028000005555557'
          ];
       function evalData(data) {
-         assert.equal(clabe.validate(data).message.substr(0, 6), 'Valid:');
+         const result = clabe.validate(data);
+         const valid = /^Valid:/.test(result.message);
+         const actual =   { clabe: data, error: result.error, valid: valid };
+         const expected = { clabe: data, error: false,        valid: true };
+         assert.deepEqual(actual, expected);
          }
       dataSet.forEach(evalData);
       });
@@ -118,7 +140,9 @@ describe('CLABE calculator', () => {
          ];
       function evalData(data) {
          const clabeNum = clabe.calculate(data.input.bank, data.input.city, data.input.acct);
-         assert.equal(clabeNum, data.expected);
+         const actual =   { details: data.input, clabe: clabeNum };
+         const expected = { details: data.input, clabe: data.expected };
+         assert.deepEqual(actual, expected);
          }
       dataSet.forEach(evalData);
       });
