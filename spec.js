@@ -10,11 +10,11 @@ const assert = require('assert').strict;
 const clabe =  require('./clabe.js');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-describe('Library release number', () => {
+describe('Library version number', () => {
 
    it('follows semantic version formatting', () => {
-      const semVerPattern = /v\d+[.]\d+[.]\d+/;
-      const actual =   { valid: semVerPattern.test(clabe.release) };
+      const semVerPattern = /\d+[.]\d+[.]\d+/;
+      const actual =   { valid: semVerPattern.test(clabe.version) };
       const expected = { valid: true };
       assert.deepEqual(actual, expected);
       });

@@ -14,12 +14,12 @@ const uglify =           require('gulp-uglify');
 const w3cHtmlValidator = require('gulp-w3cjs');
 
 // Setup
-const pkg = require('./package.json');
-const home = pkg.homepage.replace('https://', '');
-const license = pkg.license + ' License';
-const banner = '//! CLABE Validator v' + [pkg.version, home, license].join(' ~ ') + '\n';
+const pkg =            require('./package.json');
+const home =           pkg.homepage.replace('https://', '');
+const license =        pkg.license + ' License';
+const banner =         '//! CLABE Validator v' + [pkg.version, home, license].join(' ~ ') + '\n';
 const htmlHintConfig = { 'attr-value-double-quotes': false };
-const jsHintConfig = { strict: 'implied', undef: true, unused: true, browser: true, node: true };
+const jsHintConfig =   { strict: 'implied', undef: true, unused: true, browser: true, node: true };
 
 // Tasks
 const task = {
@@ -36,9 +36,9 @@ const task = {
          .pipe(jshint.reporter());
       },
    setVersion: function() {
-      const semVerPattern = /v\d+[.]\d+[.]\d+/;
+      const semVerPattern = /\d+[.]\d+[.]\d+/g;
       return gulp.src('clabe.js')
-         .pipe(replace(semVerPattern, 'v' + pkg.version))  //example: "v0.0.0"
+         .pipe(replace(semVerPattern, pkg.version))
          .pipe(gulp.dest('.'));
       },
    minify: function() {

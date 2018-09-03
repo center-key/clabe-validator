@@ -168,7 +168,7 @@ const app = {
       form.find('.message').text(message).stop().hide().fadeIn();
       },
    setupCalculator: function() {
-      console.log(clabe.release);
+      console.log('CLABE Validator v' + clabe.version);
       function pad(int) { return ('' + int).length < 3 ? pad('0' + int) : int; }
       function codeObj(code, name) {
          return { code: pad(code), name: name, label: pad(code) + ': ' + name };

@@ -4,7 +4,7 @@
 
 var clabe = {
 
-   release: 'v1.0.3',
+   version: '1.0.4',
 
    calcChecksum: function(clabeNum) {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
