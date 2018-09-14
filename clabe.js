@@ -631,7 +631,8 @@ var clabe = {
       [939, 'Loreto'],
       [946, 'Nochistlán'],
       [958, 'Valparaíso'],
-      [960, 'Calera de V. Rosales']
+      [960, 'Calera de V. Rosales'],
+      [980, 'NA']
       ]
 
    };
