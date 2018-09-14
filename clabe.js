@@ -255,6 +255,7 @@ var clabe = {
       [180, 'Texcoco'],
       [180, 'Tlalnepantla'],
       [190, 'Durango'],
+      [198, 'NA'],
       [201, 'Tepehuanes'],
       [202, 'Vicente Guerrero'],
       [210, 'Guanajuato'],
@@ -631,8 +632,7 @@ var clabe = {
       [939, 'Loreto'],
       [946, 'Nochistlán'],
       [958, 'Valparaíso'],
-      [960, 'Calera de V. Rosales'],
-      [980, 'NA']
+      [960, 'Calera de V. Rosales']
       ]
 
    };
