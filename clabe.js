@@ -1,10 +1,10 @@
-// CLABE Validator v1.0.4
+// CLABE Validator v1.0.5
 // github.com/center-key/clabe-validator
 // MIT License
 
 var clabe = {
 
-   version: '1.0.4',
+   version: '1.0.5',
 
    calcChecksum: function(clabeNum) {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
@@ -257,7 +257,7 @@ var clabe = {
       [180, 'Texcoco'],
       [180, 'Tlalnepantla'],
       [190, 'Durango'],
-      [198, 'NA'],
+      [198, 'N/A'],
       [201, 'Tepehuanes'],
       [202, 'Vicente Guerrero'],
       [210, 'Guanajuato'],
