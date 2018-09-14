@@ -1,8 +1,10 @@
-// CLABE Validator v1.0.1
+// CLABE Validator v1.0.4
 // github.com/center-key/clabe-validator
 // MIT License
 
 var clabe = {
+
+   version: '1.0.4',
 
    calcChecksum: function(clabeNum) {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
@@ -19,20 +21,20 @@ var clabe = {
       // Example:
       //    var city = clabe.validate('002010077777777771').city;  //value: "Banco Nacional de México"
       if (typeof clabeNum !== 'string')
-         throw 'clabe.validator.check(clabeNum) -- Parameter must be a string';
+         throw 'clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum;
       var bankCode = clabeNum.substr(0, 3);
       var cityCode = clabeNum.substr(3, 3);
       var checksum = parseInt(clabeNum.substr(17, 1));
-      function makeCityMap() {
-         clabe.city = {};
-         function prefix(code) { return clabe.city[code] ? clabe.city[code] + ', ' : ''; }
-         function addCity(city) { clabe.city[city[0]] = prefix(city[0]) + city[1]; }  //0: code, 1: name
+      function makeCitiesMap() {
+         clabe.citiesMap = {};
+         function prefix(code) { return clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : ''; }
+         function addCity(city) { clabe.citiesMap[city[0]] = prefix(city[0]) + city[1]; }  //0: code, 1: name
          clabe.cities.forEach(addCity);
          }
-      if (!clabe.city)
-         makeCityMap();
-      var bank = clabe.bank[parseInt(bankCode)];
-      var city = clabe.city[parseInt(cityCode)];
+      if (!clabe.citiesMap)
+         makeCitiesMap();
+      var bank = clabe.banksMap[parseInt(bankCode)];
+      var city = clabe.citiesMap[parseInt(cityCode)];
       function calcChecksum() { return clabe.calcChecksum(clabeNum); }
       function getErrorMessage() {
          return (
@@ -63,7 +65,7 @@ var clabe = {
       return clabeNum + clabe.calcChecksum(clabeNum);
       },
 
-   bank: {  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco (Jan 9, 2017)
+   banksMap: {  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco (Jan 9, 2017)
         2: 'Banco Nacional de México',
         6: 'Banco Nacional de Comercio Exterior',
         9: 'Banco Nacional de Obras y Servicios Públicos',
@@ -164,7 +166,7 @@ var clabe = {
       670: 'Libertad Servicios Financieros, S.A. De C.V.',
       901: 'CLS Bank International',
       902: 'SD. INDEVAL',
-      999: 'NA'
+      999: 'N/A'
       },
 
    cities: [  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza (Jan 9, 2017)
@@ -483,7 +485,7 @@ var clabe = {
       [650, 'La Resurrección'],
       [650, 'Puebla'],
       [650, 'San Baltazar Campeche'],
-      [651, 'NA'],
+      [651, 'N/A'],
       [652, 'Acatzingo'],
       [654, 'Atlixco'],
       [656, 'Cuetzalan'],
@@ -507,7 +509,7 @@ var clabe = {
       [691, 'Cancún'],
       [691, 'Col. Puerto Juárez'],
       [692, 'Cozumel'],
-      [693, 'NA'],
+      [693, 'N/A'],
       [694, 'Playa del Carmen'],
       [700, 'San Luis Potosí'],
       [703, 'Cerritos'],

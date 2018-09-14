@@ -1,13 +1,13 @@
 {
    "name": "clabe-validator",
-   "version": "1.0.1",
-   "description": "JavaScript library to analyze a CLABE number for a Mexican bank account",
+   "version": "1.0.4",
+   "description": "JavaScript library to analyze or create a CLABE number for a Mexican bank account",
    "license": "MIT",
    "main": "clabe.js",
-   "repository": "center-key/clabe-validator",
+   "repository": "github:center-key/clabe-validator",
    "homepage": "https://github.com/center-key/clabe-validator",
    "bugs": "https://github.com/center-key/clabe-validator/issues",
-   "docs": "http://centerkey.com/clabe",
+   "docs": "https://centerkey.com/clabe",
    "keywords": [
       "clabe",
       "validator",
@@ -18,7 +18,7 @@
    ],
    "author": {
       "name": "Center Key",
-      "url": "http://centerkey.com"
+      "url": "https://centerkey.com"
    },
    "jshintConfig": {
       "esversion": 6,
@@ -29,20 +29,20 @@
       "mocha": true
    },
    "scripts": {
-      "pretest": "jshint gulpfile.js spec.js && gulp lint && gulp build",
+      "pretest": "jshint gulpfile.js spec.js && gulp lint-html && gulp lint-js && gulp version && gulp minify",
       "test": "mocha spec.js"
    },
    "devDependencies": {
-      "gulp": "~3.9",
-      "gulp-header": "~1.8",
-      "gulp-htmlhint": "~0.3",
-      "gulp-jshint": "~2.0",
-      "gulp-rename": "~1.2",
-      "gulp-replace": "~0.6",
-      "gulp-size": "~2.1",
+      "gulp": "~4.0",
+      "gulp-header": "~2.0",
+      "gulp-htmlhint": "~2.2",
+      "gulp-jshint": "~2.1",
+      "gulp-rename": "~1.4",
+      "gulp-replace": "~1.0",
+      "gulp-size": "~3.0",
       "gulp-uglify": "~3.0",
       "gulp-w3cjs": "~1.3",
       "jshint": "~2.9",
-      "mocha": "~4.0"
+      "mocha": "~5.2"
    }
 }

@@ -1,37 +1,38 @@
-### CLABE Validator
+# CLABE Validator
+<img src=https://centerkey.com/graphics/center-key-logo.svg align=right width=200 alt=logo>
 
-*JavaScript library to analyze a CLABE number for a Mexican bank account*
+_JavaScript library to analyze or create a CLABE number for a Mexican bank account_
 
-[![npm](https://img.shields.io/npm/v/clabe-validator.svg)](https://github.com/center-key/clabe-validator)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/center-key/clabe-validator/blob/master/LICENSE.txt)
+[![npm](https://img.shields.io/npm/v/clabe-validator.svg)](https://www.npmjs.com/package/clabe-validator)
+[![Known Vulnerabilities](https://snyk.io/test/github/center-key/clabe-validator/badge.svg)](https://snyk.io/test/github/center-key/clabe-validator)
 [![Build Status](https://travis-ci.org/center-key/clabe-validator.svg)](https://travis-ci.org/center-key/clabe-validator)
-
----
 
 Clave Bancaria Estandarizada (Spanish for "standardized banking cipher") is a banking
 standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM) for
-uniform numbering of bank accounts.
+uniform numbering of bank accounts.  See: https://en.wikipedia.org/wiki/CLABE
 
 ### A) Online form
 Try it out:<br>
-[centerkey.com/clabe](http://centerkey.com/clabe/)
+[centerkey.com/clabe](https://centerkey.com/clabe/)
 
 ### B) Include
 In a web page:
 ```html
-<script src=clabe.js></script>
+<script src=clabe.min.js></script>
 ```
 
-From the jsdelivr.com CDN:
+From the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-validator):
 ```html
 <script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.0/clabe.min.js></script>
 ```
 
 In a Node.js project:
 ```shell
-$ npm install clabe-validator --save
+$ npm install clabe-validator
 ```
 ```javascript
-var clabe = require('clabe-validator');
+const clabe = require('clabe-validator');
 ```
 
 ### C) Validator usage
@@ -39,8 +40,8 @@ Pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
 
 #### 1. Example JavaScript code
 ```javascript
-var clabeNum = '002010077777777771';
-var clabeCheck = clabe.validate(clabeNum);
+const clabeNum = '002010077777777771';
+const clabeCheck = clabe.validate(clabeNum);
 console.log(clabeCheck.error ? '¡Muy mal!' : '¡Que bueno!');
 ```
 
@@ -74,7 +75,7 @@ console.log(clabeCheck.error ? '¡Muy mal!' : '¡Que bueno!');
 Pass the bank code, city code, and account number into `clabe.calculate(bankCode, cityCode, accountNumber)` and get the 18-character CLABE number back.
 
 ```javascript
-var clabeNum = clabe.calculate(2, 10, 7777777777);
+const clabeNum = clabe.calculate(2, 10, 7777777777);
 console.log(clabeNum === '002010077777777771');
 ```
 
@@ -87,4 +88,4 @@ your edits and rerun the script to ensure all the test cases pass.  Pull request
 ---
 CLABE Validator code is open source under the [MIT License](LICENSE.txt),
 and the documentation is published under the
-[CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0) license.
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) license.
