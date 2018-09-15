@@ -14,7 +14,7 @@ uniform numbering of bank accounts.  See: https://en.wikipedia.org/wiki/CLABE
 
 ### A) Online form
 Try it out:<br>
-[centerkey.com/clabe](https://centerkey.com/clabe/)
+[https://centerkey.com/clabe](https://centerkey.com/clabe/)
 
 ### B) Include
 In a web page:

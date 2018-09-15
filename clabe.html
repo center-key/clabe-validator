@@ -162,9 +162,9 @@ const app = {
       const bankCode =      form.find('select').first().val();
       const cityCode =      form.find('select').last().val();
       const accountNumber = form.find('input').val();
-      const message = 'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber);
-      if (!/^[0-9]*$/.test(accountNumber))
-         message = 'Account must be only numeric digits';
+      const message = /^[0-9]*$/.test(accountNumber) ?
+         'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber) :
+         'Account must be only numeric digits';
       form.find('.message').text(message).stop().hide().fadeIn();
       },
    setupCalculator: function() {
