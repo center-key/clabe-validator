@@ -8,6 +8,7 @@
    "homepage": "https://github.com/center-key/clabe-validator",
    "bugs": "https://github.com/center-key/clabe-validator/issues",
    "docs": "https://centerkey.com/clabe",
+   "author": "Center Key (https://centerkey.com)",
    "keywords": [
       "clabe",
       "validator",
@@ -16,10 +17,6 @@
       "mexico",
       "javascript"
    ],
-   "author": {
-      "name": "Center Key",
-      "url": "https://centerkey.com"
-   },
    "jshintConfig": {
       "esversion": 6,
       "strict": "implied",

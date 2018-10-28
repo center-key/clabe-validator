@@ -7,7 +7,7 @@ const gulp =          require('gulp');
 const header =        require('gulp-header');
 const htmlHint =      require('gulp-htmlhint');
 const htmlValidator = require('gulp-w3c-html-validator');
-const jshint =        require('gulp-jshint');
+const jsHint =        require('gulp-jshint');
 const rename =        require('gulp-rename');
 const replace =       require('gulp-replace');
 const size =          require('gulp-size');
@@ -32,8 +32,8 @@ const task = {
       },
    analyzeJs: function() {
       return gulp.src('clabe.js')
-         .pipe(jshint(jsHintConfig))
-         .pipe(jshint.reporter());
+         .pipe(jsHint(jsHintConfig))
+         .pipe(jsHint.reporter());
       },
    setVersion: function() {
       const semVerPattern = /\d+[.]\d+[.]\d+/g;
