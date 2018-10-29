@@ -30,6 +30,7 @@
       "test": "mocha spec.js"
    },
    "devDependencies": {
+      "dna.js": "~1.4",
       "gulp": "~4.0",
       "gulp-header": "~2.0",
       "gulp-htmlhint": "~2.2",
@@ -39,7 +40,9 @@
       "gulp-size": "~3.0",
       "gulp-uglify": "~3.0",
       "gulp-w3c-html-validator": "~1.4",
+      "jquery": "~3.3",
       "jshint": "~2.9",
-      "mocha": "~5.2"
+      "mocha": "~5.2",
+      "web-ignition": "~0.0"
    }
 }
