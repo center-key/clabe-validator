@@ -180,7 +180,7 @@ const app = {
       function mapToArray(map) {
          const array = [];
          for (let property in map)
-            array.push(codeObj(property, map[property]));
+            array.push(codeObj(property, map[property].bankName));
          return array;
          }
       function toCityObj(data) { return codeObj(data[0], data[1]); }

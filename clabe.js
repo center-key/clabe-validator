@@ -1,10 +1,10 @@
-// CLABE Validator v1.0.6
+// CLABE Validator v1.1.0
 // github.com/center-key/clabe-validator
 // MIT License
 
 var clabe = {
 
-   version: '1.0.6',
+   version: '1.1.0',
 
    calcChecksum: function(clabeNum) {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
@@ -50,8 +50,9 @@ var clabe = {
       return {
          error:   !!error,
          message: error || 'Valid: ' + bank + ' (' + city + ')',
-         bank:    bank,
-         city:    city
+         bank: bank ? bank.bankName : undefined,
+         bankShortName: bank ? bank.bankShortName : undefined,
+         city: city
          };
       },
 
@@ -66,108 +67,415 @@ var clabe = {
       },
 
    banksMap: {  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco (Jan 9, 2017)
-        2: 'Banco Nacional de México',
-        6: 'Banco Nacional de Comercio Exterior',
-        9: 'Banco Nacional de Obras y Servicios Públicos',
-       12: 'BBVA Bancomer',
-       14: 'Banco Santander',
-       19: 'Banco Nacional del Ejército',
-       21: 'HSBC México',
-       22: 'GE Money Bank',
-       30: 'Banco del Bajío',
-       32: 'IXE Banco',
-       36: 'Banco Inbursa',
-       37: 'Banco Interacciones',
-       42: 'Banca Mifel',
-       44: 'Scotiabank Inverlat',
-       58: 'Banco Regional de Monterrey',
-       59: 'Banco Invex',
-       60: 'Bansi',
-       62: 'Banca Afirme',
-       72: 'Banco Mercantil del Norte',
-      102: 'ABN AMRO Bank México',
-      103: 'American Express Bank (México)',
-      106: 'Bank of America México',
-      108: 'Bank of Tokyo-Mitsubishi UFJ (México)',
-      110: 'Banco J.P. Morgan',
-      112: 'Banco Monex',
-      113: 'Banco Ve por Mas',
-      116: 'ING Bank (México)',
-      124: 'Deutsche Bank México',
-      126: 'Banco Credit Suisse (México)',
-      127: 'Banco Azteca',
-      128: 'Banco Autofin México',
-      129: 'Barclays Bank México',
-      130: 'Banco Compartamos',
-      131: 'Banco Ahorro Famsa',
-      132: 'Banco Multiva',
-      133: 'Prudencial Bank',
-      134: 'Banco Wal Mart de México Adelante',
-      135: 'Nacional Financiera',
-      136: 'Banco Regional',
-      137: 'BanCoppel',
-      138: 'Banco Amigo',
-      139: 'UBS Banco',
-      140: 'Banco Fácil',
-      141: 'Volkswagen Bank',
-      143: 'Consultoría Internacional Banco',
-      145: 'Banco BASE de I.B.M.',
-      147: 'Bankaool, Institución de Banca Múltiple',
-      150: 'Banco Inmobiliario Mexicano',
-      156: 'Banco Sabadell, S.A. I.B.M.',
-      166: 'Banco del Ahorro Nacional y Servicios Financieros',
-      168: 'Sociedad Hipotecaria Federal',
-      600: 'Monex Casa de Bolsa',
-      601: 'GBM Grupo Bursátil Mexicano',
-      602: 'Masari Casa de Cambio',
-      604: 'Inversora Bursátil',
-      605: 'Valué, Casa de Bolsa',
-      606: 'Base Internacional Casa de Bolsa',
-      607: 'Casa de Cambio Tiber',
-      608: 'Vector Casa de Bolsa',
-      610: 'B y B Casa de Cambio',
-      611: 'Intercam Casa de Cambio',
-      613: 'Multivalores Casa de Bolsa Multiva Gpo. Fin.',
-      614: 'Acciones y Valores Banamex',
-      615: 'Merrill Lynch México',
-      616: 'Casa de Bolsa Finamex',
-      617: 'Valores Mexicanos',
-      618: 'Única Casa de Cambio',
-      619: 'MAPFRE Tepeyac',
-      620: 'Profuturo G.N.P.',
-      621: 'Actinver Casa de Bolsa',
-      622: 'Actinver',
-      623: 'Skandia Vida',
-      624: 'Consultoría Internacional Casa de Cambio',
-      626: 'Deutsche Securities, S.A. de C.V.',
-      627: 'Zurich Compañía de Seguros',
-      628: 'Zurich Vida, Compañía de Seguros',
-      629: 'Hipotecaria su Casita',
-      630: 'Intercam Casa de Bolsa',
-      631: 'Vanguardia Casa de Bolsa',
-      632: 'Bulltick Casa de Bolsa',
-      633: 'Sterling Casa de Cambio',
-      634: 'Fincomún, Servicios Financieros Comunitarios',
-      636: 'HDI Seguros, S.A. de C.V.',
-      637: 'OrderExpress Casa de Cambio AAC',
-      638: 'Akala, Sociedad Financiera Popular',
-      640: 'J.P. Morgan Casa de Bolsa',
-      642: 'Operadora de Recursos Reforma, S.A. de C.V.',
-      646: 'Sistema de Transferencias y Pagos STP',
-      647: 'Telecomunicaciones de México',
-      648: 'Evercore Casa de Bolsa, S.A. de C.V.',
-      649: 'Skandia Operadora',
-      651: 'Seguros Monterrey New York Life, S.A de C.V.',
-      652: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular',
-      653: 'Kuspit Casa de Bolsa, S.A. de C.V.',
-      655: 'J.P. SOFIEXPRESS, S.A. de C.V., S.F.P.',
-      656: 'UNAGRA, S.A. de C.V., S.F.P.',
-      659: 'Opciones Empresariales Del Noreste, S.A. DE C.V.',
-      670: 'Libertad Servicios Financieros, S.A. De C.V.',
-      901: 'CLS Bank International',
-      902: 'SD. INDEVAL',
-      999: 'N/A'
+      2: {
+        bankShortName: 'BANAMEX',
+        bankName: 'Banco Nacional de México, S.A.'
       },
+      6: {
+        bankShortName: 'BANCOMEXT',
+        bankName: 'Banco Nacional de Comercio Exterior'
+      },
+      9: {
+        bankShortName: 'BANOBRAS',
+        bankName: 'Banco Nacional de Obras y Servicios Públicos'
+      },
+      12: {
+        bankShortName: 'BBVA BANCOMER',
+        bankName: 'BBVA Bancomer, S.A.'
+      },
+      14: {
+        bankShortName: 'SANTANDER',
+        bankName: 'Banco Santander, S.A.'
+      },
+      19: {
+        bankShortName: 'BANJERCITO',
+        bankName: 'Banco Nacional del Ejército, Fuerza Aérea y Armada'
+      },
+      21: {
+        bankShortName: 'HSBC',
+        bankName: 'HSBC México, S.A.'
+      },
+      22: {
+        bankShortName: 'GE MONEY',
+        bankName: 'GE Money Bank, S.A.'
+      },
+      30: {
+        bankShortName: 'BAJÍO',
+        bankName: 'Banco del Bajío, S.A.'
+      },
+      32: {
+        bankShortName: 'IXE',
+        bankName: 'IXE Banco, S.A.'
+      },
+      36: {
+        bankShortName: 'INBURSA',
+        bankName: 'Banco Inbursa, S.A.'
+      },
+      37: {
+        bankShortName: 'INTERACCIONES',
+        bankName: 'Banco Interacciones, S.A.'
+      },
+      42: {
+        bankShortName: 'MIFEL',
+        bankName: 'Banca Mifel, S.A.'
+      },
+      44: {
+        bankShortName: 'SCOTIABANK',
+        bankName: 'Scotiabank Inverlat, S.A.'
+      },
+      58: {
+        bankShortName: 'BANREGIO',
+        bankName: 'Banco Regional de Monterrey, S.A.'
+      },
+      59: {
+        bankShortName: 'INVEX',
+        bankName: 'Banco Invex, S.A.'
+      },
+      60: {
+        bankShortName: 'BANSI',
+        bankName: 'Bansi, S.A.'
+      },
+      62: {
+        bankShortName: 'AFIRME',
+        bankName: 'Banca Afirme, S.A.'
+      },
+      72: {
+        bankShortName: 'BANORTE',
+        bankName: 'Banco Mercantil del Norte, S.A.'
+      },
+      102: {
+        bankShortName: 'ABNAMRO',
+        bankName: 'ABN AMRO Bank México, S.A.'
+      },
+      103: {
+        bankShortName: 'AMERICAN EXPRESS',
+        bankName: 'American Express Bank (México), S.A.'
+      },
+      106: {
+        bankShortName: 'BAMSA',
+        bankName: 'Bank of America México, S.A.'
+      },
+      108: {
+        bankShortName: 'TOKYO',
+        bankName: 'Bank of Tokyo-Mitsubishi UFJ (México), S.A.'
+      },
+      110: {
+        bankShortName: 'JP MORGAN',
+        bankName: 'Banco J.P. Morgan, S.A.'
+      },
+      112: {
+        bankShortName: 'BMONEX',
+        bankName: 'Banco Monex, S.A.'
+      },
+      113: {
+        bankShortName: 'VE POR MAS',
+        bankName: 'Banco Ve por Mas, S.A.'
+      },
+      116: {
+        bankShortName: 'ING',
+        bankName: 'ING Bank (México), S.A.'
+      },
+      124: {
+        bankShortName: 'DEUTSCHE',
+        bankName: 'Deutsche Bank México, S.A.'
+      },
+      126: {
+        bankShortName: 'CREDIT SUISSE',
+        bankName: 'Banco Credit Suisse (México), S.A.'
+      },
+      127: {
+        bankShortName: 'AZTECA',
+        bankName: 'Banco Azteca, S.A.'
+      },
+      128: {
+        bankShortName: 'AUTOFIN',
+        bankName: 'Banco Autofin México, S.A.'
+      },
+      129: {
+        bankShortName: 'BARCLAYS',
+        bankName: 'Barclays Bank México, S.A.'
+      },
+      130: {
+        bankShortName: 'COMPARTAMOS',
+        bankName: 'Banco Compartamos, S.A.'
+      },
+      131: {
+        bankShortName: 'FAMSA',
+        bankName: 'Banco Ahorro Famsa, S.A.'
+      },
+      132: {
+        bankShortName: 'BMULTIVA',
+        bankName: 'Banco Multiva, S.A.'
+      },
+      133: {
+        bankShortName: 'PRUDENTIAL',
+        bankName: 'Prudencial Bank, S.A.'
+      },
+      134: {
+        bankShortName: 'WAL-MART',
+        bankName: 'Banco Wal Mart de México Adelante, S.A.'
+      },
+      135: {
+        bankShortName: 'NAFIN',
+        bankName: 'Nacional Financiera, S.N.C.'
+      },
+      136: {
+        bankShortName: 'REGIONAL',
+        bankName: 'Banco Regional, S.A.'
+      },
+      137: {
+        bankShortName: 'BANCOPPEL',
+        bankName: 'BanCoppel, S.A.'
+      },
+      138: {
+        bankShortName: 'ABC CAPITAL',
+        bankName: 'ABC Capital, S.A. I.B.M.'
+      },
+      139: {
+        bankShortName: 'UBS BANK',
+        bankName: 'UBS Banco, S.A.'
+      },
+      140: {
+        bankShortName: 'FÁCIL',
+        bankName: 'Banco Fácil, S.A.'
+      },
+      141: {
+        bankShortName: 'VOLKSWAGEN',
+        bankName: 'Volkswagen Bank S.A. Institución de Banca Múltiple'
+      },
+      143: {
+        bankShortName: 'CIBanco',
+        bankName: 'Consultoría Internacional Banco, S.A.'
+      },
+      145: {
+        bankShortName: 'BBASE',
+        bankName: 'Banco BASE, S.A. de I.B.M.'
+      },
+      147: {
+        bankShortName: 'BANKAOOL',
+        bankName: 'Bankaool, S.A., Institución de Banca Múltiple'
+      },
+      148: {
+        bankShortName: 'PagaTodo',
+        bankName: 'Banco PagaTodo S.A., Institución de Banca Múltiple'
+      },
+      150: {
+        bankShortName: 'BIM',
+        bankName: 'Banco Inmobiliario Mexicano, S.A., Institución de Banca Múltiple'
+      },
+      156: {
+        bankShortName: 'SABADELL',
+        bankName: 'Banco Sabadell, S.A. I.B.M.'
+      },
+      166: {
+        bankShortName: 'BANSEFI',
+        bankName: 'Banco del Ahorro Nacional y Servicios Financieros, S.N.C.'
+      },
+      168: {
+        bankShortName: 'HIPOTECARIA FEDERAL',
+        bankName: 'Sociedad Hipotecaria Federal, S.N.C.'
+      },
+      600: {
+        bankShortName: 'MONEXCB',
+        bankName: 'Monex Casa de Bolsa, S.A. de C.V.'
+      },
+      601: {
+        bankShortName: 'GBM',
+        bankName: 'GBM Grupo Bursátil Mexicano, S.A. de C.V.'
+      },
+      602: {
+        bankShortName: 'MASARI CC.',
+        bankName: 'Masari Casa de Cambio, S.A. de C.V.'
+      },
+      604: {
+        bankShortName: 'C.B. INBURSA',
+        bankName: 'Inversora Bursátil, S.A. de C.V.'
+      },
+      605: {
+        bankShortName: 'VALUÉ',
+        bankName: 'Valué, S.A. de C.V., Casa de Bolsa'
+      },
+      606: {
+        bankShortName: 'CB BASE',
+        bankName: 'Base Internacional Casa de Bolsa, S.A. de C.V.'
+      },
+      607: {
+        bankShortName: 'TIBER',
+        bankName: 'Casa de Cambio Tiber, S.A. de C.V.'
+      },
+      608: {
+        bankShortName: 'VECTOR',
+        bankName: 'Vector Casa de Bolsa, S.A. de C.V.'
+      },
+      610: {
+        bankShortName: 'B&B',
+        bankName: 'B y B Casa de Cambio, S.A. de C.V.'
+      },
+      611: {
+        bankShortName: 'INTERCAM',
+        bankName: 'Intercam Casa de Cambio, S.A. de C.V.'
+      },
+      613: {
+        bankShortName: 'MULTIVA',
+        bankName: 'Multivalores Casa de Bolsa, S.A. de C.V. Multiva Gpo. Fin.'
+      },
+      614: {
+        bankShortName: 'ACCIVAL',
+        bankName: 'Acciones y Valores Banamex, S.A. de C.V., Casa de Bolsa'
+      },
+      615: {
+        bankShortName: 'MERRILL LYNCH',
+        bankName: 'Merrill Lynch México, S.A. de C.V., Casa de Bolsa'
+      },
+      616: {
+        bankShortName: 'FINAMEX',
+        bankName: 'Casa de Bolsa Finamex, S.A. de C.V.'
+      },
+      617: {
+        bankShortName: 'VALMEX',
+        bankName: 'Valores Mexicanos Casa de Bolsa, S.A. de C.V.'
+      },
+      618: {
+        bankShortName: 'ÚNICA',
+        bankName: 'Única Casa de Cambio, S.A. de C.V.'
+      },
+      619: {
+        bankShortName: 'ASEGURADORA MAPFRE',
+        bankName: 'MAPFRE Tepeyac S.A.'
+      },
+      620: {
+        bankShortName: 'AFORE PROFUTURO',
+        bankName: 'Profuturo G.N.P., S.A. de C.V.'
+      },
+      621: {
+        bankShortName: 'CB ACTINBER',
+        bankName: 'Actinver Casa de Bolsa, S.A. de C.V.'
+      },
+      622: {
+        bankShortName: 'ACTINVE SI',
+        bankName: 'Actinver S.A. de C.V.'
+      },
+      623: {
+        bankShortName: 'SKANDIA',
+        bankName: 'Skandia Vida S.A. de C.V.'
+      },
+      624: {
+        bankShortName: 'CONSULTORÍA',
+        bankName: 'Consultoría Internacional Casa de Cambio, S.A. de C.V.'
+      },
+      626: {
+        bankShortName: 'CBDEUTSCHE',
+        bankName: 'Deutsche Securities, S.A. de C.V.'
+      },
+      627: {
+        bankShortName: 'ZURICH',
+        bankName: 'Zurich Compañía de Seguros, S.A.'
+      },
+      628: {
+        bankShortName: 'ZURICHVI',
+        bankName: 'Zurich Vida, Compañía de Seguros, S.A.'
+      },
+      629: {
+        bankShortName: 'HIPOTECARIA SU CASITA',
+        bankName: 'Hipotecaria su Casita, S.A. de C.V.'
+      },
+      630: {
+        bankShortName: 'C.B. INTERCAM',
+        bankName: 'Intercam Casa de Bolsa, S.A. de C.V.'
+      },
+      631: {
+        bankShortName: 'C.B. VANGUARDIA',
+        bankName: 'Vanguardia Casa de Bolsa, S.A. de C.V.'
+      },
+      632: {
+        bankShortName: 'BULLTICK C.B.',
+        bankName: 'Bulltick Casa de Bolsa, S.A. de C.V.'
+      },
+      633: {
+        bankShortName: 'STERLING',
+        bankName: 'Sterling Casa de Cambio, S.A. de C.V.'
+      },
+      634: {
+        bankShortName: 'FINCOMUN',
+        bankName: 'Fincomún, Servicios Financieros Comunitarios, S.A. de C.V.'
+      },
+      636: {
+        bankShortName: 'HDI SEGUROS',
+        bankName: 'HDI Seguros, S.A. de C.V.'
+      },
+      637: {
+        bankShortName: 'ORDER',
+        bankName: 'OrderExpress Casa de Cambio , S.A. de C.V. AAC'
+      },
+      638: {
+        bankShortName: 'AKALA',
+        bankName: 'Akala, S.A. de C.V., Sociedad Financiera Popular'
+      },
+      640: {
+        bankShortName: 'JP MORGAN C.B.',
+        bankName: 'J.P. Morgan Casa de Bolsa, S.A. de C.V.'
+      },
+      642: {
+        bankShortName: 'REFORMA',
+        bankName: 'Operadora de Recursos Reforma, S.A. de C.V.'
+      },
+      646: {
+        bankShortName: 'STP',
+        bankName: 'Sistema de Transferencias y Pagos STP, S.A. de C.V., SOFOM E.N.R.'
+      },
+      647: {
+        bankShortName: 'TELECOMM',
+        bankName: 'Telecomunicaciones de México'
+      },
+      648: {
+        bankShortName: 'EVERCORE',
+        bankName: 'Evercore Casa de Bolsa, S.A. de C.V.'
+      },
+      649: {
+        bankShortName: 'SKANDIA',
+        bankName: 'Skandia Operadora S.A. de C.V.'
+      },
+      651: {
+        bankShortName: 'SEGMTY',
+        bankName: 'Seguros Monterrey New York Life, S.A de C.V.'
+      },
+      652: {
+        bankShortName: 'ASEA',
+        bankName: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular'
+      },
+      653: {
+        bankShortName: 'KUSPIT',
+        bankName: 'Kuspit Casa de Bolsa, S.A. de C.V.'
+      },
+      655: {
+        bankShortName: 'SOFIEXPRESS',
+        bankName: 'J.P. SOFIEXPRESS, S.A. de C.V., S.F.P.'
+      },
+      656: {
+        bankShortName: 'UNAGRA',
+        bankName: 'UNAGRA, S.A. de C.V., S.F.P.'
+      },
+      659: {
+        bankShortName: 'OPCIONES EMPRESARIALES DEL NOROESTE',
+        bankName: 'Opciones Empresariales Del Noreste, S.A. DE C.V.'
+      },
+      670: {
+        bankShortName: 'LIBERTAD',
+        bankName: 'Libertad Servicios Financieros, S.A. De C.V.'
+      },
+      901: {
+        bankShortName: 'CLS',
+        bankName: 'CLS Bank International'
+      },
+      902: {
+        bankShortName: 'INDEVAL',
+        bankName: 'SD. INDEVAL, S.A. de C.V.'
+      },
+      999: {
+        bankShortName: 'N/A',
+        bankName: 'N/A'
+      }
+    },
 
    cities: [  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza (Jan 9, 2017)
       [ 10, 'Aguascalientes'],
