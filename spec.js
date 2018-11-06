@@ -24,6 +24,16 @@ describe('Library version number', () => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE banks', () => {
 
+   it('contains only uppercase bank tags', () => {
+      function checkTagCase(bankCode) {  //example: 21: { tag: 'HSBC', name: 'HSBC México, S.A.' },
+         const bank = clabe.banksMap[bankCode];
+         const actual =   { code: bankCode, tag: bank.tag,               name: bank.name };
+         const expected = { code: bankCode, tag: bank.tag.toUpperCase(), name: bank.name };
+         assert.deepEqual(actual, expected);
+         }
+      Object.keys(clabe.banksMap).forEach(checkTagCase);
+      });
+
    it('contains the correct code to look up a bank tag', () => {
       const dataSet = [
          { input: '002', expected: 'BANAMEX' },
