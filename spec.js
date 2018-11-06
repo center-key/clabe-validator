@@ -26,21 +26,40 @@ describe('List of CLABE banks', () => {
 
    it('contains the correct code to look up a bank name', () => {
       const dataSet = [
-         { input: '002', expected: 'Banco Nacional de México' },
-         { input: '640', expected: 'J.P. Morgan Casa de Bolsa' },
-         { input: '652', expected: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular' }
+        {
+          input: '002', 
+          expected: {
+            shortName: 'BANAMEX',
+            name: 'Banco Nacional de México, S.A.'
+          }  
+        },
+        {
+          input: '640', 
+          expected: {
+            shortName: 'JP MORGAN C.B.',
+            name: 'J.P. Morgan Casa de Bolsa, S.A. de C.V.'
+          } 
+        },
+        {
+          input: '652', 
+          expected: {
+            shortName: 'ASEA',
+            name: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular'
+          }
+        }
          ];
       function evalData(data) {
-         const actual =   { code: data.input, name: clabe.banksMap[parseInt(data.input)] };
-         const expected = { code: data.input, name: data.expected };
+         const bankData = clabe.banksMap[parseInt(data.input)] || {};
+         const actual = { code: data.input, name: bankData.bankName, shortName: bankData.bankShortName };
+         const expected = { code: data.input, name: data.expected.name, shortName: data.expected.shortName };
          assert.deepEqual(actual, expected);
          }
       dataSet.forEach(evalData);
       });
 
    it('has a default "N/A" bank for code 999', () => {
-      const actual =   { code: 999, name: clabe.banksMap[999] };
-      const expected = { code: 999, name: 'N/A' };
+     const actual = { code: 999, name: clabe.banksMap[999].bankName, shortName: clabe.banksMap[999].bankShortName };
+     const expected = { code: 999, name: 'N/A', shortName: 'N/A' };
       assert.deepEqual(actual, expected);
       });
 
