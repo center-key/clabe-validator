@@ -24,6 +24,7 @@ var clabe = {
          throw 'clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum;
       var bankCode = clabeNum.substr(0, 3);
       var cityCode = clabeNum.substr(3, 3);
+      var account =  clabeNum.substr(6, 11);
       var checksum = parseInt(clabeNum.substr(17, 1));
       function makeCitiesMap() {
          clabe.citiesMap = {};
@@ -33,7 +34,7 @@ var clabe = {
          }
       if (!clabe.citiesMap)
          makeCitiesMap();
-      var bank = clabe.banksMap[parseInt(bankCode)];
+      var bank = clabe.banksMap[parseInt(bankCode)] || {};
       var city = clabe.citiesMap[parseInt(cityCode)];
       function calcChecksum() { return clabe.calcChecksum(clabeNum); }
       function getErrorMessage() {
@@ -41,18 +42,21 @@ var clabe = {
             clabeNum.length !== 18 ?      'Must be exactly 18 digits long' :
             !/[0-9]{18}/.test(clabeNum) ? 'Must be only numeric digits (no letters)' :
             calcChecksum() !== checksum ? 'Invalid checksum, last digit should be: ' + calcChecksum() :
-            !bank ?                       'Invalid bank code' :
+            !bank.tag ?                   'Invalid bank code' :
             !city ?                       'Invalid city code' :
             false
             );
          }
       var error = getErrorMessage();
       return {
+         ok:      !error,
          error:   !!error,
          message: error || 'Valid: ' + bank.name + ' (' + city + ')',
-         tag:     bank ? bank.tag : undefined,
-         bank:    bank ? bank.name : undefined,
-         city:    city
+         tag:     bank.tag,
+         bank:    bank.name,
+         city:    city,
+         account: account,
+         code:    { bank: bankCode, city: cityCode }
          };
       },
 

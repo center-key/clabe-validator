@@ -116,8 +116,8 @@ describe('CLABE validator', () => {
          ];
       function evalData(data) {
          const result = clabe.validate(data.input);
-         const actual =   { clabe: data.input, error: result.error, message: result.message };
-         const expected = { clabe: data.input, error: true,         message: data.expected };
+         const actual =   { clabe: data.input, ok: result.ok, message: result.message };
+         const expected = { clabe: data.input, ok: false,     message: data.expected };
          assert.deepEqual(actual, expected);
          }
       dataSet.forEach(evalData);
@@ -133,11 +133,41 @@ describe('CLABE validator', () => {
       function evalData(data) {
          const result = clabe.validate(data);
          const valid = /^Valid:/.test(result.message);
-         const actual =   { clabe: data, error: result.error, valid: valid };
-         const expected = { clabe: data, error: false,        valid: true };
+         const actual =   { clabe: data, ok: result.ok, valid: valid };
+         const expected = { clabe: data, ok: true,      valid: true };
          assert.deepEqual(actual, expected);
          }
       dataSet.forEach(evalData);
+      });
+
+   it('extracts the bank tag, bank name, and city', () => {
+      const clabeCheck = clabe.validate('002010077777777771');
+      const actual =   {
+         tag:  clabeCheck.tag,
+         bank: clabeCheck.bank,
+         city: clabeCheck.city
+         };
+      const expected = {
+         tag:  'BANAMEX',
+         bank: 'Banco Nacional de México, S.A.',
+         city: 'Aguascalientes'
+         };
+      assert.deepEqual(actual, expected);
+      });
+
+   it('extracts the bank code, city code, and account number', () => {
+      const clabeCheck = clabe.validate('002010077777777771');
+      const actual =   {
+         bank:    clabeCheck.code.bank,
+         city:    clabeCheck.code.city,
+         account: clabeCheck.account
+         };
+      const expected = {
+         bank:    '002',
+         city:    '010',
+         account: '07777777777'
+         };
+      assert.deepEqual(actual, expected);
       });
 
    });

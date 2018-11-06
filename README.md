@@ -49,17 +49,18 @@ console.log(clabeCheck.error ? '¡Muy mal!' : '¡Que bueno!');
 #### 2. Example JSON result for a valid CLABE number
 ```javascript
 {
-   error: false,
-   tag:   'BANAMEX',
-   bank:  'Banco Nacional de México, S.A.',
-   city:  'Aguascalientes'
+   ok:      true,
+   tag:     'BANAMEX',
+   bank:    'Banco Nacional de México, S.A.',
+   city:    'Aguascalientes',
+   account: '07777777777'
 }
 ```
 
 #### 3. Example JSON result for an invalid CLABE number
 ```javascript
 {
-   error:   true,
+   ok:      false,
    message: 'Invalid city code'
 }
 ```
@@ -78,7 +79,7 @@ Pass the bank code, city code, and account number into `clabe.calculate(bankCode
 
 ```javascript
 const clabeNum = clabe.calculate(2, 10, 7777777777);
-console.log(clabeNum === '002010077777777771');
+console.log(clabeNum === '002010077777777771')  //true;
 ```
 
 ### E) Notes
