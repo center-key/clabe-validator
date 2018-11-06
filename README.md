@@ -7,6 +7,7 @@ _JavaScript library to analyze or create a CLABE number for a Mexican bank accou
 [![npm](https://img.shields.io/npm/v/clabe-validator.svg)](https://www.npmjs.com/package/clabe-validator)
 [![Dependencies](https://david-dm.org/center-key/clabe-validator/status.svg)](https://david-dm.org/center-key/clabe-validator)
 [![Vulnerabilities](https://snyk.io/test/github/center-key/clabe-validator/badge.svg)](https://snyk.io/test/github/center-key/clabe-validator)
+[![Hits](https://data.jsdelivr.com/v1/package/npm/clabe-validator/badge)](https://www.jsdelivr.com/package/npm/clabe-validator)
 [![Build](https://travis-ci.org/center-key/clabe-validator.svg)](https://travis-ci.org/center-key/clabe-validator)
 
 Clave Bancaria Estandarizada (Spanish for "standardized banking cipher") is a banking
@@ -25,7 +26,7 @@ In a web page:
 
 From the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-validator):
 ```html
-<script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.0/clabe.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.1/clabe.min.js></script>
 ```
 
 In a Node.js project:

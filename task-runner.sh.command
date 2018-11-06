@@ -84,11 +84,15 @@ publishWebFiles() {
    publishWebRoot=$(grep ^DocumentRoot /private/etc/apache2/httpd.conf | awk -F\" '{ print $2 }')
    publishSite=$publishWebRoot/centerkey.com
    publishFolder=$publishSite/clabe
+   minorVersion=$(echo ${released:1} | awk -F"." '{ print $1 "." $2 }')
+   cdnSrc=https://cdn.jsdelivr.net/npm/clabe-validator@$minorVersion/clabe.min.js
    publish() {
       echo "Publishing:"
+      echo $publishFolder
       mkdir -p $publishFolder
-      cp -v clabe.js   $publishFolder
-      cp -v clabe.html $publishFolder/index.html
+      sed "s|clabe.js|$cdnSrc|" clabe.html > $publishFolder/index.html
+      ls -o $publishFolder
+      grep clabe.min.js $publishFolder/index.html
       echo
       }
    test -w $publishSite && publish
