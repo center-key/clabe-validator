@@ -50,7 +50,8 @@ console.log(clabeCheck.error ? '¡Muy mal!' : '¡Que bueno!');
 ```javascript
 {
    error: false,
-   bank:  'Banco Nacional de México',
+   tag:   'BANAMEX',
+   bank:  'Banco Nacional de México, S.A.',
    city:  'Aguascalientes'
 }
 ```

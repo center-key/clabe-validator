@@ -31,7 +31,7 @@ describe('List of CLABE banks', () => {
          { input: '652', expected: 'ASEA' }
          ];
       function evalData(data) {
-         const actual =   { code: data.input, tag: clabe.banksMap[parseInt(data.input)].bankShortName };
+         const actual =   { code: data.input, tag: clabe.banksMap[parseInt(data.input)].tag };
          const expected = { code: data.input, tag: data.expected };
          assert.deepEqual(actual, expected);
          }
@@ -45,7 +45,7 @@ describe('List of CLABE banks', () => {
          { input: '652', expected: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular' }
          ];
       function evalData(data) {
-         const actual =   { code: data.input, name: clabe.banksMap[parseInt(data.input)].bankName };
+         const actual =   { code: data.input, name: clabe.banksMap[parseInt(data.input)].name };
          const expected = { code: data.input, name: data.expected };
          assert.deepEqual(actual, expected);
          }
@@ -53,9 +53,8 @@ describe('List of CLABE banks', () => {
       });
 
    it('has a default "N/A" bank name and tag for code 999', () => {
-      const bank = clabe.banksMap[999];
-      const actual =   { code: 999, name: bank.bankName, shortName: bank.bankShortName };
-      const expected = { code: 999, name: 'N/A',         shortName: 'N/A' };
+      const actual =   { code: 999, tag: clabe.banksMap[999].tag, name: clabe.banksMap[999].name };
+      const expected = { code: 999, tag: 'N/A',                   name: 'N/A' };
       assert.deepEqual(actual, expected);
       });
 
