@@ -1,10 +1,10 @@
-// CLABE Validator v1.1.0
+// CLABE Validator v1.1.1
 // github.com/center-key/clabe-validator
 // MIT License
 
 var clabe = {
 
-   version: '1.1.0',
+   version: '1.1.1',
 
    calcChecksum: function(clabeNum) {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
