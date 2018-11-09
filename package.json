@@ -1,6 +1,6 @@
 {
    "name": "clabe-validator",
-   "version": "1.1.1",
+   "version": "1.1.2",
    "description": "JavaScript library to analyze or create a CLABE number for a Mexican bank account",
    "license": "MIT",
    "main": "clabe.js",
@@ -10,12 +10,15 @@
    "docs": "https://centerkey.com/clabe",
    "author": "Center Key (https://centerkey.com)",
    "keywords": [
-      "clabe",
-      "validator",
-      "calculator",
       "bank",
+      "bank-account",
+      "clabe",
+      "clabe-number",
+      "clabe-validator",
+      "financial",
       "mexico",
-      "javascript"
+      "javascript",
+      "validator"
    ],
    "jshintConfig": {
       "esversion": 6,
