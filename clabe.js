@@ -647,6 +647,6 @@ var clabe = {
    };
 
 if (typeof module === 'object')
-   module.exports = clabe;  //Node.js module loading system (CommonJS)
+   module.exports = clabe;  //node module loading system (CommonJS)
 if (typeof window === 'object')
    window.clabe = clabe;  //support both global and window property
