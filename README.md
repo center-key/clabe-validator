@@ -10,8 +10,8 @@ _JavaScript library to analyze or create a CLABE number for a Mexican bank accou
 [![Hits](https://data.jsdelivr.com/v1/package/npm/clabe-validator/badge)](https://www.jsdelivr.com/package/npm/clabe-validator)
 [![Build](https://travis-ci.org/center-key/clabe-validator.svg)](https://travis-ci.org/center-key/clabe-validator)
 
-Clave Bancaria Estandarizada (Spanish for "standardized banking cipher") is a banking
-standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM) for
+CLABE (Clave Bancaria Estandarizada &mdash; Spanish for "standardized banking code") is a banking
+standard from the Mexican Bank Association (Asociación de Bancos de México &mdash; ABM) for
 uniform numbering of bank accounts.  See: https://en.wikipedia.org/wiki/CLABE
 
 ### A) Online form

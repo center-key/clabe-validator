@@ -24,7 +24,7 @@ const jsHintConfig =   { strict: 'implied', undef: true, unused: true, browser: 
 // Tasks
 const task = {
    analyzeHtml: function() {
-      return gulp.src('*.html')
+      return gulp.src(['*.html', 'docs/*.html'])
          .pipe(htmlHint(htmlHintConfig))
          .pipe(htmlHint.reporter())
          .pipe(htmlValidator())
