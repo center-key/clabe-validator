@@ -34,6 +34,7 @@ releaseInstructions() {
    version=v$(grep '"version"' package.json | awk -F'"' '{print $4}')
    pushed=v$(curl --silent $package | grep '"version":' | awk -F'"' '{print $4}')
    released=$(git tag | tail -1)
+   minorVersion=$(echo ${pushed:1} | awk -F"." '{ print $1 "." $2 }')
    echo "Local changes:"
    git status --short
    echo
@@ -79,12 +80,18 @@ buildProject() {
    echo
    }
 
+updateCdnVersion() {
+   cd $projectHome
+   updateVersion="s|clabe-validator@[.0-9]*|clabe-validator@$minorVersion|"
+   sed -i "" $updateVersion README.md
+   sed -i "" $updateVersion docs/index.html
+   }
+
 publishWebFiles() {
    cd $projectHome
    publishWebRoot=$(grep ^DocumentRoot /private/etc/apache2/httpd.conf | awk -F'"' '{ print $2 }')
    publishSite=$publishWebRoot/centerkey.com
    publishFolder=$publishSite/clabe
-   minorVersion=$(echo ${released:1} | awk -F"." '{ print $1 "." $2 }')
    cdnSrc=https://cdn.jsdelivr.net/npm/clabe-validator@$minorVersion/clabe.min.js
    publish() {
       echo "Publishing:"
@@ -101,6 +108,7 @@ publishWebFiles() {
 setupTools
 releaseInstructions
 buildProject
+updateCdnVersion
 publishWebFiles
 sleep 2
 open clabe.html
