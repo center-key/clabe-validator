@@ -40,8 +40,8 @@ var clabe = {
          length:     'Must be exactly 18 digits long',
          characters: 'Must be only numeric digits (no letters)',
          checksum:   'Invalid checksum, last digit should be: ',
-         bank:       'Invalid bank code',
-         city:       'Invalid city code',
+         bank:       'Invalid bank code: ',
+         city:       'Invalid city code: ',
          null:       'Valid: '
          };
       function getValidationInfo() {
@@ -50,8 +50,8 @@ var clabe = {
             clabeNum.length !== 18 ?    { invalid: 'length',    data: '' } :
             /[^0-9]/.test(clabeNum) ?   { invalid: 'charcters', data: '' } :
             checksum !== realChecksum ? { invalid: 'checksum',  data: realChecksum } :
-            !bank.tag ?                 { invalid: 'bank',      data: '' } :
-            !city ?                     { invalid: 'city',      data: '' } :
+            !bank.tag ?                 { invalid: 'bank',      data: bankCode } :
+            !city ?                     { invalid: 'city',      data: cityCode } :
             { invalid: null, data: bank.name + ' (' + city + ')' };
          return validationInfo;
          }
