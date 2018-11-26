@@ -120,9 +120,11 @@ describe('CLABE validator', () => {
 
    it('rejects an invalid CLABE number', () => {
       const dataSet = [
-         { input: '002010077777777779', expected: ['invalid-checksum', 'Invalid checksum, last digit should be: 1'] },
-         { input: '000000000000000000', expected: ['invalid-bank',     'Invalid bank code: 000'] },
-         { input: '002115016003269411', expected: ['invalid-city',     'Invalid city code: 115'] }
+         { input: '12345678901234567',  expected: ['invalid-length',     'Must be exactly 18 digits long'] },
+         { input: '00000000000000000a', expected: ['invalid-characters', 'Must be only numeric digits (no letters)'] },
+         { input: '002010077777777779', expected: ['invalid-checksum',   'Invalid checksum, last digit should be: 1'] },
+         { input: '000000000000000000', expected: ['invalid-bank',       'Invalid bank code: 000'] },
+         { input: '002115016003269411', expected: ['invalid-city',       'Invalid city code: 115'] }
          ];
       function evalData(data) {
          const result = clabe.validate(data.input);

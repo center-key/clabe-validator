@@ -46,11 +46,11 @@ var clabe = {
       function getValidationInfo() {
          var realChecksum = clabe.calcChecksum(clabeNum);
          var validationInfo =
-            clabeNum.length !== 18 ?    { invalid: 'length',    data: '' } :
-            /[^0-9]/.test(clabeNum) ?   { invalid: 'charcters', data: '' } :
-            checksum !== realChecksum ? { invalid: 'checksum',  data: realChecksum } :
-            !bank.tag ?                 { invalid: 'bank',      data: bankCode } :
-            !city ?                     { invalid: 'city',      data: cityCode } :
+            clabeNum.length !== 18 ?    { invalid: 'length',     data: '' } :
+            /[^0-9]/.test(clabeNum) ?   { invalid: 'characters', data: '' } :
+            checksum !== realChecksum ? { invalid: 'checksum',   data: realChecksum } :
+            !bank.tag ?                 { invalid: 'bank',       data: bankCode } :
+            !city ?                     { invalid: 'city',       data: cityCode } :
             { invalid: null };
          return validationInfo;
          }
