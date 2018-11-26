@@ -12,7 +12,8 @@ _JavaScript library to analyze or create a CLABE number for a Mexican bank accou
 
 CLABE (Clave Bancaria Estandarizada &mdash; Spanish for "standardized banking code") is a banking
 standard from the Mexican Bank Association (Asociación de Bancos de México &mdash; ABM) for
-uniform numbering of bank accounts.  See: https://en.wikipedia.org/wiki/CLABE
+uniform numbering of bank accounts.&nbsp; CLABE numbers are 18 digits long.&nbsp;
+See: https://en.wikipedia.org/wiki/CLABE
 
 ### A) Online form
 Try it out:<br>

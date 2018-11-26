@@ -16,8 +16,10 @@
 <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@0.0/dist/layouts/letterbox.css>
 <style>
    html { background-image: url(museum-wall.jpg); }
+   body >main >section:first-child { background-color: rgba(255,255,255,0.7); }
    body >main >section:first-child h2 { text-transform: none; }
    body >main >section:first-child nav { margin-bottom: 30px; }
+   body >main >section i.font-icon { font-size: 2rem; }
 </style>
 </head>
 <body>
@@ -38,17 +40,18 @@
          <p>
             CLABE (Clave Bancaria Estandarizada &mdash; Spanish for "standardized banking code") is a banking
             standard from the Mexican Bank Association (Asociación de Bancos de México &mdash; ABM) for
-            uniform numbering of bank accounts.
+            uniform numbering of bank accounts.&nbsp; CLABE numbers are 18 digits long.
          </p>
          <p>
-            Interactive online form:<br>
+            Interactive online validation form:<br>
             <a href=https://centerkey.com/clabe>https://centerkey.com/clabe</a>
          </p>
          <p>
+            Fork it:<br>
             <a href=https://github.com/center-key/clabe-validator><i data-brand=github-alt></i></a>
          </p>
-         <p>
-            <a href=https://clabe-validator.js.org>https://clabe-validator.js.org</a>
+         <p class=plain>
+            <small><a href=https://clabe-validator.js.org>https://clabe-validator.js.org</a></small>
          </p>
       </div>
    </section>
