@@ -131,7 +131,7 @@
 <footer>
    <div>
       <p class=plain>
-         <b>CLABE Validator</b><br>
+         <b>CLABE Validator v<span class=version-number></span></b><br>
          <a href=https://centerkey.com/clabe>https://centerkey.com/clabe</a>
       </p>
       <p>
@@ -170,13 +170,14 @@ const app = {
       const bankCode =      form.find('select').first().val();
       const cityCode =      form.find('select').last().val();
       const accountNumber = form.find('input').val();
-      const message = /^[0-9]*$/.test(accountNumber) ?
-         'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber) :
-         'Account must be only numeric digits';
+      const message = /[^0-9]/.test(accountNumber) ?
+         'Account must be only numeric digits' :
+         'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber);
       form.find('.message').text(message).stop().hide().fadeIn();
       },
    setupCalculator: function() {
       console.log('CLABE Validator v' + clabe.version);
+      $('.version-number').text(clabe.version);
       function pad(int) { return ('' + int).length < 3 ? pad('0' + int) : int; }
       function codeObj(code, name) {
          return { code: pad(code), name: name, label: pad(code) + ': ' + name };
