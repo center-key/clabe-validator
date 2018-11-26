@@ -53,6 +53,7 @@ console.log('Your bank is ' + clabeCheck.bank);
 ```javascript
 {
    ok:      true,
+   error:   null,
    tag:     'BANAMEX',
    bank:    'Banco Nacional de México, S.A.',
    city:    'Aguascalientes',
@@ -64,21 +65,24 @@ console.log('Your bank is ' + clabeCheck.bank);
 ```javascript
 {
    ok:      false,
-   message: 'Invalid city code'
+   error:   'invalid-city'
+   message: 'Invalid city code: 000'
 }
 ```
 
-#### 4. Possible error messages
-| Error message                            |
-| ---------------------------------------- |
-| Must be exactly 18 digits long           |
-| Must be only numeric digits (no letters) |
-| Invalid checksum                         |
-| Invalid bank code                        |
-| Invalid city code                        |
+#### 4. Possible errors
+| Error code             | Error message                                   |
+| ---------------------- | ----------------------------------------------- |
+| `'invalid-length'`     | Must be exactly 18 digits long                  |
+| `'invalid-characters'` | Must be only numeric digits (no letters)        |
+| `'invalid-checksum'`   | Invalid checksum, last digit should be: [DIGIT] |
+| `'invalid-bank'`       | Invalid bank code: [CODE]                       |
+| `'invalid-city'`       | Invalid city code: [CODE]                       |
 
 ### D) Calculator usage
-Pass the bank code, city code, and account number into `clabe.calculate(bankCode, cityCode, accountNumber)` and get the 18-character CLABE number back.
+Pass the bank code, city code, and account number into
+`clabe.calculate(bankCode, cityCode, accountNumber)`
+and get the 18-character CLABE number back.
 
 ```javascript
 const clabeNum = clabe.calculate(2, 10, 7777777777);

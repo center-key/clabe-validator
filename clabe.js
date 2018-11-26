@@ -58,7 +58,7 @@ var clabe = {
       var validation = getValidationInfo();
       return {
          ok:      !validation.invalid,
-         error:   !!validation.invalid,
+         error:   validation.invalid ? 'invalid-' + validation.invalid : null,
          message: errorMap[validation.invalid] + validation.data,
          tag:     bank.tag,
          bank:    bank.name,
