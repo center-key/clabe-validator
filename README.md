@@ -27,7 +27,7 @@ In a web page:
 
 From the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-validator):
 ```html
-<script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.1/clabe.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.2/clabe.min.js></script>
 ```
 
 In a Node.js project:
@@ -71,13 +71,13 @@ console.log('Your bank is ' + clabeCheck.bank);
 ```
 
 #### 4. Possible errors
-| Error code             | Error message                                   |
-| ---------------------- | ----------------------------------------------- |
-| `'invalid-length'`     | Must be exactly 18 digits long                  |
-| `'invalid-characters'` | Must be only numeric digits (no letters)        |
-| `'invalid-checksum'`   | Invalid checksum, last digit should be: [DIGIT] |
-| `'invalid-bank'`       | Invalid bank code: [CODE]                       |
-| `'invalid-city'`       | Invalid city code: [CODE]                       |
+| Error code           | Error message                                   |
+| -------------------- | ----------------------------------------------- |
+| `invalid-length`     | Must be exactly 18 digits long                  |
+| `invalid-characters` | Must be only numeric digits (no letters)        |
+| `invalid-checksum`   | Invalid checksum, last digit should be: [DIGIT] |
+| `invalid-bank`       | Invalid bank code: [CODE]                       |
+| `invalid-city`       | Invalid city code: [CODE]                       |
 
 ### D) Calculator usage
 Pass the bank code, city code, and account number into
