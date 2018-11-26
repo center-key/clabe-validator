@@ -159,8 +159,10 @@
 <script>
 const app = {
    validateInput: function(elem) {
-      console.log(elem.val(), clabe.validate(elem.val()));
-      const message = clabe.validate(elem.val()).message;
+      const clabeCheck = clabe.validate(elem.val());
+      console.log(elem.val(), clabeCheck);
+      const validMessage = 'Valid: ' + clabeCheck.bank + ' (' + clabeCheck.city + ')';
+      const message = clabeCheck.ok ? validMessage : clabeCheck.message;
       elem.closest('form').find('.message').text(message).stop().hide().fadeIn();
       },
    updateCalculation: function(elem) {

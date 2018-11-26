@@ -142,9 +142,8 @@ describe('CLABE validator', () => {
          ];
       function evalData(data) {
          const result = clabe.validate(data);
-         const valid = /^Valid:/.test(result.message);
-         const actual =   { clabe: data, ok: result.ok, error: null, valid: valid };
-         const expected = { clabe: data, ok: true,      error: null, valid: true };
+         const actual =   { clabe: data, ok: result.ok, error: result.error, msg: result.message };
+         const expected = { clabe: data, ok: true,      error: null,         msg: 'Valid'};
          assert.deepEqual(actual, expected);
          }
       dataSet.forEach(evalData);
