@@ -36,22 +36,30 @@ var clabe = {
          makeCitiesMap();
       var bank = clabe.banksMap[parseInt(bankCode)] || {};
       var city = clabe.citiesMap[parseInt(cityCode)];
-      function calcChecksum() { return clabe.calcChecksum(clabeNum); }
-      function getErrorMessage() {
-         return (
-            clabeNum.length !== 18 ?      'Must be exactly 18 digits long' :
-            !/[0-9]{18}/.test(clabeNum) ? 'Must be only numeric digits (no letters)' :
-            calcChecksum() !== checksum ? 'Invalid checksum, last digit should be: ' + calcChecksum() :
-            !bank.tag ?                   'Invalid bank code' :
-            !city ?                       'Invalid city code' :
-            false
-            );
+      var errorMap = {
+         length:     'Must be exactly 18 digits long',
+         characters: 'Must be only numeric digits (no letters)',
+         checksum:   'Invalid checksum, last digit should be: ',
+         bank:       'Invalid bank code',
+         city:       'Invalid city code',
+         null:       'Valid: '
+         };
+      function getValidationInfo() {
+         var realChecksum = clabe.calcChecksum(clabeNum);
+         var validationInfo =
+            clabeNum.length !== 18 ?    { invalid: 'length',    data: '' } :
+            /[^0-9]/.test(clabeNum) ?   { invalid: 'charcters', data: '' } :
+            checksum !== realChecksum ? { invalid: 'checksum',  data: realChecksum } :
+            !bank.tag ?                 { invalid: 'bank',      data: '' } :
+            !city ?                     { invalid: 'city',      data: '' } :
+            { invalid: null, data: bank.name + ' (' + city + ')' };
+         return validationInfo;
          }
-      var error = getErrorMessage();
+      var validation = getValidationInfo();
       return {
-         ok:      !error,
-         error:   !!error,
-         message: error || 'Valid: ' + bank.name + ' (' + city + ')',
+         ok:      !validation.invalid,
+         error:   !!validation.invalid,
+         message: errorMap[validation.invalid] + validation.data,
          tag:     bank.tag,
          bank:    bank.name,
          city:    city,
