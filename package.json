@@ -36,6 +36,7 @@
       "node": ">=9.9.0"
    },
    "devDependencies": {
+      "@fortawesome/fontawesome-free": "~5.5",
       "dna.js": "~1.4",
       "gulp": "~4.0",
       "gulp-header": "~2.0",
@@ -49,6 +50,6 @@
       "jquery": "~3.3",
       "jshint": "~2.9",
       "mocha": "~5.2",
-      "web-ignition": "~0.0"
+      "web-ignition": "~1.0"
    }
 }
