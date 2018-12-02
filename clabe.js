@@ -6,17 +6,17 @@ const clabe = {
 
    version: '[VERSION]',
 
-   calcChecksum: function(clabeNum) {
+   calcChecksum: clabeNum => {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
       // Example:
       //    const checksum = clabe.calcChecksum('00201007777777777');  //value: 1
       let sum = 0;
-      function add(digit, index) { sum += (parseInt(digit) * [3, 7, 1][index % 3]) % 10; }
+      const add = (digit, index) => { sum += (parseInt(digit) * [3, 7, 1][index % 3]) % 10; };
       clabeNum.split('').slice(0, 17).forEach(add);
       return (10 - (sum % 10)) % 10;
       },
 
-   validate: function(clabeNum) {
+   validate: clabeNum => {
       // Returns information in a map (object literal) about the CLABE number.
       // Example:
       //    const city = clabe.validate('002010077777777771').city;  //value: "Banco Nacional de México"
@@ -33,17 +33,17 @@ const clabe = {
       const cityCode = clabeNum.substr(3, 3);
       const account =  clabeNum.substr(6, 11);
       const checksum = parseInt(clabeNum.substr(17, 1));
-      function makeCitiesMap() {
+      const makeCitiesMap = () => {
          clabe.citiesMap = {};
-         function prefix(code) { return clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : ''; }
-         function addCity(city) { clabe.citiesMap[city[0]] = prefix(city[0]) + city[1]; }  //0: code, 1: name
+         const prefix = code => clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : '';
+         const addCity = city => clabe.citiesMap[city[0]] = prefix(city[0]) + city[1];  //0: code, 1: name
          clabe.cities.forEach(addCity);
-         }
+         };
       if (!clabe.citiesMap)
          makeCitiesMap();
       const bank = clabe.banksMap[parseInt(bankCode)] || {};
       const city = clabe.citiesMap[parseInt(cityCode)];
-      function getValidationInfo() {
+      const getValidationInfo = () => {
          const realChecksum = clabe.calcChecksum(clabeNum);
          const validationInfo =
             clabeNum.length !== 18 ?    { invalid: 'length',     data: '' } :
@@ -53,7 +53,7 @@ const clabe = {
             !city ?                     { invalid: 'city',       data: cityCode } :
             { invalid: null };
          return validationInfo;
-         }
+         };
       const validation = getValidationInfo();
       const valid = !validation.invalid;
       return {
@@ -68,12 +68,12 @@ const clabe = {
          };
       },
 
-   calculate: function(bankCode, cityCode, accountNumber) {
+   calculate: (bankCode, cityCode, accountNumber) => {
       // Returns an 18-character CLABE number.
       // Example:
       //    const clabeNum = clabe.calculate(2, 10, 7777777777);  //value: "002010077777777771"
-      function pad(num, len) { return num.length < len ? pad('0' + num, len) : num; }
-      function fit(num, len) { return pad('' + num, len).slice(-len); }
+      const pad = (num, len) => num.length < len ? pad('0' + num, len) : num;
+      const fit = (num, len) => pad('' + num, len).slice(-len);
       const clabeNum = fit(bankCode, 3) + fit(cityCode, 3) + fit(accountNumber, 11);
       return clabeNum + clabe.calcChecksum(clabeNum);
       },
