@@ -10,18 +10,6 @@ const assert = require('assert').strict;
 const clabe =  require('./clabe.js');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-describe('Library version number', () => {
-
-   it('follows semantic version formatting', () => {
-      const semVerPattern = /\d+[.]\d+[.]\d+/;
-      const actual =   { valid: semVerPattern.test(clabe.version) };
-      const expected = { valid: true };
-      assert.deepEqual(actual, expected);
-      });
-
-   });
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE banks', () => {
 
    const bankCodes = Object.keys(clabe.banksMap);

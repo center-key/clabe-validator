@@ -36,22 +36,20 @@ const task = {
          .pipe(jsHint.reporter());
       },
    setVersion: () => {
-      const semVerPattern = /\d+[.]\d+[.]\d+/;
       const headerCommentsLines = /^[/][/].*\n/gm;
       return gulp.src('clabe.js')
-         .pipe(replace(semVerPattern, pkg.version))
-         .pipe(gulp.dest('.'))
          .pipe(replace(headerCommentsLines, ''))
          .pipe(header(banner))
+         .pipe(replace('[VERSION]', pkg.version))
+         .pipe(size({ showFiles: true }))
          .pipe(gulp.dest('dist'));
       },
    minify: () => {
       return gulp.src('clabe.js')
-         .pipe(rename('clabe.min.js'))
          .pipe(uglify())
+         .pipe(rename({ extname: '.min.js' }))
          .pipe(header(banner))
          .pipe(size({ showFiles: true }))
-         .pipe(gulp.dest('.'))
          .pipe(gulp.dest('dist'));
       }
    };
