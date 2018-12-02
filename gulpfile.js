@@ -3,6 +3,8 @@
 // MIT License
 
 // Imports
+const babel =         require('gulp-babel');
+const gap =           require('gulp-append-prepend');
 const gulp =          require('gulp');
 const header =        require('gulp-header');
 const htmlHint =      require('gulp-htmlhint');
@@ -11,7 +13,6 @@ const jsHint =        require('gulp-jshint');
 const rename =        require('gulp-rename');
 const replace =       require('gulp-replace');
 const size =          require('gulp-size');
-const uglify =        require('gulp-uglify');
 
 // Setup
 const pkg =            require('./package.json');
@@ -20,6 +21,8 @@ const license =        pkg.license + ' License';
 const banner =         '//! CLABE Validator v' + [pkg.version, home, license].join(' ~ ') + '\n';
 const htmlHintConfig = { 'attr-value-double-quotes': false };
 const jsHintConfig =   { strict: 'implied', undef: true, unused: true, browser: true, node: true };
+const transpileES6 =   ['@babel/env', { modules: false }];
+const babelMinifyJs =  { presets: [transpileES6, 'minify'], comments: false };
 
 // Tasks
 const task = {
@@ -46,9 +49,10 @@ const task = {
       },
    minify: () => {
       return gulp.src('clabe.js')
-         .pipe(uglify())
+         .pipe(babel(babelMinifyJs))
          .pipe(rename({ extname: '.min.js' }))
          .pipe(header(banner))
+         .pipe(gap.appendText('\n'))
          .pipe(size({ showFiles: true }))
          .pipe(gulp.dest('dist'));
       }

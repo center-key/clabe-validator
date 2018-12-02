@@ -36,6 +36,11 @@
       "node": ">=9.9.0"
    },
    "devDependencies": {
+      "@babel/core": "~7.1",
+      "@babel/preset-env": "~7.1",
+      "gulp-append-prepend": "~1.0",
+      "gulp-babel": "~8.0",
+      "gulp-babel-minify": "~0.5",
       "@fortawesome/fontawesome-free": "~5.5",
       "dna.js": "~1.4",
       "gulp": "~4.0",
@@ -45,7 +50,6 @@
       "gulp-rename": "~1.4",
       "gulp-replace": "~1.0",
       "gulp-size": "~3.0",
-      "gulp-uglify": "~3.0",
       "gulp-w3c-html-validator": "~1.4",
       "jquery": "~3.3",
       "jshint": "~2.9",
