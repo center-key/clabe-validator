@@ -1,6 +1,4 @@
-// CLABE Validator
-// github.com/center-key/clabe-validator
-// MIT License
+//! CLABE Validator v1.2.1 ~ github.com/center-key/clabe-validator ~ MIT License
 
 var clabe = {
 
