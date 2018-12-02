@@ -24,8 +24,8 @@ describe('List of CLABE banks', () => {
       bankCodes.forEach(checkTagCase);
       });
 
-   it('contains only specifically allowed duplicate tags', () => {
-      const allowedDuplicateTags = ['SKANDIA', 'STP'];
+   it('contains no duplicate tags', () => {
+      const allowedDuplicateTags = ['SKANDIA', 'STP'];  //list of permitted exceptions
       const tags = bankCodes.map(bankCode => clabe.banksMap[bankCode].tag);
       const duplicateTags = tags.sort().filter((v, i, a) => i > 0 && v === a[i - 1]);
       const problemTags = duplicateTags.filter(tag => !allowedDuplicateTags.includes(tag));
