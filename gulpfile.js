@@ -23,25 +23,25 @@ const jsHintConfig =   { strict: 'implied', undef: true, unused: true, browser: 
 
 // Tasks
 const task = {
-   analyzeHtml: function() {
+   analyzeHtml: () => {
       return gulp.src(['*.html', 'docs/*.html'])
          .pipe(htmlHint(htmlHintConfig))
          .pipe(htmlHint.reporter())
          .pipe(htmlValidator())
          .pipe(htmlValidator.reporter());
       },
-   analyzeJs: function() {
+   analyzeJs: () => {
       return gulp.src('clabe.js')
          .pipe(jsHint(jsHintConfig))
          .pipe(jsHint.reporter());
       },
-   setVersion: function() {
+   setVersion: () => {
       const semVerPattern = /\d+[.]\d+[.]\d+/g;
       return gulp.src('clabe.js')
          .pipe(replace(semVerPattern, pkg.version))
          .pipe(gulp.dest('.'));
       },
-   minify: function() {
+   minify: () => {
       return gulp.src('clabe.js')
          .pipe(rename('clabe.min.js'))
          .pipe(uglify())
