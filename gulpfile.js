@@ -34,14 +34,15 @@ const task = {
    setVersion: () => {
       const headerCommentsLines = /^[/][/].*\n/gm;
       return gulp.src('clabe.js')
+         .pipe(replace('[VERSION]', pkg.version))
          .pipe(replace(headerCommentsLines, ''))
          .pipe(header(banner))
-         .pipe(replace('[VERSION]', pkg.version))
          .pipe(size({ showFiles: true }))
          .pipe(gulp.dest('dist'));
       },
    minify: () => {
       return gulp.src('clabe.js')
+         .pipe(replace('[VERSION]', pkg.version))
          .pipe(babel(babelMinifyJs))
          .pipe(rename({ extname: '.min.js' }))
          .pipe(header(banner))
