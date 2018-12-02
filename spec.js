@@ -39,7 +39,7 @@ describe('List of CLABE banks', () => {
    it('contains only specifically allowed duplicate tags', () => {
       const allowedDuplicateTags = ['SKANDIA', 'STP'];
       const tags = bankCodes.map(bankCode => clabe.banksMap[bankCode].tag);
-      const duplicateTags = tags.sort().filter((v, i, a) => i < a.length && v === a[i + 1]);
+      const duplicateTags = tags.sort().filter((v, i, a) => i > 0 && v === a[i - 1]);
       const problemTags = duplicateTags.filter(tag => !allowedDuplicateTags.includes(tag));
       const makeCodeBankPair = code => [code, clabe.banksMap[code]];
       const tagIsDuplicate = pair => problemTags.includes(pair[1].tag);
