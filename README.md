@@ -19,21 +19,22 @@ See: https://en.wikipedia.org/wiki/CLABE
 Try it out:<br>
 [https://centerkey.com/clabe](https://centerkey.com/clabe/)
 
-### B) Include
-In a web page:
+### B) Setup
+#### Browser
+Include in a web page:
 ```html
 <script src=clabe.min.js></script>
 ```
-
-From the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-validator):
+or from the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-validator):
 ```html
 <script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.3/dist/clabe.min.js></script>
 ```
-
-In a Node.js project:
+#### node
+Install package:
 ```shell
 $ npm install clabe-validator
 ```
+Import package:
 ```javascript
 const clabe = require('clabe-validator');
 ```
