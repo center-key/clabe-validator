@@ -24,6 +24,8 @@ describe('Library version number', () => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE banks', () => {
 
+   const bankCodes = Object.keys(clabe.banksMap);
+
    it('contains only uppercase bank tags', () => {
       function checkTagCase(bankCode) {  //example: 21: { tag: 'HSBC', name: 'HSBC México, S.A.' },
          const bank = clabe.banksMap[bankCode];
@@ -31,7 +33,20 @@ describe('List of CLABE banks', () => {
          const expected = { code: bankCode, tag: bank.tag.toUpperCase(), name: bank.name };
          assert.deepEqual(actual, expected);
          }
-      Object.keys(clabe.banksMap).forEach(checkTagCase);
+      bankCodes.forEach(checkTagCase);
+      });
+
+   it('contains only specifically allowed duplicate tags', () => {
+      const allowedDuplicateTags = ['SKANDIA', 'STP'];
+      const tags = bankCodes.map(bankCode => clabe.banksMap[bankCode].tag);
+      const duplicateTags = tags.sort().filter((v, i, a) => i < a.length && v === a[i + 1]);
+      const problemTags = duplicateTags.filter(tag => !allowedDuplicateTags.includes(tag));
+      const makeCodeBankPair = code => [code, clabe.banksMap[code]];
+      const tagIsDuplicate = pair => problemTags.includes(pair[1].tag);
+      const problemBanks = bankCodes.map(makeCodeBankPair).filter(tagIsDuplicate);
+      const actual =   { duplicates: duplicateTags,        tags: problemTags, banks: problemBanks };
+      const expected = { duplicates: allowedDuplicateTags, tags: [],          banks: [] };
+      assert.deepEqual(actual, expected);
       });
 
    it('contains the correct code to look up a bank tag', () => {
