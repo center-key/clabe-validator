@@ -9,7 +9,6 @@ const gulp =          require('gulp');
 const header =        require('gulp-header');
 const htmlHint =      require('gulp-htmlhint');
 const htmlValidator = require('gulp-w3c-html-validator');
-const jsHint =        require('gulp-jshint');
 const rename =        require('gulp-rename');
 const replace =       require('gulp-replace');
 const size =          require('gulp-size');
@@ -20,7 +19,6 @@ const home =           pkg.homepage.replace('https://', '');
 const license =        pkg.license + ' License';
 const banner =         '//! CLABE Validator v' + [pkg.version, home, license].join(' ~ ') + '\n';
 const htmlHintConfig = { 'attr-value-double-quotes': false };
-const jsHintConfig =   { strict: 'implied', undef: true, unused: true, browser: true, node: true };
 const transpileES6 =   ['@babel/env', { modules: false }];
 const babelMinifyJs =  { presets: [transpileES6, 'minify'], comments: false };
 
@@ -32,11 +30,6 @@ const task = {
          .pipe(htmlHint.reporter())
          .pipe(htmlValidator())
          .pipe(htmlValidator.reporter());
-      },
-   analyzeJs: () => {
-      return gulp.src('clabe.js')
-         .pipe(jsHint(jsHintConfig))
-         .pipe(jsHint.reporter());
       },
    setVersion: () => {
       const headerCommentsLines = /^[/][/].*\n/gm;
@@ -60,6 +53,5 @@ const task = {
 
 // Gulp
 gulp.task('lint-html', task.analyzeHtml);
-gulp.task('lint-js',   task.analyzeJs);
 gulp.task('version',   task.setVersion);
 gulp.task('minify',    task.minify);
