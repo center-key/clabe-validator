@@ -92,7 +92,7 @@ publishWebFiles() {
    publishWebRoot=$(grep ^DocumentRoot /private/etc/apache2/httpd.conf | awk -F'"' '{ print $2 }')
    publishSite=$publishWebRoot/centerkey.com
    publishFolder=$publishSite/clabe
-   cdnSrc=https://cdn.jsdelivr.net/npm/clabe-validator@$minorVersion/clabe.min.js
+   cdnSrc=https://cdn.jsdelivr.net/npm/clabe-validator@$minorVersion/dist/clabe.min.js
    publish() {
       echo "Publishing:"
       echo $publishFolder

@@ -36,10 +36,14 @@ const task = {
          .pipe(jsHint.reporter());
       },
    setVersion: () => {
-      const semVerPattern = /\d+[.]\d+[.]\d+/g;
+      const semVerPattern = /\d+[.]\d+[.]\d+/;
+      const headerCommentsLines = /^[/][/].*\n/gm;
       return gulp.src('clabe.js')
          .pipe(replace(semVerPattern, pkg.version))
-         .pipe(gulp.dest('.'));
+         .pipe(gulp.dest('.'))
+         .pipe(replace(headerCommentsLines, ''))
+         .pipe(header(banner))
+         .pipe(gulp.dest('dist'));
       },
    minify: () => {
       return gulp.src('clabe.js')
@@ -47,7 +51,8 @@ const task = {
          .pipe(uglify())
          .pipe(header(banner))
          .pipe(size({ showFiles: true }))
-         .pipe(gulp.dest('.'));
+         .pipe(gulp.dest('.'))
+         .pipe(gulp.dest('dist'));
       }
    };
 
