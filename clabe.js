@@ -178,6 +178,7 @@ var clabe = {
       656: { tag: 'UNAGRA',                name: 'UNAGRA, S.A. de C.V., S.F.P.' },
       659: { tag: 'OPCIONES EMPRESARIALES DEL NOROESTE', name: 'Opciones Empresariales Del Noreste, S.A. DE C.V.' },
       670: { tag: 'LIBERTAD',              name: 'Libertad Servicios Financieros, S.A. De C.V.' },
+      846: { tag: 'STP',                   name: 'Sistema de Transferencias y Pagos STP'},
       901: { tag: 'CLS',                   name: 'CLS Bank International' },
       902: { tag: 'INDEVAL',               name: 'SD. INDEVAL, S.A. de C.V.' },
       999: { tag: 'N/A',                   name: 'N/A' }
