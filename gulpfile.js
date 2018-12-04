@@ -19,6 +19,7 @@ const home =           pkg.homepage.replace('https://', '');
 const license =        pkg.license + ' License';
 const banner =         '//! CLABE Validator v' + [pkg.version, home, license].join(' ~ ') + '\n';
 const htmlHintConfig = { 'attr-value-double-quotes': false };
+const headerComments = /^[/][/].*\n/gm;
 const transpileES6 =   ['@babel/env', { modules: false }];
 const babelMinifyJs =  { presets: [transpileES6, 'minify'], comments: false };
 
@@ -31,18 +32,13 @@ const task = {
          .pipe(htmlValidator())
          .pipe(htmlValidator.reporter());
       },
-   setVersion: () => {
-      const headerCommentsLines = /^[/][/].*\n/gm;
+   buildDistribution: () => {
       return gulp.src('clabe.js')
-         .pipe(replace('[VERSION]', pkg.version))
-         .pipe(replace(headerCommentsLines, ''))
+         .pipe(replace(headerComments, ''))
          .pipe(header(banner))
-         .pipe(size({ showFiles: true }))
-         .pipe(gulp.dest('dist'));
-      },
-   minify: () => {
-      return gulp.src('clabe.js')
          .pipe(replace('[VERSION]', pkg.version))
+         .pipe(size({ showFiles: true }))
+         .pipe(gulp.dest('dist'))
          .pipe(babel(babelMinifyJs))
          .pipe(rename({ extname: '.min.js' }))
          .pipe(header(banner))
@@ -53,6 +49,5 @@ const task = {
    };
 
 // Gulp
-gulp.task('lint-html', task.analyzeHtml);
-gulp.task('version',   task.setVersion);
-gulp.task('minify',    task.minify);
+gulp.task('lint-html',  task.analyzeHtml);
+gulp.task('build-dist', task.buildDistribution);

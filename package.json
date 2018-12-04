@@ -4,6 +4,7 @@
    "description": "JavaScript library to analyze or create a CLABE number for a Mexican bank account",
    "license": "MIT",
    "main": "clabe.js",
+   "browser": "dist/clabe.min.js",
    "repository": "github:center-key/clabe-validator",
    "homepage": "https://github.com/center-key/clabe-validator",
    "bugs": "https://github.com/center-key/clabe-validator/issues",
@@ -26,19 +27,19 @@
       "undef": true,
       "unused": true,
       "browser": true,
-      "node": true,
-      "mocha": true
+      "mocha": true,
+      "node": true
    },
    "scripts": {
-      "pretest": "jshint *.js && gulp lint-html && gulp version && gulp minify",
+      "pretest": "jshint *.js && gulp lint-html && gulp build-dist",
       "test": "mocha spec.js"
    },
    "engines": {
       "node": ">=9.9.0"
    },
    "devDependencies": {
-      "@babel/core": "~7.1",
-      "@babel/preset-env": "~7.1",
+      "@babel/core": "~7.2",
+      "@babel/preset-env": "~7.2",
       "gulp-append-prepend": "~1.0",
       "gulp-babel": "~8.0",
       "gulp-babel-minify": "~0.5",
