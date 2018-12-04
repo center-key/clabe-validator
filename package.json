@@ -32,7 +32,7 @@
    },
    "scripts": {
       "pretest": "jshint *.js && gulp lint-html && gulp build-dist",
-      "test": "mocha spec.js"
+      "test": "mocha spec.js && env specMode=minified mocha spec.js"
    },
    "engines": {
       "node": ">=9.9.0"

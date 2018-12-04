@@ -7,7 +7,13 @@
 
 // Imports
 const assert = require('assert').strict;
-const clabe =  require('./clabe.js');
+
+// Setup
+const clabePath = process.env.specMode === 'minified' ? './dist/clabe.min.js' : './dist/clabe.js';
+const clabe =     require(clabePath);
+
+// Specification suite
+describe(require('path').basename(__filename) + ': ' + clabePath, () => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE banks', () => {
@@ -206,3 +212,6 @@ describe('CLABE calculator', () => {
       });
 
    });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+});
