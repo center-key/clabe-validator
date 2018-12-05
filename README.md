@@ -53,32 +53,36 @@ console.log('Your bank: ' + clabeCheck.bank);
 #### 2. Example JSON result for a valid CLABE number
 ```javascript
 {
-   ok:      true,
-   error:   null,
-   tag:     'BANAMEX',
-   bank:    'Banco Nacional de México, S.A.',
-   city:    'Aguascalientes',
-   account: '07777777777'
+   ok:       true,
+   error:    null,
+   formatOk: true,
+   tag:      'BANAMEX',
+   bank:     'Banco Nacional de México, S.A.',
+   city:     'Aguascalientes',
+   account:  '07777777777'
 }
 ```
 
 #### 3. Example JSON result for an invalid CLABE number
 ```javascript
 {
-   ok:      false,
-   error:   'invalid-city'
-   message: 'Invalid city code: 000'
+   ok:       false,
+   formatOk: true
+   error:    'invalid-city'
+   message:  'Invalid city code: 000'
 }
 ```
+The `formatOk` field is `true` when the CLABE's length and checksum are valid (even if the bank
+code or city code are invalid).
 
 #### 4. Possible errors
-| Error code           | Error message                                   |
-| -------------------- | ----------------------------------------------- |
-| `invalid-length`     | Must be exactly 18 digits long                  |
-| `invalid-characters` | Must be only numeric digits (no letters)        |
-| `invalid-checksum`   | Invalid checksum, last digit should be: [DIGIT] |
-| `invalid-bank`       | Invalid bank code: [CODE]                       |
-| `invalid-city`       | Invalid city code: [CODE]                       |
+| Error code           | Error message                                   | Format Ok |
+| -------------------- | ----------------------------------------------- | ----------|
+| `invalid-length`     | Must be exactly 18 digits long                  | `false`   |
+| `invalid-characters` | Must be only numeric digits (no letters)        | `false`   |
+| `invalid-checksum`   | Invalid checksum, last digit should be: [DIGIT] | `false`   |
+| `invalid-bank`       | Invalid bank code: [CODE]                       | `true`    |
+| `invalid-city`       | Invalid city code: [CODE]                       | `true`    |
 
 ### D) Calculator usage
 Pass the bank code, city code, and account number into

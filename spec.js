@@ -141,16 +141,28 @@ describe('CLABE validator', () => {
 
    it('rejects an invalid CLABE number', () => {
       const dataSet = [
-         { input: '12345678901234567',  expected: ['invalid-length',     'Must be exactly 18 digits long'] },
-         { input: '00000000000000000a', expected: ['invalid-characters', 'Must be only numeric digits (no letters)'] },
-         { input: '002010077777777779', expected: ['invalid-checksum',   'Invalid checksum, last digit should be: 1'] },
-         { input: '000000000000000000', expected: ['invalid-bank',       'Invalid bank code: 000'] },
-         { input: '002115016003269411', expected: ['invalid-city',       'Invalid city code: 115'] }
+         { input: '12345678901234567',  expected: [false, 'invalid-length',     'Must be exactly 18 digits long'] },
+         { input: '00000000000000000a', expected: [false, 'invalid-characters', 'Must be only numeric digits (no letters)'] },
+         { input: '002010077777777779', expected: [false, 'invalid-checksum',   'Invalid checksum, last digit should be: 1'] },
+         { input: '000000000000000000', expected: [true,  'invalid-bank',       'Invalid bank code: 000'] },
+         { input: '002115016003269411', expected: [true,  'invalid-city',       'Invalid city code: 115'] }
          ];
       const evalData = (data) => {
          const result = clabe.validate(data.input);
-         const actual =   { clabe: data.input, ok: result.ok, error: result.error,     message: result.message };
-         const expected = { clabe: data.input, ok: false,     error: data.expected[0], message: data.expected[1] };
+         const actual = {
+            clabe:   data.input,
+            ok:      result.ok,
+            format:  result.formatOk,
+            error:   result.error,
+            message: result.message
+            };
+         const expected = {
+            clabe:   data.input,
+            ok:      false,
+            format:  data.expected[0],
+            error:   data.expected[1],
+            message: data.expected[2]
+            };
          assert.deepEqual(actual, expected);
          };
       dataSet.forEach(evalData);
@@ -165,8 +177,20 @@ describe('CLABE validator', () => {
          ];
       const evalData = (data) => {
          const result = clabe.validate(data);
-         const actual =   { clabe: data, ok: result.ok, error: result.error, msg: result.message };
-         const expected = { clabe: data, ok: true,      error: null,         msg: 'Valid'};
+         const actual = {
+            clabe:  data,
+            ok:     result.ok,
+            format: result.formatOk,
+            error:  result.error,
+            msg:    result.message
+            };
+         const expected = {
+            clabe:  data,
+            ok:     true,
+            format: true,
+            error:  null,
+            msg:    'Valid'
+            };
          assert.deepEqual(actual, expected);
          };
       dataSet.forEach(evalData);
@@ -175,8 +199,8 @@ describe('CLABE validator', () => {
    it('accepts a valid CLABE number that has a checksum of 0', () => {
       const data = '002010777777777770';  //case where the last compute checksum modulus rolls over
       const result = clabe.validate(data);
-      const actual =   { clabe: data, ok: result.ok, error: result.error, msg: result.message };
-      const expected = { clabe: data, ok: true,      error: null,         msg: 'Valid'};
+      const actual =   { clabe: data, ok: result.ok, format: result.formatOk, error: result.error, msg: result.message };
+      const expected = { clabe: data, ok: true,      format: true,            error: null,         msg: 'Valid'};
       assert.deepEqual(actual, expected);
       });
 

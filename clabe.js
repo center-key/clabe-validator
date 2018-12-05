@@ -55,14 +55,15 @@ const clabe = {
       const validation = getValidationInfo();
       const valid = !validation.invalid;
       return {
-         ok:      valid,
-         error:   valid ? null : 'invalid-' + validation.invalid,
-         message: valid ? 'Valid' : errorMap[validation.invalid] + validation.data,
-         tag:     bank.tag,
-         bank:    bank.name,
-         city:    city,
-         account: account,
-         code:    { bank: bankCode, city: cityCode }
+         ok:       valid,
+         error:    valid ? null : 'invalid-' + validation.invalid,
+         formatOk: valid || ['bank', 'city'].includes(validation.invalid),
+         message:  valid ? 'Valid' : errorMap[validation.invalid] + validation.data,
+         tag:      bank.tag,
+         bank:     bank.name,
+         city:     city,
+         account:  account,
+         code:     { bank: bankCode, city: cityCode }
          };
       },
 
