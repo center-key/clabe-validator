@@ -16,6 +16,18 @@ const clabe =     require(clabePath);
 describe(require('path').basename(__filename) + ': ' + clabePath, () => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+describe('Library version number', () => {
+
+   it('follows semantic version formatting', () => {
+      const semVerPattern = /\d+[.]\d+[.]\d+/;
+      const actual =   { version: clabe.version, valid: semVerPattern.test(clabe.version) };
+      const expected = { version: clabe.version, valid: true };
+      assert.deepEqual(actual, expected);
+      });
+
+   });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE banks', () => {
 
    const bankCodes = Object.keys(clabe.banksMap);
