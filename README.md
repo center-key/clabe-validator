@@ -47,7 +47,7 @@ Pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
 const clabeNum = '002010077777777771';
 const clabeCheck = clabe.validate(clabeNum);
 console.log(clabeCheck.ok ? '¡Que bueno!' : '¡Muy mal!');
-console.log('Your bank is ' + clabeCheck.bank);
+console.log('Your bank: ' + clabeCheck.bank);
 ```
 
 #### 2. Example JSON result for a valid CLABE number
@@ -87,7 +87,7 @@ and get the 18-character CLABE number back.
 
 ```javascript
 const clabeNum = clabe.calculate(2, 10, 7777777777);
-console.log(clabeNum === '002010077777777771')  //true;
+console.log(clabeNum === '002010077777777771');  //true
 ```
 
 ### E) Notes

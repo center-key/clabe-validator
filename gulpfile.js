@@ -1,6 +1,5 @@
-// CLABE Validator
-// github.com/center-key/clabe-validator
-// MIT License
+// CLABE Validator ~ MIT License
+// Gulp configuration and tasks
 
 // Imports
 const babel =         require('gulp-babel');
@@ -16,8 +15,7 @@ const size =          require('gulp-size');
 // Setup
 const pkg =            require('./package.json');
 const home =           pkg.homepage.replace('https://', '');
-const license =        pkg.license + ' License';
-const banner =         '//! CLABE Validator v' + [pkg.version, home, license].join(' ~ ') + '\n';
+const banner =         ['//! CLABE Validator v' + pkg.version, home, 'MIT License\n'].join(' ~ ');
 const htmlHintConfig = { 'attr-value-double-quotes': false };
 const headerComments = /^[/][/].*\n/gm;
 const transpileES6 =   ['@babel/env', { modules: false }];
@@ -30,7 +28,8 @@ const task = {
          .pipe(htmlHint(htmlHintConfig))
          .pipe(htmlHint.reporter())
          .pipe(htmlValidator())
-         .pipe(htmlValidator.reporter());
+         .pipe(htmlValidator.reporter())
+         .pipe(size({ showFiles: true }));
       },
    buildDistribution: () => {
       return gulp.src('clabe.js')
