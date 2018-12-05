@@ -172,6 +172,14 @@ describe('CLABE validator', () => {
       dataSet.forEach(evalData);
       });
 
+   it('accepts a valid CLABE number that has a checksum of 0', () => {
+      const data = '002010777777777770';  //case where the last compute checksum modulus rolls over
+      const result = clabe.validate(data);
+      const actual =   { clabe: data, ok: result.ok, error: result.error, msg: result.message };
+      const expected = { clabe: data, ok: true,      error: null,         msg: 'Valid'};
+      assert.deepEqual(actual, expected);
+      });
+
    it('extracts the bank tag, bank name, and city', () => {
       const clabeCheck = clabe.validate('002010077777777771');
       const actual =   {
