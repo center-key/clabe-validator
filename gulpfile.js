@@ -15,7 +15,7 @@ const size =          require('gulp-size');
 // Setup
 const pkg =            require('./package.json');
 const home =           pkg.homepage.replace('https://', '');
-const banner =         ['//! CLABE Validator v' + pkg.version, home, 'MIT License\n'].join(' ~ ');
+const banner =         '//! CLABE Validator v' + pkg.version + ' ~ ' + home + ' ~ MIT License\n';
 const htmlHintConfig = { 'attr-value-double-quotes': false };
 const headerComments = /^[/][/].*\n/gm;
 const transpileES6 =   ['@babel/env', { modules: false }];

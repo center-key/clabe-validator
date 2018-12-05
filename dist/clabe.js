@@ -1,16 +1,16 @@
-//! CLABE Validator v1.3.1 ~ github.com/center-key/clabe-validator ~ MIT License
+//! CLABE Validator v1.3.2 ~ github.com/center-key/clabe-validator ~ MIT License
 
 const clabe = {
 
-   version: '1.3.1',
+   version: '1.3.2',
 
-   calcChecksum: clabeNum => {
+   computeChecksum: clabeNum17 => {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
       // Example:
-      //    const checksum = clabe.calcChecksum('00201007777777777');  //value: 1
+      //    const checksum = clabe.computeChecksum('00201007777777777');  //value: 1
       let sum = 0;
-      const add = (digit, index) => { sum += (parseInt(digit) * [3, 7, 1][index % 3]) % 10; };
-      clabeNum.split('').slice(0, 17).forEach(add);
+      const add = (digit, index) => sum += (parseInt(digit) * [3, 7, 1][index % 3]) % 10;
+      clabeNum17.split('').slice(0, 17).forEach(add);
       return (10 - (sum % 10)) % 10;
       },
 
@@ -42,7 +42,7 @@ const clabe = {
       const bank = clabe.banksMap[parseInt(bankCode)] || {};
       const city = clabe.citiesMap[parseInt(cityCode)];
       const getValidationInfo = () => {
-         const realChecksum = clabe.calcChecksum(clabeNum);
+         const realChecksum = clabe.computeChecksum(clabeNum);
          const validationInfo =
             clabeNum.length !== 18 ?    { invalid: 'length',     data: '' } :
             /[^0-9]/.test(clabeNum) ?   { invalid: 'characters', data: '' } :
@@ -55,14 +55,15 @@ const clabe = {
       const validation = getValidationInfo();
       const valid = !validation.invalid;
       return {
-         ok:      valid,
-         error:   valid ? null : 'invalid-' + validation.invalid,
-         message: valid ? 'Valid' : errorMap[validation.invalid] + validation.data,
-         tag:     bank.tag,
-         bank:    bank.name,
-         city:    city,
-         account: account,
-         code:    { bank: bankCode, city: cityCode }
+         ok:       valid,
+         error:    valid ? null : 'invalid-' + validation.invalid,
+         formatOk: valid || ['bank', 'city'].includes(validation.invalid),
+         message:  valid ? 'Valid' : errorMap[validation.invalid] + validation.data,
+         tag:      bank.tag,
+         bank:     bank.name,
+         city:     city,
+         account:  account,
+         code:     { bank: bankCode, city: cityCode }
          };
       },
 
@@ -73,7 +74,7 @@ const clabe = {
       const pad = (num, len) => num.length < len ? pad('0' + num, len) : num;
       const fit = (num, len) => pad('' + num, len).slice(-len);
       const clabeNum = fit(bankCode, 3) + fit(cityCode, 3) + fit(accountNumber, 11);
-      return clabeNum + clabe.calcChecksum(clabeNum);
+      return clabeNum + clabe.computeChecksum(clabeNum);
       },
 
    banksMap: {  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco (Jan 9, 2017)

@@ -72,7 +72,7 @@ console.log('Your bank: ' + clabeCheck.bank);
    message:  'Invalid city code: 000'
 }
 ```
-The `formatOk` field is `true` when the CLABE's length and checksum are valid (even if the bank
+The `formatOk` field indicates if the CLABE's length and checksum are both valid (even if the bank
 code or city code are invalid).
 
 #### 4. Possible errors
