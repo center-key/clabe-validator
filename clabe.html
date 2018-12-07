@@ -158,14 +158,14 @@
 <script src=clabe.js></script>
 <script>
 const app = {
-   validateInput: function(elem) {
+   validateInput: (elem) => {
       const clabeCheck = clabe.validate(elem.val());
       console.log(elem.val(), clabeCheck);
       const validMessage = 'Valid: ' + clabeCheck.bank + ' (' + clabeCheck.city + ')';
       const message = clabeCheck.ok ? validMessage : clabeCheck.message;
       elem.closest('form').find('.message').text(message).stop().hide().fadeIn();
       },
-   updateCalculation: function(elem) {
+   updateCalculation: (elem) => {
       const form = elem.closest('form');
       const bankCode =      form.find('select').first().val();
       const cityCode =      form.find('select').last().val();
@@ -175,21 +175,21 @@ const app = {
          'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber);
       form.find('.message').text(message).stop().hide().fadeIn();
       },
-   setupCalculator: function() {
+   setupCalculator: () => {
       console.log('CLABE Validator v' + clabe.version);
       $('.version-number').text(clabe.version);
-      function pad(int) { return ('' + int).length < 3 ? pad('0' + int) : int; }
-      function codeObj(code, name) {
+      const pad = (int) => ('' + int).length < 3 ? pad('0' + int) : int;
+      const codeObj = (code, name) => {
          return { code: pad(code), name: name, label: pad(code) + ': ' + name };
-         }
-      function mapToArray(map) {
+         };
+      const mapToArray = (map) => {
          const array = [];
          for (let property in map)
             array.push(codeObj(property, map[property].name));
          return array;
-         }
-      function toCityObj(data) { return codeObj(data[0], data[1]); }
-      function compare(a, b) { return a.name.localeCompare(b.name); }
+         };
+      const toCityObj = (data) => codeObj(data[0], data[1]);
+      const compare = (a, b) => a.name.localeCompare(b.name);
       const codes = {
          banks:  mapToArray(clabe.banksMap).sort(compare),
          cities: clabe.cities.map(toCityObj).sort(compare)
