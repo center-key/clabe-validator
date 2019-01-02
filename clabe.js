@@ -27,10 +27,10 @@ const clabe = {
          };
       if (typeof clabeNum !== 'string')
          throw 'clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum;
-      const bankCode = clabeNum.substr(0, 3);
-      const cityCode = clabeNum.substr(3, 3);
-      const account =  clabeNum.substr(6, 11);
-      const checksum = parseInt(clabeNum.substr(17, 1));
+      const bankCode = clabeNum.substring(0, 3);
+      const cityCode = clabeNum.substring(3, 6);
+      const account =  clabeNum.substring(6, 17);
+      const checksum = parseInt(clabeNum.substring(17, 18));
       const makeCitiesMap = () => {
          clabe.citiesMap = {};
          const prefix = code => clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : '';
