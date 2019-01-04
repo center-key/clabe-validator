@@ -45,7 +45,7 @@
       "gulp": "~4.0",
       "gulp-append-prepend": "~1.0",
       "gulp-babel": "~8.0",
-      "gulp-babel-minify": "~0.5",
+      "babel-minify": "~0.5",
       "gulp-header": "~2.0",
       "gulp-htmlhint": "~2.2",
       "gulp-rename": "~1.4",
