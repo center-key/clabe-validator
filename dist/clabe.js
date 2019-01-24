@@ -1,10 +1,10 @@
-//! CLABE Validator v1.3.2 ~ github.com/center-key/clabe-validator ~ MIT License
+//! CLABE Validator v1.3.3 ~ github.com/center-key/clabe-validator ~ MIT License
 
 const clabe = {
 
-   version: '1.3.2',
+   version: '1.3.3',
 
-   computeChecksum: clabeNum17 => {
+   computeChecksum: (clabeNum17) => {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
       // Example:
       //    const checksum = clabe.computeChecksum('00201007777777777');  //value: 1
@@ -14,7 +14,7 @@ const clabe = {
       return (10 - (sum % 10)) % 10;
       },
 
-   validate: clabeNum => {
+   validate: (clabeNum) => {
       // Returns information in a map (object literal) about the CLABE number.
       // Example:
       //    const city = clabe.validate('002010077777777771').city;  //value: "Banco Nacional de México"
@@ -27,14 +27,14 @@ const clabe = {
          };
       if (typeof clabeNum !== 'string')
          throw 'clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum;
-      const bankCode = clabeNum.substr(0, 3);
-      const cityCode = clabeNum.substr(3, 3);
-      const account =  clabeNum.substr(6, 11);
-      const checksum = parseInt(clabeNum.substr(17, 1));
+      const bankCode = clabeNum.substring(0, 3);
+      const cityCode = clabeNum.substring(3, 6);
+      const account =  clabeNum.substring(6, 17);
+      const checksum = parseInt(clabeNum.substring(17, 18));
       const makeCitiesMap = () => {
          clabe.citiesMap = {};
-         const prefix = code => clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : '';
-         const addCity = city => clabe.citiesMap[city[0]] = prefix(city[0]) + city[1];  //0: code, 1: name
+         const prefix = (code) => clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : '';
+         const addCity = (city) => clabe.citiesMap[city[0]] = prefix(city[0]) + city[1];  //0: code, 1: name
          clabe.cities.forEach(addCity);
          };
       if (!clabe.citiesMap)
