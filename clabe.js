@@ -4,7 +4,7 @@ const clabe = {
 
    version: '[VERSION]',
 
-   computeChecksum: clabeNum17 => {
+   computeChecksum: (clabeNum17) => {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
       // Example:
       //    const checksum = clabe.computeChecksum('00201007777777777');  //value: 1
@@ -14,7 +14,7 @@ const clabe = {
       return (10 - (sum % 10)) % 10;
       },
 
-   validate: clabeNum => {
+   validate: (clabeNum) => {
       // Returns information in a map (object literal) about the CLABE number.
       // Example:
       //    const city = clabe.validate('002010077777777771').city;  //value: "Banco Nacional de México"
@@ -33,8 +33,8 @@ const clabe = {
       const checksum = parseInt(clabeNum.substring(17, 18));
       const makeCitiesMap = () => {
          clabe.citiesMap = {};
-         const prefix = code => clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : '';
-         const addCity = city => clabe.citiesMap[city[0]] = prefix(city[0]) + city[1];  //0: code, 1: name
+         const prefix = (code) => clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : '';
+         const addCity = (city) => clabe.citiesMap[city[0]] = prefix(city[0]) + city[1];  //0: code, 1: name
          clabe.cities.forEach(addCity);
          };
       if (!clabe.citiesMap)
