@@ -17,7 +17,7 @@ const pkg =            require('./package.json');
 const home =           pkg.homepage.replace('https://', '');
 const bannerJs =       '//! CLABE Validator v' + pkg.version + ' ~ ' + home + ' ~ MIT License\n';
 const htmlHintConfig = { 'attr-value-double-quotes': false };
-const headerComments = /^[/][/].*\n/gm;
+const headerComments = /^\/\/.*\n/gm;
 const transpileES6 =   ['@babel/env', { modules: false }];
 const babelMinifyJs =  { presets: [transpileES6, 'minify'], comments: false };
 
