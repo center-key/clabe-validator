@@ -137,6 +137,30 @@ describe('List of CLABE cities', () => {
    });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
+describe('The computeChecksum() function', () => {
+
+   it('returns null if the checksum cannot be computed', () => {
+      const dataSet = [
+         '1234567890123456',
+         '1234567890123456789',
+         '12345678901234567x',
+         'bogus',
+         NaN,
+         undefined,
+         0,
+         null
+         ];
+      const evalData = (data) => {
+         const actual =   { input: data, checksum: clabe.computeChecksum(data) };
+         const expected = { input: data, checksum: null };
+         assert.deepEqual(actual, expected);
+         };
+      dataSet.forEach(evalData);
+      });
+
+   });
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('CLABE validator', () => {
 
    it('rejects an invalid CLABE number', () => {
@@ -178,18 +202,20 @@ describe('CLABE validator', () => {
       const evalData = (data) => {
          const result = clabe.validate(data);
          const actual = {
-            clabe:  data,
-            ok:     result.ok,
-            format: result.formatOk,
-            error:  result.error,
-            msg:    result.message
+            clabe:    data,
+            ok:       result.ok,
+            format:   result.formatOk,
+            error:    result.error,
+            msg:      result.message,
+            checksum: result.checksum
             };
          const expected = {
-            clabe:  data,
-            ok:     true,
-            format: true,
-            error:  null,
-            msg:    'Valid'
+            clabe:    data,
+            ok:       true,
+            format:   true,
+            error:    null,
+            msg:      'Valid',
+            checksum: parseInt(data[17])
             };
          assert.deepEqual(actual, expected);
          };
@@ -199,8 +225,22 @@ describe('CLABE validator', () => {
    it('accepts a valid CLABE number that has a checksum of 0', () => {
       const data = '002010777777777770';  //case where the last compute checksum modulus rolls over
       const result = clabe.validate(data);
-      const actual =   { clabe: data, ok: result.ok, format: result.formatOk, error: result.error, msg: result.message };
-      const expected = { clabe: data, ok: true,      format: true,            error: null,         msg: 'Valid'};
+      const actual = {
+         clabe:    data,
+         ok:       result.ok,
+         format:   result.formatOk,
+         error:    result.error,
+         msg:      result.message,
+         checksum: result.checksum
+         };
+      const expected = {
+         clabe:    data,
+         ok:       true,
+         format:   true,
+         error:    null,
+         msg:      'Valid',
+         checksum: 0
+         };
       assert.deepEqual(actual, expected);
       });
 
