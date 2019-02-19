@@ -38,7 +38,7 @@
       "node": ">=9.9.0"
    },
    "devDependencies": {
-      "@babel/core": "~7.2",
+      "@babel/core": "~7.3",
       "@babel/preset-env": "~7.3",
       "@fortawesome/fontawesome-free": "~5.7",
       "babel-minify": "~0.5",
@@ -54,7 +54,7 @@
       "gulp-w3c-html-validator": "~1.4",
       "jquery": "~3.3",
       "jshint": "~2.10",
-      "mocha": "~5.2",
+      "mocha": "~6.0",
       "web-ignition": "~1.1"
    }
 }
