@@ -38,9 +38,9 @@
       "node": ">=9.9.0"
    },
    "devDependencies": {
-      "@babel/core": "~7.3",
-      "@babel/preset-env": "~7.3",
-      "@fortawesome/fontawesome-free": "~5.7",
+      "@babel/core": "~7.4",
+      "@babel/preset-env": "~7.4",
+      "@fortawesome/fontawesome-free": "~5.8",
       "babel-minify": "~0.5",
       "dna.js": "~1.5",
       "gulp": "~4.0",
