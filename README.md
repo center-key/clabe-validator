@@ -67,8 +67,8 @@ console.log('Your bank: ' + clabeCheck.bank);
 ```javascript
 {
    ok:       false,
-   formatOk: true
-   error:    'invalid-city'
+   formatOk: true,
+   error:    'invalid-city',
    message:  'Invalid city code: 000'
 }
 ```
@@ -97,8 +97,8 @@ console.log(clabeNum === '002010077777777771');  //true
 ### E) Notes
 1. Feel free to submit questions at:
 [github.com/center-key/clabe-validator/issues](https://github.com/center-key/clabe-validator/issues)
-1. To be a contributor, fork the project and execute the `task-runner.sh.command` script.  Make
-your edits and rerun the script to ensure all the test cases pass.  Pull requests welcome.
+1. To be a contributor, fork the project and execute the `task-runner.sh.command` script.  Then
+make your edits and rerun the script to ensure all the test cases pass.  Pull requests welcome.
 
 ---
 CLABE Validator code is open source under the [MIT License](LICENSE.txt),
