@@ -97,8 +97,10 @@ console.log(clabeNum === '002010077777777771');  //true
 ### E) Notes
 1. Feel free to submit questions at:
 [github.com/center-key/clabe-validator/issues](https://github.com/center-key/clabe-validator/issues)
-1. To be a contributor, fork the project and execute the `task-runner.sh.command` script.  Then
-make your edits and rerun the script to ensure all the test cases pass.  Pull requests welcome.
+1. To be a contributor, fork the project and run the commands `npm install` and `npm test` on your
+local clone.&nbsp; Make your edits and rerun the tests.&nbsp; Pull requests welcome (no need to
+update the `version` in **package.json** or any files in the `dist` folder as they are all updated
+as part of the release process).
 
 ---
 CLABE Validator code is open source under the [MIT License](LICENSE.txt),
