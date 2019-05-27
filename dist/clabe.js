@@ -1,8 +1,8 @@
-//! CLABE Validator v1.3.3 ~ github.com/center-key/clabe-validator ~ MIT License
+//! CLABE Validator v1.3.4 ~ github.com/center-key/clabe-validator ~ MIT License
 
 const clabe = {
 
-   version: '1.3.3',
+   version: '1.3.4',
 
    computeChecksum: (clabeNum17) => {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
@@ -127,6 +127,7 @@ const clabe = {
       147: { tag: 'BANKAOOL',              name: 'Bankaool, S.A., Institución de Banca Múltiple' },
       148: { tag: 'PAGATODO',              name: 'Banco PagaTodo S.A., Institución de Banca Múltiple' },
       150: { tag: 'BIM',                   name: 'Banco Inmobiliario Mexicano, S.A., Institución de Banca Múltiple' },
+      152: { tag: 'BANCREA',               name: 'Banco Bancrea, S.A. Institución de Banca Multiple.' },
       156: { tag: 'SABADELL',              name: 'Banco Sabadell, S.A. I.B.M.' },
       166: { tag: 'BANSEFI',               name: 'Banco del Ahorro Nacional y Servicios Financieros, S.N.C.' },
       168: { tag: 'HIPOTECARIA FEDERAL',   name: 'Sociedad Hipotecaria Federal, S.N.C.' },
