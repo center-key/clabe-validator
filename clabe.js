@@ -127,6 +127,7 @@ const clabe = {
       147: { tag: 'BANKAOOL',              name: 'Bankaool, S.A., Institución de Banca Múltiple' },
       148: { tag: 'PAGATODO',              name: 'Banco PagaTodo S.A., Institución de Banca Múltiple' },
       150: { tag: 'BIM',                   name: 'Banco Inmobiliario Mexicano, S.A., Institución de Banca Múltiple' },
+      152: { tag: 'BANCREA',               name: 'Banco Bancrea, S.A. Institución de Banca Multiple.' },
       156: { tag: 'SABADELL',              name: 'Banco Sabadell, S.A. I.B.M.' },
       166: { tag: 'BANSEFI',               name: 'Banco del Ahorro Nacional y Servicios Financieros, S.N.C.' },
       168: { tag: 'HIPOTECARIA FEDERAL',   name: 'Sociedad Hipotecaria Federal, S.N.C.' },
