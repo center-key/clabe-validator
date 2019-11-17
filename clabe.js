@@ -22,7 +22,7 @@ const clabe = {
          characters: 'Must be only numeric digits (no letters)',
          checksum:   'Invalid checksum, last digit should be: ',
          bank:       'Invalid bank code: ',
-         city:       'Invalid city code: '
+         city:       'Invalid city code: ',
          };
       if (typeof clabeNum !== 'string')
          throw 'clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum;
@@ -63,7 +63,7 @@ const clabe = {
          city:     city,
          account:  account,
          code:     { bank: bankCode, city: cityCode },
-         checksum: realChecksum
+         checksum: realChecksum,
          };
       },
 
@@ -181,7 +181,7 @@ const clabe = {
       846: { tag: 'STP',                   name: 'Sistema de Transferencias y Pagos STP'},
       901: { tag: 'CLS',                   name: 'CLS Bank International' },
       902: { tag: 'INDEVAL',               name: 'SD. INDEVAL, S.A. de C.V.' },
-      999: { tag: 'N/A',                   name: 'N/A' }
+      999: { tag: 'N/A',                   name: 'N/A' },
       },
 
    cities: [  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza (Jan 9, 2017)
@@ -650,7 +650,7 @@ const clabe = {
       [939, 'Loreto'],
       [946, 'Nochistlán'],
       [958, 'Valparaíso'],
-      [960, 'Calera de V. Rosales']
+      [960, 'Calera de V. Rosales'],
       ]
 
    };
