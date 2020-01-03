@@ -41,21 +41,21 @@
    "devDependencies": {
       "@babel/core": "~7.7",
       "@babel/preset-env": "~7.7",
-      "@fortawesome/fontawesome-free": "~5.11",
+      "@fortawesome/fontawesome-free": "~5.12",
       "babel-minify": "~0.5",
-      "dna.js": "~1.5",
+      "dna.js": "~1.6",
       "gulp": "~4.0",
       "gulp-append-prepend": "~1.0",
       "gulp-babel": "~8.0",
       "gulp-header": "~2.0",
       "gulp-htmlhint": "~3.0",
-      "gulp-rename": "~1.4",
+      "gulp-rename": "~2.0",
       "gulp-replace": "~1.0",
       "gulp-size": "~3.0",
       "gulp-w3c-html-validator": "~1.4",
       "jquery": "~3.4",
       "jshint": "~2.10",
       "mocha": "~6.2",
-      "web-ignition": "~1.1"
+      "web-ignition": "~1.2"
    }
 }
