@@ -157,14 +157,14 @@
 <script src=clabe.js></script>
 <script>
 const app = {
-   validateInput: (elem) => {
+   validateInput(elem) {
       const clabeCheck = clabe.validate(elem.val());
       console.log(elem.val(), clabeCheck);
       const validMessage = 'Valid: ' + clabeCheck.bank + ' (' + clabeCheck.city + ')';
       const message = clabeCheck.ok ? validMessage : clabeCheck.message;
       elem.closest('form').find('.message').text(message).stop().hide().fadeIn();
       },
-   updateCalculation: (elem) => {
+   updateCalculation(elem) {
       const form = elem.closest('form');
       const bankCode =      form.find('select').first().val();
       const cityCode =      form.find('select').last().val();
@@ -174,7 +174,7 @@ const app = {
          'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber);
       form.find('.message').text(message).stop().hide().fadeIn();
       },
-   setupCalculator: () => {
+   setupCalculator() {
       console.log('CLABE Validator v' + clabe.version);
       $('.version-number').text(clabe.version);
       const pad = (int) => ('' + int).length < 3 ? pad('0' + int) : int;
@@ -194,7 +194,7 @@ const app = {
          cities: clabe.cities.map(toCityObj).sort(compare)
          };
       dna.clone('calculator', codes);
-      }
+      },
    };
 </script>
 </body>

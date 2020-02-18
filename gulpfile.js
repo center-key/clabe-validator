@@ -23,7 +23,7 @@ const babelMinifyJs =  { presets: [transpileES6, 'minify'], comments: false };
 
 // Tasks
 const task = {
-   analyzeHtml: () => {
+   analyzeHtml() {
       return gulp.src(['*.html', 'docs/*.html'])
          .pipe(htmlHint(htmlHintConfig))
          .pipe(htmlHint.reporter())
@@ -31,7 +31,7 @@ const task = {
          .pipe(htmlValidator.reporter())
          .pipe(size({ showFiles: true }));
       },
-   buildDistribution: () => {
+   buildDistribution() {
       return gulp.src('clabe.js')
          .pipe(replace(headerComments, ''))
          .pipe(header(bannerJs))
@@ -45,7 +45,7 @@ const task = {
          .pipe(size({ showFiles: true }))
          .pipe(size({ showFiles: true, gzip: true }))
          .pipe(gulp.dest('dist'));
-      }
+      },
    };
 
 // Gulp
