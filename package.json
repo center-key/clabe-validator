@@ -1,6 +1,6 @@
 {
    "name": "clabe-validator",
-   "version": "1.3.6",
+   "version": "1.3.7",
    "description": "JavaScript library to analyze or create a CLABE number for a Mexican bank account",
    "license": "MIT",
    "main": "dist/clabe.js",
@@ -38,6 +38,7 @@
    "engines": {
       "node": ">=10.0.0"
    },
+   "dependencies": {},
    "devDependencies": {
       "@babel/core": "~7.9",
       "@babel/preset-env": "~7.9",
