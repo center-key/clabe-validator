@@ -1,8 +1,8 @@
-//! CLABE Validator v1.3.6 ~ github.com/center-key/clabe-validator ~ MIT License
+//! CLABE Validator v1.3.7 ~ github.com/center-key/clabe-validator ~ MIT License
 
 const clabe = {
 
-   version: '1.3.6',
+   version: '1.3.7',
 
    computeChecksum: (clabeNum17) => {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
