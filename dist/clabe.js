@@ -651,7 +651,7 @@ const clabe = {
       [946, 'Nochistlán'],
       [958, 'Valparaíso'],
       [960, 'Calera de V. Rosales'],
-      ]
+      ],
 
    };
 
