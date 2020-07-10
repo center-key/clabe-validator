@@ -324,7 +324,8 @@ describe('Newly added or modified banks and cities', () => {
    const newCities = [
       { code: 382, name: 'N/A' },
       { code: 960, name: 'Calera de V. Rosales' },
-      { code: 198, name: 'N/A' }
+      { code: 198, name: 'N/A' },
+      { code: 660, name: 'Huejotzingo' }
       ];
 
    it('work in the calculator and validator', () => {

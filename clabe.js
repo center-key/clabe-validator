@@ -506,6 +506,7 @@ const clabe = {
       [654, 'Atlixco'],
       [656, 'Cuetzalan'],
       [659, 'Huauchinango'],
+      [660, 'Huejotzingo'],
       [662, 'Izúcar de Matamoros'],
       [667, 'San Martín Texmelucan'],
       [668, 'San Felipe Hueyotlipan'],
