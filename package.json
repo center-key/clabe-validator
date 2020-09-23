@@ -40,9 +40,9 @@
    },
    "dependencies": {},
    "devDependencies": {
-      "@babel/core": "~7.10",
-      "@babel/preset-env": "~7.10",
-      "@fortawesome/fontawesome-free": "~5.13",
+      "@babel/core": "~7.11",
+      "@babel/preset-env": "~7.11",
+      "@fortawesome/fontawesome-free": "~5.14",
       "babel-minify": "~0.5",
       "dna.js": "~1.6",
       "gulp": "~4.0",
@@ -55,8 +55,8 @@
       "gulp-size": "~3.0",
       "gulp-w3c-html-validator": "~2.0",
       "jquery": "~3.5",
-      "jshint": "~2.11",
-      "mocha": "~8.0",
-      "web-ignition": "~1.2"
+      "jshint": "~2.12",
+      "mocha": "~8.1",
+      "web-ignition": "~1.3"
    }
 }
