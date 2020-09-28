@@ -77,278 +77,279 @@ const clabe = {
     return clabeNum + clabe.computeChecksum(clabeNum);
   },
 
-  banksMap: {  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco (Jan 9, 2017)
+  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco (Jan 9, 2017)
+  banksMap: {
     "1": {
-      "tag": "BANXICO",
-      "name": "BANXICO"
+      "name": "BANXICO",
+      "tag": "BANXICO"
     },
     "2": {
-      "tag": "BANAMEX",
-      "name": "Banco Nacional de México, S.A."
+      "name": "Banco Nacional de México, S.A.",
+      "tag": "BANAMEX"
     },
     "6": {
-      "tag": "BANCOMEXT",
-      "name": "Banco Nacional de Comercio Exterior"
+      "name": "Banco Nacional de Comercio Exterior",
+      "tag": "BANCOMEXT"
     },
     "9": {
-      "tag": "BANOBRAS",
-      "name": "Banco Nacional de Obras y Servicios Públicos"
+      "name": "Banco Nacional de Obras y Servicios Públicos",
+      "tag": "BANOBRAS"
     },
     "12": {
-      "tag": "BBVA BANCOMER",
-      "name": "BBVA Bancomer, S.A."
+      "name": "BBVA Bancomer, S.A.",
+      "tag": "BBVA BANCOMER"
     },
     "14": {
-      "tag": "SANTANDER",
-      "name": "Banco Santander, S.A."
+      "name": "Banco Santander, S.A.",
+      "tag": "SANTANDER"
     },
     "19": {
-      "tag": "BANJERCITO",
-      "name": "Banco Nacional del Ejército, Fuerza Aérea y Armada"
+      "name": "Banco Nacional del Ejército, Fuerza Aérea y Armada",
+      "tag": "BANJERCITO"
     },
     "21": {
-      "tag": "HSBC",
-      "name": "HSBC México, S.A."
+      "name": "HSBC México, S.A.",
+      "tag": "HSBC"
     },
     "22": {
       "tag": "GE MONEY",
       "name": "GE Money Bank, S.A."
     },
     "30": {
-      "tag": "BAJÍO",
-      "name": "Banco del Bajío, S.A."
+      "name": "Banco del Bajío, S.A.",
+      "tag": "BAJIO"
     },
     "32": {
       "tag": "IXE",
       "name": "IXE Banco, S.A."
     },
     "36": {
-      "tag": "INBURSA",
-      "name": "Banco Inbursa, S.A."
+      "name": "Banco Inbursa, S.A.",
+      "tag": "INBURSA"
     },
     "37": {
       "tag": "INTERACCIONES",
       "name": "Banco Interacciones, S.A."
     },
     "42": {
-      "tag": "MIFEL",
-      "name": "Banca Mifel, S.A."
+      "name": "Banca Mifel, S.A.",
+      "tag": "MIFEL"
     },
     "44": {
-      "tag": "SCOTIABANK",
-      "name": "Scotiabank Inverlat, S.A."
+      "name": "Scotiabank Inverlat, S.A.",
+      "tag": "SCOTIABANK"
     },
     "58": {
-      "tag": "BANREGIO",
-      "name": "Banco Regional de Monterrey, S.A."
+      "name": "Banco Regional de Monterrey, S.A.",
+      "tag": "BANREGIO"
     },
     "59": {
-      "tag": "INVEX",
-      "name": "Banco Invex, S.A."
+      "name": "Banco Invex, S.A.",
+      "tag": "INVEX"
     },
     "60": {
-      "tag": "BANSI",
-      "name": "Bansi, S.A."
+      "name": "Bansi, S.A.",
+      "tag": "BANSI"
     },
     "62": {
-      "tag": "AFIRME",
-      "name": "Banca Afirme, S.A."
+      "name": "Banca Afirme, S.A.",
+      "tag": "AFIRME"
     },
     "72": {
-      "tag": "BANORTE",
-      "name": "Banco Mercantil del Norte, S.A."
+      "name": "Banco Mercantil del Norte, S.A.",
+      "tag": "BANORTE"
     },
     "102": {
-      "tag": "ABNAMRO",
-      "name": "ABN AMRO Bank México, S.A."
+      "name": "ABN AMRO Bank México, S.A.",
+      "tag": "ACCENDO BANCO"
     },
     "103": {
-      "tag": "AMERICAN EXPRESS",
-      "name": "American Express Bank (México), S.A."
+      "name": "American Express Bank (México), S.A.",
+      "tag": "AMERICAN EXPRES"
     },
     "106": {
-      "tag": "BAMSA",
-      "name": "Bank of America México, S.A."
+      "name": "Bank of America México, S.A.",
+      "tag": "BANK OF AMERICA"
     },
     "108": {
-      "tag": "TOKYO",
-      "name": "Bank of Tokyo-Mitsubishi UFJ (México), S.A."
+      "name": "Bank of Tokyo-Mitsubishi UFJ (México), S.A.",
+      "tag": "MUFG"
     },
     "110": {
-      "tag": "JP MORGAN",
-      "name": "Banco J.P. Morgan, S.A."
+      "name": "Banco J.P. Morgan, S.A.",
+      "tag": "JP MORGAN"
     },
     "112": {
-      "tag": "BMONEX",
-      "name": "Banco Monex, S.A."
+      "name": "Banco Monex, S.A.",
+      "tag": "BMONEX"
     },
     "113": {
-      "tag": "VE POR MAS",
-      "name": "Banco Ve por Mas, S.A."
+      "name": "Banco Ve por Mas, S.A.",
+      "tag": "VE POR MAS"
     },
     "116": {
       "tag": "ING",
       "name": "ING Bank (México), S.A."
     },
     "124": {
-      "tag": "DEUTSCHE",
-      "name": "Deutsche Bank México, S.A."
+      "name": "Deutsche Bank México, S.A.",
+      "tag": "DEUTSCHE"
     },
     "126": {
-      "tag": "CREDIT SUISSE",
-      "name": "Banco Credit Suisse (México), S.A."
+      "name": "Banco Credit Suisse (México), S.A.",
+      "tag": "CREDIT SUISSE"
     },
     "127": {
-      "tag": "AZTECA",
-      "name": "Banco Azteca, S.A."
+      "name": "Banco Azteca, S.A.",
+      "tag": "AZTECA"
     },
     "128": {
-      "tag": "AUTOFIN",
-      "name": "Banco Autofin México, S.A."
+      "name": "Banco Autofin México, S.A.",
+      "tag": "AUTOFIN"
     },
     "129": {
-      "tag": "BARCLAYS",
-      "name": "Barclays Bank México, S.A."
+      "name": "Barclays Bank México, S.A.",
+      "tag": "BARCLAYS"
     },
     "130": {
-      "tag": "COMPARTAMOS",
-      "name": "Banco Compartamos, S.A."
+      "name": "Banco Compartamos, S.A.",
+      "tag": "COMPARTAMOS"
     },
     "131": {
       "tag": "FAMSA",
       "name": "Banco Ahorro Famsa, S.A."
     },
     "132": {
-      "tag": "BMULTIVA",
-      "name": "Banco Multiva, S.A."
+      "name": "Banco Multiva, S.A.",
+      "tag": "MULTIVA BANCO"
     },
     "133": {
-      "tag": "PRUDENTIAL",
-      "name": "Prudencial Bank, S.A."
+      "name": "Prudencial Bank, S.A.",
+      "tag": "ACTINVER"
     },
     "134": {
       "tag": "WAL-MART",
       "name": "Banco Wal Mart de México Adelante, S.A."
     },
     "135": {
-      "tag": "NAFIN",
-      "name": "Nacional Financiera, S.N.C."
+      "name": "Nacional Financiera, S.N.C.",
+      "tag": "NAFIN"
     },
     "136": {
-      "tag": "REGIONAL",
-      "name": "Banco Regional, S.A."
+      "name": "Banco Regional, S.A.",
+      "tag": "INTERCAM BANCO"
     },
     "137": {
-      "tag": "BANCOPPEL",
-      "name": "BanCoppel, S.A."
+      "name": "BanCoppel, S.A.",
+      "tag": "BANCOPPEL"
     },
     "138": {
-      "tag": "ABC CAPITAL",
-      "name": "ABC Capital, S.A. I.B.M."
+      "name": "ABC Capital, S.A. I.B.M.",
+      "tag": "ABC CAPITAL"
     },
     "139": {
       "tag": "UBS BANK",
       "name": "UBS Banco, S.A."
     },
     "140": {
-      "tag": "FÁCIL",
-      "name": "Banco Fácil, S.A."
+      "name": "Banco Fácil, S.A.",
+      "tag": "CONSUBANCO"
     },
     "141": {
-      "tag": "VOLKSWAGEN",
-      "name": "Volkswagen Bank S.A. Institución de Banca Múltiple"
+      "name": "Volkswagen Bank S.A. Institución de Banca Múltiple",
+      "tag": "VOLKSWAGEN"
     },
     "143": {
-      "tag": "CIBANCO",
-      "name": "Consultoría Internacional Banco, S.A."
+      "name": "Consultoría Internacional Banco, S.A.",
+      "tag": "CIBANCO"
     },
     "145": {
-      "tag": "BBASE",
-      "name": "Banco BASE, S.A. de I.B.M."
+      "name": "Banco BASE, S.A. de I.B.M.",
+      "tag": "BBASE"
     },
     "147": {
-      "tag": "BANKAOOL",
-      "name": "Bankaool, S.A., Institución de Banca Múltiple"
+      "name": "Bankaool, S.A., Institución de Banca Múltiple",
+      "tag": "BANKAOOL"
     },
     "148": {
-      "tag": "PAGATODO",
-      "name": "Banco PagaTodo S.A., Institución de Banca Múltiple"
+      "name": "Banco PagaTodo S.A., Institución de Banca Múltiple",
+      "tag": "PAGATODO"
     },
     "150": {
-      "tag": "BIM",
-      "name": "Banco Inmobiliario Mexicano, S.A., Institución de Banca Múltiple"
+      "name": "Banco Inmobiliario Mexicano, S.A., Institución de Banca Múltiple",
+      "tag": "INMOBILIARIO"
     },
     "151": {
-      "tag": "DONDE",
-      "name": "DONDE"
+      "name": "DONDE",
+      "tag": "DONDE"
     },
     "152": {
-      "tag": "BANCREA",
-      "name": "Banco Bancrea, S.A., Institución de Banca Múltiple"
+      "name": "Banco Bancrea, S.A., Institución de Banca Múltiple",
+      "tag": "BANCREA"
     },
     "154": {
-      "tag": "BANCO FINTERRA",
-      "name": "BANCO FINTERRA"
+      "name": "BANCO FINTERRA",
+      "tag": "BANCO FINTERRA"
     },
     "155": {
-      "tag": "ICBC",
-      "name": "ICBC"
+      "name": "ICBC",
+      "tag": "ICBC"
     },
     "156": {
-      "tag": "SABADELL",
-      "name": "Banco Sabadell, S.A. I.B.M."
+      "name": "Banco Sabadell, S.A. I.B.M.",
+      "tag": "SABADELL"
     },
     "157": {
-      "tag": "SHINHAN",
-      "name": "SHINHAN"
+      "name": "SHINHAN",
+      "tag": "SHINHAN"
     },
     "158": {
-      "tag": "MIZUHO BANK",
-      "name": "MIZUHO BANK"
+      "name": "MIZUHO BANK",
+      "tag": "MIZUHO BANK"
     },
     "160": {
-      "tag": "BANCO S3",
-      "name": "BANCO S3"
+      "name": "BANCO S3",
+      "tag": "BANCO S3"
     },
     "166": {
-      "tag": "BANSEFI",
-      "name": "Banco del Ahorro Nacional y Servicios Financieros, S.N.C."
+      "name": "Banco del Ahorro Nacional y Servicios Financieros, S.N.C.",
+      "tag": "BANSEFI"
     },
     "168": {
-      "tag": "HIPOTECARIA FEDERAL",
-      "name": "Sociedad Hipotecaria Federal, S.N.C."
+      "name": "Sociedad Hipotecaria Federal, S.N.C.",
+      "tag": "HIPOTECARIA FED"
     },
     "600": {
-      "tag": "MONEXCB",
-      "name": "Monex Casa de Bolsa, S.A. de C.V."
+      "name": "Monex Casa de Bolsa, S.A. de C.V.",
+      "tag": "MONEXCB"
     },
     "601": {
-      "tag": "GBM",
-      "name": "GBM Grupo Bursátil Mexicano, S.A. de C.V."
+      "name": "GBM Grupo Bursátil Mexicano, S.A. de C.V.",
+      "tag": "GBM"
     },
     "602": {
-      "tag": "MASARI CC.",
-      "name": "Masari Casa de Cambio, S.A. de C.V."
+      "name": "Masari Casa de Cambio, S.A. de C.V.",
+      "tag": "MASARI"
     },
     "604": {
       "tag": "C.B. INBURSA",
       "name": "Inversora Bursátil, S.A. de C.V."
     },
     "605": {
-      "tag": "VALUÉ",
-      "name": "Valué, S.A. de C.V., Casa de Bolsa"
+      "name": "Valué, S.A. de C.V., Casa de Bolsa",
+      "tag": "VALUE"
     },
     "606": {
-      "tag": "CB BASE",
-      "name": "Base Internacional Casa de Bolsa, S.A. de C.V."
+      "name": "Base Internacional Casa de Bolsa, S.A. de C.V.",
+      "tag": "ESTRUCTURADORES"
     },
     "607": {
       "tag": "TIBER",
       "name": "Casa de Cambio Tiber, S.A. de C.V."
     },
     "608": {
-      "tag": "VECTOR",
-      "name": "Vector Casa de Bolsa, S.A. de C.V."
+      "name": "Vector Casa de Bolsa, S.A. de C.V.",
+      "tag": "VECTOR"
     },
     "610": {
       "tag": "B&B",
@@ -359,8 +360,8 @@ const clabe = {
       "name": "Intercam Casa de Cambio, S.A. de C.V."
     },
     "613": {
-      "tag": "MULTIVA",
-      "name": "Multivalores Casa de Bolsa, S.A. de C.V. Multiva Gpo. Fin."
+      "name": "Multivalores Casa de Bolsa, S.A. de C.V. Multiva Gpo. Fin.",
+      "tag": "MULTIVA CBOLSA"
     },
     "614": {
       "tag": "ACCIVAL",
@@ -371,12 +372,12 @@ const clabe = {
       "name": "Merrill Lynch México, S.A. de C.V., Casa de Bolsa"
     },
     "616": {
-      "tag": "FINAMEX",
-      "name": "Casa de Bolsa Finamex, S.A. de C.V."
+      "name": "Casa de Bolsa Finamex, S.A. de C.V.",
+      "tag": "FINAMEX"
     },
     "617": {
-      "tag": "VALMEX",
-      "name": "Valores Mexicanos Casa de Bolsa, S.A. de C.V."
+      "name": "Valores Mexicanos Casa de Bolsa, S.A. de C.V.",
+      "tag": "VALMEX"
     },
     "618": {
       "tag": "ÚNICA",
@@ -387,8 +388,8 @@ const clabe = {
       "name": "MAPFRE Tepeyac S.A."
     },
     "620": {
-      "tag": "AFORE PROFUTURO",
-      "name": "Profuturo G.N.P., S.A. de C.V."
+      "name": "Profuturo G.N.P., S.A. de C.V.",
+      "tag": "PROFUTURO"
     },
     "621": {
       "tag": "CB ACTINBER",
@@ -423,12 +424,12 @@ const clabe = {
       "name": "Hipotecaria su Casita, S.A. de C.V."
     },
     "630": {
-      "tag": "C.B. INTERCAM",
-      "name": "Intercam Casa de Bolsa, S.A. de C.V."
+      "name": "Intercam Casa de Bolsa, S.A. de C.V.",
+      "tag": "CB INTERCAM"
     },
     "631": {
-      "tag": "C.B. VANGUARDIA",
-      "name": "Vanguardia Casa de Bolsa, S.A. de C.V."
+      "name": "Vanguardia Casa de Bolsa, S.A. de C.V.",
+      "tag": "CI BOLSA"
     },
     "632": {
       "tag": "BULLTICK C.B.",
@@ -439,40 +440,40 @@ const clabe = {
       "name": "Sterling Casa de Cambio, S.A. de C.V."
     },
     "634": {
-      "tag": "FINCOMUN",
-      "name": "Fincomún, Servicios Financieros Comunitarios, S.A. de C.V."
+      "name": "Fincomún, Servicios Financieros Comunitarios, S.A. de C.V.",
+      "tag": "FINCOMUN"
     },
     "636": {
-      "tag": "HDI SEGUROS",
-      "name": "HDI Seguros, S.A. de C.V."
+      "name": "HDI Seguros, S.A. de C.V.",
+      "tag": "HDI SEGUROS"
     },
     "637": {
       "tag": "ORDER",
       "name": "OrderExpress Casa de Cambio , S.A. de C.V. AAC"
     },
     "638": {
-      "tag": "AKALA",
-      "name": "Akala, S.A. de C.V., Sociedad Financiera Popular"
+      "name": "Akala, S.A. de C.V., Sociedad Financiera Popular",
+      "tag": "AKALA"
     },
     "640": {
       "tag": "JP MORGAN C.B.",
       "name": "J.P. Morgan Casa de Bolsa, S.A. de C.V."
     },
     "642": {
-      "tag": "REFORMA",
-      "name": "Operadora de Recursos Reforma, S.A. de C.V."
+      "name": "Operadora de Recursos Reforma, S.A. de C.V.",
+      "tag": "REFORMA"
     },
     "646": {
-      "tag": "STP",
-      "name": "Sistema de Transferencias y Pagos STP, S.A. de C.V., SOFOM E.N.R."
+      "name": "Sistema de Transferencias y Pagos STP, S.A. de C.V., SOFOM E.N.R.",
+      "tag": "STP"
     },
     "647": {
       "tag": "TELECOMM",
       "name": "Telecomunicaciones de México"
     },
     "648": {
-      "tag": "EVERCORE",
-      "name": "Evercore Casa de Bolsa, S.A. de C.V."
+      "name": "Evercore Casa de Bolsa, S.A. de C.V.",
+      "tag": "EVERCORE"
     },
     "649": {
       "tag": "SKANDIA",
@@ -483,3234 +484,3235 @@ const clabe = {
       "name": "Seguros Monterrey New York Life, S.A de C.V."
     },
     "652": {
-      "tag": "ASEA",
-      "name": "Solución Asea, S.A. de C.V., Sociedad Financiera Popular"
+      "name": "Solución Asea, S.A. de C.V., Sociedad Financiera Popular",
+      "tag": "CREDICAPITAL"
     },
     "653": {
-      "tag": "KUSPIT",
-      "name": "Kuspit Casa de Bolsa, S.A. de C.V."
+      "name": "Kuspit Casa de Bolsa, S.A. de C.V.",
+      "tag": "KUSPIT"
     },
     "655": {
       "tag": "SOFIEXPRESS",
       "name": "J.P. SOFIEXPRESS, S.A. de C.V., S.F.P."
     },
     "656": {
-      "tag": "UNAGRA",
-      "name": "UNAGRA, S.A. de C.V., S.F.P."
+      "name": "UNAGRA, S.A. de C.V., S.F.P.",
+      "tag": "UNAGRA"
     },
     "659": {
-      "tag": "OPCIONES EMPRESARIALES DEL NOROESTE",
-      "name": "Opciones Empresariales Del Noreste, S.A. DE C.V."
+      "name": "Opciones Empresariales Del Noreste, S.A. DE C.V.",
+      "tag": "ASP INTEGRA OPC"
     },
     "670": {
-      "tag": "LIBERTAD",
-      "name": "Libertad Servicios Financieros, S.A. De C.V."
+      "name": "Libertad Servicios Financieros, S.A. De C.V.",
+      "tag": "LIBERTAD"
     },
     "677": {
-      "tag": "CAJA POP MEXICA",
-      "name": "CAJA POP MEXICA"
+      "name": "CAJA POP MEXICA",
+      "tag": "CAJA POP MEXICA"
     },
     "680": {
-      "tag": "CRISTOBAL COLON",
-      "name": "CRISTOBAL COLON"
+      "name": "CRISTOBAL COLON",
+      "tag": "CRISTOBAL COLON"
     },
     "683": {
-      "tag": "CAJA TELEFONIST",
-      "name": "CAJA TELEFONIST"
+      "name": "CAJA TELEFONIST",
+      "tag": "CAJA TELEFONIST"
     },
     "684": {
-      "tag": "TRANSFER",
-      "name": "TRANSFER"
+      "name": "TRANSFER",
+      "tag": "TRANSFER"
     },
     "685": {
-      "tag": "FONDO (FIRA)",
-      "name": "FONDO (FIRA)"
+      "name": "FONDO (FIRA)",
+      "tag": "FONDO (FIRA)"
     },
     "686": {
-      "tag": "INVERCAP",
-      "name": "INVERCAP"
+      "name": "INVERCAP",
+      "tag": "INVERCAP"
     },
     "689": {
-      "tag": "FOMPED",
-      "name": "FOMPED"
+      "name": "FOMPED",
+      "tag": "FOMPED"
     },
     "812": {
-      "tag": "BBVA BANCOMER2",
-      "name": "BBVA BANCOMER2"
+      "name": "BBVA BANCOMER2",
+      "tag": "BBVA BANCOMER2"
     },
     "814": {
-      "tag": "SANTANDER2",
-      "name": "SANTANDER2"
+      "name": "SANTANDER2",
+      "tag": "SANTANDER2"
     },
     "821": {
-      "tag": "HSBC2",
-      "name": "HSBC2"
+      "name": "HSBC2",
+      "tag": "HSBC2"
     },
     "846": {
       "tag": "STP",
       "name": "Sistema de Transferencias y Pagos STP"
     },
     "901": {
-      "tag": "CLS",
-      "name": "CLS Bank International"
+      "name": "CLS Bank International",
+      "tag": "CLS"
     },
     "902": {
-      "tag": "INDEVAL",
-      "name": "SD. INDEVAL, S.A. de C.V."
+      "name": "SD. INDEVAL, S.A. de C.V.",
+      "tag": "INDEVAL"
     },
     "903": {
-      "tag": "CoDi Valida",
-      "name": "CoDi Valida"
+      "name": "CoDi Valida",
+      "tag": "CODI VALIDA"
     },
     "999": {
       "tag": "N/A",
       "name": "N/A"
-    },
+    }
   },
 
-  cities: [  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza (Jan 9, 2017)
+  //source: https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza (Jan 9, 2017)
+  cities: [
     [
-      "10",
+      10,
       "AGUASCALIENTES AGS"
     ],
     [
-      "11",
+      11,
       "ASIENTOS AGS"
     ],
     [
-      "12",
+      12,
       "CALVILLO AGS"
     ],
     [
-      "13",
+      13,
       "COSIO AGS"
     ],
     [
-      "14",
+      14,
       "JESUS MARIA AGS"
     ],
     [
-      "15",
+      15,
       "PABELLON DE ARTEAGA AGS"
     ],
     [
-      "16",
+      16,
       "RINCON DE ROMOS AGS"
     ],
     [
-      "17",
+      17,
       "SAN FCO ROMO AGS"
     ],
     [
-      "20",
+      20,
       "MEXICALI BCN"
     ],
     [
-      "21",
+      21,
       "CIUDAD MORELOS BCN"
     ],
     [
-      "22",
+      22,
       "ENSENADA BCN"
     ],
     [
-      "23",
+      23,
       "GUADALUPE VICTORIA BCN"
     ],
     [
-      "24",
+      24,
       "RODOLFO SANCHEZ T. BCN"
     ],
     [
-      "25",
+      25,
       "SAN FELIPE BCN"
     ],
     [
-      "26",
+      26,
       "SAN QUINTIN BCN"
     ],
     [
-      "27",
+      27,
       "TECATE BCN"
     ],
     [
-      "28",
+      28,
       "PLAYAS DE ROSARITO BCN"
     ],
     [
-      "40",
+      40,
       "LA PAZ BCS"
     ],
     [
-      "41",
+      41,
       "CABO SAN LUCAS BCS"
     ],
     [
-      "42",
+      42,
       "CIUDAD CONSTITUCION BCS"
     ],
     [
-      "43",
+      43,
       "GUERRERO NEGRO BCS"
     ],
     [
-      "44",
+      44,
       "LORETO BCS"
     ],
     [
-      "45",
+      45,
       "SAN JOSE DEL CABO BCS"
     ],
     [
-      "46",
+      46,
       "SANTA ROSALIA BCS"
     ],
     [
-      "47",
+      47,
       "TODOS SANTOS BCS"
     ],
     [
-      "50",
+      50,
       "CAMPECHE CAM"
     ],
     [
-      "51",
+      51,
       "CALKINI CAM"
     ],
     [
-      "52",
+      52,
       "CIUDAD DEL CARMEN CAM"
     ],
     [
-      "53",
+      53,
       "CHAMPOTON CAM"
     ],
     [
-      "54",
+      54,
       "ESCARCEGA CAM"
     ],
     [
-      "55",
+      55,
       "HOPELCHEN CAM"
     ],
     [
-      "56",
+      56,
       "PALIZADA CAM"
     ],
     [
-      "57",
+      57,
       "SEYBAPLAYA CAM"
     ],
     [
-      "60",
+      60,
       "TORREON COA"
     ],
     [
-      "61",
+      61,
       "ABASOLO COA"
     ],
     [
-      "62",
+      62,
       "ACUÑA COA"
     ],
     [
-      "63",
+      63,
       "ALLENDE COA"
     ],
     [
-      "64",
+      64,
       "FRANCISCO I. MADERO COA"
     ],
     [
-      "65",
+      65,
       "FRONTERA COA"
     ],
     [
-      "66",
+      66,
       "LAGUNA DEL REY COA"
     ],
     [
-      "67",
+      67,
       "MATAMOROS COA"
     ],
     [
-      "68",
+      68,
       "MONCLOVA COA"
     ],
     [
-      "69",
+      69,
       "MORELOS COA"
     ],
     [
-      "70",
+      70,
       "MUZQUIZ COA"
     ],
     [
-      "71",
+      71,
       "NAVA COA"
     ],
     [
-      "72",
+      72,
       "NVA ROSITA COA"
     ],
     [
-      "73",
+      73,
       "PALAU COA"
     ],
     [
-      "74",
+      74,
       "PARRAS COA"
     ],
     [
-      "75",
+      75,
       "PIEDRAS NEGRAS COA"
     ],
     [
-      "76",
+      76,
       "RAMOS ARIZPE COA"
     ],
     [
-      "77",
+      77,
       "SABINAS COA"
     ],
     [
-      "78",
+      78,
       "SALTILLO COA"
     ],
     [
-      "79",
+      79,
       "SAN BUENAVENTURA COA"
     ],
     [
-      "80",
+      80,
       "SAN PEDRO COA"
     ],
     [
-      "81",
+      81,
       "ZARAGOZA COA"
     ],
     [
-      "90",
+      90,
       "COLIMA COL"
     ],
     [
-      "91",
+      91,
       "ARMERIA COL"
     ],
     [
-      "92",
+      92,
       "COMALA COL"
     ],
     [
-      "93",
+      93,
       "COQUIMATLAN COL"
     ],
     [
-      "94",
+      94,
       "CUAUHTEMOC COL"
     ],
     [
-      "95",
+      95,
       "MANZANILLO COL"
     ],
     [
-      "96",
+      96,
       "QUESERIA COL"
     ],
     [
-      "97",
+      97,
       "TECOMAN COL"
     ],
     [
-      "98",
+      98,
       "VILLA DE ALVAREZ COL"
     ],
     [
-      "100",
+      100,
       "TUXTLA GUTIERREZ CHIS"
     ],
     [
-      "101",
+      101,
       "ACAPETAHUA CHIS"
     ],
     [
-      "102",
+      102,
       "ANGEL ALBINO CORZO CHIS"
     ],
     [
-      "103",
+      103,
       "ARRIAGA CHIS"
     ],
     [
-      "104",
+      104,
       "BOCHIL CHIS"
     ],
     [
-      "105",
+      105,
       "CACAHOATAN CHIS"
     ],
     [
-      "106",
+      106,
       "CATAZAJA CHIS"
     ],
     [
-      "107",
+      107,
       "CINTALAPA CHIS"
     ],
     [
-      "108",
+      108,
       "CIUDAD HIDALGO CHIS"
     ],
     [
-      "109",
+      109,
       "COMITAN DE DOMINGUEZ CHIS"
     ],
     [
-      "110",
+      110,
       "COPAINALA CHIS"
     ],
     [
-      "111",
+      111,
       "CHIAPA DE CORZO CHIS"
     ],
     [
-      "112",
+      112,
       "CHICOMUSELO CHIS"
     ],
     [
-      "113",
+      113,
       "FRONTERA COMALAPA CHIS"
     ],
     [
-      "114",
+      114,
       "HUIXTLA CHIS"
     ],
     [
-      "115",
+      115,
       "JIQUIPILAS CHIS"
     ],
     [
-      "116",
+      116,
       "JUAREZ CHIS"
     ],
     [
-      "117",
+      117,
       "LA CONCORDIA CHIS"
     ],
     [
-      "118",
+      118,
       "LA TRINITARIA CHIS"
     ],
     [
-      "119",
+      119,
       "LAS MARGARITAS CHIS"
     ],
     [
-      "120",
+      120,
       "LAS ROSAS CHIS"
     ],
     [
-      "121",
+      121,
       "MAPASTEPEC CHIS"
     ],
     [
-      "122",
+      122,
       "MOTOZINTLA CHIS"
     ],
     [
-      "123",
+      123,
       "OCOSINGO CHIS"
     ],
     [
-      "124",
+      124,
       "OCOZOCOAUTLA DE E. CHIS"
     ],
     [
-      "125",
+      125,
       "PALENQUE CHIS"
     ],
     [
-      "126",
+      126,
       "PICHUCALCO CHIS"
     ],
     [
-      "127",
+      127,
       "PIJIJIAPAN CHIS"
     ],
     [
-      "128",
+      128,
       "REFORMA CHIS"
     ],
     [
-      "129",
+      129,
       "SALTO DE AGUA CHIS"
     ],
     [
-      "130",
+      130,
       "SN CRISTOBAL DE LAS C. CHIS"
     ],
     [
-      "131",
+      131,
       "SIMOJOVEL CHIS"
     ],
     [
-      "132",
+      132,
       "SOCOLTENANGO CHIS"
     ],
     [
-      "133",
+      133,
       "TAPACHULA CHIS"
     ],
     [
-      "134",
+      134,
       "TEOPISCA CHIS"
     ],
     [
-      "135",
+      135,
       "TONALA CHIS"
     ],
     [
-      "136",
+      136,
       "TUXTLA CHICO CHIS"
     ],
     [
-      "137",
+      137,
       "VENUSTIANO CARRANZA CHIS"
     ],
     [
-      "138",
+      138,
       "VILLA CORZO CHIS"
     ],
     [
-      "140",
+      140,
       "YAJALON CHIS"
     ],
     [
-      "150",
+      150,
       "CHIHUAHUA CHIH"
     ],
     [
-      "151",
+      151,
       "AHUMADA CHIH"
     ],
     [
-      "152",
+      152,
       "ANAHUAC CHIH"
     ],
     [
-      "153",
+      153,
       "ASCENSION CHIH"
     ],
     [
-      "154",
+      154,
       "BUENAVENTURA CHIH"
     ],
     [
-      "155",
+      155,
       "CAMARGO CHIH"
     ],
     [
-      "156",
+      156,
       "CASAS GRANDES CHIH"
     ],
     [
-      "157",
+      157,
       "CREEL CHIH"
     ],
     [
-      "158",
+      158,
       "CUAUHTEMOC CHIH"
     ],
     [
-      "159",
+      159,
       "GOMEZ FARIAS CHIH"
     ],
     [
-      "160",
+      160,
       "GUACHOCHI CHIH"
     ],
     [
-      "161",
+      161,
       "GUERRERO CHIH"
     ],
     [
-      "162",
+      162,
       "HIDALGO DEL PARRAL CHIH"
     ],
     [
-      "163",
+      163,
       "JIMENEZ CHIH"
     ],
     [
-      "164",
+      164,
       "JUAREZ CHIH"
     ],
     [
-      "165",
+      165,
       "MADERA CHIH"
     ],
     [
-      "166",
+      166,
       "MEOQUI CHIH"
     ],
     [
-      "167",
+      167,
       "NAMIQUIPA CHIH"
     ],
     [
-      "168",
+      168,
       "NVO CASAS GRANDES CHIH"
     ],
     [
-      "169",
+      169,
       "OJINAGA CHIH"
     ],
     [
-      "170",
+      170,
       "PRAXEDIS G. GUERRERO CHIH"
     ],
     [
-      "171",
+      171,
       "PUERTO PALOMAS CHIH"
     ],
     [
-      "172",
+      172,
       "SANTA BARBARA CHIH"
     ],
     [
-      "173",
+      173,
       "SAUCILLO CHIH"
     ],
     [
-      "180",
+      180,
       "DISTRITO FEDERAL DF"
     ],
     [
-      "190",
+      190,
       "DURANGO DGO"
     ],
     [
-      "191",
+      191,
       "CANATLAN DGO"
     ],
     [
-      "192",
+      192,
       "CUENCAME DGO"
     ],
     [
-      "193",
+      193,
       "EL SALTO DGO"
     ],
     [
-      "194",
+      194,
       "GUADALUPE VICTORIA DGO"
     ],
     [
-      "195",
+      195,
       "NAZAS DGO"
     ],
     [
-      "196",
+      196,
       "NVO IDEAL DGO"
     ],
     [
-      "197",
+      197,
       "SAN JUAN DEL RIO DGO"
     ],
     [
-      "198",
+      198,
       "SANTA MARIA DEL ORO DGO"
     ],
     [
-      "199",
+      199,
       "SANTIAGO PAPASQUIARO DGO"
     ],
     [
-      "200",
+      200,
       "TAYOLTITA DGO"
     ],
     [
-      "201",
+      201,
       "TEPEHUANES DGO"
     ],
     [
-      "202",
+      202,
       "VICENTE GUERRERO DGO"
     ],
     [
-      "210",
+      210,
       "GUANAJUATO GTO"
     ],
     [
-      "211",
+      211,
       "ABASOLO GTO"
     ],
     [
-      "212",
+      212,
       "ACAMBARO GTO"
     ],
     [
-      "213",
+      213,
       "APASEO EL ALTO GTO"
     ],
     [
-      "214",
+      214,
       "APASEO EL GRANDE GTO"
     ],
     [
-      "215",
+      215,
       "CELAYA GTO"
     ],
     [
-      "216",
+      216,
       "COMONFORT GTO"
     ],
     [
-      "217",
+      217,
       "CORONEO GTO"
     ],
     [
-      "218",
+      218,
       "CORTAZAR GTO"
     ],
     [
-      "219",
+      219,
       "CUERAMARO GTO"
     ],
     [
-      "220",
+      220,
       "DOLORES HIDALGO GTO"
     ],
     [
-      "221",
+      221,
       "HUANIMARO GTO"
     ],
     [
-      "222",
+      222,
       "IRAPUATO GTO"
     ],
     [
-      "223",
+      223,
       "JARAL DEL PROGRESO GTO"
     ],
     [
-      "224",
+      224,
       "JERECUARO GTO"
     ],
     [
-      "225",
+      225,
       "LEON GTO"
     ],
     [
-      "226",
+      226,
       "MANUEL DOBLADO GTO"
     ],
     [
-      "227",
+      227,
       "MOROLEON GTO"
     ],
     [
-      "228",
+      228,
       "OCAMPO GTO"
     ],
     [
-      "229",
+      229,
       "PENJAMO GTO"
     ],
     [
-      "230",
+      230,
       "PUEBLO NUEVO GTO"
     ],
     [
-      "231",
+      231,
       "PURISIMA DEL RINCON GTO"
     ],
     [
-      "232",
+      232,
       "ROMITA GTO"
     ],
     [
-      "233",
+      233,
       "SALAMANCA GTO"
     ],
     [
-      "234",
+      234,
       "SALVATIERRA GTO"
     ],
     [
-      "235",
+      235,
       "SAN DIEGO DE LA UNION GTO"
     ],
     [
-      "236",
+      236,
       "SAN FELIPE PROGRESO GTO"
     ],
     [
-      "237",
+      237,
       "SAN FCO. DEL RINCON GTO"
     ],
     [
-      "238",
+      238,
       "SAN JOSE ITURBIDE GTO"
     ],
     [
-      "239",
+      239,
       "SAN LUIS DE LA PAZ GTO"
     ],
     [
-      "240",
+      240,
       "SAN MIGUEL DE ALLENDE GTO"
     ],
     [
-      "241",
+      241,
       "SANTA ANA PACUECO GTO"
     ],
     [
-      "242",
+      242,
       "SANTA CRUZ DE JUVENTINO GTO"
     ],
     [
-      "243",
+      243,
       "SANTIAGO MARAVATIO GTO"
     ],
     [
-      "244",
+      244,
       "SILAO GTO"
     ],
     [
-      "245",
+      245,
       "TARANDACUAO GTO"
     ],
     [
-      "246",
+      246,
       "TARIMORO GTO"
     ],
     [
-      "247",
+      247,
       "URIANGATO GTO"
     ],
     [
-      "248",
+      248,
       "VALLE DE SANTIAGO GTO"
     ],
     [
-      "249",
+      249,
       "YURIRIA GTO"
     ],
     [
-      "260",
+      260,
       "CHILPANCINGO DE LOS B. GRO"
     ],
     [
-      "261",
+      261,
       "ACAPULCO DE JUAREZ GRO"
     ],
     [
-      "262",
+      262,
       "APAXTLA DE CASTREJON GRO"
     ],
     [
-      "263",
+      263,
       "ARCELIA GRO"
     ],
     [
-      "264",
+      264,
       "ATOYAC DE ALVAREZ GRO"
     ],
     [
-      "265",
+      265,
       "BUENAVISTA DE CUELLAR GRO"
     ],
     [
-      "266",
+      266,
       "CIUDAD ALTAMIRANO GRO"
     ],
     [
-      "267",
+      267,
       "COYUCA DE BENITEZ GRO"
     ],
     [
-      "268",
+      268,
       "CRUZ GRANDE GRO"
     ],
     [
-      "269",
+      269,
       "CHICHIHUALCO GRO"
     ],
     [
-      "270",
+      270,
       "CHILAPA DE ALVAREZ GRO"
     ],
     [
-      "271",
+      271,
       "HUITZUCO GRO"
     ],
     [
-      "272",
+      272,
       "IGUALA DE LA INDEPEN. GRO"
     ],
     [
-      "273",
+      273,
       "OLINALA GRO"
     ],
     [
-      "274",
+      274,
       "OMETEPEC GRO"
     ],
     [
-      "275",
+      275,
       "SAN MARCOS GRO"
     ],
     [
-      "276",
+      276,
       "TAXCO DE ALARCON GRO"
     ],
     [
-      "277",
+      277,
       "PETATLAN GRO"
     ],
     [
-      "278",
+      278,
       "TELOLOAPAN GRO"
     ],
     [
-      "279",
+      279,
       "TIERRA COLORADA GRO"
     ],
     [
-      "280",
+      280,
       "TIXTLA DE GUERRERO GRO"
     ],
     [
-      "281",
+      281,
       "TLAPA DE COMONFORT GRO"
     ],
     [
-      "282",
+      282,
       "ZIHUATANEJO GRO"
     ],
     [
-      "290",
+      290,
       "PACHUCA DE SOTO HGO"
     ],
     [
-      "291",
+      291,
       "ACTOPAN HGO"
     ],
     [
-      "292",
+      292,
       "APAN HGO"
     ],
     [
-      "293",
+      293,
       "ATOTONILCO EL GRANDE HGO"
     ],
     [
-      "294",
+      294,
       "CIUDAD SAHAGUN HGO"
     ],
     [
-      "295",
+      295,
       "CUAUTEPEC DE HINOJOSA HGO"
     ],
     [
-      "296",
+      296,
       "HUEJUTLA DE REYES HGO"
     ],
     [
-      "297",
+      297,
       "HUICHAPAN HGO"
     ],
     [
-      "298",
+      298,
       "IXMIQUILPAN HGO"
     ],
     [
-      "299",
+      299,
       "JACALA HGO"
     ],
     [
-      "300",
+      300,
       "METZTITLAN HGO"
     ],
     [
-      "301",
+      301,
       "MIXQUIAHUALA HGO"
     ],
     [
-      "302",
+      302,
       "MOLANGO HGO"
     ],
     [
-      "303",
+      303,
       "PROGRESO DE OBREGON HGO"
     ],
     [
-      "304",
+      304,
       "TASQUILLO HGO"
     ],
     [
-      "305",
+      305,
       "TEPEAPULCO HGO"
     ],
     [
-      "306",
+      306,
       "TEPEJI DEL RIO HGO"
     ],
     [
-      "307",
+      307,
       "TEZONTEPEC HGO"
     ],
     [
-      "308",
+      308,
       "TIZAYUCA HGO"
     ],
     [
-      "309",
+      309,
       "TLAHUELILPAN HGO"
     ],
     [
-      "310",
+      310,
       "TLAXCOAPAN HGO"
     ],
     [
-      "311",
+      311,
       "TULA DE ALLENDE HGO"
     ],
     [
-      "312",
+      312,
       "TULANCINGO HGO"
     ],
     [
-      "313",
+      313,
       "ZACUALTIPAN HGO"
     ],
     [
-      "314",
+      314,
       "ZIMAPAN HGO"
     ],
     [
-      "320",
+      320,
       "EL SALTO JAL"
     ],
     [
-      "321",
+      321,
       "ACATIC JAL"
     ],
     [
-      "322",
+      322,
       "ACATLAN DE JUAREZ JAL"
     ],
     [
-      "323",
+      323,
       "AHUALULCO DE MERCADO JAL"
     ],
     [
-      "324",
+      324,
       "AJIJIC JAL"
     ],
     [
-      "325",
+      325,
       "AMATITAN JAL"
     ],
     [
-      "326",
+      326,
       "AMECA JAL"
     ],
     [
-      "327",
+      327,
       "ARANDAS JAL"
     ],
     [
-      "328",
+      328,
       "ARENAL JAL"
     ],
     [
-      "329",
+      329,
       "ATENGUILLO JAL"
     ],
     [
-      "330",
+      330,
       "ATOTONILCO EL ALTO JAL"
     ],
     [
-      "331",
+      331,
       "ATOTONILQUILLO JAL"
     ],
     [
-      "332",
+      332,
       "ATOYAC JAL"
     ],
     [
-      "333",
+      333,
       "AUTLAN DE NAVARRO JAL"
     ],
     [
-      "334",
+      334,
       "AYOTLAN JAL"
     ],
     [
-      "335",
+      335,
       "AYUTLA JAL"
     ],
     [
-      "336",
+      336,
       "BAJIO DE SAN JOSE JAL"
     ],
     [
-      "337",
+      337,
       "BELEN DEL REFUGIO JAL"
     ],
     [
-      "338",
+      338,
       "CAÑADAS DE OBREGON JAL"
     ],
     [
-      "339",
+      339,
       "CAPILLA DE GUADALUPE JAL"
     ],
     [
-      "340",
+      340,
       "CASIMIRO CASTILLO JAL"
     ],
     [
-      "341",
+      341,
       "CIHUATLAN JAL"
     ],
     [
-      "342",
+      342,
       "CIUDAD GUZMAN JAL"
     ],
     [
-      "343",
+      343,
       "COCULA JAL"
     ],
     [
-      "344",
+      344,
       "Ixtlixochitl EDOMEX"
     ],
     [
-      "345",
+      345,
       "CUQUIO JAL"
     ],
     [
-      "346",
+      346,
       "CHAPALA JAL"
     ],
     [
-      "347",
+      347,
       "DEGOLLADO JAL"
     ],
     [
-      "348",
+      348,
       "EL GRULLO JAL"
     ],
     [
-      "349",
+      349,
       "ENCARNACION DE DIAZ JAL"
     ],
     [
-      "350",
+      350,
       "ESTIPAC JAL"
     ],
     [
-      "351",
+      351,
       "GUACHINANGO JAL"
     ],
     [
-      "352",
+      352,
       "HUEJUCAR JAL"
     ],
     [
-      "353",
+      353,
       "HUEJUQUILLA EL ALTO JAL"
     ],
     [
-      "354",
+      354,
       "IXTLAHUACAN DE LOS M. JAL"
     ],
     [
-      "355",
+      355,
       "IXTLAHUACAN DEL RIO JAL"
     ],
     [
-      "356",
+      356,
       "JALOSTOTITLAN JAL"
     ],
     [
-      "357",
+      357,
       "JAMAY JAL"
     ],
     [
-      "358",
+      358,
       "JESUS MARIA JAL"
     ],
     [
-      "359",
+      359,
       "JOCOTEPEC JAL"
     ],
     [
-      "360",
+      360,
       "JUCHITLAN JAL"
     ],
     [
-      "361",
+      361,
       "LA BARCA JAL"
     ],
     [
-      "362",
+      362,
       "LAGOS DE MORENO JAL"
     ],
     [
-      "363",
+      363,
       "MAGDALENA JAL"
     ],
     [
-      "364",
+      364,
       "MANZANILLA DE LA PAZ JAL"
     ],
     [
-      "365",
+      365,
       "MASCOTA JAL"
     ],
     [
-      "366",
+      366,
       "MAZAMITLA JAL"
     ],
     [
-      "367",
+      367,
       "MEXTICACAN JAL"
     ],
     [
-      "368",
+      368,
       "MEZQUITIC JAL"
     ],
     [
-      "369",
+      369,
       "MIXTLAN JAL"
     ],
     [
-      "370",
+      370,
       "OCOTLAN JAL"
     ],
     [
-      "371",
+      371,
       "OJUELOS DE JALISCO JAL"
     ],
     [
-      "372",
+      372,
       "PEGUEROS JAL"
     ],
     [
-      "373",
+      373,
       "PIHUAMO JAL"
     ],
     [
-      "374",
+      374,
       "PONCITLAN JAL"
     ],
     [
-      "375",
+      375,
       "PUERTO VALLARTA JAL"
     ],
     [
-      "376",
+      376,
       "PURIFICACION JAL"
     ],
     [
-      "377",
+      377,
       "QUITUPAN JAL"
     ],
     [
-      "378",
+      378,
       "SAN IGNACIO CERRO G. JAL"
     ],
     [
-      "379",
+      379,
       "SAN JOSE CASAS CAIDAS JAL"
     ],
     [
-      "380",
+      380,
       "SAN JOSE DE GRACIA JAL"
     ],
     [
-      "381",
+      381,
       "SAN JUAN DE LOS LAGOS JAL"
     ],
     [
-      "382",
+      382,
       "SAN JULIAN JAL"
     ],
     [
-      "383",
+      383,
       "SAN MARTIN HIDALGO JAL"
     ],
     [
-      "384",
+      384,
       "SAN MIGUEL EL ALTO JAL"
     ],
     [
-      "385",
+      385,
       "SAN PATRICIO MELAQUE JAL"
     ],
     [
-      "386",
+      386,
       "SAYULA JAL"
     ],
     [
-      "387",
+      387,
       "TALA JAL"
     ],
     [
-      "388",
+      388,
       "TALPA DE ALLENDE JAL"
     ],
     [
-      "389",
+      389,
       "TAMAZULA DE GORDIANO JAL"
     ],
     [
-      "390",
+      390,
       "TAPALPA JAL"
     ],
     [
-      "391",
+      391,
       "TECALITLAN JAL"
     ],
     [
-      "392",
+      392,
       "TECOLOTLAN JAL"
     ],
     [
-      "393",
+      393,
       "TENAMAXTLAN JAL"
     ],
     [
-      "394",
+      394,
       "TEOCALTICHE JAL"
     ],
     [
-      "395",
+      395,
       "TEOCUITATLAN DE CORONA JAL"
     ],
     [
-      "396",
+      396,
       "TEPATITLAN DE MORELOS JAL"
     ],
     [
-      "397",
+      397,
       "TEQUILA JAL"
     ],
     [
-      "398",
+      398,
       "TIZAPAN EL ALTO JAL"
     ],
     [
-      "399",
+      399,
       "TOLIMAN JAL"
     ],
     [
-      "400",
+      400,
       "TOMATLAN JAL"
     ],
     [
-      "401",
+      401,
       "TONAYA JAL"
     ],
     [
-      "402",
+      402,
       "TOTATICHE JAL"
     ],
     [
-      "403",
+      403,
       "TOTOTLAN JAL"
     ],
     [
-      "404",
+      404,
       "TUXPAN JAL"
     ],
     [
-      "405",
+      405,
       "UNION DE SAN ANTONIO JAL"
     ],
     [
-      "406",
+      406,
       "UNION DE TULA JAL"
     ],
     [
-      "407",
+      407,
       "VALLE DE GUADALUPE JAL"
     ],
     [
-      "408",
+      408,
       "VALLE DE JUAREZ JAL"
     ],
     [
-      "409",
+      409,
       "VILLA CORONA JAL"
     ],
     [
-      "410",
+      410,
       "VILLA GUERRERO JAL"
     ],
     [
-      "411",
+      411,
       "VILLA HIDALGO JAL"
     ],
     [
-      "412",
+      412,
       "VISTA HERMOSA JAL"
     ],
     [
-      "413",
+      413,
       "ZACOALCO DE TORRES JAL"
     ],
     [
-      "414",
+      414,
       "ZAPOTILTIC JAL"
     ],
     [
-      "415",
+      415,
       "ZAPOTLAN DEL REY JAL"
     ],
     [
-      "416",
+      416,
       "ZAPOTLANEJO JAL"
     ],
     [
-      "420",
+      420,
       "TOLUCA EDOMEX"
     ],
     [
-      "421",
+      421,
       "ACAMBAY EDOMEX"
     ],
     [
-      "422",
+      422,
       "ALMOLOYA DE JUAREZ EDOMEX"
     ],
     [
-      "423",
+      423,
       "AMATEPEC EDOMEX"
     ],
     [
-      "424",
+      424,
       "AMECAMECA EDOMEX"
     ],
     [
-      "425",
+      425,
       "APAXCO EDOMEX"
     ],
     [
-      "426",
+      426,
       "ATLACOMULCO EDOMEX"
     ],
     [
-      "427",
+      427,
       "CAPULHUAC EDOMEX"
     ],
     [
-      "428",
+      428,
       "COATEPEC HARINAS EDOMEX"
     ],
     [
-      "429",
+      429,
       "COLORINES EDOMEX"
     ],
     [
-      "430",
+      430,
       "CHICOLOAPAN EDOMEX"
     ],
     [
-      "431",
+      431,
       "CHICONCUAC EDOMEX"
     ],
     [
-      "432",
+      432,
       "EL ORO EDOMEX"
     ],
     [
-      "433",
+      433,
       "IXTAPAN DE LA SAL EDOMEX"
     ],
     [
-      "434",
+      434,
       "IXTLAHUACA EDOMEX"
     ],
     [
-      "435",
+      435,
       "JILOTEPEC EDOMEX"
     ],
     [
-      "436",
+      436,
       "JOCOTITLAN EDOMEX"
     ],
     [
-      "437",
+      437,
       "LA PAZ (REYES ACAQ.) EDOMEX"
     ],
     [
-      "438",
+      438,
       "LERMA EDOMEX"
     ],
     [
-      "439",
+      439,
       "LUVIANOS EDOMEX"
     ],
     [
-      "440",
+      440,
       "MALINALCO EDOMEX"
     ],
     [
-      "441",
+      441,
       "METEPEC EDOMEX"
     ],
     [
-      "442",
+      442,
       "OCOYOACAC EDOMEX"
     ],
     [
-      "443",
+      443,
       "OTUMBA EDOMEX"
     ],
     [
-      "444",
+      444,
       "SAN FELIPE PROGRESO EDOMEX"
     ],
     [
-      "445",
+      445,
       "SAN MATEO ATENCO EDOMEX"
     ],
     [
-      "446",
+      446,
       "TEJUPILCO EDOMEX"
     ],
     [
-      "447",
+      447,
       "TEMASCALCINGO EDOMEX"
     ],
     [
-      "448",
+      448,
       "TEMASCALTEPEC EDOMEX"
     ],
     [
-      "449",
+      449,
       "TEMOAYA EDOMEX"
     ],
     [
-      "450",
+      450,
       "TENANCINGO EDOMEX"
     ],
     [
-      "451",
+      451,
       "TENANGO DE ARISTA EDOMEX"
     ],
     [
-      "452",
+      452,
       "TEXCALTITLAN EDOMEX"
     ],
     [
-      "453",
+      453,
       "TIANGUISTENCO EDOMEX"
     ],
     [
-      "454",
+      454,
       "TONATICO EDOMEX"
     ],
     [
-      "455",
+      455,
       "TULTEPEC EDOMEX"
     ],
     [
-      "456",
+      456,
       "TULTITLAN EDOMEX"
     ],
     [
-      "457",
+      457,
       "VALLE DE BRAVO EDOMEX"
     ],
     [
-      "458",
+      458,
       "VILLA DEL CARBON EDOMEX"
     ],
     [
-      "459",
+      459,
       "VILLA GUERRERO EDOMEX"
     ],
     [
-      "460",
+      460,
       "VILLA NICOLAS ROMERO EDOMEX"
     ],
     [
-      "461",
+      461,
       "VILLA VICTORIA EDOMEX"
     ],
     [
-      "462",
+      462,
       "XONACATLAN EDOMEX"
     ],
     [
-      "463",
+      463,
       "ZUMPANGO EDOMEX"
     ],
     [
-      "470",
+      470,
       "MORELIA MICH"
     ],
     [
-      "471",
+      471,
       "ACUITZIO DEL CANJE MICH"
     ],
     [
-      "472",
+      472,
       "AGUILILLA MICH"
     ],
     [
-      "473",
+      473,
       "ALVARO OBREGON MICH"
     ],
     [
-      "474",
+      474,
       "ANGAMACUTIRO MICH"
     ],
     [
-      "475",
+      475,
       "ANGANGUEO MICH"
     ],
     [
-      "476",
+      476,
       "APATZINGAN MICH"
     ],
     [
-      "477",
+      477,
       "ARIO DE ROSALES MICH"
     ],
     [
-      "478",
+      478,
       "ARTEAGA MICH"
     ],
     [
-      "479",
+      479,
       "BUENAVISTA TOMATLAN MICH"
     ],
     [
-      "480",
+      480,
       "CIUDAD HIDALGO MICH"
     ],
     [
-      "481",
+      481,
       "COALCOMAN DE VAZQUEZ MICH"
     ],
     [
-      "482",
+      482,
       "CONTEPEC MICH"
     ],
     [
-      "483",
+      483,
       "COTIJA DE LA PAZ MICH"
     ],
     [
-      "484",
+      484,
       "CUITZEO MICH"
     ],
     [
-      "485",
+      485,
       "CHAVINDA MICH"
     ],
     [
-      "486",
+      486,
       "CHERAN MICH"
     ],
     [
-      "487",
+      487,
       "CHILCHOTA MICH"
     ],
     [
-      "488",
+      488,
       "CHURINTZIO MICH"
     ],
     [
-      "489",
+      489,
       "EPITACIO HUERTA MICH"
     ],
     [
-      "490",
+      490,
       "GABRIEL ZAMORA MICH"
     ],
     [
-      "491",
+      491,
       "HUANDACAREO MICH"
     ],
     [
-      "492",
+      492,
       "HUETAMO MICH"
     ],
     [
-      "493",
+      493,
       "JACONA DE PLANCARTE MICH"
     ],
     [
-      "494",
+      494,
       "JIQUILPAN DE JUAREZ MICH"
     ],
     [
-      "495",
+      495,
       "LA HUACANA MICH"
     ],
     [
-      "496",
+      496,
       "LA PIEDAD DE CABADAS MICH"
     ],
     [
-      "497",
+      497,
       "LAZARO CARDENAS MICH"
     ],
     [
-      "498",
+      498,
       "LOS REYES DE SALGADO MICH"
     ],
     [
-      "499",
+      499,
       "MARAVATIO MICH"
     ],
     [
-      "500",
+      500,
       "SAN JOSE DE GRACIA MICH"
     ],
     [
-      "501",
+      501,
       "NVA ITALIA DE RUIZ MICH"
     ],
     [
-      "502",
+      502,
       "PAJACUARAN MICH"
     ],
     [
-      "503",
+      503,
       "PANINDICUARO MICH"
     ],
     [
-      "504",
+      504,
       "PARACHO MICH"
     ],
     [
-      "505",
+      505,
       "PASTOR ORTIZ MICH"
     ],
     [
-      "506",
+      506,
       "PATZCUARO MICH"
     ],
     [
-      "507",
+      507,
       "PERIBAN MICH"
     ],
     [
-      "508",
+      508,
       "PUREPERO DE ECHAIZ MICH"
     ],
     [
-      "509",
+      509,
       "PURUANDIRO MICH"
     ],
     [
-      "510",
+      510,
       "QUERENDARO MICH"
     ],
     [
-      "511",
+      511,
       "QUIROGA MICH"
     ],
     [
-      "512",
+      512,
       "SAHUAYO DE MORELOS MICH"
     ],
     [
-      "513",
+      513,
       "SANTA ANA MAYA MICH"
     ],
     [
-      "514",
+      514,
       "SANTIAGO TANGAMANDAPIO MICH"
     ],
     [
-      "515",
+      515,
       "TACAMBARO CODALLOS MICH"
     ],
     [
-      "516",
+      516,
       "TANCITARO MICH"
     ],
     [
-      "517",
+      517,
       "TANGANCICUARO ARISTA MICH"
     ],
     [
-      "518",
+      518,
       "TANHUATO DE GUERRERO MICH"
     ],
     [
-      "519",
+      519,
       "TAPALCATEPEC MICH"
     ],
     [
-      "520",
+      520,
       "TARETAN MICH"
     ],
     [
-      "521",
+      521,
       "TINGUINDIN MICH"
     ],
     [
-      "522",
+      522,
       "TLALPUJAHUA MICH"
     ],
     [
-      "523",
+      523,
       "TLAZAZALCA MICH"
     ],
     [
-      "524",
+      524,
       "TOCUMBO MICH"
     ],
     [
-      "525",
+      525,
       "TUXPAN MICH"
     ],
     [
-      "526",
+      526,
       "TUZANTLA MICH"
     ],
     [
-      "527",
+      527,
       "UCAREO MICH"
     ],
     [
-      "528",
+      528,
       "URUAPAN MICH"
     ],
     [
-      "529",
+      529,
       "VILLA JIMENEZ MICH"
     ],
     [
-      "530",
+      530,
       "VILLAMAR MICH"
     ],
     [
-      "531",
+      531,
       "VILLA MORELOS MICH"
     ],
     [
-      "532",
+      532,
       "VISTA HERMOSA NEGRETE MICH"
     ],
     [
-      "533",
+      533,
       "YURECUARO MICH"
     ],
     [
-      "534",
+      534,
       "ZACAPU MICH"
     ],
     [
-      "535",
+      535,
       "ZAMORA MICH"
     ],
     [
-      "536",
+      536,
       "ZINAPECUARO MICH"
     ],
     [
-      "537",
+      537,
       "ZITACUARO MICH"
     ],
     [
-      "540",
+      540,
       "CUERNAVACA MOR"
     ],
     [
-      "541",
+      541,
       "AXOCHIAPAN MOR"
     ],
     [
-      "542",
+      542,
       "CUAUTLA MOR"
     ],
     [
-      "543",
+      543,
       "JIUTEPEC MOR"
     ],
     [
-      "544",
+      544,
       "JOJUTLA MOR"
     ],
     [
-      "545",
+      545,
       "PUENTE DE IXTLA MOR"
     ],
     [
-      "546",
+      546,
       "TEMIXCO MOR"
     ],
     [
-      "547",
+      547,
       "TEPOZTLAN MOR"
     ],
     [
-      "548",
+      548,
       "TETECALA MOR"
     ],
     [
-      "549",
+      549,
       "YAUTEPEC MOR"
     ],
     [
-      "550",
+      550,
       "YAUTEPEC MOR"
     ],
     [
-      "551",
+      551,
       "YECAPIXTLA MOR"
     ],
     [
-      "552",
+      552,
       "ZACATEPEC MOR"
     ],
     [
-      "560",
+      560,
       "TEPIC NAY"
     ],
     [
-      "561",
+      561,
       "ACAPONETA NAY"
     ],
     [
-      "562",
+      562,
       "AHUACATLAN NAY"
     ],
     [
-      "563",
+      563,
       "AMATLAN DE CAÑAS NAY"
     ],
     [
-      "564",
+      564,
       "COMPOSTELA NAY"
     ],
     [
-      "565",
+      565,
       "HUAJICORI NAY"
     ],
     [
-      "566",
+      566,
       "IXTLAN DEL RIO NAY"
     ],
     [
-      "567",
+      567,
       "LA PENITA DE JALTEMBA NAY"
     ],
     [
-      "568",
+      568,
       "LAS VARAS NAY"
     ],
     [
-      "569",
+      569,
       "ROSAMORADA NAY"
     ],
     [
-      "570",
+      570,
       "RUIZ NAY"
     ],
     [
-      "571",
+      571,
       "SAN BLAS NAY"
     ],
     [
-      "572",
+      572,
       "SANTA MARIA DEL ORO NAY"
     ],
     [
-      "573",
+      573,
       "SANTIAGO IXCUINTLA NAY"
     ],
     [
-      "574",
+      574,
       "TECUALA NAY"
     ],
     [
-      "575",
+      575,
       "TUXPAN NAY"
     ],
     [
-      "576",
+      576,
       "VILLA HIDALGO NAY"
     ],
     [
-      "577",
+      577,
       "XALISCO NAY"
     ],
     [
-      "580",
+      580,
       "APODACA NL"
     ],
     [
-      "581",
+      581,
       "ABASOLO NL"
     ],
     [
-      "582",
+      582,
       "AGUALEGUAS NL"
     ],
     [
-      "583",
+      583,
       "ALLENDE NL"
     ],
     [
-      "584",
+      584,
       "ANAHUAC NL"
     ],
     [
-      "585",
+      585,
       "BUSTAMANTE NL"
     ],
     [
-      "586",
+      586,
       "CERRALVO NL"
     ],
     [
-      "587",
+      587,
       "CIENEGA DE FLORES NL"
     ],
     [
-      "588",
+      588,
       "CHINA NL"
     ],
     [
-      "589",
+      589,
       "GALEANA NL"
     ],
     [
-      "590",
+      590,
       "GENERAL BRAVO NL"
     ],
     [
-      "591",
+      591,
       "GENERAL TERAN NL"
     ],
     [
-      "592",
+      592,
       "GENERAL ZUAZUA NL"
     ],
     [
-      "593",
+      593,
       "HIDALGO NL"
     ],
     [
-      "594",
+      594,
       "LAMPAZOS DE NARANJO NL"
     ],
     [
-      "595",
+      595,
       "LINARES NL"
     ],
     [
-      "596",
+      596,
       "LOS RAMONES NL"
     ],
     [
-      "597",
+      597,
       "MONTEMORELOS NL"
     ],
     [
-      "598",
+      598,
       "PESQUERIA NL"
     ],
     [
-      "599",
+      599,
       "SABINAS HIDALGO NL"
     ],
     [
-      "600",
+      600,
       "SALINAS VICTORIA NL"
     ],
     [
-      "601",
+      601,
       "SANTIAGO NL"
     ],
     [
-      "610",
+      610,
       "OAXACA OAX"
     ],
     [
-      "611",
+      611,
       "ASUNCION NOCHIXTLAN OAX"
     ],
     [
-      "612",
+      612,
       "GUELATAO OAX"
     ],
     [
-      "613",
+      613,
       "HEROICA CD DE TLAXIACO OAX"
     ],
     [
-      "614",
+      614,
       "HUAJUAPAM DE LEON OAX"
     ],
     [
-      "615",
+      615,
       "HUAUTLA OAX"
     ],
     [
-      "616",
+      616,
       "IXTEPEC OAX"
     ],
     [
-      "617",
+      617,
       "JUCHITAN DE ZARAGOZA OAX"
     ],
     [
-      "618",
+      618,
       "LA REFORMA OAX"
     ],
     [
-      "619",
+      619,
       "LOMA BONITA OAX"
     ],
     [
-      "620",
+      620,
       "MATIAS ROMERO OAX"
     ],
     [
-      "621",
+      621,
       "MIAHUATLAN OAX"
     ],
     [
-      "622",
+      622,
       "OCOTLAN OAX"
     ],
     [
-      "623",
+      623,
       "PINOTEPA OAX"
     ],
     [
-      "624",
+      624,
       "PUERTO ESCONDIDO OAX"
     ],
     [
-      "625",
+      625,
       "PUTLA OAX"
     ],
     [
-      "626",
+      626,
       "SALINA CRUZ OAX"
     ],
     [
-      "627",
+      627,
       "SAN ANDRES LAGUNAS OAX"
     ],
     [
-      "628",
+      628,
       "SAN JUAN BAUTISTA T. OAX"
     ],
     [
-      "629",
+      629,
       "SAN PEDRO MIXTEPEC OAX"
     ],
     [
-      "630",
+      630,
       "SAN PEDRO POCHUTLA OAX"
     ],
     [
-      "631",
+      631,
       "SAN PEDRO TAPANATEPEC OAX"
     ],
     [
-      "632",
+      632,
       "SANTA LUCIA DEL CAMINO OAX"
     ],
     [
-      "633",
+      633,
       "SANTA MARIA DEL TULE OAX"
     ],
     [
-      "634",
+      634,
       "SANTA MARIA HUATULCO OAX"
     ],
     [
-      "635",
+      635,
       "SANTIAGO JUXTLAHUACA OAX"
     ],
     [
-      "636",
+      636,
       "SANTIAGO PINOTEPA NAL OAX"
     ],
     [
-      "637",
+      637,
       "STO DOMINGO TEHUANTEPEC OAX"
     ],
     [
-      "638",
+      638,
       "TLACOLULA D MATAMOROS OAX"
     ],
     [
-      "639",
+      639,
       "VILLA DE TAMAZULAPAM OAX"
     ],
     [
-      "640",
+      640,
       "ZIMATLAN OAX"
     ],
     [
-      "650",
+      650,
       "CUAUTLANCINGO PUE"
     ],
     [
-      "651",
+      651,
       "ACATLAN PUE"
     ],
     [
-      "652",
+      652,
       "ACATZINGO PUE"
     ],
     [
-      "653",
+      653,
       "AMOZOC PUE"
     ],
     [
-      "654",
+      654,
       "ATLIXCO PUE"
     ],
     [
-      "655",
+      655,
       "CIUDAD SERDAN PUE"
     ],
     [
-      "656",
+      656,
       "CUETZALAN PUE"
     ],
     [
-      "657",
+      657,
       "CHIAUTLA PUE"
     ],
     [
-      "658",
+      658,
       "CHIGNAHUAPAN PUE"
     ],
     [
-      "659",
+      659,
       "HUAUCHINANGO PUE"
     ],
     [
-      "660",
+      660,
       "HUEJOTZINGO PUE"
     ],
     [
-      "661",
+      661,
       "HUEYTAMALCO PUE"
     ],
     [
-      "662",
+      662,
       "IZUCAR DE MATAMOROS PUE"
     ],
     [
-      "663",
+      663,
       "LIBRES PUE"
     ],
     [
-      "664",
+      664,
       "NEALTICAN PUE"
     ],
     [
-      "665",
+      665,
       "NVO NECAXA PUE"
     ],
     [
-      "666",
+      666,
       "RAFAEL LARA GRAJALES PUE"
     ],
     [
-      "667",
+      667,
       "SAN MARTIN TEXMELUCAN PUE"
     ],
     [
-      "668",
+      668,
       "STO TOMAS HUEYOTLIPAN PUE"
     ],
     [
-      "669",
+      669,
       "TECAMACHALCO PUE"
     ],
     [
-      "670",
+      670,
       "TEHUACAN PUE"
     ],
     [
-      "671",
+      671,
       "TEPEACA PUE"
     ],
     [
-      "672",
+      672,
       "TEZIUTLAN PUE"
     ],
     [
-      "673",
+      673,
       "TLATLAUQUITEPEC PUE"
     ],
     [
-      "674",
+      674,
       "XICOTEPEC PUE"
     ],
     [
-      "675",
+      675,
       "ZACAP0AXTLA PUE"
     ],
     [
-      "676",
+      676,
       "ZACATLAN PUE"
     ],
     [
-      "680",
+      680,
       "EL PUEBLITO CORREG. QRO"
     ],
     [
-      "681",
+      681,
       "AMEALCO QRO"
     ],
     [
-      "682",
+      682,
       "CADEREYTA QRO"
     ],
     [
-      "683",
+      683,
       "EZEQUIEL MONTES QRO"
     ],
     [
-      "684",
+      684,
       "JALPAN QRO"
     ],
     [
-      "685",
+      685,
       "SAN JUAN DEL RIO QRO"
     ],
     [
-      "686",
+      686,
       "TEQUISQUIAPAN QRO"
     ],
     [
-      "690",
+      690,
       "CHETUMAL QROO"
     ],
     [
-      "691",
+      691,
       "CANCUN QROO"
     ],
     [
-      "692",
+      692,
       "COZUMEL QROO"
     ],
     [
-      "693",
+      693,
       "ISLA MUJERES QROO"
     ],
     [
-      "694",
+      694,
       "PLAYA DEL CARMEN QROO"
     ],
     [
-      "700",
+      700,
       "SAN LUIS POTOSI SLP"
     ],
     [
-      "701",
+      701,
       "AXTLA DE TERRAZAS SLP"
     ],
     [
-      "702",
+      702,
       "CARDENAS SLP"
     ],
     [
-      "703",
+      703,
       "CERRITOS SLP"
     ],
     [
-      "704",
+      704,
       "CIUDAD DEL MAIZ SLP"
     ],
     [
-      "705",
+      705,
       "CIUDAD VALLES SLP"
     ],
     [
-      "706",
+      706,
       "CHARCAS SLP"
     ],
     [
-      "707",
+      707,
       "EBANO SLP"
     ],
     [
-      "708",
+      708,
       "GUADALCAZAR SLP"
     ],
     [
-      "709",
+      709,
       "MATEHUALA SLP"
     ],
     [
-      "710",
+      710,
       "RAYON SLP"
     ],
     [
-      "711",
+      711,
       "RIO VERDE SLP"
     ],
     [
-      "712",
+      712,
       "SALINAS DE HIDALGO SLP"
     ],
     [
-      "713",
+      713,
       "SANTA MARIA DEL RIO SLP"
     ],
     [
-      "714",
+      714,
       "TAMASOPO SLP"
     ],
     [
-      "715",
+      715,
       "TAMAZUNCHALE SLP"
     ],
     [
-      "716",
+      716,
       "TAMUIN SLP"
     ],
     [
-      "717",
+      717,
       "TANCANHUITZ DE SANTOS SLP"
     ],
     [
-      "718",
+      718,
       "TANQUIAN SLP"
     ],
     [
-      "719",
+      719,
       "TIERRA NUEVA SLP"
     ],
     [
-      "720",
+      720,
       "VENADO SLP"
     ],
     [
-      "721",
+      721,
       "XILITLA SLP"
     ],
     [
-      "722",
+      722,
       "VILLA DE ARISTA SLP"
     ],
     [
-      "730",
+      730,
       "CULIACAN SIN"
     ],
     [
-      "731",
+      731,
       "AHOME SIN"
     ],
     [
-      "732",
+      732,
       "ANGOSTURA SIN"
     ],
     [
-      "733",
+      733,
       "BADIRAGUATO SIN"
     ],
     [
-      "734",
+      734,
       "BAMOA SIN"
     ],
     [
-      "735",
+      735,
       "CONCORDIA SIN"
     ],
     [
-      "736",
+      736,
       "COSALA SIN"
     ],
     [
-      "737",
+      737,
       "CHOIX SIN"
     ],
     [
-      "738",
+      738,
       "EL FUERTE SIN"
     ],
     [
-      "739",
+      739,
       "ESCUINAPA DE HIDALGO SIN"
     ],
     [
-      "740",
+      740,
       "GUAMUCHIL SIN"
     ],
     [
-      "741",
+      741,
       "GUASAVE SIN"
     ],
     [
-      "742",
+      742,
       "LA CRUZ DE ELOTA SIN"
     ],
     [
-      "743",
+      743,
       "LOS MOCHIS SIN"
     ],
     [
-      "744",
+      744,
       "MAZATLAN SIN"
     ],
     [
-      "745",
+      745,
       "MOCORITO SIN"
     ],
     [
-      "746",
+      746,
       "NAVOLATO SIN"
     ],
     [
-      "747",
+      747,
       "QUILA SIN"
     ],
     [
-      "748",
+      748,
       "ROSARIO SIN"
     ],
     [
-      "749",
+      749,
       "SAN BLAS SIN"
     ],
     [
-      "750",
+      750,
       "SAN IGNACIO SIN"
     ],
     [
-      "760",
+      760,
       "HERMOSILLO SON"
     ],
     [
-      "761",
+      761,
       "AGUA PRIETA SON"
     ],
     [
-      "762",
+      762,
       "ALAMOS SON"
     ],
     [
-      "763",
+      763,
       "ALTAR SON"
     ],
     [
-      "764",
+      764,
       "BAVIACORA SON"
     ],
     [
-      "765",
+      765,
       "CABORCA SON"
     ],
     [
-      "766",
+      766,
       "CANANEA SON"
     ],
     [
-      "767",
+      767,
       "CIUDAD OBREGON SON"
     ],
     [
-      "768",
+      768,
       "CUMPAS SON"
     ],
     [
-      "769",
+      769,
       "EMPALME SON"
     ],
     [
-      "770",
+      770,
       "GUAYMAS SON"
     ],
     [
-      "771",
+      771,
       "HUATABAMPO SON"
     ],
     [
-      "772",
+      772,
       "LUIS B. SANCHEZ SON"
     ],
     [
-      "773",
+      773,
       "MAGDALENA DE KINO SON"
     ],
     [
-      "774",
+      774,
       "MIGUEL ALEMAN SON"
     ],
     [
-      "775",
+      775,
       "MOCTEZUMA SON"
     ],
     [
-      "776",
+      776,
       "NACOZARI DE GARCIA SON"
     ],
     [
-      "777",
+      777,
       "NAVOJOA SON"
     ],
     [
-      "778",
+      778,
       "NOGALES SON"
     ],
     [
-      "779",
+      779,
       "PUERTO PEÑASCO SON"
     ],
     [
-      "780",
+      780,
       "SAN LUIS RIO COLORADO SON"
     ],
     [
-      "781",
+      781,
       "SANTA ANA SON"
     ],
     [
-      "782",
+      782,
       "URES SON"
     ],
     [
-      "783",
+      783,
       "VILLA JUAREZ (IRRIGACION) SON"
     ],
     [
-      "790",
+      790,
       "VILLAHERMOSA TAB"
     ],
     [
-      "791",
+      791,
       "BALANCAN TAB"
     ],
     [
-      "792",
+      792,
       "CARDENAS TAB"
     ],
     [
-      "793",
+      793,
       "CIUDAD PEMEX TAB"
     ],
     [
-      "794",
+      794,
       "COMALCALCO TAB"
     ],
     [
-      "795",
+      795,
       "CUNDUACAN TAB"
     ],
     [
-      "796",
+      796,
       "EMILIANO ZAPATA TAB"
     ],
     [
-      "797",
+      797,
       "FRONTERA TAB"
     ],
     [
-      "798",
+      798,
       "HUIMANGUILLO TAB"
     ],
     [
-      "799",
+      799,
       "JALAPA TAB"
     ],
     [
-      "800",
+      800,
       "JALPA DE MENDEZ TAB"
     ],
     [
-      "801",
+      801,
       "JONUTA TAB"
     ],
     [
-      "802",
+      802,
       "MACUSPANA TAB"
     ],
     [
-      "803",
+      803,
       "NACAJUCA TAB"
     ],
     [
-      "804",
+      804,
       "PARAISO TAB"
     ],
     [
-      "805",
+      805,
       "TACOTALPA TAB"
     ],
     [
-      "806",
+      806,
       "TEAPA TAB"
     ],
     [
-      "807",
+      807,
       "TENOSIQUE TAB"
     ],
     [
-      "810",
+      810,
       "CIUDAD VICTORIA TAMPS"
     ],
     [
-      "811",
+      811,
       "ALTAMIRA TAMPS"
     ],
     [
-      "812",
+      812,
       "CAMARGO TAMPS"
     ],
     [
-      "813",
+      813,
       "CIUDAD MADERO TAMPS"
     ],
     [
-      "814",
+      814,
       "CIUDAD MANTE TAMPS"
     ],
     [
-      "815",
+      815,
       "CIUDAD MIGUEL ALEMAN TAMPS"
     ],
     [
-      "816",
+      816,
       "GONZALEZ TAMPS"
     ],
     [
-      "817",
+      817,
       "GUSTAVO DIAZ ORDAZ TAMPS"
     ],
     [
-      "818",
+      818,
       "MATAMOROS TAMPS"
     ],
     [
-      "819",
+      819,
       "MIER TAMPS"
     ],
     [
-      "820",
+      820,
       "NVA CIUDAD GUERRERO TAMPS"
     ],
     [
-      "821",
+      821,
       "NVO LAREDO TAMPS"
     ],
     [
-      "822",
+      822,
       "HIDALGO TAMPS"
     ],
     [
-      "823",
+      823,
       "RIO BRAVO TAMPS"
     ],
     [
-      "824",
+      824,
       "SAN FERNANDO TAMPS"
     ],
     [
-      "825",
+      825,
       "SOTO LA MARINA TAMPS"
     ],
     [
-      "826",
+      826,
       "VALLE HERMOSO TAMPS"
     ],
     [
-      "827",
+      827,
       "XICOTENCATL TAMPS"
     ],
     [
-      "830",
+      830,
       "TLAXCALA TLAX"
     ],
     [
-      "831",
+      831,
       "AMAXAC DE GUERRERO TLAX"
     ],
     [
-      "832",
+      832,
       "APIZACO TLAX"
     ],
     [
-      "833",
+      833,
       "CALPULALPAN TLAX"
     ],
     [
-      "834",
+      834,
       "CHIAUTEMPAN TLAX"
     ],
     [
-      "835",
+      835,
       "HUAMANTLA TLAX"
     ],
     [
-      "836",
+      836,
       "PAPALOTLA TLAX"
     ],
     [
-      "837",
+      837,
       "SANTA MARIA NATIVITAS TLAX"
     ],
     [
-      "838",
+      838,
       "TLAXCO TLAX"
     ],
     [
-      "839",
+      839,
       "ZACATELCO TLAX"
     ],
     [
-      "840",
+      840,
       "XALAPA VER"
     ],
     [
-      "841",
+      841,
       "ACAYUCAN VER"
     ],
     [
-      "842",
+      842,
       "ADALBERTO TEJEDA VER"
     ],
     [
-      "843",
+      843,
       "AGUA DULCE VER"
     ],
     [
-      "844",
+      844,
       "AGUA DULCE (PAPANTLA) VER"
     ],
     [
-      "845",
+      845,
       "ALAMOS VER"
     ],
     [
-      "846",
+      846,
       "ALTOTONGA VER"
     ],
     [
-      "847",
+      847,
       "ALVARADO VER"
     ],
     [
-      "848",
+      848,
       "BANDERILLAS VER"
     ],
     [
-      "849",
+      849,
       "BOCA DEL RIO VER"
     ],
     [
-      "850",
+      850,
       "CATEMACO VER"
     ],
     [
-      "851",
+      851,
       "CERRO AZUL VER"
     ],
     [
-      "852",
+      852,
       "CIUDAD MENDOZA VER"
     ],
     [
-      "853",
+      853,
       "COATEPEC VER"
     ],
     [
-      "854",
+      854,
       "COATZACOALCOS VER"
     ],
     [
-      "855",
+      855,
       "CORDOBA VER"
     ],
     [
-      "856",
+      856,
       "COSAMALOAPAN VER"
     ],
     [
-      "858",
+      858,
       "COSCOMATEPEC VER"
     ],
     [
-      "859",
+      859,
       "COSOLEACAQUE VER"
     ],
     [
-      "860",
+      860,
       "CUITLAHUAC VER"
     ],
     [
-      "861",
+      861,
       "CHICONTEPEC VER"
     ],
     [
-      "862",
+      862,
       "EL NARANJAL VER"
     ],
     [
-      "863",
+      863,
       "FORTIN DE LAS FLORES VER"
     ],
     [
-      "864",
+      864,
       "GUTIERREZ ZAMORA VER"
     ],
     [
-      "865",
+      865,
       "HUATUSCO VER"
     ],
     [
-      "866",
+      866,
       "HUEYAPAN DE OCAMPO VER"
     ],
     [
-      "867",
+      867,
       "ISLA VER"
     ],
     [
-      "868",
+      868,
       "IXTACZOQUITLAN VER"
     ],
     [
-      "869",
+      869,
       "JALTIPAN DE MORELOS VER"
     ],
     [
-      "870",
+      870,
       "JESUS CARRANZA VER"
     ],
     [
-      "871",
+      871,
       "JUAN RODRIGUEZ CLARA VER"
     ],
     [
-      "872",
+      872,
       "LA ANTIGUA VER"
     ],
     [
-      "873",
+      873,
       "LAS CHOAPAS VER"
     ],
     [
-      "874",
+      874,
       "LERDO DE TEJADA VER"
     ],
     [
-      "875",
+      875,
       "LOS NARANJOS VER"
     ],
     [
-      "876",
+      876,
       "MARTINEZ DE LA TORRE VER"
     ],
     [
-      "877",
+      877,
       "MINATITLAN VER"
     ],
     [
-      "878",
+      878,
       "MISANTLA VER"
     ],
     [
-      "879",
+      879,
       "NANCHITA VER"
     ],
     [
-      "880",
+      880,
       "NAOLINCO VER"
     ],
     [
-      "881",
+      881,
       "NARANJOS VER"
     ],
     [
-      "882",
+      882,
       "ORIZABA VER"
     ],
     [
-      "883",
+      883,
       "OZULUAMA VER"
     ],
     [
-      "884",
+      884,
       "PANUCO VER"
     ],
     [
-      "885",
+      885,
       "PAPANTLA VER"
     ],
     [
-      "886",
+      886,
       "PEROTE VER"
     ],
     [
-      "887",
+      887,
       "PLAYA VICENTE VER"
     ],
     [
-      "888",
+      888,
       "POZA RICA VER"
     ],
     [
-      "889",
+      889,
       "RIO BLANCO (TENANGO) VER"
     ],
     [
-      "890",
+      890,
       "SAN ANDRES TUXTLA VER"
     ],
     [
-      "891",
+      891,
       "SAN RAFAEL VER"
     ],
     [
-      "892",
+      892,
       "SOLEDAD DE DOBLADO VER"
     ],
     [
-      "893",
+      893,
       "TAMIAHUA VER"
     ],
     [
-      "894",
+      894,
       "TANTOYUCA VER"
     ],
     [
-      "895",
+      895,
       "TEMPOAL DE SANCHEZ VER"
     ],
     [
-      "896",
+      896,
       "TEOCELO VER"
     ],
     [
-      "897",
+      897,
       "TEZONAPA VER"
     ],
     [
-      "898",
+      898,
       "TIERRA BLANCA VER"
     ],
     [
-      "899",
+      899,
       "TIHUATLAN VER"
     ],
     [
-      "900",
+      900,
       "TLACOTALPAN VER"
     ],
     [
-      "901",
+      901,
       "TLAPACOYAN VER"
     ],
     [
-      "902",
+      902,
       "TRES VALLES VER"
     ],
     [
-      "903",
+      903,
       "TUXPAN VER"
     ],
     [
-      "904",
+      904,
       "VEGA DE ALATORRE VER"
     ],
     [
-      "905",
+      905,
       "VERACRUZ VER"
     ],
     [
-      "906",
+      906,
       "XICO VER"
     ],
     [
-      "910",
+      910,
       "MERIDA YUC"
     ],
     [
-      "911",
+      911,
       "IZAMAL YUC"
     ],
     [
-      "912",
+      912,
       "MAXCANU YUC"
     ],
     [
-      "913",
+      913,
       "MOTUL YUC"
     ],
     [
-      "914",
+      914,
       "OXKUTZCAB YUC"
     ],
     [
-      "915",
+      915,
       "PUERTO PROGRESO YUC"
     ],
     [
-      "916",
+      916,
       "TEKAX YUC"
     ],
     [
-      "917",
+      917,
       "TICUL YUC"
     ],
     [
-      "918",
+      918,
       "TIZIMIN YUC"
     ],
     [
-      "919",
+      919,
       "UMAN YUC"
     ],
     [
-      "920",
+      920,
       "VALLADOLID YUC"
     ],
     [
-      "930",
+      930,
       "ZACATECAS ZAC"
     ],
     [
-      "931",
+      931,
       "APOZOL ZAC"
     ],
     [
-      "932",
+      932,
       "CONCEPCION DEL ORO ZAC"
     ],
     [
-      "933",
+      933,
       "FRESNILLO ZAC"
     ],
     [
-      "934",
+      934,
       "GUADALUPE ZAC"
     ],
     [
-      "935",
+      935,
       "JALPA ZAC"
     ],
     [
-      "936",
+      936,
       "JEREZ DE GARCIA SALINAS ZAC"
     ],
     [
-      "937",
+      937,
       "JUAN ALDAMA ZAC"
     ],
     [
-      "938",
+      938,
       "JUCHIPILA ZAC"
     ],
     [
-      "939",
+      939,
       "LORETO ZAC"
     ],
     [
-      "940",
+      940,
       "LUIS MOYA ZAC"
     ],
     [
-      "941",
+      941,
       "MIGUEL AUZA ZAC"
     ],
     [
-      "942",
+      942,
       "MONTE ESCOBEDO ZAC"
     ],
     [
-      "943",
+      943,
       "MORELOS ZAC"
     ],
     [
-      "944",
+      944,
       "MOYAHUA DE ESTRADA ZAC"
     ],
     [
-      "945",
+      945,
       "NIEVES ZAC"
     ],
     [
-      "946",
+      946,
       "NOCHISTLAN DE MEJIA ZAC"
     ],
     [
-      "947",
+      947,
       "OJOCALIENTE ZAC"
     ],
     [
-      "948",
+      948,
       "PINOS ZAC"
     ],
     [
-      "949",
+      949,
       "RIO GRANDE ZAC"
     ],
     [
-      "950",
+      950,
       "SAIN ALTO ZAC"
     ],
     [
-      "951",
+      951,
       "SAN PEDRO APULCO ZAC"
     ],
     [
-      "952",
+      952,
       "SOMBRERETE ZAC"
     ],
     [
-      "953",
+      953,
       "TABASCO ZAC"
     ],
     [
-      "954",
+      954,
       "TEPECHITLAN ZAC"
     ],
     [
-      "955",
+      955,
       "TEPETONGO ZAC"
     ],
     [
-      "956",
+      956,
       "TEUL DE GLEZ. ORTEGA ZAC"
     ],
     [
-      "957",
+      957,
       "COSAUTLAN VER"
     ],
     [
-      "958",
+      958,
       "VALPARAISO ZAC"
     ],
     [
-      "959",
+      959,
       "VALLA DE COS ZAC"
     ],
     [
-      "960",
+      960,
       "VICTOR ROSALES ZAC"
     ],
     [
-      "961",
+      961,
       "VILLA GONZALEZ ORTEGA ZAC"
     ],
     [
-      "962",
+      962,
       "VILLANUEVA ZAC"
     ]
   ],
