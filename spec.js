@@ -58,8 +58,8 @@ describe('List of CLABE banks', () => {
    it('contains the correct code to look up a bank tag', () => {
       const dataSet = [
          { input: '002', expected: 'BANAMEX' },
-         { input: '640', expected: 'JP MORGAN C.B.' },
-         { input: '652', expected: 'ASEA' }
+         { input: '640', expected: 'CB JPMORGAN' },
+         { input: '652', expected: 'CREDICAPITAL' }
          ];
       const evalData = (data) => {
          const actual =   { code: data.input, tag: clabe.banksMap[parseInt(data.input)].tag };
