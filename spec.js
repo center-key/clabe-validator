@@ -59,7 +59,7 @@ describe('List of CLABE banks', () => {
       const dataSet = [
          { input: '002', expected: 'BANAMEX' },
          { input: '640', expected: 'CB JPMORGAN' },
-         { input: '652', expected: 'CREDICAPITAL' }
+         { input: '652', expected: 'CREDICAPITAL' },
          ];
       const evalData = (data) => {
          const actual =   { code: data.input, tag: clabe.banksMap[parseInt(data.input)].tag };
@@ -73,7 +73,7 @@ describe('List of CLABE banks', () => {
       const dataSet = [
          { input: '002', expected: 'Banco Nacional de México, S.A.' },
          { input: '640', expected: 'J.P. Morgan Casa de Bolsa, S.A. de C.V.' },
-         { input: '652', expected: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular' }
+         { input: '652', expected: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular' },
          ];
       const evalData = (data) => {
          const actual =   { code: data.input, name: clabe.banksMap[parseInt(data.input)].name };
@@ -113,7 +113,7 @@ describe('List of CLABE cities', () => {
          { input: 'Tecate',              expected: '027' },
          { input: 'La Mesa',             expected: '028' },
          { input: 'Rosarito',            expected: '028' },
-         { input: 'Jerez de G. Salinas', expected: '936' }
+         { input: 'Jerez de G. Salinas', expected: '936' },
          ];
       const evalData = (data) => {
          const actual =   { city: data.input, code: cityNamesMap[data.input] };
@@ -148,7 +148,7 @@ describe('The computeChecksum() function', () => {
          NaN,
          undefined,
          0,
-         null
+         null,
          ];
       const evalData = (data) => {
          const actual =   { input: data, checksum: clabe.computeChecksum(data) };
@@ -169,7 +169,7 @@ describe('CLABE validator', () => {
          { input: '00000000000000000a', expected: [false, 'invalid-characters', 'Must be only numeric digits (no letters)'] },
          { input: '002010077777777779', expected: [false, 'invalid-checksum',   'Invalid checksum, last digit should be: 1'] },
          { input: '000000000000000000', expected: [true,  'invalid-bank',       'Invalid bank code: 000'] },
-         { input: '002115016003269411', expected: [true,  'invalid-city',       'Invalid city code: 115'] }
+         { input: '002115016003269411', expected: [true,  'invalid-city',       'Invalid city code: 115'] },
          ];
       const evalData = (data) => {
          const result = clabe.validate(data.input);
@@ -178,14 +178,14 @@ describe('CLABE validator', () => {
             ok:      result.ok,
             format:  result.formatOk,
             error:   result.error,
-            message: result.message
+            message: result.message,
             };
          const expected = {
             clabe:   data.input,
             ok:      false,
             format:  data.expected[0],
             error:   data.expected[1],
-            message: data.expected[2]
+            message: data.expected[2],
             };
          assert.deepStrictEqual(actual, expected);
          };
@@ -197,7 +197,7 @@ describe('CLABE validator', () => {
          '002010077777777771',
          '032180000118359719',
          '014027000005555558',
-         '014028000005555557'
+         '014028000005555557',
          ];
       const evalData = (data) => {
          const result = clabe.validate(data);
@@ -207,7 +207,7 @@ describe('CLABE validator', () => {
             format:   result.formatOk,
             error:    result.error,
             msg:      result.message,
-            checksum: result.checksum
+            checksum: result.checksum,
             };
          const expected = {
             clabe:    data,
@@ -215,7 +215,7 @@ describe('CLABE validator', () => {
             format:   true,
             error:    null,
             msg:      'Valid',
-            checksum: parseInt(data[17])
+            checksum: parseInt(data[17]),
             };
          assert.deepStrictEqual(actual, expected);
          };
@@ -231,7 +231,7 @@ describe('CLABE validator', () => {
          format:   result.formatOk,
          error:    result.error,
          msg:      result.message,
-         checksum: result.checksum
+         checksum: result.checksum,
          };
       const expected = {
          clabe:    data,
@@ -239,7 +239,7 @@ describe('CLABE validator', () => {
          format:   true,
          error:    null,
          msg:      'Valid',
-         checksum: 0
+         checksum: 0,
          };
       assert.deepStrictEqual(actual, expected);
       });
@@ -249,12 +249,12 @@ describe('CLABE validator', () => {
       const actual =   {
          tag:  clabeCheck.tag,
          bank: clabeCheck.bank,
-         city: clabeCheck.city
+         city: clabeCheck.city,
          };
       const expected = {
          tag:  'BANAMEX',
          bank: 'Banco Nacional de México, S.A.',
-         city: 'Aguascalientes'
+         city: 'Aguascalientes',
          };
       assert.deepStrictEqual(actual, expected);
       });
@@ -264,12 +264,12 @@ describe('CLABE validator', () => {
       const actual =   {
          bank:    clabeCheck.code.bank,
          city:    clabeCheck.code.city,
-         account: clabeCheck.account
+         account: clabeCheck.account,
          };
       const expected = {
          bank:    '002',
          city:    '010',
-         account: '07777777777'
+         account: '07777777777',
          };
       assert.deepStrictEqual(actual, expected);
       });
@@ -286,7 +286,7 @@ describe('CLABE validator', () => {
          formatOk: true,
          message:  'Invalid bank code: 000',
          ok:       false,
-         tag:      null
+         tag:      null,
          };
       assert.deepStrictEqual(actual, expected);
       });
@@ -301,7 +301,7 @@ describe('CLABE calculator', () => {
          { input: { bank:  2, city:  10, acct: 7777777777 }, expected: '002010077777777771' },
          { input: { bank: 32, city: 180, acct:   11835971 }, expected: '032180000118359719' },
          { input: { bank: 14, city:  27, acct:     555555 }, expected: '014027000005555558' },
-         { input: { bank: 14, city:  28, acct:     555555 }, expected: '014028000005555557' }
+         { input: { bank: 14, city:  28, acct:     555555 }, expected: '014028000005555557' },
          ];
       const evalData = (data) => {
          const clabeNum = clabe.calculate(data.input.bank, data.input.city, data.input.acct);
@@ -319,13 +319,13 @@ describe('Newly added or modified banks and cities', () => {
 
    const newBanks = [
       { code: 152, tag: 'BANCREA', name: 'Banco Bancrea, S.A., Institución de Banca Múltiple' },
-      { code: 846, tag: 'STP',     name: 'Sistema de Transferencias y Pagos STP' }
+      { code: 846, tag: 'STP',     name: 'Sistema de Transferencias y Pagos STP' },
       ];
    const newCities = [
       { code: 382, name: 'N/A' },
       { code: 960, name: 'Calera de V. Rosales' },
       { code: 198, name: 'N/A' },
-      { code: 660, name: 'Huejotzingo' }
+      { code: 660, name: 'Huejotzingo' },
       ];
 
    it('work in the calculator and validator', () => {
@@ -344,7 +344,7 @@ describe('Newly added or modified banks and cities', () => {
             bank:     bank.name,
             city:     city.name,
             account:  mockAcct.padStart(11, '0'),
-            checksum: parseInt(clabeNum.slice(-1))
+            checksum: parseInt(clabeNum.slice(-1)),
             };
          assert.deepStrictEqual(actual, expected);
          };
