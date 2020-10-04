@@ -249,7 +249,7 @@ describe('CLABE validator', () => {
       const actual =   {
          tag:  clabeCheck.tag,
          bank: clabeCheck.bank,
-         city: clabeCheck.city
+         city: clabeCheck.city,
          };
       const expected = {
          tag:  'BANAMEX',
@@ -264,7 +264,7 @@ describe('CLABE validator', () => {
       const actual =   {
          bank:    clabeCheck.code.bank,
          city:    clabeCheck.code.city,
-         account: clabeCheck.account
+         account: clabeCheck.account,
          };
       const expected = {
          bank:    '002',
