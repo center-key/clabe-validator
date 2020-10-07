@@ -4,7 +4,7 @@ const clabe = {
 
    version: '[VERSION]',
 
-   computeChecksum: (clabeNum17) => {
+   computeChecksum(clabeNum17) {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
       // Example:
       //    const checksum = clabe.computeChecksum('00201007777777777');  //value: 1
@@ -13,7 +13,7 @@ const clabe = {
       return /^[0-9]{17,18}$/.test(clabeNum17) ? compute() : null;
       },
 
-   validate: (clabeNum) => {
+   validate(clabeNum) {
       // Returns information in a map (object literal) about the CLABE number.
       // Example:
       //    const city = clabe.validate('002010077777777771').city;  //value: "Banco Nacional de México"
@@ -67,7 +67,7 @@ const clabe = {
          };
       },
 
-   calculate: (bankCode, cityCode, accountNumber) => {
+   calculate(bankCode, cityCode, accountNumber) {
       // Returns an 18-character CLABE number.
       // Example:
       //    const clabeNum = clabe.calculate(2, 10, 7777777777);  //value: "002010077777777771"
