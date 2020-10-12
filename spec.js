@@ -93,12 +93,11 @@ describe('List of CLABE banks', () => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE cities', () => {
-   const cityNamesMap = {};  //{ Aguascalientes: 10, Calvillo: 12, ... }
-   const addCity = (city) => cityNamesMap[city[1]] = city[0];
-   clabe.cities.forEach(addCity);
+   const entries = clabe.cities.map(pair => [pair[1], pair[0]]);
+   const cityNamesMap = Object.fromEntries(entries);  //{ 'Aguascalientes MX-AGU': 10, 'Asientos MX-AGU': 11, ... }
 
    it('is in numerical order', () => {
-      const checkOrder = (city, i) => {  //example city: [10, 'Aguascalientes']
+      const checkOrder = (city, i) => {  //example city: [10, 'Aguascalientes MX-AGU']
          const priorCode = i > 0 ? clabe.cities[i - 1][0] : 0;
          const ordered = city[0] >= priorCode;
          const actual =   { city: city[1], code: city[0], prior: priorCode, ordered: ordered };
@@ -110,10 +109,10 @@ describe('List of CLABE cities', () => {
 
    it('contains the correct code for a city', () => {
       const dataSet = [
-         { input: 'Tecate',              expected: '027' },
-         { input: 'La Mesa',             expected: '028' },
-         { input: 'Rosarito',            expected: '028' },
-         { input: 'Jerez de G. Salinas', expected: '936' },
+         { input: 'Tecate MX-BCN',                  expected: '027' },
+         { input: 'La Mesa',                        expected: '028' },
+         { input: 'Playas de Rosarito MX-BCN',      expected: '028' },
+         { input: 'Jerez de Garcia Salinas MX-ZAC', expected: '936' },
          ];
       const evalData = (data) => {
          const actual =   { city: data.input, code: cityNamesMap[data.input] };
@@ -124,11 +123,12 @@ describe('List of CLABE cities', () => {
       });
 
    it('has no duplicate city names', () => {
+      const allowedDuplicateCities = [28, 550];
       const checkForDuplicate = (city) => {
          const code = cityNamesMap[city[1]];
-         const unique = city[0] === code || city[1] === 'N/A';
-         const actual =   { city: city[1], code1: city[0], code2: code, unique: unique };
-         const expected = { city: city[1], code1: city[0], code2: code, unique: true };
+         const unique = city[0] === code || allowedDuplicateCities.includes(code);
+         const actual =   { city: city, unique: unique, duplicate: code };
+         const expected = { city: city, unique: true,   duplicate: code };
          assert.deepStrictEqual(actual, expected);
          };
       clabe.cities.forEach(checkForDuplicate);
@@ -169,7 +169,7 @@ describe('CLABE validator', () => {
          { input: '00000000000000000a', expected: [false, 'invalid-characters', 'Must be only numeric digits (no letters)'] },
          { input: '002010077777777779', expected: [false, 'invalid-checksum',   'Invalid checksum, last digit should be: 1'] },
          { input: '000000000000000000', expected: [true,  'invalid-bank',       'Invalid bank code: 000'] },
-         { input: '002115016003269411', expected: [true,  'invalid-city',       'Invalid city code: 115'] },
+         { input: '002539016003269411', expected: [true,  'invalid-city',       'Invalid city code: 539'] },
          ];
       const evalData = (data) => {
          const result = clabe.validate(data.input);
@@ -254,7 +254,7 @@ describe('CLABE validator', () => {
       const expected = {
          tag:  'BANAMEX',
          bank: 'Banco Nacional de México, S.A.',
-         city: 'Aguascalientes',
+         city: 'Aguascalientes MX-AGU',
          };
       assert.deepStrictEqual(actual, expected);
       });
@@ -322,10 +322,10 @@ describe('Newly added or modified banks and cities', () => {
       { code: 846, tag: 'STP',     name: 'Sistema de Transferencias y Pagos STP' },
       ];
    const newCities = [
-      { code: 382, name: 'N/A' },
-      { code: 960, name: 'Calera de V. Rosales' },
-      { code: 198, name: 'N/A' },
-      { code: 660, name: 'Huejotzingo' },
+      { code: 382, name: 'San Julian MX-JAL' },
+      { code: 960, name: 'Victor Rosales MX-ZAC' },
+      { code: 198, name: 'Santa Maria del Oro MX-DUR' },
+      { code: 660, name: 'Huejotzingo MX-PUE' },
       ];
 
    it('work in the calculator and validator', () => {
