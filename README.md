@@ -94,15 +94,20 @@ const clabeNum = clabe.calculate(2, 10, 7777777777);
 console.log(clabeNum === '002010077777777771');  //true
 ```
 
-### E) Notes
-1. Feel free to submit questions at:
-[github.com/center-key/clabe-validator/issues](https://github.com/center-key/clabe-validator/issues)
-1. To be a contributor, fork the project and run the commands `npm install` and `npm test` on your
-local clone.&nbsp; Make your edits and rerun the tests.&nbsp; Pull requests welcome (no need to
-update the `version` in **package.json** or any files in the `dist` folder as they are all updated
-as part of the release process).
+### E) Contributor Notes
+To be a contributor, fork the project and run the commands `npm install` and `npm test` on your
+local clone.&nbsp; Make your edits and rerun the tests.&nbsp; Pull requests welcome.
+
+Pull requests (PRs) should not update the `version` number in **package.json** or any files in the `dist` folder.&nbsp; The `version` number and `dist` files are all updated as part of the release process.
+
+Issues labeled **"good first issue"** make it easy for first time contributors to participate.&nbsp; Only submit a PR for one of these issues if you're new to this project.
+
+<br>
 
 ---
+Feel free to submit questions at:<br>
+[github.com/center-key/clabe-validator/issues](https://github.com/center-key/clabe-validator/issues)
+
 CLABE Validator code is open source under the [MIT License](LICENSE.txt),
 and the documentation is published under the
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) license.
