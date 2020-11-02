@@ -27,7 +27,7 @@ Include in a web page:
 ```
 or from the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-validator):
 ```html
-<script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.3/dist/clabe.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.4/dist/clabe.min.js></script>
 ```
 #### node
 Install package:
@@ -38,6 +38,9 @@ Import package:
 ```javascript
 const clabe = require('clabe-validator');
 ```
+
+_**Note:** Release v1.4.0 contains a significant number of bank code additions plus updates to
+reflect financial institution mergers and name changes._
 
 ### C) Validator usage
 Pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
@@ -58,7 +61,7 @@ console.log('Your bank: ' + clabeCheck.bank);
    formatOk: true,
    tag:      'BANAMEX',
    bank:     'Banco Nacional de México, S.A.',
-   city:     'Aguascalientes',
+   city:     'Aguascalientes MX-AGU',
    account:  '07777777777'
 }
 ```
@@ -98,9 +101,9 @@ console.log(clabeNum === '002010077777777771');  //true
 To be a contributor, fork the project and run the commands `npm install` and `npm test` on your
 local clone.&nbsp; Make your edits and rerun the tests.&nbsp; Pull requests welcome.
 
-Pull requests (PRs) should not update the `version` number in **package.json** or any files in the `dist` folder.&nbsp; The `version` number and `dist` files are all updated as part of the release process.
-
-Issues labeled **"good first issue"** make it easy for first time contributors to participate.&nbsp; Only submit a PR for one of these issues if you're new to this project.
+Pull requests (PRs) should not update the `version` number in **package.json** or any files in the
+`dist` folder.&nbsp; The `version` number and `dist` files are all updated as part of the release
+process.
 
 <br>
 

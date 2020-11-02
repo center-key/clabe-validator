@@ -5,6 +5,9 @@
    "license": "MIT",
    "main": "dist/clabe.js",
    "browser": "dist/clabe.min.js",
+   "files": [
+      "dist"
+   ],
    "repository": "github:center-key/clabe-validator",
    "homepage": "https://github.com/center-key/clabe-validator",
    "bugs": "https://github.com/center-key/clabe-validator/issues",
