@@ -193,7 +193,7 @@ const clabe = {
       680: { tag: 'CRISTOBAL COLON',       name: 'Caja Popular Cristóbal Colón' },
       683: { tag: 'CAJA TELEFONIST',       name: 'Caja de Ahorro de los Telefonistas' },
       684: { tag: 'TRANSFER',              name: 'Operadora de Pagos Moviles de Mexico, S.A. de C.V.' },
-      685: { tag: 'FONDO (FIRA)',          name: 'Fondo de Garantía y Fomento para la Agricultura, Ganadería y Avicultura (FONDO)' },
+      685: { tag: 'FONDO (FIRA)',          name: 'Fondo de Garantía y Fomento para la Agricultura, Ganadería y Avicultura (FONDO)' },
       686: { tag: 'INVERCAP',              name: 'Afore InverCap S.A. de C.V.' },
       689: { tag: 'FOMPED',                name: 'Fondo Mexicano del Petroleo para la Estabilizacion y el Desarrollo' },
       812: { tag: 'BBVA BANCOMER2',        name: 'BBVA Bancomer, S.A.' },
@@ -677,7 +677,7 @@ const clabe = {
       [960, 'Victor Rosales MX-ZAC'],
       ],
 
-   };
+};
 
 if (typeof module === 'object')
    module.exports = clabe;  //node module loading system (CommonJS)
