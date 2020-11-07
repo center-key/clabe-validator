@@ -20,7 +20,7 @@ Try it out:<br>
 [https://centerkey.com/clabe](https://centerkey.com/clabe/)
 
 ### B) Setup
-#### Browser
+#### Web browser
 Include in a web page:
 ```html
 <script src=clabe.min.js></script>
@@ -29,8 +29,8 @@ or from the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-valida
 ```html
 <script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.4/dist/clabe.min.js></script>
 ```
-#### node
-Install package:
+#### Node.js server
+Install package for node:
 ```shell
 $ npm install clabe-validator
 ```
@@ -39,8 +39,8 @@ Import package:
 const clabe = require('clabe-validator');
 ```
 
-_**Note:** Release v1.4.0 contains a significant number of bank code additions plus updates to
-reflect financial institution mergers and name changes._
+**Note:** _Release v1.4.0 contains a significant number of bank and city code additions plus 
+updates to reflect financial institution mergers and name changes._
 
 ### C) Validator usage
 Pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
