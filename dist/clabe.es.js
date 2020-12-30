@@ -1081,6 +1081,4 @@ const clabe = {
     ],
     citiesMap: {},
 };
-
-if (typeof module === "object") module.exports = clabe;
-if (typeof window === "object") window.clabe = clabe;
+export { clabe };
