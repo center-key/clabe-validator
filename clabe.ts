@@ -4,6 +4,18 @@ type ClabeBank =      { tag?: string, name?: string };
 type ClabeBanksMap =  { [bankCode: number]: ClabeBank };
 type ClabeCity =      [number, string];
 type ClabeCitiesMap = { [cityCode: number]: string };
+type ClabeInfo = {
+   ok:       boolean,
+   error:    string | null,
+   formatOk: boolean,
+   message:  string,
+   tag:      string | null,
+   bank:     string | null,
+   city:     string | null,
+   account:  string,
+   code:     { bank: string, city: string },
+   checksum: number | null,
+   };
 
 const clabe = {
 
@@ -19,7 +31,7 @@ const clabe = {
       return /^[0-9]{17,18}$/.test(clabeNum17) ? compute() : null;
       },
 
-   validate(clabeNum: string): any {
+   validate(clabeNum: string): ClabeInfo {
       // Returns information in a map (object literal) about the CLABE number.
       // Example:
       //    const city = clabe.validate('002010077777777771').city;  //value: "Banco Nacional de México"
