@@ -4,7 +4,9 @@
    "description": "JavaScript library to analyze or create a CLABE number for a Mexican bank account",
    "license": "MIT",
    "main": "dist/clabe.js",
+   "module": "dist/clabe.es.js",
    "browser": "dist/clabe.min.js",
+   "types": "dist/clabe.d.ts",
    "files": [
       "dist"
    ],
@@ -14,14 +16,15 @@
    "docs": "https://centerkey.com/clabe",
    "author": "Center Key (https://centerkey.com)",
    "keywords": [
-      "bank",
       "bank-account",
-      "clabe",
+      "bank",
       "clabe-number",
       "clabe-validator",
+      "clabe",
       "financial",
-      "mexico",
       "javascript",
+      "mexico",
+      "typescript",
       "validator"
    ],
    "jshintConfig": {
@@ -36,8 +39,8 @@
       "node": true
    },
    "scripts": {
-      "pretest": "jshint *.js && gulp lint-html && gulp build-dist",
-      "test": "mocha spec.js && env specMode=minified mocha spec.js"
+      "pretest": "jshint *.js && tsc --version && tsc --project . && gulp lint-html",
+      "test": "gulp make-dist && mocha spec.js && env specMode=minified mocha spec.js"
    },
    "engines": {
       "node": ">=10.0.0"
@@ -60,7 +63,9 @@
       "gulp-w3c-html-validator": "~2.0",
       "jquery": "~3.5",
       "jshint": "~2.12",
+      "merge-stream": "~2.0",
       "mocha": "~8.2",
+      "typescript": "~4.1",
       "web-ignition": "~1.3"
    }
 }

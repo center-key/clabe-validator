@@ -1,23 +1,29 @@
 // CLABE Validator -- MIT License
 
+type ClabeBank =      { tag?: string, name?: string };
+type ClabeBanksMap =  { [bankCode: number]: ClabeBank };
+type ClabeCity =      [number, string];
+type ClabeCitiesMap = { [cityCode: number]: string };
+
 const clabe = {
 
    version: '[VERSION]',
 
-   computeChecksum(clabeNum17) {
+   computeChecksum(clabeNum17: string): number | null {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
       // Example:
       //    const checksum = clabe.computeChecksum('00201007777777777');  //value: 1
-      const add = (sum, digit, i) => sum + (Number(digit) * [3, 7, 1][i % 3]) % 10;
+      const x = (i: number): number => <number>[3, 7, 1][i % 3];
+      const add = (sum: number, digit: string, i: number) => sum + (Number(digit) * x(i)) % 10;
       const compute = () => (10 - (clabeNum17.split('').slice(0, 17).reduce(add, 0) % 10)) % 10;
       return /^[0-9]{17,18}$/.test(clabeNum17) ? compute() : null;
       },
 
-   validate(clabeNum) {
+   validate(clabeNum: string): any {
       // Returns information in a map (object literal) about the CLABE number.
       // Example:
       //    const city = clabe.validate('002010077777777771').city;  //value: "Banco Nacional de México"
-      const errorMap = {
+      const errorMap: { [code: string]: string } = {
          length:     'Must be exactly 18 digits long',
          characters: 'Must be only numeric digits (no letters)',
          checksum:   'Invalid checksum, last digit should be: ',
@@ -31,33 +37,27 @@ const clabe = {
       const account =  clabeNum.substring(6, 17);
       const checksum = Number(clabeNum.substring(17, 18));
       const makeCitiesMap = () => {
-         clabe.citiesMap = {};
-         const prefix = (code) => clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : '';
-         const addCity = (city) => clabe.citiesMap[city[0]] = prefix(city[0]) + city[1];  //0: code, 1: name
+         const prefix = (code: number): string => clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : '';
+         const addCity = (city: ClabeCity) => clabe.citiesMap[city[0]] = prefix(city[0]) + city[1];  //0: code, 1: name
          clabe.cities.forEach(addCity);
          };
-      if (!clabe.citiesMap)
+      if (!clabe.citiesMap[(<ClabeCity>clabe.cities[0])[0]])
          makeCitiesMap();
-      const bank = clabe.banksMap[Number(bankCode)] || {};
+      const bank: ClabeBank = clabe.banksMap[Number(bankCode)] || {};
       const city = clabe.citiesMap[Number(cityCode)];
       const realChecksum = clabe.computeChecksum(clabeNum);
-      const getValidationInfo = () => {
-         const validationInfo =
-            clabeNum.length !== 18 ?    { invalid: 'length',     data: '' } :
-            /[^0-9]/.test(clabeNum) ?   { invalid: 'characters', data: '' } :
-            checksum !== realChecksum ? { invalid: 'checksum',   data: realChecksum } :
-            !bank.tag ?                 { invalid: 'bank',       data: bankCode } :
-            !city ?                     { invalid: 'city',       data: cityCode } :
-            { invalid: null };
-         return validationInfo;
-         };
+      const getValidationInfo = (): { invalid: string, data: string | number } | null =>
+         clabeNum.length !== 18 ?    { invalid: 'length',     data: '' } :
+         /[^0-9]/.test(clabeNum) ?   { invalid: 'characters', data: '' } :
+         checksum !== realChecksum ? { invalid: 'checksum',   data: <number>realChecksum } :
+         !bank.tag ?                 { invalid: 'bank',       data: bankCode } :
+         !city ?                     { invalid: 'city',       data: cityCode } : null;
       const validation = getValidationInfo();
-      const valid = !validation.invalid;
       return {
-         ok:       valid,
-         error:    valid ? null : 'invalid-' + validation.invalid,
-         formatOk: valid || ['bank', 'city'].includes(validation.invalid),
-         message:  valid ? 'Valid' : errorMap[validation.invalid] + validation.data,
+         ok:       !validation,
+         error:    validation ? 'invalid-' + validation.invalid : null,
+         formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
+         message:  validation ? <string>errorMap[validation.invalid] + validation.data : 'Valid',
          tag:      bank.tag || null,
          bank:     bank.name || null,
          city:     city || null,
@@ -67,17 +67,17 @@ const clabe = {
          };
       },
 
-   calculate(bankCode, cityCode, accountNumber) {
+   calculate(bankCode: number, cityCode: number, accountNumber: number) {
       // Returns an 18-character CLABE number.
       // Example:
       //    const clabeNum = clabe.calculate(2, 10, 7777777777);  //value: "002010077777777771"
-      const pad = (num, len) => num.length < len ? pad('0' + num, len) : num;
-      const fit = (num, len) => pad('' + num, len).slice(-len);
+      const pad = (text: string, len: number): string => text.length < len ? pad('0' + text, len) : text;
+      const fit = (num: number, len: number) => pad(num.toString(), len).slice(-len);
       const clabeNum = fit(bankCode, 3) + fit(cityCode, 3) + fit(accountNumber, 11);
       return clabeNum + clabe.computeChecksum(clabeNum);
       },
 
-   banksMap: {
+   banksMap: <ClabeBanksMap>{
       // Sources:
       //    https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco
       //    http://omawww.sat.gob.mx/fichas_tematicas/buzon_tributario/Documents/catalogo_bancos.pdf
@@ -206,7 +206,7 @@ const clabe = {
       999: { tag: 'N/A',                   name: 'N/A' },
       },
 
-   cities: [
+   cities: <ClabeCity[]>[
       // Sources:
       //    https://en.wikipedia.org/wiki/Template:Mexico_State-Abbreviation_CodesMX
       //    https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza
@@ -1092,9 +1092,8 @@ const clabe = {
       [962, 'Villanueva MX-ZAC'],
       ],
 
+   citiesMap: <ClabeCitiesMap>{},
+
    };
 
-if (typeof module === 'object')
-   module.exports = clabe;  //node module loading system (CommonJS)
-if (typeof window === 'object')
-   window.clabe = clabe;  //support both global and window property
+export { clabe };
