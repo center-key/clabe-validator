@@ -79,7 +79,7 @@ const clabe = {
          };
       },
 
-   calculate(bankCode: number, cityCode: number, accountNumber: number) {
+   calculate(bankCode: number, cityCode: number, accountNumber: number): string {
       // Returns an 18-character CLABE number.
       // Example:
       //    const clabeNum = clabe.calculate(2, 10, 7777777777);  //value: "002010077777777771"
