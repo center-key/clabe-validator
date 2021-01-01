@@ -1,4 +1,4 @@
-//! CLABE Validator v1.5.0 ~ github.com/center-key/clabe-validator ~ MIT License
+//! CLABE Validator v1.5.1 ~ github.com/center-key/clabe-validator ~ MIT License
 
 declare type ClabeBank = {
     tag?: string;
@@ -11,7 +11,7 @@ declare type ClabeCity = [number, string];
 declare type ClabeCitiesMap = {
     [cityCode: number]: string;
 };
-declare type ClabeInfo = {
+declare type ClabeCheck = {
     ok: boolean;
     error: string | null;
     formatOk: boolean;
@@ -29,7 +29,7 @@ declare type ClabeInfo = {
 declare const clabe: {
     version: string;
     computeChecksum(clabeNum17: string): number | null;
-    validate(clabeNum: string): ClabeInfo;
+    validate(clabeNum: string): ClabeCheck;
     calculate(bankCode: number, cityCode: number, accountNumber: number): string;
     banksMap: ClabeBanksMap;
     cities: ClabeCity[];

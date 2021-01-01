@@ -120,8 +120,8 @@ Example TypeScript usage with explicit types:
 import { clabe, ClabeCheck } from 'clabe-validator';
 
 const clabeNum: string =       '002010077777777771';
-const clabeCheck: ClabeCheck = clabe.validate(clabeNum);
-const bankCode: string =       clabeCheck.code.bank;
+const clabeCheck: ClabeCheck = clabe.validate(clabeNum);  //{ ok: true, error: null, ... }
+const bankCode: string =       clabeCheck.code.bank;      //'002'
 ```
 
 ### F) Contributor Notes
