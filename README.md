@@ -96,7 +96,35 @@ const clabeNum = clabe.calculate(2, 10, 7777777777);
 console.log(clabeNum === '002010077777777771');  //true
 ```
 
-### E) Contributor Notes
+### E) TypeScript declarations
+The TypeScript Declaration File file is [clabe.d.ts](dist/clabe.d.ts) in the **/dist** folder.
+
+The `clabe.validate(clabeNum: string)` function returns a `ClabeCheck` object:
+```typescript
+type ClabeCheck = {
+   ok:       boolean,
+   error:    string | null,
+   formatOk: boolean,
+   message:  string,
+   tag:      string | null,
+   bank:     string | null,
+   city:     string | null,
+   account:  string,
+   code:     { bank: string, city: string },
+   checksum: number | null,
+   };
+```
+
+Example TypeScript usage with explicit types:
+```typescript
+import { clabe, ClabeCheck } from 'clabe-validator';
+
+const clabeNum: string =       '002010077777777771';
+const clabeCheck: ClabeCheck = clabe.validate(clabeNum);
+const bankCode: string =       clabeCheck.code.bank;
+```
+
+### F) Contributor Notes
 To be a contributor, fork the project and run the commands `npm install` and `npm test` on your
 local clone.&nbsp; Make your edits and rerun the tests.&nbsp; Pull requests welcome.
 
