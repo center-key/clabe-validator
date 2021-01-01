@@ -97,7 +97,7 @@ console.log(clabeNum === '002010077777777771');  //true
 ```
 
 ### E) TypeScript declarations
-The TypeScript Declaration File file is [clabe.d.ts](dist/clabe.d.ts) in the **/dist** folder.
+The **TypeScript Declaration File** file is [clabe.d.ts](dist/clabe.d.ts) in the **dist** folder.
 
 The `clabe.validate(clabeNum: string)` function returns a `ClabeCheck` object:
 ```typescript
@@ -129,7 +129,7 @@ To be a contributor, fork the project and run the commands `npm install` and `np
 local clone.&nbsp; Make your edits and rerun the tests.&nbsp; Pull requests welcome.
 
 Pull requests (PRs) should not update the `version` number in **package.json** or any files in the
-`dist` folder.&nbsp; The `version` number and `dist` files are all updated as part of the release
+**dist** folder.&nbsp; The `version` number and **dist** files are all updated as part of the release
 process.
 
 <br>
