@@ -71,7 +71,7 @@
       "@typescript-eslint/parser": "~4.11",
       "babel-minify": "~0.5",
       "dna.js": "~1.6",
-      "eslint": "~7.16",
+      "eslint": "~7.17",
       "gulp": "~4.0",
       "gulp-append-prepend": "~1.0",
       "gulp-babel": "~8.0",
