@@ -4,7 +4,7 @@
    "description": "JavaScript library to analyze or create a CLABE number for a Mexican bank account",
    "license": "MIT",
    "type": "module",
-   "main": "dist/clabe.js",
+   "main": "dist/clabe.umd.js",
    "module": "dist/clabe.esm.js",
    "browser": "dist/clabe.min.js",
    "types": "dist/clabe.d.ts",
@@ -57,11 +57,9 @@
    },
    "scripts": {
       "lint": "jshint *.js && eslint --max-warnings 0 . --ext .ts && gulp lint-html",
-      "pretest": "npm run lint && tsc --version && tsc --project . && gulp make-dist",
+      "tsc": "tsc --version && tsc --project . --removeComments && tsc --project . --module UMD --removeComments --outDir build/umd",
+      "pretest": "npm run lint && rimraf build dist **/.DS_Store && npm run tsc && gulp make-dist",
       "test": "mocha spec.js"
-   },
-   "engines": {
-      "node": ">=10.0.0"
    },
    "dependencies": {},
    "devDependencies": {
@@ -86,6 +84,7 @@
       "jshint": "~2.12",
       "merge-stream": "~2.0",
       "mocha": "~8.2",
+      "rimraf": "~3.0",
       "typescript": "~4.1",
       "web-ignition": "~1.3"
    }
