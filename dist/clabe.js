@@ -1,20 +1,14 @@
-//! CLABE Validator v1.5.1 ~ github.com/center-key/clabe-validator ~ MIT License
+//! CLABE Validator v1.5.2 ~ github.com/center-key/clabe-validator ~ MIT License
 
 const clabe = {
-    version: '1.5.1',
+    version: '1.5.2',
     computeChecksum(clabeNum17) {
-        // Returns the checksum calculated from the first 17 characters of CLABE number.
-        // Example:
-        //    const checksum = clabe.computeChecksum('00201007777777777');  //value: 1
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
         const compute = () => (10 - (clabeNum17.split('').slice(0, 17).reduce(add, 0) % 10)) % 10;
         return /^[0-9]{17,18}$/.test(clabeNum17) ? compute() : null;
     },
     validate(clabeNum) {
-        // Returns information in a map (object literal) about the CLABE number.
-        // Example:
-        //    const city = clabe.validate('002010077777777771').city;  //value: "Banco Nacional de México"
         const errorMap = {
             length: 'Must be exactly 18 digits long',
             characters: 'Must be only numeric digits (no letters)',
@@ -30,7 +24,7 @@ const clabe = {
         const checksum = Number(clabeNum.substring(17, 18));
         const makeCitiesMap = () => {
             const prefix = (code) => clabe.citiesMap[code] ? clabe.citiesMap[code] + ', ' : '';
-            const addCity = (city) => clabe.citiesMap[city[0]] = prefix(city[0]) + city[1]; //0: code, 1: name
+            const addCity = (city) => clabe.citiesMap[city[0]] = prefix(city[0]) + city[1];
             clabe.cities.forEach(addCity);
         };
         if (!clabe.citiesMap[clabe.cities[0][0]])
@@ -58,19 +52,12 @@ const clabe = {
         };
     },
     calculate(bankCode, cityCode, accountNumber) {
-        // Returns an 18-character CLABE number.
-        // Example:
-        //    const clabeNum = clabe.calculate(2, 10, 7777777777);  //value: "002010077777777771"
         const pad = (text, len) => text.length < len ? pad('0' + text, len) : text;
         const fit = (num, len) => pad(num.toString(), len).slice(-len);
         const clabeNum = fit(bankCode, 3) + fit(cityCode, 3) + fit(accountNumber, 11);
         return clabeNum + clabe.computeChecksum(clabeNum);
     },
     banksMap: {
-        // Sources:
-        //    https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco
-        //    http://omawww.sat.gob.mx/fichas_tematicas/buzon_tributario/Documents/catalogo_bancos.pdf
-        //    https://frbservices.org/assets/financial-services/ach/global-service-orig-manual.pdf
         1: { tag: 'BANXICO', name: 'Banco de México' },
         2: { tag: 'BANAMEX', name: 'Banco Nacional de México, S.A.' },
         6: { tag: 'BANCOMEXT', name: 'Banco Nacional de Comercio Exterior' },
@@ -195,9 +182,6 @@ const clabe = {
         999: { tag: 'N/A', name: 'N/A' },
     },
     cities: [
-        // Sources:
-        //    https://en.wikipedia.org/wiki/Template:Mexico_State-Abbreviation_CodesMX
-        //    https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza
         [10, 'Aguascalientes MX-AGU'],
         [11, 'Asientos MX-AGU'],
         [12, 'Calvillo MX-AGU'],
@@ -1081,6 +1065,4 @@ const clabe = {
     ],
     citiesMap: {},
 };
-
-if (typeof module === "object") module.exports = clabe;
 if (typeof window === "object") window.clabe = clabe;
