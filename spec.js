@@ -6,14 +6,15 @@
 //    $ npm test
 
 // Imports
-const assert = require('assert');
+import assert from 'assert';
 
 // Setup
-const clabePath = process.env.specMode === 'minified' ? './dist/clabe.min.js' : './dist/clabe.js';
-const clabe =     require(clabePath);
+import { clabe } from './dist/clabe.esm.js';
+const mode =     { type: 'ES Module', file: 'dist/clabe.esm.js' };
+const filename = import.meta.url.replace(/.*\//, '');  //jshint ignore:line
 
 // Specification suite
-describe(require('path').basename(__filename) + ': ' + clabePath, () => {
+describe(`Specifications: ${filename} - ${mode.type} (${mode.file})`, () => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('Library version number', () => {

@@ -2,19 +2,20 @@
 // Gulp configuration and tasks
 
 // Imports
-const babel =         require('gulp-babel');
-const gap =           require('gulp-append-prepend');
-const gulp =          require('gulp');
-const header =        require('gulp-header');
-const htmlHint =      require('gulp-htmlhint');
-const htmlValidator = require('gulp-w3c-html-validator');
-const mergeStream =   require('merge-stream');
-const rename =        require('gulp-rename');
-const replace =       require('gulp-replace');
-const size =          require('gulp-size');
+import babel from         'gulp-babel';
+import gap from           'gulp-append-prepend';
+import gulp from          'gulp';
+import header from        'gulp-header';
+import htmlHint from      'gulp-htmlhint';
+import htmlValidator from 'gulp-w3c-html-validator';
+import mergeStream from   'merge-stream';
+import rename from        'gulp-rename';
+import replace from       'gulp-replace';
+import size from          'gulp-size';
+import { readFileSync } from  'fs';
 
 // Setup
-const pkg =             require('./package.json');
+const pkg =             JSON.parse(readFileSync('./package.json'));
 const home =            pkg.homepage.replace('https://', '');
 const bannerJs =        '//! CLABE Validator v' + pkg.version + ' ~ ' + home + ' ~ MIT License\n\n';
 const htmlHintConfig =  { 'attr-value-double-quotes': false };
@@ -50,7 +51,7 @@ const task = {
             .pipe(header(bannerJs))
             .pipe(replace('[VERSION]', pkg.version))
             .pipe(size({ showFiles: true }))
-            .pipe(rename({ extname: '.es.js' }))
+            .pipe(rename({ extname: '.esm.js' }))
             .pipe(gulp.dest('dist'));
       const buildCjs = () =>
          gulp.src('build/clabe.js')

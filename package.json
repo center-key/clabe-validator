@@ -3,8 +3,9 @@
    "version": "1.5.1",
    "description": "JavaScript library to analyze or create a CLABE number for a Mexican bank account",
    "license": "MIT",
+   "type": "module",
    "main": "dist/clabe.js",
-   "module": "dist/clabe.es.js",
+   "module": "dist/clabe.esm.js",
    "browser": "dist/clabe.min.js",
    "types": "dist/clabe.d.ts",
    "files": [
@@ -57,7 +58,7 @@
    "scripts": {
       "lint": "jshint *.js && eslint --max-warnings 0 . --ext .ts && gulp lint-html",
       "pretest": "npm run lint && tsc --version && tsc --project . && gulp make-dist",
-      "test": "mocha spec.js && env specMode=minified mocha spec.js"
+      "test": "mocha spec.js"
    },
    "engines": {
       "node": ">=10.0.0"
@@ -67,10 +68,10 @@
       "@babel/core": "~7.12",
       "@babel/preset-env": "~7.12",
       "@fortawesome/fontawesome-free": "~5.15",
-      "@typescript-eslint/eslint-plugin": "~4.11",
-      "@typescript-eslint/parser": "~4.11",
+      "@typescript-eslint/eslint-plugin": "~4.12",
+      "@typescript-eslint/parser": "~4.12",
       "babel-minify": "~0.5",
-      "dna.js": "~1.6",
+      "dna.js": "~1.7",
       "eslint": "~7.17",
       "gulp": "~4.0",
       "gulp-append-prepend": "~1.0",
