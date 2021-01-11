@@ -9,7 +9,7 @@
 import assert from 'assert';
 
 // Setup
-import { clabe } from './dist/clabe.esm.js';
+import { clabe } from '../dist/clabe.esm.js';
 const mode =     { type: 'ES Module', file: 'dist/clabe.esm.js' };
 const filename = import.meta.url.replace(/.*\//, '');  //jshint ignore:line
 

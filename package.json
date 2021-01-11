@@ -56,10 +56,10 @@
       ]
    },
    "scripts": {
-      "lint": "jshint *.js && eslint --max-warnings 0 . --ext .ts && gulp lint-html",
+      "lint": "jshint *.js spec/*.js && eslint --max-warnings 0 . --ext .ts && gulp lint-html",
       "tsc": "tsc --version && tsc --project . --removeComments && tsc --project . --module UMD --removeComments --outDir build/umd",
       "pretest": "npm run lint && rimraf build dist **/.DS_Store && npm run tsc && gulp make-dist",
-      "test": "mocha spec.js"
+      "test": "mocha spec"
    },
    "dependencies": {},
    "devDependencies": {
@@ -81,6 +81,7 @@
       "gulp-size": "~3.0",
       "gulp-w3c-html-validator": "~2.0",
       "jquery": "~3.5",
+      "jsdom": "~16.4",
       "jshint": "~2.12",
       "merge-stream": "~2.0",
       "mocha": "~8.2",
