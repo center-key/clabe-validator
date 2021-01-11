@@ -53,7 +53,7 @@ const task = {
          gulp.src('build/umd/clabe.js')
             .pipe(header(bannerJs))
             .pipe(replace('[VERSION]', pkg.version))
-            .pipe(rename({ extname: '.umd.js' }))
+            .pipe(rename({ extname: '.umd.cjs' }))
             .pipe(size({ showFiles: true }))
             .pipe(gulp.dest('dist'));
       const buildJs = () =>
