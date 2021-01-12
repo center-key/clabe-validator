@@ -1,5 +1,5 @@
 // CLABE Validator
-// Mocha Specifications Cases
+// Mocha Specification Cases
 //
 // Run:
 //    $ cd clabe-validator
