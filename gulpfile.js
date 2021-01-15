@@ -12,7 +12,7 @@ import mergeStream from   'merge-stream';
 import rename from        'gulp-rename';
 import replace from       'gulp-replace';
 import size from          'gulp-size';
-import { readFileSync } from  'fs';
+import { readFileSync } from 'fs';
 
 // Setup
 const pkg =            JSON.parse(readFileSync('./package.json'));
