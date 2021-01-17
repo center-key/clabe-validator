@@ -7,11 +7,11 @@ import gap from           'gulp-append-prepend';
 import gulp from          'gulp';
 import header from        'gulp-header';
 import htmlHint from      'gulp-htmlhint';
-import htmlValidator from 'gulp-w3c-html-validator';
 import mergeStream from   'merge-stream';
 import rename from        'gulp-rename';
 import replace from       'gulp-replace';
 import size from          'gulp-size';
+import { htmlValidator } from 'gulp-w3c-html-validator';
 import { readFileSync } from 'fs';
 
 // Setup
@@ -30,7 +30,7 @@ const task = {
       return gulp.src(['*.html', 'docs/*.html'])
          .pipe(htmlHint(htmlHintConfig))
          .pipe(htmlHint.reporter())
-         .pipe(htmlValidator())
+         .pipe(htmlValidator.analyzer())
          .pipe(htmlValidator.reporter())
          .pipe(size({ showFiles: true }));
       },
