@@ -1,10 +1,10 @@
 // CLABE Validator -- MIT License
 
-type ClabeBank =      { tag?: string, name?: string };
-type ClabeBanksMap =  { [bankCode: number]: ClabeBank };
-type ClabeCity =      [number, string];
-type ClabeCitiesMap = { [cityCode: number]: string };
-type ClabeCheck = {
+export type ClabeBank =      { tag?: string, name?: string };
+export type ClabeBanksMap =  { [bankCode: number]: ClabeBank };
+export type ClabeCity =      [number, string];
+export type ClabeCitiesMap = { [cityCode: number]: string };
+export type ClabeCheck = {
    ok:       boolean,
    error:    string | null,
    formatOk: boolean,
