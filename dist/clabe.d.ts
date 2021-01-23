@@ -1,17 +1,17 @@
-//! CLABE Validator v1.5.3 ~ github.com/center-key/clabe-validator ~ MIT License
+//! CLABE Validator v1.5.4 ~ github.com/center-key/clabe-validator ~ MIT License
 
-declare type ClabeBank = {
+export declare type ClabeBank = {
     tag?: string;
     name?: string;
 };
-declare type ClabeBanksMap = {
+export declare type ClabeBanksMap = {
     [bankCode: number]: ClabeBank;
 };
-declare type ClabeCity = [number, string];
-declare type ClabeCitiesMap = {
+export declare type ClabeCity = [number, string];
+export declare type ClabeCitiesMap = {
     [cityCode: number]: string;
 };
-declare type ClabeCheck = {
+export declare type ClabeCheck = {
     ok: boolean;
     error: string | null;
     formatOk: boolean;
