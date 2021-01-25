@@ -7,7 +7,7 @@ _JavaScript library to analyze or create a CLABE number for a Mexican bank accou
 [![npm](https://img.shields.io/npm/v/clabe-validator.svg)](https://www.npmjs.com/package/clabe-validator)
 [![Vulnerabilities](https://snyk.io/test/github/center-key/clabe-validator/badge.svg)](https://snyk.io/test/github/center-key/clabe-validator)
 [![Hits](https://data.jsdelivr.com/v1/package/npm/clabe-validator/badge?style=rounded)](https://www.jsdelivr.com/package/npm/clabe-validator)
-[![Build](https://travis-ci.com/center-key/clabe-validator.svg)](https://travis-ci.com/center-key/clabe-validator)
+[![Build](https://travis-ci.org/center-key/clabe-validator.svg)](https://travis-ci.org/center-key/clabe-validator)
 
 CLABE (Clave Bancaria Estandarizada &mdash; Spanish for "standardized banking code") is a banking
 standard from the Mexican Bank Association (Asociación de Bancos de México &mdash; ABM) for
@@ -34,6 +34,10 @@ Install package for node:
 $ npm install clabe-validator
 ```
 Import package:
+```javascript
+import { clabe } from 'clabe-validator';
+```
+Or for older CommonJS environments:
 ```javascript
 const clabe = require('clabe-validator');
 ```
