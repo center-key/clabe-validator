@@ -1,7 +1,7 @@
-//! CLABE Validator v1.5.4 ~ github.com/center-key/clabe-validator ~ MIT License
+//! CLABE Validator v1.5.5 ~ github.com/center-key/clabe-validator ~ MIT License
 
 const clabe = {
-    version: '1.5.4',
+    version: '1.5.5',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -574,6 +574,7 @@ const clabe = {
         [434, 'Ixtlahuaca MX-MEX'],
         [435, 'Jilotepec MX-MEX'],
         [436, 'Jocotitlan MX-MEX'],
+        [437, 'Chimalhuacan MX-MEX'],
         [437, 'La Paz (Reyes Acaq.) MX-MEX'],
         [438, 'Lerma MX-MEX'],
         [439, 'Luvianos MX-MEX'],
@@ -783,6 +784,7 @@ const clabe = {
         [653, 'Amozoc MX-PUE'],
         [654, 'Atlixco MX-PUE'],
         [655, 'Ciudad Serdan MX-PUE'],
+        [655, 'Los Heroes de Puebla MX-PUE'],
         [656, 'Cuetzalan MX-PUE'],
         [657, 'Chiautla MX-PUE'],
         [658, 'Chignahuapan MX-PUE'],

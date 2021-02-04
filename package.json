@@ -1,7 +1,7 @@
 {
    "name": "clabe-validator",
-   "version": "1.5.4",
-   "description": "JavaScript library to analyze or create a CLABE number for a Mexican bank account",
+   "version": "1.5.5",
+   "description": "Analyze or create a CLABE number for a Mexican bank account (written in TypeScript)",
    "license": "MIT",
    "type": "module",
    "main": "dist/clabe.umd.cjs",
@@ -56,10 +56,10 @@
       ]
    },
    "scripts": {
-      "lint": "jshint *.js spec/*.js && eslint --max-warnings 0 . --ext .ts && gulp lint-html",
-      "tsc": "tsc --version && tsc --project . --removeComments && tsc --project . --module UMD --removeComments --outDir build/umd",
+      "lint": "   jshint *.js spec/*.js && eslint --max-warnings 0 . --ext .ts && gulp lint-html",
+      "tsc": "    tsc --version && tsc --project . --removeComments && tsc --project . --module UMD --removeComments --outDir build/umd",
       "pretest": "npm run lint && rimraf build dist **/.DS_Store && npm run tsc && gulp make-dist",
-      "test": "mocha spec"
+      "test": "   mocha spec"
    },
    "dependencies": {},
    "devDependencies": {
@@ -70,7 +70,7 @@
       "@typescript-eslint/parser": "~4.14",
       "babel-minify": "~0.5",
       "dna.js": "~1.7",
-      "eslint": "~7.18",
+      "eslint": "~7.19",
       "gulp": "~4.0",
       "gulp-append-prepend": "~1.0",
       "gulp-babel": "~8.0",
