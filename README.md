@@ -39,7 +39,7 @@ import { clabe } from 'clabe-validator';
 ```
 Or for older CommonJS environments:
 ```javascript
-const clabe = require('clabe-validator');  //deprecated
+const { clabe } = require('clabe-validator');  //deprecated
 ```
 
 **Note:** _Release v1.4.0 contains a significant number of bank and city code additions plus
