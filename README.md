@@ -26,7 +26,7 @@ Include in a web page:
 ```
 or from the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-validator):
 ```html
-<script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.5/dist/clabe.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.6/dist/clabe.min.js></script>
 ```
 #### Node.js server
 Install package for node:
@@ -138,10 +138,10 @@ nurses who were providing medical care of a relative.&nbsp; I was initially unab
 because the transfer service reported that the CLABE number I supplied was invalid.&nbsp; Through a
 little sleuthing and a lot of luck, I discovered that a financial services company had accidentally
 omitted the very last modulo operation in their CLABE checksum calculation.&nbsp; The result was
-that Mexican bank account numbers ending with a zero were considered invalid.
+that Mexican bank account numbers ending in a zero were rejected.
 
-This project was created simply to fix the checksum bug.  The project is now an open source
-community project and is not supported by any company.
+This project was created to fix the checksum bug.&nbsp; The project is an open source community
+project and is not supported by any company.
 <br>
 
 ---
