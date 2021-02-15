@@ -8,6 +8,7 @@ _JavaScript library to analyze or create a CLABE number for a Mexican bank accou
 [![Vulnerabilities](https://snyk.io/test/github/center-key/clabe-validator/badge.svg)](https://snyk.io/test/github/center-key/clabe-validator)
 [![Hits](https://data.jsdelivr.com/v1/package/npm/clabe-validator/badge?style=rounded)](https://www.jsdelivr.com/package/npm/clabe-validator)
 [![Build](https://travis-ci.org/center-key/clabe-validator.svg)](https://travis-ci.org/center-key/clabe-validator)
+[![Build](https://github.com/center-key/clabe-validator/workflows/build/badge.svg)](https://github.com/center-key/clabe-validator/actions?query=workflow%3Abuild)
 
 CLABE (Clave Bancaria Estandarizada &mdash; Spanish for "standardized banking code") is a banking
 standard from the Mexican Bank Association (Asociación de Bancos de México &mdash; ABM) for
@@ -37,7 +38,7 @@ Import package:
 ```javascript
 import { clabe } from 'clabe-validator';
 ```
-Or for older CommonJS environments:
+Or for older CommonJS/UMD environments:
 ```javascript
 const { clabe } = require('clabe-validator');  //deprecated
 ```
@@ -60,12 +61,16 @@ console.log('Your bank: ' + clabeCheck.bank);
 ```javascript
 {
    ok:       true,
-   error:    null,
    formatOk: true,
+   error:    null,
+   message:  'Valid',
+   clabe:    '002010077777777771',
    tag:      'BANAMEX',
    bank:     'Banco Nacional de México, S.A.',
    city:     'Aguascalientes MX-AGU',
-   account:  '07777777777'
+   account:  '07777777777',
+   code:     { bank: '002', city: '010' },
+   checksum: 1,
 }
 ```
 
@@ -75,11 +80,11 @@ console.log('Your bank: ' + clabeCheck.bank);
    ok:       false,
    formatOk: true,
    error:    'invalid-city',
-   message:  'Invalid city code: 000'
+   message:  'Invalid city code: 000',
 }
 ```
 The `formatOk` field indicates if the CLABE's length and checksum are both valid (even if the bank
-code or city code are invalid).
+code or city code are unknown).
 
 #### 4. Possible errors
 | Error code           | Error message                                   | Format Ok |
@@ -107,9 +112,10 @@ The `clabe.validate(clabeNum: string)` function returns a `ClabeCheck` object:
 ```typescript
 type ClabeCheck = {
    ok:       boolean,
-   error:    string | null,
    formatOk: boolean,
+   error:    string | null,
    message:  string,
+   clabe:    string | null,
    tag:      string | null,
    bank:     string | null,
    city:     string | null,

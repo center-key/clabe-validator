@@ -7,11 +7,12 @@
 
 // Imports
 import assert from 'assert';
+import { clabe } from '../dist/clabe.esm.js';
 
 // Setup
-import { clabe } from '../dist/clabe.esm.js';
-const mode =     { type: 'ES Module', file: 'dist/clabe.esm.js' };
-const filename = import.meta.url.replace(/.*\//, '');  //jshint ignore:line
+const mode =       { type: 'ES Module', file: 'dist/clabe.esm.js' };
+const filename =   import.meta.url.replace(/.*\//, '');  //jshint ignore:line
+const toPlainObj = (obj) => JSON.parse(JSON.stringify(obj));
 
 // Specification suite
 describe(`Specifications: ${filename} - ${mode.type} (${mode.file})`, () => {
@@ -276,18 +277,19 @@ describe('CLABE validator', () => {
       });
 
    it('returns nulls for properly formatted CLABE number with invalid bank and city codes', () => {
-      const actual = clabe.validate('000000077777777770');
+      const actual = toPlainObj(clabe.validate('000000077777777770'));
       const expected = {
-         account:  '07777777777',
-         bank:     null,
-         checksum: 0,
-         city:     null,
-         code:     { bank: '000', city: '000' },
-         error:    'invalid-bank',
-         formatOk: true,
-         message:  'Invalid bank code: 000',
          ok:       false,
+         formatOk: true,
+         error:    'invalid-bank',
+         message:  'Invalid bank code: 000',
+         clabe:    null,
+         code:     { bank: '000', city: '000' },
          tag:      null,
+         bank:     null,
+         city:     null,
+         account:  '07777777777',
+         checksum: 0,
          };
       assert.deepStrictEqual(actual, expected);
       });
@@ -334,12 +336,13 @@ describe('Newly added or modified banks and cities', () => {
       const checkBankAndCity = (bank, city) => {
          const pad = (code) => code.toString().padStart(3, '0');
          const clabeNum = clabe.calculate(bank.code, city.code, mockAcct);
-         const actual = clabe.validate(clabeNum);
+         const actual = toPlainObj(clabe.validate(clabeNum));
          const expected = {
             ok:       true,
+            formatOk: true,
             error:    null,
             message:  'Valid',
-            formatOk: true,
+            clabe:    clabeNum,
             code:     { bank: pad(bank.code), city: pad(city.code) },
             tag:      bank.tag,
             bank:     bank.name,

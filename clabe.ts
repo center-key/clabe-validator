@@ -6,9 +6,10 @@ export type ClabeCity =      [number, string];
 export type ClabeCitiesMap = { [cityCode: number]: string };
 export type ClabeCheck = {
    ok:       boolean,
-   error:    string | null,
    formatOk: boolean,
+   error:    string | null,
    message:  string,
+   clabe:    string | null,
    tag:      string | null,
    bank:     string | null,
    city:     string | null,
@@ -67,9 +68,10 @@ const clabe = {
       const validation = getValidationInfo();
       return {
          ok:       !validation,
-         error:    validation ? 'invalid-' + validation.invalid : null,
          formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
+         error:    validation ? 'invalid-' + validation.invalid : null,
          message:  validation ? <string>errorMap[validation.invalid] + validation.data : 'Valid',
+         clabe:    validation ? null : clabeNum,
          tag:      bank.tag || null,
          bank:     bank.name || null,
          city:     city || null,
