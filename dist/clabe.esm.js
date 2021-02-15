@@ -1,7 +1,7 @@
-//! CLABE Validator v1.6.0 ~ github.com/center-key/clabe-validator ~ MIT License
+//! CLABE Validator v1.6.1 ~ github.com/center-key/clabe-validator ~ MIT License
 
 const clabe = {
-    version: '1.6.0',
+    version: '1.6.1',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -40,9 +40,10 @@ const clabe = {
         const validation = getValidationInfo();
         return {
             ok: !validation,
-            error: validation ? 'invalid-' + validation.invalid : null,
             formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
+            error: validation ? 'invalid-' + validation.invalid : null,
             message: validation ? errorMap[validation.invalid] + validation.data : 'Valid',
+            clabe: validation ? null : clabeNum,
             tag: bank.tag || null,
             bank: bank.name || null,
             city: city || null,

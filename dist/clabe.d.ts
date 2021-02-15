@@ -1,4 +1,4 @@
-//! CLABE Validator v1.6.0 ~ github.com/center-key/clabe-validator ~ MIT License
+//! CLABE Validator v1.6.1 ~ github.com/center-key/clabe-validator ~ MIT License
 
 export declare type ClabeBank = {
     tag?: string;
@@ -13,9 +13,10 @@ export declare type ClabeCitiesMap = {
 };
 export declare type ClabeCheck = {
     ok: boolean;
-    error: string | null;
     formatOk: boolean;
+    error: string | null;
     message: string;
+    clabe: string | null;
     tag: string | null;
     bank: string | null;
     city: string | null;

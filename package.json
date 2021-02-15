@@ -1,6 +1,6 @@
 {
    "name": "clabe-validator",
-   "version": "1.6.0",
+   "version": "1.6.1",
    "description": "Analyze or create a CLABE number for a Mexican bank account (written in TypeScript)",
    "license": "MIT",
    "type": "module",
@@ -70,7 +70,7 @@
       "@typescript-eslint/parser": "~4.15",
       "babel-minify": "~0.5",
       "dna.js": "~1.7",
-      "eslint": "~7.19",
+      "eslint": "~7.20",
       "gulp": "~4.0",
       "gulp-append-prepend": "~1.0",
       "gulp-babel": "~8.0",
@@ -85,6 +85,7 @@
       "jshint": "~2.12",
       "merge-stream": "~2.0",
       "mocha": "~8.3",
+      "pretty-print-json": "~0.5",
       "rimraf": "~3.0",
       "typescript": "~4.1",
       "web-ignition": "~1.4"
