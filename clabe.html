@@ -22,12 +22,22 @@
 <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna.js@1.7/dist/dna.css>
 <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna.js@1.4/website/static/panel-nav.css>
 <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@1.4/dist/reset.min.css>
+<link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/pretty-print-json@0.5/dist/pretty-print-json.css>
 <style>
-   .dna-panels {
-      min-height: 240px;
+   form {
+      max-width: none;
       }
    form .message {
       color: firebrick;
+      }
+   form pre.dark-mode {
+      display: none;
+      background-color: black;
+      padding: 10px 20px;
+      overflow-x: auto !important;
+      }
+   form p:last-child {
+      text-align: left;
       }
    table tbody tr td {
       text-align: left;
@@ -70,6 +80,7 @@
                   placeholder="Enter CLABE number" autofocus>
             </label>
             <p class=message>&nbsp;</p>
+            <pre class=dark-mode></pre>
          </form>
          <form>
             <div id=calculator class=dna-template>
@@ -154,6 +165,7 @@
 <script src=https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/dna.js@1.7/dist/dna.min.js></script>
 <script src=https://cdn.jsdelivr.net/npm/web-ignition@1.4/dist/lib-x.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/pretty-print-json@0.5/dist/pretty-print-json.min.js></script>
 <script src=dist/clabe.js></script>
 <script>
 const app = {
@@ -163,7 +175,11 @@ const app = {
       console.log(elem.val(), clabeCheck);
       const validMessage = 'Valid: ' + clabeCheck.bank + ' (' + clabeCheck.city + ')';
       const message = clabeCheck.ok ? validMessage : clabeCheck.message;
-      elem.closest('form').find('.message').text(message).stop().hide().fadeIn();
+      const form = elem.closest('form');
+      form.find('.message').text(message).stop().hide().fadeIn();
+      dna.ui.smoothHeightSetBaseline(form.find('pre'));
+      form.find('pre').html(prettyPrintJson.toHtml(clabeCheck)).fadeIn();
+      dna.ui.smoothHeightAnimate();
       },
 
    updateCalculation(elem) {
