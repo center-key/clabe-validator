@@ -14,12 +14,12 @@ standard from the Mexican Bank Association (Asociación de Bancos de México &md
 uniform numbering of bank accounts.&nbsp; CLABE numbers are 18 digits long.&nbsp;
 See: https://en.wikipedia.org/wiki/CLABE
 
-### A) Online form
+## A) Online Form
 Try it out:<br>
 [https://centerkey.com/clabe](https://centerkey.com/clabe/)
 
-### B) Setup
-#### Web browser
+## B) Setup
+### Web browser
 Include in a web page:
 ```html
 <script src=clabe.min.js></script>
@@ -28,7 +28,7 @@ or from the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-valida
 ```html
 <script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.6/dist/clabe.min.js></script>
 ```
-#### Node.js server
+### Node.js server
 Install package for node:
 ```shell
 $ npm install clabe-validator
@@ -45,10 +45,10 @@ const { clabe } = require('clabe-validator');  //deprecated
 **Note:** _Release v1.4.0 contains a significant number of bank and city code additions plus
 updates to reflect financial institution mergers and name changes._
 
-### C) Validator usage
+## C) Validator Usage
 Pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
 
-#### 1. Example JavaScript code
+### 1. Example JavaScript code
 ```javascript
 const clabeNum = '002010077777777771';
 const clabeCheck = clabe.validate(clabeNum);
@@ -56,7 +56,7 @@ console.log(clabeCheck.ok ? '¡Que bueno!' : '¡Muy mal!');
 console.log('Your bank: ' + clabeCheck.bank);
 ```
 
-#### 2. Example JSON result for a valid CLABE number
+### 2. Example JSON result for a valid CLABE number
 ```javascript
 {
    ok:       true,
@@ -73,7 +73,7 @@ console.log('Your bank: ' + clabeCheck.bank);
 }
 ```
 
-#### 3. Example JSON result for an invalid CLABE number
+### 3. Example JSON result for an invalid CLABE number
 ```javascript
 {
    ok:       false,
@@ -85,7 +85,7 @@ console.log('Your bank: ' + clabeCheck.bank);
 The `formatOk` field indicates if the CLABE's length and checksum are both valid (even if the bank
 code or city code are unknown).
 
-#### 4. Possible errors
+### 4. Possible errors
 | Error code           | Error message                                   | Format Ok |
 | -------------------- | ----------------------------------------------- | ----------|
 | `invalid-length`     | Must be exactly 18 digits long                  | `false`   |
@@ -94,7 +94,7 @@ code or city code are unknown).
 | `invalid-bank`       | Invalid bank code: [CODE]                       | `true`    |
 | `invalid-city`       | Invalid city code: [CODE]                       | `true`    |
 
-### D) Calculator usage
+## D) Calculator Usage
 Pass the bank code, city code, and account number into
 `clabe.calculate(bankCode, cityCode, accountNumber)`
 and get the 18-character CLABE number back.
@@ -104,7 +104,7 @@ const clabeNum = clabe.calculate(2, 10, 7777777777);
 console.log(clabeNum === '002010077777777771');  //true
 ```
 
-### E) TypeScript declarations
+## E) TypeScript Declarations
 The **TypeScript Declaration File** file is [clabe.d.ts](dist/clabe.d.ts) in the **dist** folder.
 
 The `clabe.validate(clabeNum: string)` function returns a `ClabeCheck` object:
@@ -133,11 +133,11 @@ const clabeCheck: ClabeCheck = clabe.validate(clabeNum);  //{ ok: true, error: n
 const bankCode: string =       clabeCheck.code.bank;      //'002'
 ```
 
-### F) Contributor Notes
+## F) Contributor Notes
 To be a contributor, **fork** the project and run the commands `npm install` and `npm test` on your
 local clone.&nbsp; Make your edits and rerun the tests.&nbsp; Pull requests welcome.
 
-### G) Genesis
+## G) Genesis
 The origin of this project goes back to when I needed to send money to Guanajuato, Mexico to pay
 nurses who were providing medical care of a relative.&nbsp; I was initially unable to transfer funds
 because the transfer service reported that the CLABE number I supplied was invalid.&nbsp; Through a

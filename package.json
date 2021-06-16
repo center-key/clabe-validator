@@ -60,7 +60,7 @@
    },
    "scripts": {
       "lint": "   jshint *.js spec/*.js && eslint --max-warnings 0 . --ext .ts && gulp lint-html",
-      "tsc": "    tsc --version && tsc --project . --removeComments && tsc --project . --module UMD --removeComments --outDir build/umd",
+      "tsc": "    tsc --version && tsc --project . && tsc --project . --module UMD --outDir build/umd",
       "pretest": "npm run lint && rimraf build dist **/.DS_Store && npm run tsc && gulp make-dist",
       "test": "   mocha spec"
    },
