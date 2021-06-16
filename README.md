@@ -3,11 +3,10 @@
 
 _JavaScript library to analyze or create a CLABE number for a Mexican bank account_
 
-[![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/center-key/clabe-validator/blob/master/LICENSE.txt)
+[![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/center-key/clabe-validator/blob/main/LICENSE.txt)
 [![npm](https://img.shields.io/npm/v/clabe-validator.svg)](https://www.npmjs.com/package/clabe-validator)
 [![Vulnerabilities](https://snyk.io/test/github/center-key/clabe-validator/badge.svg)](https://snyk.io/test/github/center-key/clabe-validator)
 [![Hits](https://data.jsdelivr.com/v1/package/npm/clabe-validator/badge?style=rounded)](https://www.jsdelivr.com/package/npm/clabe-validator)
-[![Build](https://travis-ci.org/center-key/clabe-validator.svg)](https://travis-ci.org/center-key/clabe-validator)
 [![Build](https://github.com/center-key/clabe-validator/workflows/build/badge.svg)](https://github.com/center-key/clabe-validator/actions?query=workflow%3Abuild)
 
 CLABE (Clave Bancaria Estandarizada &mdash; Spanish for "standardized banking code") is a banking
