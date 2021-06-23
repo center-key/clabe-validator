@@ -6,7 +6,7 @@
 //    $ npm test
 
 // Imports
-import assert from 'assert';
+import { deepStrictEqual } from 'assert';
 import { JSDOM } from 'jsdom';
 import { readFileSync } from 'fs';
 
@@ -18,7 +18,20 @@ const scripts =    [mode.file];
 const loadScript = (file) => dom.window.eval(readFileSync(file).toString());  //jshint ignore:line
 scripts.forEach(loadScript);
 const { clabe } =  dom.window;
-const toPlainObj = (obj) => JSON.parse(JSON.stringify(obj));
+const assertDeepStrictEqual = (actual, expected, done) => {
+   const toPlainObj = (obj) => JSON.parse(JSON.stringify(obj));
+   try {
+      deepStrictEqual(toPlainObj(actual), toPlainObj(expected));
+      if (done)
+         done();
+      }
+   catch(error) {
+      if (done)
+         done(error);
+      else
+         throw error;
+      }
+   };
 
 // Specification suite
 describe(`Specifications: ${filename} - ${mode.type} (${mode.file})`, () => {
@@ -30,7 +43,7 @@ describe('Library version number', () => {
       const semVerPattern = /\d+[.]\d+[.]\d+/;
       const actual =   { version: clabe.version, valid: semVerPattern.test(clabe.version) };
       const expected = { version: clabe.version, valid: true };
-      assert.deepStrictEqual(actual, expected);
+      assertDeepStrictEqual(actual, expected);
       });
 
    });
@@ -45,7 +58,7 @@ describe('List of CLABE banks', () => {
          const bank = clabe.banksMap[bankCode];
          const actual =   { code: bankCode, tag: bank.tag,               name: bank.name };
          const expected = { code: bankCode, tag: bank.tag.toUpperCase(), name: bank.name };
-         assert.deepStrictEqual(actual, expected);
+         assertDeepStrictEqual(actual, expected);
          };
       bankCodes.forEach(checkTagCase);
       });
@@ -60,7 +73,7 @@ describe('List of CLABE banks', () => {
       const problemBanks = bankCodes.map(makeCodeBankPair).filter(tagIsDuplicate);
       const actual =   { duplicates: duplicateTags,        tags: problemTags, banks: problemBanks };
       const expected = { duplicates: allowedDuplicateTags, tags: [],          banks: [] };
-      assert.deepStrictEqual(actual, expected);
+      assertDeepStrictEqual(actual, expected);
       });
 
    it('contains the correct code to look up a bank tag', () => {
@@ -72,7 +85,7 @@ describe('List of CLABE banks', () => {
       const evalData = (data) => {
          const actual =   { code: data.input, tag: clabe.banksMap[parseInt(data.input)].tag };
          const expected = { code: data.input, tag: data.expected };
-         assert.deepStrictEqual(actual, expected);
+         assertDeepStrictEqual(actual, expected);
          };
       dataSet.forEach(evalData);
       });
@@ -86,7 +99,7 @@ describe('List of CLABE banks', () => {
       const evalData = (data) => {
          const actual =   { code: data.input, name: clabe.banksMap[parseInt(data.input)].name };
          const expected = { code: data.input, name: data.expected };
-         assert.deepStrictEqual(actual, expected);
+         assertDeepStrictEqual(actual, expected);
          };
       dataSet.forEach(evalData);
       });
@@ -94,7 +107,7 @@ describe('List of CLABE banks', () => {
    it('has a default "N/A" bank name and tag for code 999', () => {
       const actual =   { code: 999, tag: clabe.banksMap[999].tag, name: clabe.banksMap[999].name };
       const expected = { code: 999, tag: 'N/A',                   name: 'N/A' };
-      assert.deepStrictEqual(actual, expected);
+      assertDeepStrictEqual(actual, expected);
       });
 
    });
@@ -110,7 +123,7 @@ describe('List of CLABE cities', () => {
          const ordered = city[0] >= priorCode;
          const actual =   { city: city[1], code: city[0], prior: priorCode, ordered: ordered };
          const expected = { city: city[1], code: city[0], prior: priorCode, ordered: true };
-         assert.deepStrictEqual(actual, expected);
+         assertDeepStrictEqual(actual, expected);
          };
       clabe.cities.forEach(checkOrder);
       });
@@ -125,7 +138,7 @@ describe('List of CLABE cities', () => {
       const evalData = (data) => {
          const actual =   { city: data.input, code: cityNamesMap[data.input] };
          const expected = { city: data.input, code: parseInt(data.expected) };
-         assert.deepStrictEqual(actual, expected);
+         assertDeepStrictEqual(actual, expected);
          };
       dataSet.forEach(evalData);
       });
@@ -137,7 +150,7 @@ describe('List of CLABE cities', () => {
          const unique = city[0] === code || allowedDuplicateCities.includes(code);
          const actual =   { city: city, unique: unique, duplicate: code };
          const expected = { city: city, unique: true,   duplicate: code };
-         assert.deepStrictEqual(actual, expected);
+         assertDeepStrictEqual(actual, expected);
          };
       clabe.cities.forEach(checkForDuplicate);
       });
@@ -161,7 +174,7 @@ describe('The computeChecksum() function', () => {
       const evalData = (data) => {
          const actual =   { input: data, checksum: clabe.computeChecksum(data) };
          const expected = { input: data, checksum: null };
-         assert.deepStrictEqual(actual, expected);
+         assertDeepStrictEqual(actual, expected);
          };
       dataSet.forEach(evalData);
       });
@@ -195,7 +208,7 @@ describe('CLABE validator', () => {
             error:   data.expected[1],
             message: data.expected[2],
             };
-         assert.deepStrictEqual(actual, expected);
+         assertDeepStrictEqual(actual, expected);
          };
       dataSet.forEach(evalData);
       });
@@ -225,7 +238,7 @@ describe('CLABE validator', () => {
             msg:      'Valid',
             checksum: parseInt(data[17]),
             };
-         assert.deepStrictEqual(actual, expected);
+         assertDeepStrictEqual(actual, expected);
          };
       dataSet.forEach(evalData);
       });
@@ -249,7 +262,7 @@ describe('CLABE validator', () => {
          msg:      'Valid',
          checksum: 0,
          };
-      assert.deepStrictEqual(actual, expected);
+      assertDeepStrictEqual(actual, expected);
       });
 
    it('extracts the bank tag, bank name, and city', () => {
@@ -264,7 +277,7 @@ describe('CLABE validator', () => {
          bank: 'Banco Nacional de México, S.A.',
          city: 'Aguascalientes MX-AGU',
          };
-      assert.deepStrictEqual(actual, expected);
+      assertDeepStrictEqual(actual, expected);
       });
 
    it('extracts the bank code, city code, and account number', () => {
@@ -279,11 +292,11 @@ describe('CLABE validator', () => {
          city:    '010',
          account: '07777777777',
          };
-      assert.deepStrictEqual(actual, expected);
+      assertDeepStrictEqual(actual, expected);
       });
 
    it('returns nulls for properly formatted CLABE number with invalid bank and city codes', () => {
-      const actual = toPlainObj(clabe.validate('000000077777777770'));
+      const actual = clabe.validate('000000077777777770');
       const expected = {
          ok:       false,
          formatOk: true,
@@ -297,7 +310,7 @@ describe('CLABE validator', () => {
          account:  '07777777777',
          checksum: 0,
          };
-      assert.deepStrictEqual(actual, expected);
+      assertDeepStrictEqual(actual, expected);
       });
 
    });
@@ -316,7 +329,7 @@ describe('CLABE calculator', () => {
          const clabeNum = clabe.calculate(data.input.bank, data.input.city, data.input.acct);
          const actual =   { details: data.input, clabe: clabeNum };
          const expected = { details: data.input, clabe: data.expected };
-         assert.deepStrictEqual(actual, expected);
+         assertDeepStrictEqual(actual, expected);
          };
       dataSet.forEach(evalData);
       });
@@ -342,7 +355,7 @@ describe('Newly added or modified banks and cities', () => {
       const checkBankAndCity = (bank, city) => {
          const pad = (code) => code.toString().padStart(3, '0');
          const clabeNum = clabe.calculate(bank.code, city.code, mockAcct);
-         const actual = toPlainObj(clabe.validate(clabeNum));
+         const actual = clabe.validate(clabeNum);
          const expected = {
             ok:       true,
             formatOk: true,
@@ -356,7 +369,7 @@ describe('Newly added or modified banks and cities', () => {
             account:  mockAcct.padStart(11, '0'),
             checksum: parseInt(clabeNum.slice(-1)),
             };
-         assert.deepStrictEqual(actual, expected);
+         assertDeepStrictEqual(actual, expected);
          };
       const checkBank = (bank) => newCities.forEach((city) => checkBankAndCity(bank, city));
       newBanks.forEach(checkBank);
