@@ -6,26 +6,12 @@
 //    $ npm test
 
 // Imports
-import { deepStrictEqual } from 'assert';
+import { assertDeepStrictEqual } from 'assert-deep-strict-equal';
 import { clabe } from '../dist/clabe.esm.js';
 
 // Setup
-const mode =       { type: 'ES Module', file: 'dist/clabe.esm.js' };
-const filename =   import.meta.url.replace(/.*\//, '');  //jshint ignore:line
-const assertDeepStrictEqual = (actual, expected, done) => {
-   const toPlainObj = (obj) => JSON.parse(JSON.stringify(obj));
-   try {
-      deepStrictEqual(toPlainObj(actual), toPlainObj(expected));
-      if (done)
-         done();
-      }
-   catch(error) {
-      if (done)
-         done(error);
-      else
-         throw error;
-      }
-   };
+const mode =     { type: 'ES Module', file: 'dist/clabe.esm.js' };
+const filename = import.meta.url.replace(/.*\//, '');  //jshint ignore:line
 
 // Specification suite
 describe(`Specifications: ${filename} - ${mode.type} (${mode.file})`, () => {
