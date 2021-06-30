@@ -139,14 +139,15 @@ local clone.&nbsp; Make your edits and rerun the tests.&nbsp; Pull requests welc
 
 ## G) Genesis
 The origin of this project goes back to when I needed to send money to Guanajuato, Mexico to pay
-nurses who were providing medical care of a relative.&nbsp; I was initially unable to transfer funds
-because the transfer service reported that the CLABE number I supplied was invalid.&nbsp; Through a
-little sleuthing and a lot of luck, I discovered that a financial services company had accidentally
-omitted the very last modulo operation in their CLABE checksum calculation.&nbsp; The result was
-that Mexican bank account numbers ending in a zero were rejected.
+nurses who were providing medical care of a relative.&nbsp;
+I was initially unable to transfer funds because the money transfer service reported that the CLABE
+number I supplied was invalid.&nbsp;
+Through a little sleuthing and a lot of luck, I discovered that a financial services company had
+accidentally omitted the very last modulo operation in their CLABE checksum calculation.&nbsp;
+The result was that Mexican bank account numbers ending in a zero were rejected.
 
-This project was created to fix the checksum bug.&nbsp; The project is an open source community
-project and is not supported by any company.
+This project was created to fix the checksum bug.&nbsp;
+It is an open source community project and is not supported by any company.
 <br>
 
 ---
