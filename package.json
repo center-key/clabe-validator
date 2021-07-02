@@ -6,7 +6,6 @@
    "type": "module",
    "module": "dist/clabe.esm.js",
    "main": "dist/clabe.umd.cjs",
-   "browser": "dist/clabe.min.js",
    "types": "dist/clabe.d.ts",
    "files": [
       "dist"
