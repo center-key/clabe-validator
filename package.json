@@ -65,7 +65,7 @@
       }
    },
    "scripts": {
-      "lint": "   jshint *.js spec/*.js && eslint --max-warnings 0 . --ext .ts && gulp lint-html",
+      "lint": "   jshint . --exclude node_modules,build,dist && eslint --max-warnings 0 . --ext .ts && gulp lint-html",
       "tsc": "    tsc --version && tsc --project . && tsc --project . --module UMD --outDir build/umd",
       "pretest": "npm run lint && rimraf build dist **/.DS_Store && npm run tsc && gulp make-dist",
       "test": "   mocha spec"
@@ -81,7 +81,7 @@
       "assert-deep-strict-equal": "~0.0",
       "babel-minify": "~0.5",
       "dna.js": "~1.8",
-      "eslint": "~7.30",
+      "eslint": "~7.31",
       "gulp": "~4.0",
       "gulp-append-prepend": "~1.0",
       "gulp-babel": "~8.0",
