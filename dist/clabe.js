@@ -1,7 +1,7 @@
-//! CLABE Validator v1.6.7 ~ github.com/center-key/clabe-validator ~ MIT License
+//! CLABE Validator v1.7.0 ~ github.com/center-key/clabe-validator ~ MIT License
 
 const clabe = {
-    version: '1.6.7',
+    version: '1.7.0',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -1068,4 +1068,4 @@ const clabe = {
     ],
     citiesMap: {},
 };
-if (typeof window === "object") window.clabe = clabe;
+export { clabe };
