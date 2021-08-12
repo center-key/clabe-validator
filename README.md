@@ -26,7 +26,7 @@ Include in a web page:
 ```
 or from the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-validator):
 ```html
-<script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.6/dist/clabe.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/clabe-validator@1.7/dist/clabe.min.js></script>
 ```
 ### Node.js server
 Install package for node:
