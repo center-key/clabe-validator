@@ -7,10 +7,10 @@
 
 // Imports
 import { assertDeepStrictEqual } from 'assert-deep-strict-equal';
-import { clabe } from '../dist/clabe.esm.js';
+import { clabe } from '../dist/clabe.js';
 
 // Setup
-const mode =     { type: 'ES Module', file: 'dist/clabe.esm.js' };
+const mode =     { type: 'ES Module', file: 'dist/clabe.js' };
 const filename = import.meta.url.replace(/.*\//, '');  //jshint ignore:line
 
 // Specification suite

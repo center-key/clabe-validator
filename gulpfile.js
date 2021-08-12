@@ -29,13 +29,20 @@ const task = {
             .pipe(header(bannerJs))
             .pipe(size({ showFiles: true }))
             .pipe(gulp.dest('dist'));
-      const buildEsm = () =>
+      const buildJs = () =>
          gulp.src('build/clabe.js')
             .pipe(replace(headerComments.js, ''))
             .pipe(header(bannerJs))
             .pipe(replace('[VERSION]', pkg.version))
             .pipe(size({ showFiles: true }))
-            .pipe(rename({ extname: '.esm.js' }))
+            .pipe(gulp.dest('dist'))
+            .pipe(replace(/^export { (.*) };/m, 'if (typeof window === "object") window.$1 = $1;'))
+            .pipe(babel(babelMinifyJs))
+            .pipe(rename({ extname: '.min.js' }))
+            .pipe(header(bannerJs.replace('\n\n', '\n')))
+            .pipe(gap.appendText('\n'))
+            .pipe(size({ showFiles: true }))
+            .pipe(size({ showFiles: true, gzip: true }))
             .pipe(gulp.dest('dist'));
       const buildUmd = () =>
          gulp.src('build/umd/clabe.js')
@@ -44,22 +51,7 @@ const task = {
             .pipe(rename({ extname: '.umd.cjs' }))
             .pipe(size({ showFiles: true }))
             .pipe(gulp.dest('dist'));
-      const buildJs = () =>
-         gulp.src('build/clabe.js')
-            .pipe(replace(headerComments.js, ''))
-            .pipe(header(bannerJs))
-            .pipe(replace('[VERSION]', pkg.version))
-            .pipe(replace(/^export { (.*) };/m, 'if (typeof window === "object") window.$1 = $1;'))
-            .pipe(size({ showFiles: true }))
-            .pipe(gulp.dest('dist'))
-            .pipe(babel(babelMinifyJs))
-            .pipe(rename({ extname: '.min.js' }))
-            .pipe(header(bannerJs.replace('\n\n', '\n')))
-            .pipe(gap.appendText('\n'))
-            .pipe(size({ showFiles: true }))
-            .pipe(size({ showFiles: true, gzip: true }))
-            .pipe(gulp.dest('dist'));
-      return mergeStream(buildDts(), buildEsm(), buildUmd(), buildJs());
+      return mergeStream(buildDts(), buildJs(), buildUmd());
       },
 
    };

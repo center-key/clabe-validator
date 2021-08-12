@@ -4,7 +4,7 @@
    "description": "Analyze or create a CLABE number for a Mexican bank account (written in TypeScript)",
    "license": "MIT",
    "type": "module",
-   "module": "dist/clabe.esm.js",
+   "module": "dist/clabe.js",
    "jsdelivr": "dist/clabe.min.js",
    "main": "dist/clabe.umd.cjs",
    "types": "dist/clabe.d.ts",
@@ -13,7 +13,7 @@
    ],
    "exports": {
       ".": {
-         "import": "./dist/clabe.esm.js",
+         "import": "./dist/clabe.js",
          "require": "./dist/clabe.umd.cjs"
       },
       "./": "./dist/"
