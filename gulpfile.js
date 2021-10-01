@@ -2,62 +2,33 @@
 // Gulp configuration and tasks
 
 // Imports
-import babel from       'gulp-babel';
-import gap from         'gulp-append-prepend';
-import gulp from        'gulp';
-import header from      'gulp-header';
-import mergeStream from 'merge-stream';
-import rename from      'gulp-rename';
-import replace from     'gulp-replace';
-import size from        'gulp-size';
-import { readFileSync } from 'fs';
+import babel from   'gulp-babel';
+import gap from     'gulp-append-prepend';
+import gulp from    'gulp';
+import rename from  'gulp-rename';
+import replace from 'gulp-replace';
+import size from    'gulp-size';
 
 // Setup
-const pkg =            JSON.parse(readFileSync('./package.json'));
-const home =           pkg.homepage.replace('https://', '');
-const bannerJs =       '//! CLABE Validator v' + pkg.version + ' ~ ' + home + ' ~ MIT License\n\n';
-const headerComments = { js: /^\/\/.*\n/gm };
-const transpileES6 =   ['@babel/env', { modules: false }];
-const babelMinifyJs =  { presets: [transpileES6, 'minify'], comments: false };
+const transpileES6 =  ['@babel/env', { modules: false }];
+const babelMinifyJs = { presets: [transpileES6, 'minify'], comments: false };
 
 // Tasks
 const task = {
-
-   makeDistribution() {
-      const buildDts = () =>
-         gulp.src('build/clabe.d.ts')
-            .pipe(header(bannerJs))
-            .pipe(size({ showFiles: true }))
-            .pipe(gulp.dest('dist'));
-      const buildJs = () =>
-         gulp.src('build/clabe.js')
-            .pipe(replace(headerComments.js, ''))
-            .pipe(header(bannerJs))
-            .pipe(replace('[VERSION]', pkg.version))
-            .pipe(size({ showFiles: true }))
-            .pipe(gulp.dest('dist'))
-            .pipe(replace(/^export { (.*) };/m, 'if (typeof window === "object") window.$1 = $1;'))
-            .pipe(rename({ extname: '.dev.js' }))
-            .pipe(size({ showFiles: true }))
-            .pipe(gulp.dest('dist'))
-            .pipe(babel(babelMinifyJs))
-            .pipe(rename('clabe.min.js'))
-            .pipe(header(bannerJs.replace('\n\n', '\n')))
-            .pipe(gap.appendText('\n'))
-            .pipe(size({ showFiles: true }))
-            .pipe(size({ showFiles: true, gzip: true }))
-            .pipe(gulp.dest('dist'));
-      const buildUmd = () =>
-         gulp.src('build/umd/clabe.js')
-            .pipe(header(bannerJs))
-            .pipe(replace('[VERSION]', pkg.version))
-            .pipe(rename({ extname: '.umd.cjs' }))
-            .pipe(size({ showFiles: true }))
-            .pipe(gulp.dest('dist'));
-      return mergeStream(buildDts(), buildJs(), buildUmd());
+   minifyJs() {
+      return gulp.src('build/clabe.js')
+         .pipe(replace(/^export { (.*) };/m, 'if (typeof window === "object") window.$1 = $1;'))
+         .pipe(rename({ extname: '.dev.js' }))
+         .pipe(size({ showFiles: true }))
+         .pipe(gulp.dest('build'))
+         .pipe(babel(babelMinifyJs))
+         .pipe(rename('clabe.min.js'))
+         .pipe(gap.appendText('\n'))
+         .pipe(size({ showFiles: true }))
+         .pipe(size({ showFiles: true, gzip: true }))
+         .pipe(gulp.dest('build'));
       },
-
    };
 
 // Gulp
-gulp.task('make-dist', task.makeDistribution);
+gulp.task('minify-js', task.minifyJs);

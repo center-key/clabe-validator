@@ -20,7 +20,7 @@ export type ClabeCheck = {
 
 const clabe = {
 
-   version: '[VERSION]',
+   version: '~~~version~~~',
 
    computeChecksum(clabeNum17: string): number | null {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
