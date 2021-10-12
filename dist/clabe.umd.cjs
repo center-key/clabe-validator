@@ -1,4 +1,4 @@
-//! clabe-validator v1.7.1 ~ https://github.com/center-key/clabe-validator ~ MIT License
+//! clabe-validator v1.7.1 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 (function (factory) {
     if (typeof module === "object" && typeof module.exports === "object") {
