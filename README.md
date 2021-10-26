@@ -110,17 +110,17 @@ The **TypeScript Declaration File** file is [clabe.d.ts](dist/clabe.d.ts) in the
 The `clabe.validate(clabeNum: string)` function returns a `ClabeCheck` object:
 ```typescript
 type ClabeCheck = {
-   ok:       boolean,
-   formatOk: boolean,
-   error:    string | null,
-   message:  string,
-   clabe:    string | null,
-   tag:      string | null,
-   bank:     string | null,
-   city:     string | null,
-   account:  string,
-   code:     { bank: string, city: string },
-   checksum: number | null,
+   ok:       boolean,        //todo está bien
+   formatOk: boolean,        //valid length and checksum
+   error:    string | null,  //failure code, example: 'invalid-city'
+   message:  string,         //displayable status information
+   clabe:    string | null,  //full 18-digit number
+   tag:      string | null,  //bank code (short name), example: 'BANAMEX'
+   bank:     string | null,  //business (long name), example: 'Banco Nacional'
+   city:     string | null,  //branch or plaza name
+   account:  string,         //11-digit zero-padded bank account number
+   code:     { bank: string, city: string },  //3-digit codes
+   checksum: number | null,  //control digit (0 to 9)
    };
 ```
 
@@ -128,9 +128,9 @@ Example TypeScript usage with explicit types:
 ```typescript
 import { clabe, ClabeCheck } from 'clabe-validator';
 
-const clabeNum: string =       '002010077777777771';
+const clabeNum:   string =     '002010077777777771';
 const clabeCheck: ClabeCheck = clabe.validate(clabeNum);  //{ ok: true, error: null, ... }
-const bankCode: string =       clabeCheck.code.bank;      //'002'
+const bankCode:   string =     clabeCheck.code.bank;      //'002'
 ```
 
 ## F) Contributor Notes
@@ -148,6 +148,7 @@ The result was that Mexican bank account numbers ending in a zero were rejected.
 
 This project was created to fix the checksum bug.&nbsp;
 It is an open source community project and is not supported by any company.
+
 <br>
 
 ---

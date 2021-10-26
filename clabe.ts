@@ -5,17 +5,17 @@ export type ClabeBanksMap =  { [bankCode: number]: ClabeBank };
 export type ClabeCity =      [number, string];
 export type ClabeCitiesMap = { [cityCode: number]: string };
 export type ClabeCheck = {
-   ok:       boolean,
-   formatOk: boolean,
-   error:    string | null,
-   message:  string,
-   clabe:    string | null,
-   tag:      string | null,
-   bank:     string | null,
-   city:     string | null,
-   account:  string,
-   code:     { bank: string, city: string },
-   checksum: number | null,
+   ok:       boolean,        //todo está bien
+   formatOk: boolean,        //valid length and checksum
+   error:    string | null,  //failure code, example: 'invalid-city'
+   message:  string,         //displayable status information
+   clabe:    string | null,  //full 18-digit number
+   tag:      string | null,  //bank code (short name), example: 'BANAMEX'
+   bank:     string | null,  //business (long name), example: 'Banco Nacional'
+   city:     string | null,  //branch or plaza name
+   account:  string,         //11-digit zero-padded bank account number
+   code:     { bank: string, city: string },  //3-digit codes
+   checksum: number | null,  //control digit (0 to 9)
    };
 
 const clabe = {
