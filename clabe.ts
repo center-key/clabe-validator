@@ -10,8 +10,8 @@ export type ClabeCheck = {
    error:    string | null,  //failure code, example: 'invalid-city'
    message:  string,         //displayable status information
    clabe:    string | null,  //full 18-digit number
-   tag:      string | null,  //bank code (short name), example: 'BANAMEX'
-   bank:     string | null,  //business (long name), example: 'Banco Nacional'
+   tag:      string | null,  //bank short name, example: 'BANAMEX'
+   bank:     string | null,  //bank long name, example: 'Banco Nacional'
    city:     string | null,  //branch or plaza name
    account:  string,         //11-digit zero-padded bank account number
    code:     { bank: string, city: string },  //3-digit codes
