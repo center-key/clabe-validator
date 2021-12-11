@@ -42,15 +42,12 @@ Or for older CommonJS/UMD environments:
 const { clabe } = require('clabe-validator');  //deprecated
 ```
 
-**Note:** _Release v1.4.0 contains a significant number of bank and city code additions plus
-updates to reflect financial institution mergers and name changes._
-
 ## C) Validator Usage
 Pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
 
 ### 1. Example JavaScript code
 ```javascript
-const clabeNum = '002010077777777771';
+const clabeNum =   '002010077777777771';
 const clabeCheck = clabe.validate(clabeNum);
 console.log(clabeCheck.ok ? '¡Que bueno!' : '¡Muy mal!');
 console.log('Your bank: ' + clabeCheck.bank);
