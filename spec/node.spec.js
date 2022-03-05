@@ -317,45 +317,4 @@ describe('CLABE calculator', () => {
    });
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-describe('Newly added or modified banks and cities', () => {
-
-   const newBanks = [
-      { code: 152, tag: 'BANCREA', name: 'Banco Bancrea, S.A., Institución de Banca Múltiple' },
-      { code: 846, tag: 'STP',     name: 'Sistema de Transferencias y Pagos STP' },
-      ];
-   const newCities = [
-      { code: 382, name: 'San Julian MX-JAL' },
-      { code: 960, name: 'Victor Rosales MX-ZAC' },
-      { code: 198, name: 'Santa Maria del Oro MX-DUR' },
-      { code: 660, name: 'Huejotzingo MX-PUE' },
-      ];
-
-   it('work in the calculator and validator', () => {
-      const mockAcct = '1234567';
-      const checkBankAndCity = (bank, city) => {
-         const pad = (code) => code.toString().padStart(3, '0');
-         const clabeNum = clabe.calculate(bank.code, city.code, mockAcct);
-         const actual = clabe.validate(clabeNum);
-         const expected = {
-            ok:       true,
-            formatOk: true,
-            error:    null,
-            message:  'Valid',
-            clabe:    clabeNum,
-            code:     { bank: pad(bank.code), city: pad(city.code) },
-            tag:      bank.tag,
-            bank:     bank.name,
-            city:     city.name,
-            account:  mockAcct.padStart(11, '0'),
-            checksum: parseInt(clabeNum.slice(-1)),
-            };
-         assertDeepStrictEqual(actual, expected);
-         };
-      const checkBank = (bank) => newCities.forEach((city) => checkBankAndCity(bank, city));
-      newBanks.forEach(checkBank);
-      });
-
-   });
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
 });
