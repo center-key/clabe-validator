@@ -100,7 +100,7 @@ publishWebFiles() {
       echo "Publishing:"
       echo $publishFolder
       mkdir -p $publishFolder
-      sed "s|dist/clabe.dev.js|$cdnSrc|" clabe.html > $publishFolder/index.html
+      sed "s|../dist/clabe.dev.js|$cdnSrc|" spec/clabe.html > $publishFolder/index.html
       ls -o $publishFolder
       grep clabe.min.js $publishFolder/index.html
       echo
@@ -114,4 +114,4 @@ buildProject
 updateCdnVersion
 publishWebFiles
 sleep 2
-open clabe.html
+open spec/clabe.html
