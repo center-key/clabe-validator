@@ -158,7 +158,7 @@ const clabe = {
       168: { tag: 'HIPOTECARIA FED',       name: 'Sociedad Hipotecaria Federal, S.N.C.' },
       600: { tag: 'MONEXCB',               name: 'Monex Casa de Bolsa, S.A. de C.V.' },
       601: { tag: 'GBM',                   name: 'GBM Grupo Bursátil Mexicano, S.A. de C.V.' },
-      602: { tag: 'MASARI',                name: 'Masari Casa de Cambio, S.A. de C.V.' },
+      602: { tag: 'MASARI',                name: 'Masari Casa de Bolsa, S.A. de C.V.' },
       604: { tag: 'C.B. INBURSA',          name: 'Inversora Bursátil, S.A. de C.V.' },
       605: { tag: 'VALUE',                 name: 'Valué, S.A. de C.V., Casa de Bolsa' },
       606: { tag: 'ESTRUCTURADORES',       name: 'Base Internacional Casa de Bolsa, S.A. de C.V.' },

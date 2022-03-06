@@ -41,6 +41,7 @@ describe('Newly added or modified banks and cities', () => {
 
    const newBanks = [
       { code: 152, tag: 'BANCREA',         name: 'Banco Bancrea, S.A., Institución de Banca Múltiple' },
+      { code: 602, tag: 'MASARI',          name: 'Masari Casa de Bolsa, S.A. de C.V.' },
       { code: 674, tag: 'AXA',             name: 'AXA Seguros, S.A. De C.V.' },
       { code: 677, tag: 'CAJA POP MEXICA', name: 'Caja Popular Mexicana' },
       { code: 679, tag: 'FND',             name: 'Financiera Nacional De Desarrollo Agropecuario' },
