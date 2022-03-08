@@ -45,12 +45,12 @@ describe('List of CLABE banks', () => {
 
    it('contains no duplicate tags', () => {
       const allowedDuplicateTags = ['SKANDIA', 'STP'];  //list of permitted exceptions
-      const tags = bankCodes.map(bankCode => clabe.banksMap[bankCode].tag);
-      const duplicateTags = tags.sort().filter((v, i, a) => i > 0 && v === a[i - 1]);
-      const problemTags = duplicateTags.filter(tag => !allowedDuplicateTags.includes(tag));
-      const makeCodeBankPair = code => [code, clabe.banksMap[code]];
-      const tagIsDuplicate = pair => problemTags.includes(pair[1].tag);
-      const problemBanks = bankCodes.map(makeCodeBankPair).filter(tagIsDuplicate);
+      const tags =                 bankCodes.map(bankCode => clabe.banksMap[bankCode].tag);
+      const duplicateTags =        tags.sort().filter((v, i, a) => i > 0 && v === a[i - 1]);
+      const problemTags =          duplicateTags.filter(tag => !allowedDuplicateTags.includes(tag));
+      const makeCodeBankPair =     code => [code, clabe.banksMap[code]];
+      const tagIsDuplicate =       pair => problemTags.includes(pair[1].tag);
+      const problemBanks =         bankCodes.map(makeCodeBankPair).filter(tagIsDuplicate);
       const actual =   { duplicates: duplicateTags,        tags: problemTags, banks: problemBanks };
       const expected = { duplicates: allowedDuplicateTags, tags: [],          banks: [] };
       assertDeepStrictEqual(actual, expected);
@@ -94,7 +94,8 @@ describe('List of CLABE banks', () => {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('List of CLABE cities', () => {
-   const entries = clabe.cities.map(pair => [pair[1], pair[0]]);
+   const cityState =    (city) => city[2] ? city[1] + ' ' + city[2] : city[1];
+   const entries =      clabe.cities.map(city => [cityState(city), city[0]]);
    const cityNamesMap = Object.fromEntries(entries);  //{ 'Aguascalientes MX-AGU': 10, 'Asientos MX-AGU': 11, ... }
 
    it('is in numerical order', () => {
@@ -126,7 +127,7 @@ describe('List of CLABE cities', () => {
    it('has no duplicate city names', () => {
       const allowedDuplicateCities = [28, 550];
       const checkForDuplicate = (city) => {
-         const code = cityNamesMap[city[1]];
+         const code = cityNamesMap[cityState(city)];
          const unique = city[0] === code || allowedDuplicateCities.includes(code);
          const actual =   { city: city, unique: unique, duplicate: code };
          const expected = { city: city, unique: true,   duplicate: code };
