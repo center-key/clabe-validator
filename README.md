@@ -62,7 +62,7 @@ console.log('Your bank: ' + clabeCheck.bank);
    message:  'Valid',
    clabe:    '002010077777777771',
    tag:      'BANAMEX',
-   bank:     'Banco Nacional de México, S.A.',
+   bank:     'Banco Nacional de México',
    city:     'Aguascalientes MX-AGU',
    account:  '07777777777',
    code:     { bank: '002', city: '010' },

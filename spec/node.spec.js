@@ -34,7 +34,7 @@ describe('List of CLABE banks', () => {
    const bankCodes = Object.keys(clabe.banksMap);
 
    it('contains only uppercase bank tags', () => {
-      const checkTagCase = (bankCode) => {  //example: 21: { tag: 'HSBC', name: 'HSBC México, S.A.' },
+      const checkTagCase = (bankCode) => {  //example: 21: { tag: 'HSBC', name: 'HSBC México' },
          const bank = clabe.banksMap[bankCode];
          const actual =   { code: bankCode, tag: bank.tag,               name: bank.name };
          const expected = { code: bankCode, tag: bank.tag.toUpperCase(), name: bank.name };
@@ -72,9 +72,9 @@ describe('List of CLABE banks', () => {
 
    it('contains the correct code to look up a bank name', () => {
       const dataSet = [
-         { input: '002', expected: 'Banco Nacional de México, S.A.' },
-         { input: '640', expected: 'J.P. Morgan Casa de Bolsa, S.A. de C.V.' },
-         { input: '652', expected: 'Solución Asea, S.A. de C.V., Sociedad Financiera Popular' },
+         { input: '002', expected: 'Banco Nacional de México' },
+         { input: '640', expected: 'J.P. Morgan Casa de Bolsa' },
+         { input: '652', expected: 'Solución Asea, Sociedad Financiera Popular' },
          ];
       const evalData = (data) => {
          const actual =   { code: data.input, name: clabe.banksMap[parseInt(data.input)].name };
@@ -254,7 +254,7 @@ describe('CLABE validator', () => {
          };
       const expected = {
          tag:  'BANAMEX',
-         bank: 'Banco Nacional de México, S.A.',
+         bank: 'Banco Nacional de México',
          city: 'Aguascalientes MX-AGU',
          };
       assertDeepStrictEqual(actual, expected);
