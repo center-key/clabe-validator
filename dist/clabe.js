@@ -1,7 +1,7 @@
-//! clabe-validator v1.7.3 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v1.7.4 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '1.7.3',
+    version: '1.7.4',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -121,7 +121,7 @@ const clabe = {
         168: { tag: 'HIPOTECARIA FED', name: 'Sociedad Hipotecaria Federal, S.N.C.' },
         600: { tag: 'MONEXCB', name: 'Monex Casa de Bolsa, S.A. de C.V.' },
         601: { tag: 'GBM', name: 'GBM Grupo Bursátil Mexicano, S.A. de C.V.' },
-        602: { tag: 'MASARI', name: 'Masari Casa de Cambio, S.A. de C.V.' },
+        602: { tag: 'MASARI', name: 'Masari Casa de Bolsa, S.A. de C.V.' },
         604: { tag: 'C.B. INBURSA', name: 'Inversora Bursátil, S.A. de C.V.' },
         605: { tag: 'VALUE', name: 'Valué, S.A. de C.V., Casa de Bolsa' },
         606: { tag: 'ESTRUCTURADORES', name: 'Base Internacional Casa de Bolsa, S.A. de C.V.' },
@@ -151,7 +151,7 @@ const clabe = {
         633: { tag: 'STERLING', name: 'Sterling Casa de Cambio, S.A. de C.V.' },
         634: { tag: 'FINCOMUN', name: 'Fincomún, Servicios Financieros Comunitarios, S.A. de C.V.' },
         636: { tag: 'HDI SEGUROS', name: 'HDI Seguros, S.A. de C.V.' },
-        637: { tag: 'ORDER', name: 'OrderExpress Casa de Cambio , S.A. de C.V. AAC' },
+        637: { tag: 'ORDER', name: 'OrderExpress Casa de Cambio, S.A. de C.V. AAC' },
         638: { tag: 'AKALA', name: 'Akala, S.A. de C.V., Sociedad Financiera Popular' },
         640: { tag: 'CB JPMORGAN', name: 'J.P. Morgan Casa de Bolsa, S.A. de C.V.' },
         642: { tag: 'REFORMA', name: 'Operadora de Recursos Reforma, S.A. de C.V.' },
@@ -166,7 +166,9 @@ const clabe = {
         656: { tag: 'UNAGRA', name: 'UNAGRA, S.A. de C.V., S.F.P.' },
         659: { tag: 'ASP INTEGRA OPC', name: 'Opciones Empresariales Del Noreste, S.A. DE C.V.' },
         670: { tag: 'LIBERTAD', name: 'Libertad Servicios Financieros, S.A. De C.V.' },
-        677: { tag: 'CAJA POP MEXICANA', name: 'Caja Popular Mexicana' },
+        674: { tag: 'AXA', name: 'AXA Seguros, S.A. De C.V.' },
+        677: { tag: 'CAJA POP MEXICA', name: 'Caja Popular Mexicana' },
+        679: { tag: 'FND', name: 'Financiera Nacional De Desarrollo Agropecuario' },
         680: { tag: 'CRISTOBAL COLON', name: 'Caja Popular Cristóbal Colón' },
         683: { tag: 'CAJA TELEFONIST', name: 'Caja de Ahorro de los Telefonistas' },
         684: { tag: 'TRANSFER', name: 'Operadora de Pagos Moviles de Mexico, S.A. de C.V.' },

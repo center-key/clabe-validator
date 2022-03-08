@@ -1,4 +1,4 @@
-//! clabe-validator v1.7.3 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v1.7.4 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 export declare type ClabeBank = {
     tag?: string;
