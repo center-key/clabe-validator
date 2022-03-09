@@ -71,6 +71,7 @@ describe('Newly added or modified banks and cities', () => {
             tag:      bank.tag,
             bank:     bank.name,
             city:     city.name,
+            multiple: false,
             account:  mockAcct.padStart(11, '0'),
             checksum: parseInt(clabeNum.slice(-1)),
             };

@@ -255,14 +255,16 @@ describe('CLABE validator', () => {
    it('extracts the bank tag, bank name, and city', () => {
       const clabeCheck = clabe.validate('002010077777777771');
       const actual =   {
-         tag:  clabeCheck.tag,
-         bank: clabeCheck.bank,
-         city: clabeCheck.city,
+         tag:      clabeCheck.tag,
+         bank:     clabeCheck.bank,
+         city:     clabeCheck.city,
+         multiple: clabeCheck.multiple,
          };
       const expected = {
-         tag:  'BANAMEX',
-         bank: 'Banco Nacional de México',
-         city: 'Aguascalientes MX-AGU',
+         tag:      'BANAMEX',
+         bank:     'Banco Nacional de México',
+         city:     'Aguascalientes MX-AGU',
+         multiple: false,
          };
       assertDeepStrictEqual(actual, expected);
       });
@@ -282,6 +284,25 @@ describe('CLABE validator', () => {
       assertDeepStrictEqual(actual, expected);
       });
 
+   it('correctly identifies a CLABE number that maps to multiple cities', () => {
+      const actual = clabe.validate('032180000118359719');
+      const expected = {
+         ok:       true,
+         formatOk: true,
+         error:    null,
+         message: 'Valid',
+         clabe:   '032180000118359719',
+         tag:     'IXE',
+         bank:    'IXE Banco',
+         city:    'Atizapan, Chalco, Ciudad de México MX-CMX, Coacalco, Cuautitlán Izcalli, Ecatepec, Huehuetoca, Huixquilucan, Ixtapaluca, Los Reyes la Paz, Naucalpan, Nezahualcóyotl, Tecamac, Teotihuacán, Texcoco, Tlalnepantla',
+         multiple: true,
+         account: '00011835971',
+         code:     { bank: '032', city: '180' },
+         checksum: 9,
+         };
+      assertDeepStrictEqual(actual, expected);
+      });
+
    it('returns nulls for properly formatted CLABE number with invalid bank and city codes', () => {
       const actual = clabe.validate('000000077777777770');
       const expected = {
@@ -290,11 +311,12 @@ describe('CLABE validator', () => {
          error:    'invalid-bank',
          message:  'Invalid bank code: 000',
          clabe:    null,
-         code:     { bank: '000', city: '000' },
          tag:      null,
          bank:     null,
          city:     null,
+         multiple: false,
          account:  '07777777777',
+         code:     { bank: '000', city: '000' },
          checksum: 0,
          };
       assertDeepStrictEqual(actual, expected);

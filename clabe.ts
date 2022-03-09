@@ -13,6 +13,7 @@ export type ClabeCheck = {
    tag:      string | null,  //bank short name, example: 'BANAMEX'
    bank:     string | null,  //bank long name, example: 'Banco Nacional'
    city:     string | null,  //branch or plaza name
+   multiple: boolean,        //more than one city share the same code
    account:  string,         //11-digit zero-padded bank account number
    code:     { bank: string, city: string },  //3-digit codes
    checksum: number | null,  //control digit (0 to 9)
@@ -54,7 +55,7 @@ const clabe = {
       const cityCode = clabeNum.substring(3, 6);
       const account =  clabeNum.substring(6, 17);
       const checksum = Number(clabeNum.substring(17, 18));
-      const addCity = (city: ClabeCity) => clabe.citiesMap[city[0]] ? 
+      const addCity = (city: ClabeCity) => clabe.citiesMap[city[0]] ?
          clabe.citiesMap[city[0]]!.push(city) : clabe.citiesMap[city[0]] = [city];
       if (!clabe.citiesMap[(<ClabeCity>clabe.cities[0])[0]])
          clabe.cities.forEach(addCity);
@@ -78,6 +79,7 @@ const clabe = {
          tag:      bank.tag || null,
          bank:     bank.name || null,
          city:     cities ? cities.map(cityState).join(', ') : null,
+         multiple: !!cities && cities.length > 1,
          account:  account,
          code:     { bank: bankCode, city: cityCode },
          checksum: realChecksum,
