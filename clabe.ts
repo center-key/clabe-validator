@@ -2,7 +2,7 @@
 
 export type ClabeBank =      { tag?: string, name?: string };
 export type ClabeBanksMap =  { [bankCode: number]: ClabeBank };
-export type ClabeCity =      [number, string, ClabeState?];
+export type ClabeCity =      [number, string, ClabeMxState?];
 export type ClabeCitiesMap = { [cityCode: number]: ClabeCity[] };
 export type ClabeCheck = {
    ok:       boolean,        //todo está bien
@@ -14,11 +14,12 @@ export type ClabeCheck = {
    bank:     string | null,  //bank long name, example: 'Banco Nacional'
    city:     string | null,  //branch or plaza name
    multiple: boolean,        //more than one city share the same code
+   total:    number,         //number of cities
    account:  string,         //11-digit zero-padded bank account number
    code:     { bank: string, city: string },  //3-digit codes
    checksum: number | null,  //control digit (0 to 9)
    };
-export type ClabeState = 'MX-AGU' | 'MX-BCN' | 'MX-BCS' | 'MX-CAM' | 'MX-CHH' | 'MX-CHP' |
+export type ClabeMxState = 'MX-AGU' | 'MX-BCN' | 'MX-BCS' | 'MX-CAM' | 'MX-CHH' | 'MX-CHP' |
    'MX-CMX' | 'MX-COA' | 'MX-COL' | 'MX-DUR' | 'MX-GRO' | 'MX-GUA' | 'MX-HID' | 'MX-JAL' |
    'MX-MEX' | 'MX-MIC' | 'MX-MOR' | 'MX-NAY' | 'MX-NLE' | 'MX-OAX' | 'MX-PUE' | 'MX-QUE' |
    'MX-ROO' | 'MX-SIN' | 'MX-SLP' | 'MX-SON' | 'MX-TAB' | 'MX-TAM' | 'MX-TLA' | 'MX-VER' |
@@ -69,7 +70,8 @@ const clabe = {
          !bank.tag ?                 { invalid: 'bank',       data: bankCode } :
          !cities ?                   { invalid: 'city',       data: cityCode } : null;
       const validation = getValidationInfo();
-      const cityState = (city: ClabeCity) => city[2] ? city[1] + ' ' + city[2] : city[1];
+      const cityState = (city: ClabeCity) => city[2] ? city[1] + ' ' + city[2] : city[1];  //example: 'Tecate MX-BCN'
+      const numCities = cities?.length ?? 0;
       return {
          ok:       !validation,
          formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
@@ -79,7 +81,8 @@ const clabe = {
          tag:      bank.tag || null,
          bank:     bank.name || null,
          city:     cities ? cities.map(cityState).join(', ') : null,
-         multiple: !!cities && cities.length > 1,
+         multiple: numCities > 1,
+         total:    numCities,
          account:  account,
          code:     { bank: bankCode, city: cityCode },
          checksum: realChecksum,

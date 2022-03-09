@@ -253,12 +253,14 @@ describe('CLABE validator', () => {
          bank:     clabeCheck.bank,
          city:     clabeCheck.city,
          multiple: clabeCheck.multiple,
+         total:    clabeCheck.total,
          };
       const expected = {
          tag:      'BANAMEX',
          bank:     'Banco Nacional de México',
          city:     'Aguascalientes MX-AGU',
          multiple: false,
+         total:    1,
          };
       assertDeepStrictEqual(actual, expected);
       });
@@ -290,6 +292,7 @@ describe('CLABE validator', () => {
          bank:    'IXE Banco',
          city:    'Atizapan, Chalco, Ciudad de México MX-CMX, Coacalco, Cuautitlán Izcalli, Ecatepec, Huehuetoca, Huixquilucan, Ixtapaluca, Los Reyes la Paz, Naucalpan, Nezahualcóyotl, Tecamac, Teotihuacán, Texcoco, Tlalnepantla',
          multiple: true,
+         total:    16,
          account: '00011835971',
          code:     { bank: '032', city: '180' },
          checksum: 9,
@@ -309,6 +312,7 @@ describe('CLABE validator', () => {
          bank:     null,
          city:     null,
          multiple: false,
+         total:    0,
          account:  '07777777777',
          code:     { bank: '000', city: '000' },
          checksum: 0,
