@@ -1,4 +1,4 @@
-//! clabe-validator v1.7.4 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v2.0.0 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 export declare type ClabeBank = {
     tag?: string;
@@ -7,9 +7,9 @@ export declare type ClabeBank = {
 export declare type ClabeBanksMap = {
     [bankCode: number]: ClabeBank;
 };
-export declare type ClabeCity = [number, string];
+export declare type ClabeCityInfo = [number, string, ClabeMxState?];
 export declare type ClabeCitiesMap = {
-    [cityCode: number]: string;
+    [cityCode: number]: ClabeCityInfo[];
 };
 export declare type ClabeCheck = {
     ok: boolean;
@@ -20,6 +20,8 @@ export declare type ClabeCheck = {
     tag: string | null;
     bank: string | null;
     city: string | null;
+    multiple: boolean;
+    total: number;
     account: string;
     code: {
         bank: string;
@@ -27,13 +29,14 @@ export declare type ClabeCheck = {
     };
     checksum: number | null;
 };
+export declare type ClabeMxState = 'MX-AGU' | 'MX-BCN' | 'MX-BCS' | 'MX-CAM' | 'MX-CHH' | 'MX-CHP' | 'MX-CMX' | 'MX-COA' | 'MX-COL' | 'MX-DUR' | 'MX-GRO' | 'MX-GUA' | 'MX-HID' | 'MX-JAL' | 'MX-MEX' | 'MX-MIC' | 'MX-MOR' | 'MX-NAY' | 'MX-NLE' | 'MX-OAX' | 'MX-PUE' | 'MX-QUE' | 'MX-ROO' | 'MX-SIN' | 'MX-SLP' | 'MX-SON' | 'MX-TAB' | 'MX-TAM' | 'MX-TLA' | 'MX-VER' | 'MX-YUC' | 'MX-ZAC';
 declare const clabe: {
     version: string;
     computeChecksum(clabeNum17: string): number | null;
     validate(clabeNum: string): ClabeCheck;
     calculate(bankCode: number, cityCode: number, accountNumber: number): string;
     banksMap: ClabeBanksMap;
-    cities: ClabeCity[];
+    cities: ClabeCityInfo[];
     citiesMap: ClabeCitiesMap;
 };
 export { clabe };
