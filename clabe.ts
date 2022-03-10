@@ -2,8 +2,8 @@
 
 export type ClabeBank =      { tag?: string, name?: string };
 export type ClabeBanksMap =  { [bankCode: number]: ClabeBank };
-export type ClabeCity =      [number, string, ClabeMxState?];
-export type ClabeCitiesMap = { [cityCode: number]: ClabeCity[] };
+export type ClabeCityInfo =  [number, string, ClabeMxState?];  //code, name, and state -- example: [27, 'Tecate', 'MX-BCN']
+export type ClabeCitiesMap = { [cityCode: number]: ClabeCityInfo[] };
 export type ClabeCheck = {
    ok:       boolean,        //todo está bien
    formatOk: boolean,        //valid length and checksum
@@ -56,9 +56,9 @@ const clabe = {
       const cityCode = clabeNum.substring(3, 6);
       const account =  clabeNum.substring(6, 17);
       const checksum = Number(clabeNum.substring(17, 18));
-      const addCity = (city: ClabeCity) => clabe.citiesMap[city[0]] ?
+      const addCity = (city: ClabeCityInfo) => clabe.citiesMap[city[0]] ?
          clabe.citiesMap[city[0]]!.push(city) : clabe.citiesMap[city[0]] = [city];
-      if (!clabe.citiesMap[(<ClabeCity>clabe.cities[0])[0]])
+      if (!clabe.citiesMap[(<ClabeCityInfo>clabe.cities[0])[0]])
          clabe.cities.forEach(addCity);
       const bank: ClabeBank = clabe.banksMap[Number(bankCode)] || {};
       const cities = clabe.citiesMap[Number(cityCode)];
@@ -70,7 +70,7 @@ const clabe = {
          !bank.tag ?                 { invalid: 'bank',       data: bankCode } :
          !cities ?                   { invalid: 'city',       data: cityCode } : null;
       const validation = getValidationInfo();
-      const cityState = (city: ClabeCity) => city[2] ? city[1] + ' ' + city[2] : city[1];  //example: 'Tecate MX-BCN'
+      const cityState = (city: ClabeCityInfo) => city[2] ? city[1] + ' ' + city[2] : city[1];  //example: 'Tecate MX-BCN'
       const numCities = cities?.length ?? 0;
       return {
          ok:       !validation,
@@ -230,7 +230,7 @@ const clabe = {
       999: { tag: 'N/A',                   name: 'N/A' },
       },
 
-   cities: <ClabeCity[]>[
+   cities: <ClabeCityInfo[]>[
       // Sources:
       //    https://en.wikipedia.org/wiki/Template:Mexico_State-Abbreviation_CodesMX
       //    https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_plaza
