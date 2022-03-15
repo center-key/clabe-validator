@@ -1,4 +1,4 @@
-//! clabe-validator v2.0.0 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v2.0.1 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 (function (factory) {
     if (typeof module === "object" && typeof module.exports === "object") {
@@ -13,7 +13,7 @@
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.clabe = void 0;
     const clabe = {
-        version: '2.0.0',
+        version: '2.0.1',
         computeChecksum(clabeNum17) {
             const x = (i) => [3, 7, 1][i % 3];
             const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -21,6 +21,7 @@
             return /^[0-9]{17,18}$/.test(clabeNum17) ? compute() : null;
         },
         validate(clabeNum) {
+            var _a;
             const errorMap = {
                 length: 'Must be exactly 18 digits long',
                 characters: 'Must be only numeric digits (no letters)',
@@ -48,7 +49,7 @@
                             !cities ? { invalid: 'city', data: cityCode } : null;
             const validation = getValidationInfo();
             const cityState = (city) => city[2] ? city[1] + ' ' + city[2] : city[1];
-            const numCities = cities?.length ?? 0;
+            const numCities = (_a = cities === null || cities === void 0 ? void 0 : cities.length) !== null && _a !== void 0 ? _a : 0;
             return {
                 ok: !validation,
                 formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
