@@ -39,7 +39,7 @@ import { clabe } from 'clabe-validator';
 ```
 Or for older CommonJS/UMD environments:
 ```javascript
-const { clabe } = require('clabe-validator');  //deprecated
+const { clabe } = require('clabe-validator');  //deprecated -- use ES modules instead
 ```
 
 ## C) Validator Usage
