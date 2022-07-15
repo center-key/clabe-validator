@@ -4,57 +4,112 @@
 <!-- - - - - - - - - -->
 <html lang=en>
 <head>
-<meta charset=utf-8>
-<meta name=viewport                   content="width=device-width, initial-scale=1">
-<meta name=robots                     content="index, follow">
-<meta name=description                content="Online tool to check or build a CLABE number (Asociación de Bancos de México bank account)">
-<meta name=apple-mobile-web-app-title content="CLABE">
-<meta name=twitter:card               content="summary_large_image">
-<meta name=twitter:title              content="CLABE Validator">
-<meta name=twitter:description        content="Online tool to check or build a CLABE number (Asociación de Bancos de México bank account)">
-<meta property=og:title               content="CLABE Validator">
-<meta property=og:description         content="Online tool to check or build a CLABE number (Asociación de Bancos de México bank account)">
-<meta property=og:type                content="website">
-<meta property=og:image               content="https://centerkey.com/graphics/center-key-logo-card.png">
-<meta property=og:image:alt           content="Logo">
-<title>CLABE Validator &bull; Online tool to check a CLABE number</title>
-<link rel=icon             href=https://centerkey.com/graphics/bookmark.png>
-<link rel=apple-touch-icon href=https://centerkey.com/graphics/mobile-home-screen.png>
-<link rel=preconnect       href=https://fonts.googleapis.com>
-<link rel=preconnect       href=https://fonts.gstatic.com crossorigin>
-<link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1/css/all.min.css>
-<link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna.js@2.0/dist/dna.css>
-<link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna.js@2.0/dist/panel-nav.css>
-<link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@1.5/dist/reset.min.css>
-<link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/pretty-print-json@1.2/dist/pretty-print-json.css>
-<style>
-   form {
-      max-width: none;
-      }
-   form .message {
-      color: firebrick;
-      }
-   form pre.dark-mode {
-      display: none;
-      font-size: 0.8rem;
-      background-color: black;
-      padding: 10px 20px;
-      overflow-x: auto !important;
-      }
-   form p:last-child {
-      text-align: left;
-      }
-   table tbody tr td {
-      text-align: left;
-      }
-   table.clabe-examples tbody tr td:first-child {
-      font-size: 1.2rem;
-      font-family: monospace;
-      }
-   @media (max-width: 667px) {  /* selects iPhone 6/6s/7/8/SE(2020) landscape and anything narrower */
-      table.clabe-examples tbody tr td:first-child { font-size: 0.9rem; }
-      }
-</style>
+   <meta charset=utf-8>
+   <meta name=viewport                   content="width=device-width, initial-scale=1">
+   <meta name=robots                     content="index, follow">
+   <meta name=description                content="Online tool to check or build a CLABE number (Asociación de Bancos de México bank account)">
+   <meta name=apple-mobile-web-app-title content="CLABE">
+   <meta name=twitter:card               content="summary_large_image">
+   <meta name=twitter:title              content="CLABE Validator">
+   <meta name=twitter:description        content="Online tool to check or build a CLABE number (Asociación de Bancos de México bank account)">
+   <meta property=og:title               content="CLABE Validator">
+   <meta property=og:description         content="Online tool to check or build a CLABE number (Asociación de Bancos de México bank account)">
+   <meta property=og:type                content="website">
+   <meta property=og:image               content="https://centerkey.com/graphics/center-key-logo-card.png">
+   <meta property=og:image:alt           content="Logo">
+   <title>CLABE Validator &bull; Online tool to check a CLABE number</title>
+   <link rel=icon             href=https://centerkey.com/graphics/bookmark.png>
+   <link rel=apple-touch-icon href=https://centerkey.com/graphics/mobile-home-screen.png>
+   <link rel=preconnect       href=https://fonts.googleapis.com>
+   <link rel=preconnect       href=https://fonts.gstatic.com crossorigin>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1/css/all.min.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna.js@2.0/dist/dna.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna.js@2.0/dist/panel-nav.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@1.5/dist/reset.min.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/pretty-print-json@1.2/dist/pretty-print-json.css>
+   <style>
+      form {
+         max-width: none;
+         }
+      form .message {
+         color: firebrick;
+         }
+      form pre.dark-mode {
+         display: none;
+         font-size: 0.8rem;
+         background-color: black;
+         padding: 10px 20px;
+         overflow-x: auto !important;
+         }
+      form p:last-child {
+         text-align: left;
+         }
+      table tbody tr td {
+         text-align: left;
+         }
+      table.clabe-examples tbody tr td:first-child {
+         font-size: 1.2rem;
+         font-family: monospace;
+         }
+      @media (max-width: 667px) {  /* selects iPhone 6/6s/7/8/SE(2020) landscape and anything narrower */
+         table.clabe-examples tbody tr td:first-child { font-size: 0.9rem; }
+         }
+   </style>
+   <script defer src=https://cdn.jsdelivr.net/npm/jquery@3.6/dist/jquery.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/dna.js@2.0/dist/dna.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/web-ignition@1.5/dist/lib-x.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/pretty-print-json@1.2/dist/pretty-print-json.min.js></script>
+   <script defer src=../dist/clabe.dev.js></script>
+   <script>
+      const app = {
+
+         validateInput(elem) {
+            const clabeCheck = clabe.validate(elem.val());
+            console.log(elem.val(), clabeCheck);
+            const validMessage = 'Valid: ' + clabeCheck.bank + ' (' + clabeCheck.city + ')';
+            const message = clabeCheck.ok ? validMessage : clabeCheck.message;
+            const form = elem.closest('form');
+            form.find('.message').text(message).stop().hide().fadeIn();
+            dna.ui.smoothHeightSetBaseline(form.find('pre'));
+            form.find('pre').html(prettyPrintJson.toHtml(clabeCheck)).fadeIn();
+            dna.ui.smoothHeightAnimate();
+            },
+
+         updateCalculation(elem) {
+            const form = elem.closest('form');
+            const bankCode =      form.find('select').first().val();
+            const cityCode =      form.find('select').last().val();
+            const accountNumber = form.find('input').val();
+            const message = /[^0-9]/.test(accountNumber) ?
+               'Account must be only numeric digits' :
+               'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber);
+            form.find('.message').text(message).stop().hide().fadeIn();
+            },
+
+         setupCalculator() {
+            console.log('CLABE Validator v' + clabe.version);
+            $('.version-number').text(clabe.version);
+            const pad = (int) => ('' + int).length < 3 ? pad('0' + int) : int;
+            const codeObj = (code, name) => {
+               return { code: pad(code), name: name, label: pad(code) + ': ' + name };
+               };
+            const mapToArray = (map) => {
+               const array = [];
+               for (let property in map)
+                  array.push(codeObj(property, map[property].name));
+               return array;
+               };
+            const toCityObj = (data) => codeObj(data[0], data[1]);
+            const compare = (a, b) => a.name.localeCompare(b.name);
+            const codes = {
+               banks:  mapToArray(clabe.banksMap).sort(compare),
+               cities: clabe.cities.map(toCityObj).sort(compare)
+               };
+            dna.clone('calculator', codes);
+            },
+
+         };
+   </script>
 </head>
 <body>
 
@@ -167,60 +222,5 @@
    </div>
 </footer>
 
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.6/dist/jquery.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/dna.js@2.0/dist/dna.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/web-ignition@1.5/dist/lib-x.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/pretty-print-json@1.2/dist/pretty-print-json.min.js></script>
-<script src=../dist/clabe.dev.js></script>
-<script>
-const app = {
-
-   validateInput(elem) {
-      const clabeCheck = clabe.validate(elem.val());
-      console.log(elem.val(), clabeCheck);
-      const validMessage = 'Valid: ' + clabeCheck.bank + ' (' + clabeCheck.city + ')';
-      const message = clabeCheck.ok ? validMessage : clabeCheck.message;
-      const form = elem.closest('form');
-      form.find('.message').text(message).stop().hide().fadeIn();
-      dna.ui.smoothHeightSetBaseline(form.find('pre'));
-      form.find('pre').html(prettyPrintJson.toHtml(clabeCheck)).fadeIn();
-      dna.ui.smoothHeightAnimate();
-      },
-
-   updateCalculation(elem) {
-      const form = elem.closest('form');
-      const bankCode =      form.find('select').first().val();
-      const cityCode =      form.find('select').last().val();
-      const accountNumber = form.find('input').val();
-      const message = /[^0-9]/.test(accountNumber) ?
-         'Account must be only numeric digits' :
-         'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber);
-      form.find('.message').text(message).stop().hide().fadeIn();
-      },
-
-   setupCalculator() {
-      console.log('CLABE Validator v' + clabe.version);
-      $('.version-number').text(clabe.version);
-      const pad = (int) => ('' + int).length < 3 ? pad('0' + int) : int;
-      const codeObj = (code, name) => {
-         return { code: pad(code), name: name, label: pad(code) + ': ' + name };
-         };
-      const mapToArray = (map) => {
-         const array = [];
-         for (let property in map)
-            array.push(codeObj(property, map[property].name));
-         return array;
-         };
-      const toCityObj = (data) => codeObj(data[0], data[1]);
-      const compare = (a, b) => a.name.localeCompare(b.name);
-      const codes = {
-         banks:  mapToArray(clabe.banksMap).sort(compare),
-         cities: clabe.cities.map(toCityObj).sort(compare)
-         };
-      dna.clone('calculator', codes);
-      },
-
-   };
-</script>
 </body>
 </html>
