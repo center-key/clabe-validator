@@ -30,7 +30,7 @@ describe('Current number of banks and cities', () => {
 
    it('is correct ' + counts, () => {
       const actual =   { banks: numBanks, cities: numCities };
-      const expected = { banks: 124,      cities: 882 };
+      const expected = { banks: 125,      cities: 882 };
       assertDeepStrictEqual(actual, expected);
       });
 
@@ -45,6 +45,7 @@ describe('Newly added or modified banks and cities', () => {
       { code: 674, tag: 'AXA',             name: 'AXA Seguros' },
       { code: 677, tag: 'CAJA POP MEXICA', name: 'Caja Popular Mexicana' },
       { code: 679, tag: 'FND',             name: 'Financiera Nacional De Desarrollo Agropecuario' },
+      { code: 706, tag: 'ARCUS',           name: 'Arcus Financial Intelligence' },
       { code: 846, tag: 'STP',             name: 'Sistema de Transferencias y Pagos STP' },
       ];
    const newCities = [
