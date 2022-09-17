@@ -145,7 +145,7 @@ I was initially unable to transfer funds because the money transfer service repo
 number I supplied was invalid.&nbsp;
 Through a little sleuthing and a lot of luck, I discovered that a financial services company had
 accidentally omitted the very last modulo operation in their CLABE checksum calculation.&nbsp;
-The result was that Mexican bank account numbers with certain combinations of digits were
+The result was that valid Mexican bank account numbers with certain combinations of digits were
 erroneously rejected.
 
 This project was created to fix the checksum bug.&nbsp;

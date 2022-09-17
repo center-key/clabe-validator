@@ -1,7 +1,7 @@
-//! clabe-validator v2.0.2 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v2.0.3 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '2.0.2',
+    version: '2.0.3',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -115,7 +115,7 @@ const clabe = {
         152: { tag: 'BANCREA', name: 'Banco Bancrea, Institución de Banca Múltiple' },
         154: { tag: 'BANCO FINTERRA', name: 'Banco Finterra' },
         155: { tag: 'ICBC', name: 'Industrial and Commercial Bank of China' },
-        156: { tag: 'SABADELL', name: 'Banco Sabadell' },
+        156: { tag: 'SABADELL', name: 'Banco de Sabadell' },
         157: { tag: 'SHINHAN', name: 'Shinhan Bank' },
         158: { tag: 'MIZUHO BANK', name: 'Mizuho Bank' },
         160: { tag: 'BANCO S3', name: 'Banco S3 México' },
@@ -177,6 +177,7 @@ const clabe = {
         685: { tag: 'FONDO (FIRA)', name: 'Fondo de Garantía y Fomento para la Agricultura, Ganadería y Avicultura (FONDO)' },
         686: { tag: 'INVERCAP', name: 'Afore InverCap' },
         689: { tag: 'FOMPED', name: 'Fondo Mexicano del Petroleo para la Estabilizacion y el Desarrollo' },
+        706: { tag: 'ARCUS', name: 'Arcus Financial Intelligence' },
         812: { tag: 'BBVA BANCOMER2', name: 'BBVA Bancomer' },
         814: { tag: 'SANTANDER2', name: 'Banco Santander' },
         821: { tag: 'HSBC2', name: 'HSBC México' },
