@@ -7,14 +7,14 @@
 
 // Imports
 import { assertDeepStrictEqual } from 'assert-deep-strict-equal';
-import { readdirSync } from 'fs';
 import { clabe } from '../dist/clabe.js';
+import fs from 'fs';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 describe('The "dist" folder', () => {
 
    it('contains the correct files', () => {
-      const actual =   readdirSync('dist').sort();
+      const actual =   fs.readdirSync('dist').sort();
       const expected = ['clabe.d.ts', 'clabe.dev.js', 'clabe.js', 'clabe.min.js', 'clabe.umd.cjs'];
       assertDeepStrictEqual(actual, expected);
       });

@@ -8,14 +8,14 @@
 // Imports
 import { assertDeepStrictEqual } from 'assert-deep-strict-equal';
 import { JSDOM } from 'jsdom';
-import { readFileSync } from 'fs';
+import fs from 'fs';
 
 // Setup
 const mode =       { type: 'Minified', file: 'dist/clabe.min.js' };
 const filename =   import.meta.url.replace(/.*\//, '');  //jshint ignore:line
 const dom =        new JSDOM('', { runScripts: 'outside-only' });
 const scripts =    [mode.file];
-const loadScript = (file) => dom.window.eval(readFileSync(file, 'utf8'));
+const loadScript = (file) => dom.window.eval(fs.readFileSync(file, 'utf-8'));
 scripts.forEach(loadScript);
 const { clabe } =  dom.window;
 
