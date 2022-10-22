@@ -65,23 +65,27 @@
          "@typescript-eslint/no-non-null-assertion": "off"
       }
    },
+   "runScriptsConfig": {
+      "build": [
+         "rimraf build dist **/.DS_Store",
+         "jshint . --exclude-path .gitignore",
+         "eslint --max-warnings 0 . --ext .ts",
+         "tsc",
+         "tsc --module UMD --outDir build/umd",
+         "copy-file build/umd/clabe.js build/clabe.umd.cjs",
+         "esm-to-plain-js --cd=build clabe.js clabe.dev.js",
+         "uglifyjs build/clabe.dev.js --output build/clabe.min.js",
+         "add-dist-header build dist",
+         "html-validator"
+      ]
+   },
    "scripts": {
-      "step:01": "rimraf build dist **/.DS_Store",
-      "step:02": "jshint . --exclude-path .gitignore",
-      "step:03": "eslint --max-warnings 0 . --ext .ts",
-      "step:10": "tsc",
-      "step:11": "tsc --module UMD --outDir build/umd",
-      "step:12": "copy-file build/umd/clabe.js build/clabe.umd.cjs",
-      "step:13": "esm-to-plain-js --cd=build clabe.js clabe.dev.js",
-      "step:14": "uglifyjs build/clabe.dev.js --output build/clabe.min.js",
-      "step:20": "add-dist-header build dist",
-      "step:30": "html-validator",
-      "pretest": "npm-run-all step:*",
+      "pretest": "run-scripts build",
       "test": "mocha spec/*.spec.js"
    },
    "devDependencies": {
       "@fortawesome/fontawesome-free": "~6.2",
-      "@types/node": "~18.8",
+      "@types/node": "~18.11",
       "@typescript-eslint/eslint-plugin": "~5.40",
       "@typescript-eslint/parser": "~5.40",
       "add-dist-header": "~0.3",
@@ -89,15 +93,15 @@
       "copy-file-util": "~0.1",
       "copy-folder-util": "~0.2",
       "dna-engine": "~2.2",
-      "eslint": "~8.25",
+      "eslint": "~8.26",
       "esm-to-plain-js": "~0.1",
       "jquery": "~3.6",
       "jsdom": "~20.0",
       "jshint": "~2.13",
-      "mocha": "~10.0",
-      "npm-run-all2": "~6.0",
+      "mocha": "~10.1",
       "pretty-print-json": "~1.3",
       "rimraf": "~3.0",
+      "run-scripts-util": "~0.1",
       "typescript": "~4.8",
       "uglify-js": "~3.17",
       "w3c-html-validator": "~1.2",
