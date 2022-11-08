@@ -27,7 +27,7 @@ export type ClabeMxState = 'MX-AGU' | 'MX-BCN' | 'MX-BCS' | 'MX-CAM' | 'MX-CHH' 
 
 const clabe = {
 
-   version: '~~~version~~~',
+   version: '{{pkg.version}}',
 
    computeChecksum(clabeNum17: string): number | null {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
