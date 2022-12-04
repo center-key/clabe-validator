@@ -104,7 +104,7 @@ console.log(clabeNum === '002010077777777771');  //true
 ```
 
 ## E) TypeScript Declarations
-The **TypeScript Declaration File** file is [clabe.d.ts](dist/clabe.d.ts) in the **dist** folder.
+See the TypeScript declarations at the top of the [clabe.ts](clabe.ts) file.
 
 The `clabe.validate(clabeNum: string)` function returns a `ClabeCheck` object:
 ```typescript
