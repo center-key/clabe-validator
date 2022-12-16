@@ -41,11 +41,13 @@ describe('Newly added or modified banks and cities', () => {
 
    const newBanks = [
       { code: 152, tag: 'BANCREA',         name: 'Banco Bancrea, Institución de Banca Múltiple' },
+      { code: 159, tag: 'BANK OF CHINA',   name: 'Bank of China México' },
       { code: 602, tag: 'MASARI',          name: 'Masari Casa de Bolsa' },
       { code: 674, tag: 'AXA',             name: 'AXA Seguros' },
       { code: 677, tag: 'CAJA POP MEXICA', name: 'Caja Popular Mexicana' },
       { code: 679, tag: 'FND',             name: 'Financiera Nacional De Desarrollo Agropecuario' },
       { code: 706, tag: 'ARCUS',           name: 'Arcus Financial Intelligence' },
+      { code: 710, tag: 'NVIO',            name: 'NVIO Pagos México' },
       { code: 846, tag: 'STP',             name: 'Sistema de Transferencias y Pagos STP' },
       ];
    const newCities = [
