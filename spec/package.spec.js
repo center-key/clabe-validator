@@ -30,7 +30,7 @@ describe('Current number of banks and cities', () => {
 
    it('is correct ' + counts, () => {
       const actual =   { banks: numBanks, cities: numCities };
-      const expected = { banks: 125,      cities: 882 };
+      const expected = { banks: 127,      cities: 882 };
       assertDeepStrictEqual(actual, expected);
       });
 
