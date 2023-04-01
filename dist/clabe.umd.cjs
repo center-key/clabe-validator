@@ -1,4 +1,4 @@
-//! clabe-validator v2.1.3 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v2.1.4 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 (function (factory) {
     if (typeof module === "object" && typeof module.exports === "object") {
@@ -13,7 +13,7 @@
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.clabe = void 0;
     const clabe = {
-        version: '2.1.3',
+        version: '2.1.4',
         computeChecksum(clabeNum17) {
             const x = (i) => [3, 7, 1][i % 3];
             const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;

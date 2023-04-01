@@ -22,7 +22,7 @@
    <link rel=apple-touch-icon href=https://centerkey.com/graphics/mobile-home-screen.png>
    <link rel=preconnect       href=https://fonts.googleapis.com>
    <link rel=preconnect       href=https://fonts.gstatic.com crossorigin>
-   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.3/css/all.min.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4/css/all.min.css>
    <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-engine@2.3/dist/dna-engine.css>
    <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-engine@2.3/dist/panel-nav.css>
    <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@1.7/dist/reset.min.css>
@@ -90,9 +90,11 @@
             console.log('CLABE Validator v' + clabe.version);
             $('.version-number').text(clabe.version);
             const pad = (int) => ('' + int).length < 3 ? pad('0' + int) : int;
-            const codeObj = (code, name) => {
-               return { code: pad(code), name: name, label: pad(code) + ': ' + name };
-               };
+            const codeObj = (code, name) => ({
+               code:  pad(code),
+               name:  name,
+               label: pad(code) + ': ' + name,
+               });
             const mapToArray = (map) => {
                const array = [];
                for (let property in map)
@@ -100,12 +102,12 @@
                return array;
                };
             const toCityObj = (data) => codeObj(data[0], data[1]);
-            const compare = (a, b) => a.name.localeCompare(b.name);
+            const compare =   (a, b) => a.name.localeCompare(b.name);
             const codes = {
                banks:  mapToArray(clabe.banksMap).sort(compare),
                cities: clabe.cities.map(toCityObj).sort(compare)
                };
-            dna.clone('calculator', codes);
+            dna.clone('calculator', codes);  //takes about 2 seconds
             },
 
          };
