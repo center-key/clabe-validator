@@ -66,8 +66,10 @@
       }
    },
    "runScriptsConfig": {
+      "clean": [
+         "rimraf build dist"
+      ],
       "build": [
-         "rimraf build dist",
          "jshint . --exclude-path .gitignore",
          "eslint --max-warnings 0 . --ext .ts",
          "tsc",
@@ -80,7 +82,7 @@
       ]
    },
    "scripts": {
-      "pretest": "run-scripts build",
+      "pretest": "run-scripts clean build",
       "test": "mocha spec/*.spec.js"
    },
    "devDependencies": {
@@ -99,7 +101,7 @@
       "jsdom": "~21.1",
       "jshint": "~2.13",
       "mocha": "~10.2",
-      "pretty-print-json": "~1.4",
+      "pretty-print-json": "~2.0",
       "rimraf": "~4.4",
       "run-scripts-util": "~1.1",
       "typescript": "~5.0",
