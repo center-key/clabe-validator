@@ -131,7 +131,7 @@ describe('List of CLABE cities', () => {
       });
 
    it('has no duplicate city names', () => {
-      const allowedDuplicateCities = [28, 550];
+      const allowedDuplicateCities = [28, 550, 969];
       const checkForDuplicate = (city) => {
          const code = cityNamesMap[cityState(city)];
          const unique = city[0] === code || allowedDuplicateCities.includes(code);

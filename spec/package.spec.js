@@ -30,7 +30,7 @@ describe('Current number of banks and cities', () => {
 
    it('is correct ' + counts, () => {
       const actual =   { banks: numBanks, cities: numCities };
-      const expected = { banks: 127,      cities: 882 };
+      const expected = { banks: 127,      cities: 883 };  //update this line when adding a new bank or city
       assertDeepStrictEqual(actual, expected);
       });
 
@@ -55,6 +55,7 @@ describe('Newly added or modified banks and cities', () => {
       { code: 382, name: 'San Julian MX-JAL' },
       { code: 660, name: 'Huejotzingo MX-PUE' },
       { code: 960, name: 'Victor Rosales MX-ZAC' },
+      { code: 969, name: 'Ciudad de México MX-CMX' },
       ];
    const counts = `(${newBanks.length} banks, ${newCities.length} cities)`;
 
