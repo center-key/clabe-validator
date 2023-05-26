@@ -152,7 +152,8 @@ This project was created to fix the checksum bug.&nbsp;
 It is an open source community project and is not supported by any company.
 
 ## H) Build Environment
-Check out the [package.json](package.json) file for an interesting approach to managing build tasks.
+Check out the `runScriptsConfig` section in [package.json](package.json) for an
+interesting approach to organizing build tasks.
 
 **CLI Build Tools**
    - 🎋 [add-dist-header](https://github.com/center-key/add-dist-header):&nbsp; _Prepend a one-line banner comment (with license notice) to distribution files_

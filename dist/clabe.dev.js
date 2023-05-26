@@ -1,7 +1,7 @@
-//! clabe-validator v2.1.4 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v2.1.5 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '2.1.4',
+    version: '2.1.5',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -1072,6 +1072,7 @@ const clabe = {
         [960, 'Victor Rosales', 'MX-ZAC'],
         [961, 'Villa Gonzalez Ortega', 'MX-ZAC'],
         [962, 'Villanueva', 'MX-ZAC'],
+        [969, 'Ciudad de México', 'MX-CMX'],
     ],
     citiesMap: {},
 };
