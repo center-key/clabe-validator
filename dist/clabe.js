@@ -1,7 +1,7 @@
-//! clabe-validator v2.1.5 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v2.1.6 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '2.1.5',
+    version: '2.1.6',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -168,6 +168,7 @@ const clabe = {
         655: { tag: 'SOFIEXPRESS', name: 'JP SofiExpress' },
         656: { tag: 'UNAGRA', name: 'UNAGRA, S.F.P.' },
         659: { tag: 'ASP INTEGRA OPC', name: 'Opciones Empresariales Del Noreste' },
+        661: { tag: 'ALTERNATIVOS', name: 'Servicios Financieros Alternativos (Klar)' },
         670: { tag: 'LIBERTAD', name: 'Libertad Servicios Financieros' },
         674: { tag: 'AXA', name: 'AXA Seguros' },
         677: { tag: 'CAJA POP MEXICA', name: 'Caja Popular Mexicana' },
