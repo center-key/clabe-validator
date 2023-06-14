@@ -23,26 +23,49 @@
    <link rel=preconnect       href=https://fonts.googleapis.com>
    <link rel=preconnect       href=https://fonts.gstatic.com crossorigin>
    <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4/css/all.min.css>
-   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-engine@2.3/dist/dna-engine.css>
-   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-engine@2.3/dist/panel-nav.css>
-   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@1.7/dist/reset.min.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/panel-nav.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@2.0/dist/reset.min.css>
    <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/pretty-print-json@2.0/dist/css/pretty-print-json.css>
    <style>
       form {
          max-width: none;
          }
-      form .message {
+      form output {
+         margin-bottom: 20px;
+         display: flex;
+         align-items: center;
+         column-gap: 8px;
+         }
+      form output span {
+         display: none;
+         font-size: 1.2rem;
+         white-space: normal;
+         color: seagreen;
+         }
+      form.clabe-invalid output span {
          color: firebrick;
          }
-      form pre.dark-mode {
+      form.clabe-valid output span.checkmark {
+         display: inline-block;
+         font-size: 1.8rem;
+         }
+      form.clabe-invalid output span.warning-sign {
+         display: inline-block;
+         font-size: 1.8rem;
+         }
+      form figure pre.dark-mode {
          display: none;
          font-size: 0.8rem;
+         text-align: left;
          background-color: black;
          padding: 10px 20px;
          overflow-x: auto !important;
          }
       form p:last-child {
+         font-size: 1.2rem;
          text-align: left;
+         color: seagreen;
          }
       table tbody tr td {
          text-align: left;
@@ -55,40 +78,52 @@
          table.clabe-examples tbody tr td:first-child { font-size: 0.9rem; }
          }
    </style>
-   <script defer src=https://cdn.jsdelivr.net/npm/jquery@3.7/dist/jquery.min.js></script>
-   <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@2.3/dist/dna-engine.min.js></script>
-   <script defer src=https://cdn.jsdelivr.net/npm/web-ignition@1.7/dist/lib-x.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.0/dist/dna-engine.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/web-ignition@2.0/dist/lib-x.min.js></script>
    <script defer src=https://cdn.jsdelivr.net/npm/pretty-print-json@2.0/dist/pretty-print-json.min.js></script>
    <script defer src=../dist/clabe.dev.js></script>
-   <script>
+   <script data-on-load=app.setupCalculator>
       const app = {
 
+         autofocus(panel) {
+            panel.querySelector('input, select').focus();
+            },
+
          validateInput(elem) {
-            const clabeCheck = clabe.validate(elem.val());
-            console.log(elem.val(), clabeCheck);
-            const validMessage = 'Valid: ' + clabeCheck.bank + ' (' + clabeCheck.city + ')';
-            const message = clabeCheck.ok ? validMessage : clabeCheck.message;
-            const form = elem.closest('form');
-            form.find('.message').text(message).stop().hide().fadeIn();
-            dna.ui.smoothHeightSetBaseline(form.find('pre'));
-            form.find('pre').html(prettyPrintJson.toHtml(clabeCheck)).fadeIn();
-            dna.ui.smoothHeightAnimate();
+            const clabeCheck =   clabe.validate(elem.value);
+            const validMessage = clabeCheck.bank + ' (' + clabeCheck.city + ')';
+            const message =      clabeCheck.ok ? validMessage : clabeCheck.message;
+            const form =         elem.closest('form');
+            const messageElem =  form.querySelector('.message');
+            const jsonElem =     form.querySelector('pre');
+            form.classList.add(clabeCheck.ok ? 'clabe-valid' : 'clabe-invalid');
+            form.classList.remove(clabeCheck.ok ? 'clabe-invalid' : 'clabe-valid');
+            messageElem.textContent = message;
+            dna.ui.hide(messageElem);
+            dna.ui.fadeIn(messageElem);
+            jsonElem.innerHTML = prettyPrintJson.toHtml(clabeCheck);
+            dna.ui.smoothHeight(() => dna.ui.fadeIn(jsonElem), { container: jsonElem });
+            console.log(elem.value, clabeCheck);
             },
 
          updateCalculation(elem) {
-            const form = elem.closest('form');
-            const bankCode =      form.find('select').first().val();
-            const cityCode =      form.find('select').last().val();
-            const accountNumber = form.find('input').val();
+            const form =          elem.closest('form');
+            const dropDowns =     form.querySelectorAll('select');
+            const bankCode =      dropDowns[0].value;
+            const cityCode =      dropDowns[1].value;
+            const accountNumber = form.querySelector('input').value;
+            const messageElem =   form.querySelector('.message');
             const message = /[^0-9]/.test(accountNumber) ?
                'Account must be only numeric digits' :
                'CLABE: ' + clabe.calculate(bankCode, cityCode, accountNumber);
-            form.find('.message').text(message).stop().hide().fadeIn();
+            messageElem.textContent = message;
+            dna.ui.hide(messageElem);
+            dna.ui.fadeIn(messageElem);
             },
 
          setupCalculator() {
             console.log('CLABE Validator v' + clabe.version);
-            $('.version-number').text(clabe.version);
+            globalThis.document.querySelector('.version-number').textContent = clabe.version;
             const pad = (int) => ('' + int).length < 3 ? pad('0' + int) : int;
             const codeObj = (code, name) => ({
                code:  pad(code),
@@ -107,7 +142,7 @@
                banks:  mapToArray(clabe.banksMap).sort(compare),
                cities: clabe.cities.map(toCityObj).sort(compare)
                };
-            dna.clone('calculator', codes);  //takes about 2 seconds
+            globalThis.requestAnimationFrame(() => dna.clone('calculator', codes));  //creating drop-down options takes a while
             },
 
          };
@@ -127,23 +162,33 @@
       <h2>Online form</h2>
       <p>
          Clave Bancaria Estandarizada (Spanish for "standardized banking cipher") is a banking
-         standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM) for
-         uniform numbering of bank accounts.
+         standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM)
+         for uniform numbering of bank accounts.
       </p>
-      <nav class=dna-menu data-nav=clabe data-style=pillbox-tabs>
+      <nav class=dna-menu data-nav=clabe data-callback=app.autofocus data-style=pillbox-tabs>
          <span>Validator</span>
          <span>Calculator</span>
       </nav>
-      <div class=dna-panels data-nav=clabe data-on-load=app.setupCalculator>
+      <div class=dna-panels data-nav=clabe>
+
+         <!-- Validator -->
          <form>
             <label>
                <span>CLABE:</span>
                <input maxlength=18 data-smart-update=app.validateInput
-                  placeholder="Enter CLABE number" autofocus>
+                  placeholder="Enter CLABE number">
             </label>
-            <p class=message>&nbsp;</p>
-            <pre class=dark-mode></pre>
+            <output>
+               <span class=checkmark>&#10004;</span>
+               <span class=warning-sign>&#9888;</span>
+               <span class=message></span>
+            </output>
+            <figure>
+               <pre class=dark-mode></pre>
+            </figure>
          </form>
+
+         <!-- Calculator -->
          <form>
             <div id=calculator class=dna-template>
                <label>
@@ -166,6 +211,7 @@
             </label>
             <p class=message>&nbsp;</p>
          </form>
+
       </div>
       <p>
          CLABE validation is calculated by your browser &ndash; the CLABE number is not sent over

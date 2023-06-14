@@ -69,7 +69,7 @@ describe('List of CLABE banks', () => {
          { input: '652', expected: 'CREDICAPITAL' },
          ];
       const evalData = (data) => {
-         const actual =   { code: data.input, tag: clabe.banksMap[parseInt(data.input)].tag };
+         const actual =   { code: data.input, tag: clabe.banksMap[Number(data.input)].tag };
          const expected = { code: data.input, tag: data.expected };
          assertDeepStrictEqual(actual, expected);
          };
@@ -83,7 +83,7 @@ describe('List of CLABE banks', () => {
          { input: '652', expected: 'Solución Asea, Sociedad Financiera Popular' },
          ];
       const evalData = (data) => {
-         const actual =   { code: data.input, name: clabe.banksMap[parseInt(data.input)].name };
+         const actual =   { code: data.input, name: clabe.banksMap[Number(data.input)].name };
          const expected = { code: data.input, name: data.expected };
          assertDeepStrictEqual(actual, expected);
          };
@@ -124,7 +124,7 @@ describe('List of CLABE cities', () => {
          ];
       const evalData = (data) => {
          const actual =   { city: data.input, code: cityNamesMap[data.input] };
-         const expected = { city: data.input, code: parseInt(data.expected) };
+         const expected = { city: data.input, code: Number(data.expected) };
          assertDeepStrictEqual(actual, expected);
          };
       dataSet.forEach(evalData);
@@ -223,7 +223,7 @@ describe('CLABE validator', () => {
             format:   true,
             error:    null,
             msg:      'Valid',
-            checksum: parseInt(data[17]),
+            checksum: Number(data[17]),
             };
          assertDeepStrictEqual(actual, expected);
          };

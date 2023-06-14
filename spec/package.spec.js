@@ -79,7 +79,7 @@ describe('Newly added or modified banks and cities', () => {
             multiple: false,
             total:    1,
             account:  mockAcct.padStart(11, '0'),
-            checksum: parseInt(clabeNum.slice(-1)),
+            checksum: Number(clabeNum.slice(-1)),
             };
          assertDeepStrictEqual(actual, expected);
          };
