@@ -1,6 +1,6 @@
 {
    "name": "clabe-validator",
-   "version": "2.1.6",
+   "version": "2.1.7",
    "description": "Analyze or create a CLABE number for a Mexican bank account (written in functional TypeScript)",
    "license": "MIT",
    "type": "module",
