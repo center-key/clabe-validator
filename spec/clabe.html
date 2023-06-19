@@ -165,17 +165,17 @@
          standard from the Mexican Bank Association (Asociación de Bancos de México &ndash; ABM)
          for uniform numbering of bank accounts.
       </p>
-      <nav class=dna-menu data-nav=clabe data-callback=app.autofocus data-style=pillbox-tabs>
+      <nav class=dna-menu data-menu-nav=clabe data-callback=app.autofocus data-style=pillbox-tabs>
          <span>Validator</span>
          <span>Calculator</span>
       </nav>
-      <div class=dna-panels data-nav=clabe>
+      <div class=dna-panels data-menu-nav=clabe>
 
          <!-- Validator -->
          <form>
             <label>
                <span>CLABE:</span>
-               <input maxlength=18 data-smart-update=app.validateInput
+               <input maxlength=18 data-on-smart-update=app.validateInput
                   placeholder="Enter CLABE number">
             </label>
             <output>
@@ -193,20 +193,20 @@
             <div id=calculator class=dna-template>
                <label>
                   <span>Bank:</span>
-                  <select data-change=app.updateCalculation>
+                  <select data-on-change=app.updateCalculation>
                      <option data-array=~~banks~~ value=~~code~~>~~label~~</option>
                   </select>
                </label>
                <label>
                   <span>City:</span>
-                  <select data-change=app.updateCalculation>
+                  <select data-on-change=app.updateCalculation>
                      <option data-array=~~cities~~ value=~~code~~>~~label~~</option>
                   </select>
                </label>
             </div>
             <label>
                <span>Bank account number:</span>
-               <input maxlength=11 data-smart-update=app.updateCalculation
+               <input maxlength=11 data-on-smart-update=app.updateCalculation
                   placeholder="Enter bank account number">
             </label>
             <p class=message>&nbsp;</p>
