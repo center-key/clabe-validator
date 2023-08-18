@@ -14,8 +14,14 @@ import fs from 'fs';
 describe('The "dist" folder', () => {
 
    it('contains the correct files', () => {
-      const actual =   fs.readdirSync('dist').sort();
-      const expected = ['clabe.d.ts', 'clabe.dev.js', 'clabe.js', 'clabe.min.js', 'clabe.umd.cjs'];
+      const actual = fs.readdirSync('dist').sort();
+      const expected = [
+         'clabe.d.ts',
+         'clabe.dev.js',
+         'clabe.js',
+         'clabe.min.js',
+         'clabe.umd.cjs',
+         ];
       assertDeepStrictEqual(actual, expected);
       });
 
