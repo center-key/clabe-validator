@@ -2,7 +2,7 @@
 
 export type ClabeBank =      { tag?: string, name?: string };
 export type ClabeBanksMap =  { [bankCode: number]: ClabeBank };
-export type ClabeCityInfo =  [number, string, ClabeMxState?];  //code, name, and state -- example: [27, 'Tecate', 'MX-BCN']
+export type ClabeCityInfo =  [code: number, name: string, state?: ClabeMxState];  //example: [27, 'Tecate', 'MX-BCN']
 export type ClabeCitiesMap = { [cityCode: number]: ClabeCityInfo[] };
 export type ClabeCheck = {
    ok:       boolean,        //todo está bien
@@ -33,8 +33,8 @@ const clabe = {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
       // Example:
       //    const checksum = clabe.computeChecksum('00201007777777777');  //value: 1
-      const x = (i: number): number => <number>[3, 7, 1][i % 3];
-      const add = (sum: number, digit: string, i: number) => sum + (Number(digit) * x(i)) % 10;
+      const x =       (i: number): number => <number>[3, 7, 1][i % 3];
+      const add =     (sum: number, digit: string, i: number) => sum + (Number(digit) * x(i)) % 10;
       const compute = () => (10 - (clabeNum17.split('').slice(0, 17).reduce(add, 0) % 10)) % 10;
       return /^[0-9]{17,18}$/.test(clabeNum17) ? compute() : null;
       },
@@ -60,8 +60,8 @@ const clabe = {
          clabe.citiesMap[city[0]]!.push(city) : clabe.citiesMap[city[0]] = [city];
       if (!clabe.citiesMap[(<ClabeCityInfo>clabe.cities[0])[0]])
          clabe.cities.forEach(addCity);
-      const bank: ClabeBank = clabe.banksMap[Number(bankCode)] || {};
-      const cities = clabe.citiesMap[Number(cityCode)];
+      const bank =         clabe.banksMap[Number(bankCode)] ?? {};
+      const cities =       clabe.citiesMap[Number(cityCode)];
       const realChecksum = clabe.computeChecksum(clabeNum);
       const getValidationInfo = (): { invalid: string, data: string | number } | null =>
          clabeNum.length !== 18 ?    { invalid: 'length',     data: '' } :
@@ -70,8 +70,8 @@ const clabe = {
          !bank.tag ?                 { invalid: 'bank',       data: bankCode } :
          !cities ?                   { invalid: 'city',       data: cityCode } : null;
       const validation = getValidationInfo();
-      const cityState = (city: ClabeCityInfo) => city[2] ? city[1] + ' ' + city[2] : city[1];  //example: 'Tecate MX-BCN'
-      const numCities = cities?.length ?? 0;
+      const cityState =  (city: ClabeCityInfo) => city[2] ? city[1] + ' ' + city[2] : city[1];  //example: 'Tecate MX-BCN'
+      const numCities =  cities?.length ?? 0;
       return {
          ok:       !validation,
          formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
