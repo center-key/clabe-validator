@@ -45,10 +45,11 @@ describe('Current number of banks and cities', () => {
 ////////////////////////////////////////////////////////////////////////////////
 describe('Newly added or modified banks and cities', () => {
 
-   const newBanks = [
+   const newBanks = [  //insert any new or changed banks below
       { code: 152, tag: 'BANCREA',         name: 'Banco Bancrea, Institución de Banca Múltiple' },
       { code: 159, tag: 'BANK OF CHINA',   name: 'Bank of China México' },
       { code: 602, tag: 'MASARI',          name: 'Masari Casa de Bolsa' },
+      { code: 638, tag: 'NU MEXICO',       name: 'Nu México Financiera (Nubank)' },
       { code: 661, tag: 'ALTERNATIVOS',    name: 'Servicios Financieros Alternativos (Klar)' },
       { code: 674, tag: 'AXA',             name: 'AXA Seguros' },
       { code: 677, tag: 'CAJA POP MEXICA', name: 'Caja Popular Mexicana' },
@@ -57,7 +58,7 @@ describe('Newly added or modified banks and cities', () => {
       { code: 710, tag: 'NVIO',            name: 'NVIO Pagos México' },
       { code: 846, tag: 'STP',             name: 'Sistema de Transferencias y Pagos STP' },
       ];
-   const newCities = [
+   const newCities = [  //insert any new or changed cities below
       { code: 198, name: 'Santa Maria del Oro MX-DUR' },
       { code: 382, name: 'San Julian MX-JAL' },
       { code: 660, name: 'Huejotzingo MX-PUE' },

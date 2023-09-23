@@ -199,7 +199,7 @@ const clabe = {
       634: { tag: 'FINCOMUN',              name: 'Fincomún, Servicios Financieros Comunitarios' },
       636: { tag: 'HDI SEGUROS',           name: 'HDI Seguros' },
       637: { tag: 'ORDER',                 name: 'OrderExpress Casa de Cambio' },
-      638: { tag: 'AKALA',                 name: 'Akala, Sociedad Financiera Popular' },
+      638: { tag: 'NU MEXICO',             name: 'Nu México Financiera (Nubank)' },
       640: { tag: 'CB JPMORGAN',           name: 'J.P. Morgan Casa de Bolsa' },
       642: { tag: 'REFORMA',               name: 'Operadora de Recursos Reforma' },
       646: { tag: 'STP',                   name: 'Sistema de Transferencias y Pagos STP, SOFOM E.N.R.' },
