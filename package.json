@@ -18,7 +18,10 @@
       },
       "./": "./dist/"
    },
-   "repository": "github:center-key/clabe-validator",
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/center-key/clabe-validator.git"
+   },
    "homepage": "https://github.com/center-key/clabe-validator",
    "bugs": "https://github.com/center-key/clabe-validator/issues",
    "docs": "https://centerkey.com/clabe",
@@ -99,7 +102,7 @@
       "copy-file-util": "~1.1",
       "copy-folder-util": "~1.1",
       "dna-engine": "~3.0",
-      "eslint": "~8.49",
+      "eslint": "~8.50",
       "esm-to-plain-js": "~1.1",
       "jsdom": "~22.1",
       "jshint": "~2.13",
