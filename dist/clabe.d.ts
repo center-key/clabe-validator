@@ -1,4 +1,4 @@
-//! clabe-validator v2.1.7 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v2.1.8 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 export type ClabeBank = {
     tag?: string;
@@ -7,7 +7,7 @@ export type ClabeBank = {
 export type ClabeBanksMap = {
     [bankCode: number]: ClabeBank;
 };
-export type ClabeCityInfo = [number, string, ClabeMxState?];
+export type ClabeCityInfo = [code: number, name: string, state?: ClabeMxState];
 export type ClabeCitiesMap = {
     [cityCode: number]: ClabeCityInfo[];
 };

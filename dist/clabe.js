@@ -1,7 +1,7 @@
-//! clabe-validator v2.1.7 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v2.1.8 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '2.1.7',
+    version: '2.1.8',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -9,7 +9,6 @@ const clabe = {
         return /^[0-9]{17,18}$/.test(clabeNum17) ? compute() : null;
     },
     validate(clabeNum) {
-        var _a;
         const errorMap = {
             length: 'Must be exactly 18 digits long',
             characters: 'Must be only numeric digits (no letters)',
@@ -27,7 +26,7 @@ const clabe = {
             clabe.citiesMap[city[0]].push(city) : clabe.citiesMap[city[0]] = [city];
         if (!clabe.citiesMap[clabe.cities[0][0]])
             clabe.cities.forEach(addCity);
-        const bank = clabe.banksMap[Number(bankCode)] || {};
+        const bank = clabe.banksMap[Number(bankCode)] ?? {};
         const cities = clabe.citiesMap[Number(cityCode)];
         const realChecksum = clabe.computeChecksum(clabeNum);
         const getValidationInfo = () => clabeNum.length !== 18 ? { invalid: 'length', data: '' } :
@@ -37,7 +36,7 @@ const clabe = {
                         !cities ? { invalid: 'city', data: cityCode } : null;
         const validation = getValidationInfo();
         const cityState = (city) => city[2] ? city[1] + ' ' + city[2] : city[1];
-        const numCities = (_a = cities === null || cities === void 0 ? void 0 : cities.length) !== null && _a !== void 0 ? _a : 0;
+        const numCities = cities?.length ?? 0;
         return {
             ok: !validation,
             formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
@@ -155,7 +154,7 @@ const clabe = {
         634: { tag: 'FINCOMUN', name: 'Fincomún, Servicios Financieros Comunitarios' },
         636: { tag: 'HDI SEGUROS', name: 'HDI Seguros' },
         637: { tag: 'ORDER', name: 'OrderExpress Casa de Cambio' },
-        638: { tag: 'AKALA', name: 'Akala, Sociedad Financiera Popular' },
+        638: { tag: 'NU MEXICO', name: 'Nu México Financiera (Nubank)' },
         640: { tag: 'CB JPMORGAN', name: 'J.P. Morgan Casa de Bolsa' },
         642: { tag: 'REFORMA', name: 'Operadora de Recursos Reforma' },
         646: { tag: 'STP', name: 'Sistema de Transferencias y Pagos STP, SOFOM E.N.R.' },
