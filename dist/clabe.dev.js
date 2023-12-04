@@ -1,7 +1,7 @@
-//! clabe-validator v2.1.8 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v2.1.9 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '2.1.8',
+    version: '2.1.9',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -180,6 +180,7 @@ const clabe = {
         689: { tag: 'FOMPED', name: 'Fondo Mexicano del Petroleo para la Estabilizacion y el Desarrollo' },
         706: { tag: 'ARCUS', name: 'Arcus Financial Intelligence' },
         710: { tag: 'NVIO', name: 'NVIO Pagos México' },
+        723: { tag: 'CUENCA', name: 'Cuenca' },
         812: { tag: 'BBVA BANCOMER2', name: 'BBVA Bancomer' },
         814: { tag: 'SANTANDER2', name: 'Banco Santander' },
         821: { tag: 'HSBC2', name: 'HSBC México' },
