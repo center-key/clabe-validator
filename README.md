@@ -130,8 +130,11 @@ const bankCode:   string =     clabeCheck.code.bank;      //'002'
 ```
 
 ## F) Contributor Notes
-To be a contributor, **fork** the project and run the commands `npm install` and `npm test` on your
-local clone.&nbsp; Make your edits and rerun the tests.&nbsp; Pull requests welcome.
+To be a contributor, **fork** the project and run the commands `npm install` and `npm test` on your local clone.&nbsp;
+Make your edits and rerun the tests.
+
+Pull requests welcome.&nbsp;
+Since the version number is updated during the release process, you can leave the version number unchanged.
 
 ## G) Genesis
 The origin of this project goes back to when I needed to send money to Guanajuato, Mexico to pay
