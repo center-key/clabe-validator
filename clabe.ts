@@ -225,6 +225,7 @@ const clabe = {
       689: { tag: 'FOMPED',                name: 'Fondo Mexicano del Petroleo para la Estabilizacion y el Desarrollo' },
       706: { tag: 'ARCUS',                 name: 'Arcus Financial Intelligence' },
       710: { tag: 'NVIO',                  name: 'NVIO Pagos México' },
+      722: { tag: 'MERCADO PAGO W',        name: 'Mercado Pago W' },
       723: { tag: 'CUENCA',                name: 'Cuenca' },
       812: { tag: 'BBVA BANCOMER2',        name: 'BBVA Bancomer' },
       814: { tag: 'SANTANDER2',            name: 'Banco Santander' },
