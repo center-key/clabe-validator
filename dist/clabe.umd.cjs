@@ -1,4 +1,4 @@
-//! clabe-validator v2.1.9 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v2.1.10 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 (function (factory) {
     if (typeof module === "object" && typeof module.exports === "object") {
@@ -13,7 +13,7 @@
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.clabe = void 0;
     const clabe = {
-        version: '2.1.9',
+        version: '2.1.10',
         computeChecksum(clabeNum17) {
             const x = (i) => [3, 7, 1][i % 3];
             const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -192,6 +192,7 @@
             689: { tag: 'FOMPED', name: 'Fondo Mexicano del Petroleo para la Estabilizacion y el Desarrollo' },
             706: { tag: 'ARCUS', name: 'Arcus Financial Intelligence' },
             710: { tag: 'NVIO', name: 'NVIO Pagos México' },
+            722: { tag: 'MERCADO PAGO W', name: 'Mercado Pago W' },
             723: { tag: 'CUENCA', name: 'Cuenca' },
             812: { tag: 'BBVA BANCOMER2', name: 'BBVA Bancomer' },
             814: { tag: 'SANTANDER2', name: 'Banco Santander' },
