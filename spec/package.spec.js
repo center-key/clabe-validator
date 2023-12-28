@@ -56,6 +56,7 @@ describe('Newly added or modified banks and cities', () => {
       { code: 679, tag: 'FND',             name: 'Financiera Nacional De Desarrollo Agropecuario' },
       { code: 706, tag: 'ARCUS',           name: 'Arcus Financial Intelligence' },
       { code: 710, tag: 'NVIO',            name: 'NVIO Pagos México' },
+      { code: 722, tag: 'MERCADO PAGO W',  name: 'Mercado Pago W' },
       { code: 723, tag: 'CUENCA',          name: 'Cuenca' },
       { code: 846, tag: 'STP',             name: 'Sistema de Transferencias y Pagos STP' },
       ];

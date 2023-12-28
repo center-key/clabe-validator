@@ -134,7 +134,7 @@ To be a contributor, **fork** the project and run the commands `npm install` and
 Make your edits and rerun the tests.
 
 Pull requests welcome.&nbsp;
-Since the version number is updated during the release process, you can leave the version number unchanged.
+Since the pacakge version number is updated during the release process, **leave the version number unchanged.**
 
 ## G) Genesis
 The origin of this project goes back to when I needed to send money to Guanajuato, Mexico to pay
