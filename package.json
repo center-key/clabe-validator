@@ -1,6 +1,6 @@
 {
    "name": "clabe-validator",
-   "version": "2.1.10",
+   "version": "2.2.0",
    "description": "Analyze or create a CLABE number for a Mexican bank account (written in functional TypeScript)",
    "license": "MIT",
    "type": "module",
@@ -101,7 +101,7 @@
       "assert-deep-strict-equal": "~1.1",
       "copy-file-util": "~1.1",
       "copy-folder-util": "~1.1",
-      "dna-engine": "~3.0",
+      "dna-engine": "~3.1",
       "eslint": "~8.56",
       "esm-to-plain-js": "~1.1",
       "jsdom": "~23.0",
