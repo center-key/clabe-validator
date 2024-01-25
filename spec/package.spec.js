@@ -20,7 +20,6 @@ describe('The "dist" folder', () => {
          'clabe.dev.js',
          'clabe.js',
          'clabe.min.js',
-         'clabe.umd.cjs',
          ];
       assertDeepStrictEqual(actual, expected);
       });
