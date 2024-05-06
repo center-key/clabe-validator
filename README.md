@@ -6,7 +6,7 @@ _JavaScript library to analyze or create a CLABE number for a Mexican bank accou
 [![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/center-key/clabe-validator/blob/main/LICENSE.txt)
 [![npm](https://img.shields.io/npm/v/clabe-validator.svg)](https://www.npmjs.com/package/clabe-validator)
 [![Hits](https://data.jsdelivr.com/v1/package/npm/clabe-validator/badge?style=rounded)](https://www.jsdelivr.com/package/npm/clabe-validator)
-[![Build](https://github.com/center-key/clabe-validator/workflows/build/badge.svg)](https://github.com/center-key/clabe-validator/actions/workflows/run-spec-on-push.yaml)
+[![Build](https://github.com/center-key/clabe-validator/actions/workflows/run-spec-on-push.yaml/badge.svg)](https://github.com/center-key/clabe-validator/actions/workflows/run-spec-on-push.yaml)
 
 CLABE (Clave Bancaria Estandarizada &mdash; Spanish for "standardized banking code") is a banking
 standard from the Mexican Bank Association (Asociación de Bancos de México &mdash; ABM) for

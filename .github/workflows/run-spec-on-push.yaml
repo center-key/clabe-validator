@@ -1,8 +1,9 @@
-name: build
+name: Build and Run Specifications
+
 on: [push]
+
 jobs:
   build:
-    name: Run Specifications
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4    #see: https://github.com/actions/checkout/releases
