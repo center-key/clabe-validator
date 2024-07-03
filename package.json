@@ -84,9 +84,9 @@
       "test": "mocha spec/*.spec.js"
    },
    "devDependencies": {
-      "@eslint/js": "~9.3",
+      "@eslint/js": "~9.6",
       "@fortawesome/fontawesome-free": "~6.5",
-      "@types/node": "~20.12",
+      "@types/node": "~20.14",
       "add-dist-header": "~1.4",
       "assert-deep-strict-equal": "~1.2",
       "copy-file-util": "~1.2",
@@ -96,14 +96,14 @@
       "esm-to-plain-js": "~1.1",
       "jsdom": "~24.1",
       "jshint": "~2.13",
-      "mocha": "~10.4",
+      "mocha": "~10.6",
       "pretty-print-json": "~3.0",
       "rimraf": "~5.0",
       "run-scripts-util": "~1.2",
-      "typescript": "~5.4",
-      "typescript-eslint": "~7.11",
-      "uglify-js": "~3.17",
+      "typescript": "~5.5",
+      "typescript-eslint": "~7.15",
+      "uglify-js": "~3.18",
       "w3c-html-validator": "~1.8",
-      "web-ignition": "~2.1"
+      "web-ignition": "~2.2"
    }
 }

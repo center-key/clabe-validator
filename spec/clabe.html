@@ -25,7 +25,7 @@
    <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5/css/all.min.css>
    <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-engine@3.2/dist/dna-engine.css>
    <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/dna-engine@3.2/dist/panel-nav.css>
-   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@2.1/dist/reset.min.css>
+   <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/web-ignition@2.2/dist/reset.min.css>
    <link rel=stylesheet       href=https://cdn.jsdelivr.net/npm/pretty-print-json@3.0/dist/css/pretty-print-json.css>
    <style>
       form {
@@ -79,7 +79,7 @@
          }
    </style>
    <script defer src=https://cdn.jsdelivr.net/npm/dna-engine@3.2/dist/dna-engine.min.js></script>
-   <script defer src=https://cdn.jsdelivr.net/npm/web-ignition@2.1/dist/lib-x.min.js></script>
+   <script defer src=https://cdn.jsdelivr.net/npm/web-ignition@2.2/dist/lib-x.min.js></script>
    <script defer src=https://cdn.jsdelivr.net/npm/pretty-print-json@3.0/dist/pretty-print-json.min.js></script>
    <script defer src=../dist/clabe.dev.js></script>
    <script data-on-load=app.setupCalculator>
@@ -189,21 +189,19 @@
          </form>
 
          <!-- Calculator -->
-         <form>
-            <div id=calculator class=dna-template>
-               <label>
-                  <span>Bank:</span>
-                  <select data-on-change=app.updateCalculation>
-                     <option data-array=~~banks~~ value=~~code~~>~~label~~</option>
-                  </select>
-               </label>
-               <label>
-                  <span>City:</span>
-                  <select data-on-change=app.updateCalculation>
-                     <option data-array=~~cities~~ value=~~code~~>~~label~~</option>
-                  </select>
-               </label>
-            </div>
+         <form id=calculator class=dna-template>
+            <label>
+               <span>Bank:</span>
+               <select data-on-change=app.updateCalculation>
+                  <option data-array=~~banks~~ value=~~code~~>~~label~~</option>
+               </select>
+            </label>
+            <label>
+               <span>City:</span>
+               <select data-on-change=app.updateCalculation>
+                  <option data-array=~~cities~~ value=~~code~~>~~label~~</option>
+               </select>
+            </label>
             <label>
                <span>Bank account number:</span>
                <input maxlength=11 data-on-smart-update=app.updateCalculation
