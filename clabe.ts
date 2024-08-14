@@ -51,7 +51,7 @@ const clabe = {
          city:       'Invalid city code: ',
          };
       if (typeof clabeNum !== 'string')
-         throw 'clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum;
+         throw new Error('clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum);
       const bankCode = clabeNum.substring(0, 3);
       const cityCode = clabeNum.substring(3, 6);
       const account =  clabeNum.substring(6, 17);
@@ -76,7 +76,7 @@ const clabe = {
          ok:       !validation,
          formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
          error:    validation ? 'invalid-' + validation.invalid : null,
-         message:  validation ? <string>errorMap[validation.invalid] + validation.data : 'Valid',
+         message:  validation ? errorMap[validation.invalid]! + String(validation.data) : 'Valid',
          clabe:    validation ? null : clabeNum,
          tag:      bank.tag || null,
          bank:     bank.name || null,
@@ -96,7 +96,7 @@ const clabe = {
       const pad = (text: string, len: number): string => text.length < len ? pad('0' + text, len) : text;
       const fit = (num: number, len: number) => pad(num.toString(), len).slice(-len);
       const clabeNum = fit(bankCode, 3) + fit(cityCode, 3) + fit(accountNumber, 11);
-      return clabeNum + clabe.computeChecksum(clabeNum);
+      return clabeNum + String(clabe.computeChecksum(clabeNum));
       },
 
    banksMap: <ClabeBanksMap>{

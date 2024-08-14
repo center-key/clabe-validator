@@ -42,32 +42,13 @@
       "mocha": true,
       "node": true
    },
-   "eslintConfig": {
-      "ignorePatterns": [
-         "build",
-         "dist",
-         "node_modules"
-      ],
-      "root": true,
-      "parser": "@typescript-eslint/parser",
-      "plugins": [
-         "@typescript-eslint"
-      ],
-      "extends": [
-         "eslint:recommended",
-         "plugin:@typescript-eslint/recommended"
-      ],
-      "rules": {
-         "@typescript-eslint/no-non-null-assertion": "off"
-      }
-   },
    "runScriptsConfig": {
       "clean": [
          "rimraf build dist"
       ],
       "lint": [
          "jshint . --exclude-path .gitignore",
-         "eslint --max-warnings 0 . --ext .ts"
+         "eslint --max-warnings 0"
       ],
       "build": [
          "tsc",
@@ -84,25 +65,25 @@
       "test": "mocha spec/*.spec.js"
    },
    "devDependencies": {
-      "@eslint/js": "~9.6",
-      "@fortawesome/fontawesome-free": "~6.5",
-      "@types/node": "~20.14",
+      "@eslint/js": "~9.9",
+      "@fortawesome/fontawesome-free": "~6.6",
+      "@types/node": "~22.2",
       "add-dist-header": "~1.4",
       "assert-deep-strict-equal": "~1.2",
       "copy-file-util": "~1.2",
       "copy-folder-util": "~1.1",
       "dna-engine": "~3.2",
-      "eslint": "8.57.0",
+      "eslint": "~9.9",
       "esm-to-plain-js": "~1.1",
       "jsdom": "~24.1",
       "jshint": "~2.13",
-      "mocha": "~10.6",
+      "mocha": "~10.7",
       "pretty-print-json": "~3.0",
-      "rimraf": "~5.0",
-      "run-scripts-util": "~1.2",
+      "rimraf": "~6.0",
+      "run-scripts-util": "~1.3",
       "typescript": "~5.5",
-      "typescript-eslint": "~7.15",
-      "uglify-js": "~3.18",
+      "typescript-eslint": "~8.1",
+      "uglify-js": "~3.19",
       "w3c-html-validator": "~1.8",
       "web-ignition": "~2.2"
    }
