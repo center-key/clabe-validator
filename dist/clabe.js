@@ -1,7 +1,7 @@
-//! clabe-validator v3.0.1 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v3.0.2 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '3.0.1',
+    version: '3.0.2',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -17,7 +17,7 @@ const clabe = {
             city: 'Invalid city code: ',
         };
         if (typeof clabeNum !== 'string')
-            throw 'clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum;
+            throw new Error('clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum);
         const bankCode = clabeNum.substring(0, 3);
         const cityCode = clabeNum.substring(3, 6);
         const account = clabeNum.substring(6, 17);
@@ -41,7 +41,7 @@ const clabe = {
             ok: !validation,
             formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
             error: validation ? 'invalid-' + validation.invalid : null,
-            message: validation ? errorMap[validation.invalid] + validation.data : 'Valid',
+            message: validation ? errorMap[validation.invalid] + String(validation.data) : 'Valid',
             clabe: validation ? null : clabeNum,
             tag: bank.tag || null,
             bank: bank.name || null,
@@ -57,7 +57,7 @@ const clabe = {
         const pad = (text, len) => text.length < len ? pad('0' + text, len) : text;
         const fit = (num, len) => pad(num.toString(), len).slice(-len);
         const clabeNum = fit(bankCode, 3) + fit(cityCode, 3) + fit(accountNumber, 11);
-        return clabeNum + clabe.computeChecksum(clabeNum);
+        return clabeNum + String(clabe.computeChecksum(clabeNum));
     },
     banksMap: {
         1: { tag: 'BANXICO', name: 'Banco de México' },
