@@ -1,7 +1,7 @@
-//! clabe-validator v3.0.2 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v3.0.3 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '3.0.2',
+    version: '3.0.3',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;

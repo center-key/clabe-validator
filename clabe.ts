@@ -103,8 +103,9 @@ const clabe = {
       // Sources:
       //    https://es.wikipedia.org/wiki/CLABE#C.C3.B3digo_de_banco
       //    http://omawww.sat.gob.mx/fichas_tematicas/buzon_tributario/Documents/catalogo_bancos.pdf
-      //    https://frbservices.org/assets/financial-services/ach/global-service-orig-manual.pdf
+      //    https://www.frbservices.org/binaries/content/assets/crsocms/financial-services/ach/global-service-orig-manual.pdf
       //    https://www.banxico.org.mx/cep-scl/listaInstituciones.do
+      //    https://docs.v3.localpayment.com/api-reference-guide/bank-codes/latam/mexico
         1: { tag: 'BANXICO',               name: 'Banco de México' },
         2: { tag: 'BANAMEX',               name: 'Banco Nacional de México' },
         6: { tag: 'BANCOMEXT',             name: 'Banco Nacional de Comercio Exterior' },
