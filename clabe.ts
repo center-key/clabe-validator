@@ -227,6 +227,7 @@ const clabe = {
       710: { tag: 'NVIO',                  name: 'NVIO Pagos México' },
       722: { tag: 'MERCADO PAGO W',        name: 'Mercado Pago W' },
       723: { tag: 'CUENCA',                name: 'Cuenca' },
+      728: { tag: 'SPIN',                  name: 'SPIN by OXXO' },
       812: { tag: 'BBVA BANCOMER2',        name: 'BBVA Bancomer' },
       814: { tag: 'SANTANDER2',            name: 'Banco Santander' },
       821: { tag: 'HSBC2',                 name: 'HSBC México' },
