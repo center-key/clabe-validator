@@ -35,7 +35,7 @@ describe('Current number of banks and cities', () => {
 
    it('is correct ' + counts, () => {
       const actual =   { banks: numBanks, cities: numCities };
-      const expected = { banks: 130,      cities: 883 };  //update this line when adding a new bank or city
+      const expected = { banks: 131,      cities: 883 };  //update this line when adding a new bank or city
       assertDeepStrictEqual(actual, expected);
       });
 
