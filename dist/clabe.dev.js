@@ -368,6 +368,7 @@ const clabe = {
         [200, 'Tayoltita', 'MX-DUR'],
         [201, 'Tepehuanes', 'MX-DUR'],
         [202, 'Vicente Guerrero', 'MX-DUR'],
+        [206, 'Desconocida', 'MX-DES'],
         [210, 'Guanajuato', 'MX-GUA'],
         [211, 'Abasolo', 'MX-GUA'],
         [212, 'Acámbaro', 'MX-GUA'],
