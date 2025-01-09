@@ -1,7 +1,7 @@
-//! clabe-validator v3.0.3 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v3.0.4 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '3.0.3',
+    version: '3.0.4',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -177,7 +177,10 @@ const clabe = {
         684: { tag: 'TRANSFER', name: 'Operadora de Pagos Moviles de Mexico' },
         685: { tag: 'FONDO (FIRA)', name: 'Fondo de Garantía y Fomento para la Agricultura, Ganadería y Avicultura (FONDO)' },
         686: { tag: 'INVERCAP', name: 'Afore InverCap' },
+        688: { tag: 'CREDICLUB', name: 'Crediclub' },
         689: { tag: 'FOMPED', name: 'Fondo Mexicano del Petroleo para la Estabilizacion y el Desarrollo' },
+        699: { tag: 'FONDEADORA', name: 'Fondea Technologies' },
+        703: { tag: 'TESORED', name: 'Tesored' },
         706: { tag: 'ARCUS', name: 'Arcus Financial Intelligence' },
         710: { tag: 'NVIO', name: 'NVIO Pagos México' },
         722: { tag: 'MERCADO PAGO W', name: 'Mercado Pago W' },
