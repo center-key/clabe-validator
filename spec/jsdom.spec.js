@@ -107,9 +107,9 @@ describe('List of CLABE cities', () => {
    it('is in numerical order', () => {
       const checkOrder = (city, i) => {  //example city: [10, 'Aguascalientes MX-AGU']
          const priorCode = i > 0 ? clabe.cities[i - 1][0] : 0;
-         const ordered = city[0] >= priorCode;
-         const actual =   { city: city[1], code: city[0], prior: priorCode, ordered: ordered };
-         const expected = { city: city[1], code: city[0], prior: priorCode, ordered: true };
+         const ordered =   city[0] >= priorCode;
+         const actual =    { city: city[1], code: city[0], prior: priorCode, ordered: ordered };
+         const expected =  { city: city[1], code: city[0], prior: priorCode, ordered: true };
          assertDeepStrictEqual(actual, expected);
          };
       clabe.cities.forEach(checkOrder);
@@ -131,10 +131,10 @@ describe('List of CLABE cities', () => {
       });
 
    it('has no duplicate city names', () => {
-      const allowedDuplicateCities = [28, 180, 550, 969, 975];
+      const allowedDuplicateCities = [28, 550, 969, 975];
       const checkForDuplicate = (city) => {
-         const code = cityNamesMap[cityState(city)];
-         const unique = city[0] === code || allowedDuplicateCities.includes(code);
+         const code =     cityNamesMap[cityState(city)];
+         const unique =   city[0] === code || allowedDuplicateCities.includes(code);
          const actual =   { city: city, unique: unique, duplicate: code };
          const expected = { city: city, unique: true,   duplicate: code };
          assertDeepStrictEqual(actual, expected);

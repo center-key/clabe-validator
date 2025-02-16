@@ -1128,8 +1128,8 @@ const clabe = {
       [960, 'Victor Rosales', 'MX-ZAC'],
       [961, 'Villa Gonzalez Ortega', 'MX-ZAC'],
       [962, 'Villanueva', 'MX-ZAC'],
-      [969, 'Ciudad de México', 'MX-CMX'],
-      [975, 'Ciudad de México', 'MX-CMX'],
+      [969, 'Ciudad de México', 'MX-CMX'],  //see first occurrence at 180
+      [975, 'Ciudad de México', 'MX-CMX'],  //see first occurrence at 180
       ],
 
    citiesMap: <ClabeCitiesMap>{},
