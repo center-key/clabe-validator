@@ -1079,6 +1079,7 @@ const clabe = {
         [961, 'Villa Gonzalez Ortega', 'MX-ZAC'],
         [962, 'Villanueva', 'MX-ZAC'],
         [969, 'Ciudad de México', 'MX-CMX'],
+        [975, 'Ciudad de México', 'MX-CMX'],
     ],
     citiesMap: {},
 };
