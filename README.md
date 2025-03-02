@@ -99,7 +99,7 @@ console.log(clabeNum === '002010077777777771');  //true
 ```
 
 ## E) TypeScript Declarations
-See the TypeScript declarations at the top of the [clabe.ts](clabe.ts) file.
+See the TypeScript declarations at the top of the [clabe.ts](src/clabe.ts) file.
 
 The `clabe.validate(clabeNum: string)` function returns a `ClabeCheck` object:
 ```typescript
