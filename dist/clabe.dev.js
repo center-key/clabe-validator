@@ -1,7 +1,7 @@
-//! clabe-validator v3.0.5 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v3.0.6 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '3.0.5',
+    version: '3.0.6',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -183,6 +183,7 @@ const clabe = {
         703: { tag: 'TESORED', name: 'Tesored' },
         706: { tag: 'ARCUS', name: 'Arcus Financial Intelligence' },
         710: { tag: 'NVIO', name: 'NVIO Pagos México' },
+        721: { tag: 'ALBO', name: 'albo' },
         722: { tag: 'MERCADO PAGO W', name: 'Mercado Pago W' },
         723: { tag: 'CUENCA', name: 'Cuenca' },
         728: { tag: 'SPIN', name: 'SPIN by OXXO' },
