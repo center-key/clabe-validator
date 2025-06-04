@@ -229,6 +229,7 @@ const clabe = {
       703: { tag: 'TESORED',               name: 'Tesored' },
       706: { tag: 'ARCUS',                 name: 'Arcus Financial Intelligence' },
       710: { tag: 'NVIO',                  name: 'NVIO Pagos México' },
+      721: { tag: 'ALBO',                  name: 'albo' },
       722: { tag: 'MERCADO PAGO W',        name: 'Mercado Pago W' },
       723: { tag: 'CUENCA',                name: 'Cuenca' },
       728: { tag: 'SPIN',                  name: 'SPIN by OXXO' },
