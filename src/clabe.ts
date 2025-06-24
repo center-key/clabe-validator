@@ -134,7 +134,7 @@ const clabe = {
       112: { tag: 'BMONEX',                name: 'Banco Monex' },
       113: { tag: 'VE POR MAS',            name: 'Banco Ve por Mas' },
       116: { tag: 'ING',                   name: 'ING Bank (México)' },
-      124: { tag: 'DEUTSCHE',              name: 'Deutsche Bank México' },
+      124: { tag: 'CITI MEXICO',           name: 'Banco Citi Mexico (formerly Deutsche Bank México)' },
       126: { tag: 'CREDIT SUISSE',         name: 'Banco Credit Suisse (México)' },
       127: { tag: 'AZTECA',                name: 'Banco Azteca' },
       128: { tag: 'AUTOFIN',               name: 'Banco Autofin México' },
