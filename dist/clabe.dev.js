@@ -1,7 +1,7 @@
-//! clabe-validator v3.0.6 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v3.1.0 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '3.0.6',
+    version: '3.1.0',
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -88,7 +88,7 @@ const clabe = {
         112: { tag: 'BMONEX', name: 'Banco Monex' },
         113: { tag: 'VE POR MAS', name: 'Banco Ve por Mas' },
         116: { tag: 'ING', name: 'ING Bank (México)' },
-        124: { tag: 'DEUTSCHE', name: 'Deutsche Bank México' },
+        124: { tag: 'CITI MEXICO', name: 'Banco Citi Mexico (formerly Deutsche Bank México)' },
         126: { tag: 'CREDIT SUISSE', name: 'Banco Credit Suisse (México)' },
         127: { tag: 'AZTECA', name: 'Banco Azteca' },
         128: { tag: 'AUTOFIN', name: 'Banco Autofin México' },
@@ -120,6 +120,7 @@ const clabe = {
         159: { tag: 'BANK OF CHINA', name: 'Bank of China México' },
         160: { tag: 'BANCO S3', name: 'Banco S3 México' },
         166: { tag: 'BANSEFI', name: 'Banco del Ahorro Nacional y Servicios Financieros' },
+        167: { tag: 'HEY', name: 'Hey Banco' },
         168: { tag: 'HIPOTECARIA FED', name: 'Sociedad Hipotecaria Federal' },
         600: { tag: 'MONEXCB', name: 'Monex Casa de Bolsa' },
         601: { tag: 'GBM', name: 'GBM Grupo Bursátil Mexicano' },
@@ -187,6 +188,8 @@ const clabe = {
         722: { tag: 'MERCADO PAGO W', name: 'Mercado Pago W' },
         723: { tag: 'CUENCA', name: 'Cuenca' },
         728: { tag: 'SPIN', name: 'SPIN by OXXO' },
+        732: { tag: 'PEIBO', name: 'Peibo Fintech' },
+        734: { tag: 'FINCH', name: 'Finco Pay (Finch)' },
         812: { tag: 'BBVA BANCOMER2', name: 'BBVA Bancomer' },
         814: { tag: 'SANTANDER2', name: 'Banco Santander' },
         821: { tag: 'HSBC2', name: 'HSBC México' },
