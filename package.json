@@ -65,7 +65,7 @@
       "test": "mocha spec/*.spec.js"
    },
    "devDependencies": {
-      "@eslint/js": "~9.28",
+      "@eslint/js": "~9.29",
       "@fortawesome/fontawesome-free": "~6.7",
       "@types/node": "~24.0",
       "add-dist-header": "~1.4",
@@ -73,16 +73,16 @@
       "copy-file-util": "~1.2",
       "copy-folder-util": "~1.1",
       "dna-engine": "~3.2",
-      "eslint": "~9.28",
+      "eslint": "~9.29",
       "esm-to-plain-js": "~1.1",
       "jsdom": "~26.1",
       "jshint": "~2.13",
-      "mocha": "~11.6",
+      "mocha": "~11.7",
       "pretty-print-json": "~3.0",
       "rimraf": "~6.0",
       "run-scripts-util": "~1.3",
       "typescript": "~5.8",
-      "typescript-eslint": "~8.34",
+      "typescript-eslint": "~8.35",
       "uglify-js": "~3.19",
       "w3c-html-validator": "~1.8",
       "web-ignition": "~2.3"
