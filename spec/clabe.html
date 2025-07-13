@@ -103,7 +103,7 @@
             dna.ui.fadeIn(messageElem);
             jsonElem.innerHTML = prettyPrintJson.toHtml(clabeCheck);
             dna.ui.smoothHeight(() => dna.ui.fadeIn(jsonElem), { container: jsonElem });
-            console.log(elem.value, clabeCheck);
+            console.info(elem.value, clabeCheck);
             },
 
          updateCalculation(elem) {
@@ -122,7 +122,7 @@
             },
 
          setupCalculator() {
-            console.log('CLABE Validator v' + clabe.version);
+            console.info('CLABE Validator v' + clabe.version);
             globalThis.document.querySelector('.version-number').textContent = clabe.version;
             const pad = (int) => ('' + int).length < 3 ? pad('0' + int) : int;
             const codeObj = (code, name) => ({
