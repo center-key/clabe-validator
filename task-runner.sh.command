@@ -104,7 +104,7 @@ publishWebFiles() {
    publish() {
       echo "Publishing:"
       echo $publishFolder
-      mkdir -p $publishFolder
+      mkdir -pv $publishFolder
       sed "s|../dist/clabe.dev.js|$cdnSrc|" spec/clabe.html > $publishFolder/index.html
       ls -o $publishFolder
       grep clabe.min.js $publishFolder/index.html
