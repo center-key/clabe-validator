@@ -27,6 +27,33 @@ describe('The "dist" folder', () => {
    });
 
 ////////////////////////////////////////////////////////////////////////////////
+describe('Library module', () => {
+
+   it('is an object', () => {
+      const actual =   { constructor: clabe.constructor.name };
+      const expected = { constructor: 'Object' };
+      assertDeepStrictEqual(actual, expected);
+      });
+
+   it('has the correct properties', () => {
+      const module = clabe;
+      const actual = Object.keys(module).sort().map(key => [key, typeof module[key]]);
+      const expected = [
+         ['assert',          'function'],
+         ['banksMap',        'object'],
+         ['calculate',       'function'],
+         ['cities',          'object'],
+         ['citiesMap',       'object'],
+         ['computeChecksum', 'function'],
+         ['validate',        'function'],
+         ['version',         'string'],
+         ];
+      assertDeepStrictEqual(actual, expected);
+      });
+
+   });
+
+////////////////////////////////////////////////////////////////////////////////
 describe('Current number of banks and cities', () => {
 
    const numBanks =  Object.keys(clabe.banksMap).length;

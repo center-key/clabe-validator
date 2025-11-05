@@ -29,6 +29,11 @@ const clabe = {
 
    version: '{{package.version}}',
 
+   assert(ok: unknown, message: string | null) {
+      if (!ok)
+         throw new Error(`[clabe-validator] ${message}`);
+      },
+
    computeChecksum(clabeNum17: string): number | null {
       // Returns the checksum calculated from the first 17 characters of CLABE number.
       // Example:
@@ -50,8 +55,7 @@ const clabe = {
          bank:       'Invalid bank code: ',
          city:       'Invalid city code: ',
          };
-      if (typeof clabeNum !== 'string')
-         throw new Error('clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum);
+      clabe.assert(typeof clabeNum === 'string', 'Expected string, got: ' + typeof clabeNum);
       const bankCode = clabeNum.substring(0, 3);
       const cityCode = clabeNum.substring(3, 6);
       const account =  clabeNum.substring(6, 17);
