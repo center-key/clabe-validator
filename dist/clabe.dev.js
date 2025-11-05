@@ -1,7 +1,11 @@
-//! clabe-validator v3.1.0 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v3.1.1 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '3.1.0',
+    version: '3.1.1',
+    assert(ok, message) {
+        if (!ok)
+            throw new Error(`[clabe-validator] ${message}`);
+    },
     computeChecksum(clabeNum17) {
         const x = (i) => [3, 7, 1][i % 3];
         const add = (sum, digit, i) => sum + (Number(digit) * x(i)) % 10;
@@ -16,8 +20,7 @@ const clabe = {
             bank: 'Invalid bank code: ',
             city: 'Invalid city code: ',
         };
-        if (typeof clabeNum !== 'string')
-            throw new Error('clabe.validator.check(clabeNum) -- Expected string, got: ' + typeof clabeNum);
+        clabe.assert(typeof clabeNum === 'string', 'Expected string, got: ' + typeof clabeNum);
         const bankCode = clabeNum.substring(0, 3);
         const cityCode = clabeNum.substring(3, 6);
         const account = clabeNum.substring(6, 17);
