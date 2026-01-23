@@ -1,7 +1,7 @@
-//! clabe-validator v3.1.1 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v3.1.2 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '3.1.1',
+    version: '3.1.2',
     assert(ok, message) {
         if (!ok)
             throw new Error(`[clabe-validator] ${message}`);
