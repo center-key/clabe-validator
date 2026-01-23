@@ -44,7 +44,7 @@
    },
    "runScriptsConfig": {
       "clean": [
-         "rimraf build dist"
+         "rimraf build dist docs"
       ],
       "lint": [
          "jshint . --exclude-path .gitignore",
@@ -57,34 +57,41 @@
       ],
       "dist": [
          "add-dist-header build dist"
+      ],
+      "docs": [
+         "copy-folder src/website --ext=.jpg             docs",
+         "replacer    src/website                        docs",
+         "replacer --virtual-input . --rename=robots.txt docs --content=#{{space}}Allow{{space}}bots",
+         "replacer --virtual-input . --rename=CNAME      docs --content=clabe-validator.js.org"
       ]
    },
    "scripts": {
-      "pretest": "run-scripts clean lint build dist",
+      "pretest": "run-scripts clean lint build dist docs",
       "test": "mocha spec",
       "posttest": "html-validator spec docs"
    },
    "devDependencies": {
       "@eslint/js": "~9.39",
       "@fortawesome/fontawesome-free": "~7.1",
-      "@types/node": "~24.10",
+      "@types/node": "~25.0",
       "add-dist-header": "~1.6",
       "assert-deep-strict-equal": "~1.2",
       "copy-file-util": "~1.3",
-      "copy-folder-util": "~1.1",
+      "copy-folder-util": "~1.2",
       "dna-engine": "~3.3",
       "eslint": "~9.39",
-      "esm-to-plain-js": "~1.1",
-      "jsdom": "~27.1",
+      "esm-to-plain-js": "~1.2",
+      "jsdom": "~27.4",
       "jshint": "~2.13",
       "mocha": "~11.7",
       "pretty-print-json": "~3.0",
+      "replacer-util": "~1.5",
       "rimraf": "~6.1",
       "run-scripts-util": "~1.3",
       "typescript": "~5.9",
-      "typescript-eslint": "~8.46",
+      "typescript-eslint": "~8.53",
       "uglify-js": "~3.19",
-      "w3c-html-validator": "~2.0",
-      "web-ignition": "~2.4"
+      "w3c-html-validator": "~2.2",
+      "web-ignition": "~2.5"
    }
 }
