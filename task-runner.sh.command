@@ -21,8 +21,8 @@ setupTools() {
    echo $banner
    echo $(echo $banner | sed s/./=/g)
    pwd
-   test -d .git || { echo "Project must be in a git repository."; exit; }
-   git restore dist/* &>/dev/null
+   [ -d .git ] || { echo "Project must be in a git repository."; exit; }
+   [ -d dist ] && git restore dist
    git pull --ff-only
    echo
    echo "Node.js:"
@@ -112,7 +112,7 @@ publishWebFiles() {
       grep clabe.min.js $publishFolder/index.html
       echo
       }
-   test -w $publishSite && publish
+   [ -w $publishSite ] && publish
    }
 
 setupTools
