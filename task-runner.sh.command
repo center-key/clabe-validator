@@ -78,6 +78,7 @@ releaseInstructions() {
       echo "   git remote --verbose"
       echo "   git push origin --tags"
       echo "   npm whoami"
+      echo "   npm token"
       echo "   npm publish"
       }
    test "$version" ">" "$released" && nextActionCommitTagPub || nextActionBump

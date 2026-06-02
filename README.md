@@ -138,38 +138,33 @@ Pull requests welcome.&nbsp;
 Since the pacakge version number is updated during the release process, **leave the version number unchanged.**
 
 ## G) Genesis
-The origin of this project goes back to when I needed to send money to Guanajuato, Mexico to pay
-nurses who were providing medical care of a relative.&nbsp;
-I was initially unable to transfer funds because the money transfer service reported that the CLABE
-number I supplied was invalid.&nbsp;
-Through a little sleuthing and a lot of luck, I discovered that a financial services company had
-accidentally omitted the very last modulo operation in their CLABE checksum calculation.&nbsp;
+The origin of this project goes back to when the project founder needed to send money to
+Guanajuato, Mexico to pay nurses who were providing medical care for a family member.&nbsp;
+The founder was initially unable to transfer funds because the money transfer service reported that
+the CLABE number he supplied was invalid.&nbsp;
+Through a little sleuthing and a lot of luck, he discovered that a financial services company had
+accidentally omitted the very last modulo math operation in the CLABE checksum calculation.&nbsp;
 The result was that valid Mexican bank account numbers with certain combinations of digits were
 erroneously rejected.
 
 This project was created to fix the checksum bug.&nbsp;
-It is an open source community project and is not supported by any company.
-
-## H) Build Environment
-Check out the `runScriptsConfig` section in [package.json](package.json) for an
-interesting approach to organizing build tasks.
-
-**CLI Build Tools for package.json**
-   - 🎋 [add-dist-header](https://github.com/center-key/add-dist-header):&nbsp; _Prepend a one-line banner comment (with license notice) to distribution files_
-   - 📄 [copy-file-util](https://github.com/center-key/copy-file-util):&nbsp; _Copy or rename a file with optional package version number_
-   - 📂 [copy-folder-util](https://github.com/center-key/copy-folder-util):&nbsp; _Recursively copy files from one folder to another folder_
-   - 🪺 [recursive-exec](https://github.com/center-key/recursive-exec):&nbsp; _Run a command on each file in a folder and its subfolders_
-   - 🔍 [replacer-util](https://github.com/center-key/replacer-util):&nbsp; _Find and replace strings or template outputs in text files_
-   - 🔢 [rev-web-assets](https://github.com/center-key/rev-web-assets):&nbsp; _Revision web asset filenames with cache busting content hash fingerprints_
-   - 🚆 [run-scripts-util](https://github.com/center-key/run-scripts-util):&nbsp; _Organize npm package.json scripts into groups of easy to manage commands_
-   - 🚦 [w3c-html-validator](https://github.com/center-key/w3c-html-validator):&nbsp; _Check the markup validity of HTML files using the W3C validator_
+It is an open source community project and not funded by any company.
 
 <br>
 
 ---
-Feel free to submit questions at:<br>
-[github.com/center-key/clabe-validator/issues](https://github.com/center-key/clabe-validator/issues)
-
 CLABE Validator code is open source under the [MIT License](LICENSE.txt),
 and the documentation is published under the
 [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) license.
+
+[🛡️ npm Security Aggregator](https://center-key.github.io/npm-security-aggregator/?package=clabe-validator)
+
+See the `runScriptsConfig` section of [`package.json`](package.json) for a clean way to organize build tasks:
+   - 🎋 [`add-dist-header`](https://github.com/center-key/add-dist-header) &mdash;&nbsp; _Prepend a one-line banner comment (with license notice) to distribution files_
+   - 📄 [`copy-file-util`](https://github.com/center-key/copy-file-util) &mdash;&nbsp; _Copy or rename a file with optional package version number_
+   - 📂 [`copy-folder-util`](https://github.com/center-key/copy-folder-util) &mdash;&nbsp; _Recursively copy files from one folder to another folder_
+   - 🪺 [`recursive-exec`](https://github.com/center-key/recursive-exec) &mdash;&nbsp; _Run a command on each file in a folder and its subfolders_
+   - 🔍 [`replacer-util`](https://github.com/center-key/replacer-util) &mdash;&nbsp; _Find and replace strings or template outputs in text files_
+   - 🔢 [`rev-web-assets`](https://github.com/center-key/rev-web-assets) &mdash;&nbsp; _Revision web asset filenames with cache busting content hash fingerprints_
+   - 🚆 [`run-scripts-util`](https://github.com/center-key/run-scripts-util) &mdash;&nbsp; _Organize npm package.json scripts into groups of easy-to-manage commands_
+   - 🚦 [`w3c-html-validator`](https://github.com/center-key/w3c-html-validator) &mdash;&nbsp; _Check the markup validity of HTML files using the W3C validator_
