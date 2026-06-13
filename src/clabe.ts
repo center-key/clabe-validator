@@ -29,7 +29,7 @@ const clabe = {
 
    version: '{{package.version}}',
 
-   assert(ok: unknown, message: string | null) {
+   assertOk(ok: unknown, message: string | null) {
       if (!ok)
          throw new Error(`[clabe-validator] ${message}`);
       },
@@ -55,7 +55,7 @@ const clabe = {
          bank:       'Invalid bank code: ',
          city:       'Invalid city code: ',
          };
-      clabe.assert(typeof clabeNum === 'string', 'Expected string, got: ' + typeof clabeNum);
+      clabe.assertOk(typeof clabeNum === 'string', 'Expected string, got: ' + typeof clabeNum);
       const bankCode = clabeNum.substring(0, 3);
       const cityCode = clabeNum.substring(3, 6);
       const account =  clabeNum.substring(6, 17);

@@ -39,7 +39,7 @@ describe('Library module', () => {
       const module = clabe;
       const actual = Object.keys(module).sort().map(key => [key, typeof module[key]]);
       const expected = [
-         ['assert',          'function'],
+         ['assertOk',        'function'],
          ['banksMap',        'object'],
          ['calculate',       'function'],
          ['cities',          'object'],
