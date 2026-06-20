@@ -1,8 +1,8 @@
-//! clabe-validator v3.1.3 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v3.2.0 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '3.1.3',
-    assert(ok, message) {
+    version: '3.2.0',
+    assertOk(ok, message) {
         if (!ok)
             throw new Error(`[clabe-validator] ${message}`);
     },
@@ -20,7 +20,7 @@ const clabe = {
             bank: 'Invalid bank code: ',
             city: 'Invalid city code: ',
         };
-        clabe.assert(typeof clabeNum === 'string', 'Expected string, got: ' + typeof clabeNum);
+        clabe.assertOk(typeof clabeNum === 'string', 'Expected string, got: ' + typeof clabeNum);
         const bankCode = clabeNum.substring(0, 3);
         const cityCode = clabeNum.substring(3, 6);
         const account = clabeNum.substring(6, 17);
@@ -32,28 +32,29 @@ const clabe = {
         const bank = clabe.banksMap[Number(bankCode)] ?? {};
         const cities = clabe.citiesMap[Number(cityCode)];
         const realChecksum = clabe.computeChecksum(clabeNum);
-        const getValidationInfo = () => clabeNum.length !== 18 ? { invalid: 'length', data: '' } :
-            /[^0-9]/.test(clabeNum) ? { invalid: 'characters', data: '' } :
-                checksum !== realChecksum ? { invalid: 'checksum', data: realChecksum } :
-                    !bank.tag ? { invalid: 'bank', data: bankCode } :
-                        !cities ? { invalid: 'city', data: cityCode } : null;
-        const validation = getValidationInfo();
+        const validation = clabeNum.length !== 18 ? { format: false, invalid: 'length', data: '' } :
+            /[^0-9]/.test(clabeNum) ? { format: false, invalid: 'characters', data: '' } :
+                checksum !== realChecksum ? { format: false, invalid: 'checksum', data: realChecksum } :
+                    !bank.tag ? { format: true, invalid: 'bank', data: bankCode } :
+                        !cities ? { format: true, invalid: 'city', data: cityCode } :
+                            null;
         const cityState = (city) => city[2] ? city[1] + ' ' + city[2] : city[1];
-        const numCities = cities?.length ?? 0;
         return {
             ok: !validation,
-            formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
+            valid: { format: !validation || validation.format, bank: !!bank.tag, city: !!cities },
             error: validation ? 'invalid-' + validation.invalid : null,
             message: validation ? errorMap[validation.invalid] + String(validation.data) : 'Valid',
             clabe: validation ? null : clabeNum,
             tag: bank.tag || null,
             bank: bank.name || null,
             city: cities ? cities.map(cityState).join(', ') : null,
-            multiple: numCities > 1,
-            total: numCities,
+            cities: cities?.length ?? 0,
             account: account,
             code: { bank: bankCode, city: cityCode },
             checksum: realChecksum,
+            formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
+            multiple: (cities?.length ?? 0) > 1,
+            total: cities?.length ?? 0,
         };
     },
     calculate(bankCode, cityCode, accountNumber) {
