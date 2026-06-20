@@ -13,11 +13,12 @@ export type ClabeCheck = {
    tag:      string | null,  //bank short name, example: 'BANAMEX'
    bank:     string | null,  //bank long name, example: 'Banco Nacional'
    city:     string | null,  //branch or plaza name
-   multiple: boolean,        //more than one city share the same code
-   total:    number,         //number of cities
+   cities:   number,         //number of cities
    account:  string,         //11-digit zero-padded bank account number
    code:     { bank: string, city: string },  //3-digit codes
    checksum: number | null,  //control digit (0 to 9)
+   multiple: boolean,        //DEPRECATED
+   total:    number,         //DEPRECATED
    };
 export type ClabeMxState = 'MX-AGU' | 'MX-BCN' | 'MX-BCS' | 'MX-CAM' | 'MX-CHH' | 'MX-CHP' |
    'MX-CMX' | 'MX-COA' | 'MX-COL' | 'MX-DUR' | 'MX-GRO' | 'MX-GUA' | 'MX-HID' | 'MX-JAL' |
@@ -75,7 +76,6 @@ const clabe = {
          !cities ?                   { invalid: 'city',       data: cityCode } : null;
       const validation = getValidationInfo();
       const cityState =  (city: ClabeCityInfo) => city[2] ? city[1] + ' ' + city[2] : city[1];  //example: 'Tecate MX-BCN'
-      const numCities =  cities?.length ?? 0;
       return {
          ok:       !validation,
          formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
@@ -85,11 +85,12 @@ const clabe = {
          tag:      bank.tag || null,
          bank:     bank.name || null,
          city:     cities ? cities.map(cityState).join(', ') : null,
-         multiple: numCities > 1,
-         total:    numCities,
+         cities:   cities?.length ?? 0,
          account:  account,
          code:     { bank: bankCode, city: cityCode },
          checksum: realChecksum,
+         multiple: (cities?.length ?? 0) > 1,  //DEPRECATED
+         total:    cities?.length ?? 0,        //DEPRECATED
          };
       },
 

@@ -106,6 +106,7 @@ describe('Newly added or modified banks and cities', () => {
          const pad =      (code) => code.toString().padStart(3, '0');
          const clabeNum = clabe.calculate(bank.code, city.code, mockAcct);
          const actual =   clabe.validate(clabeNum);
+         delete actual.multiple; delete actual.total;  //DEPRECATED fields
          const expected = {
             ok:       true,
             formatOk: true,
@@ -116,8 +117,7 @@ describe('Newly added or modified banks and cities', () => {
             tag:      bank.tag,
             bank:     bank.name,
             city:     city.name,
-            multiple: false,
-            total:    1,
+            cities:   1,
             account:  mockAcct.padStart(11, '0'),
             checksum: Number(clabeNum.slice(-1)),
             };

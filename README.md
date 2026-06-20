@@ -60,8 +60,7 @@ console.info('Your bank: ' + clabeCheck.bank);
    tag:      'BANAMEX',
    bank:     'Banco Nacional de México',
    city:     'Aguascalientes MX-AGU',
-   multiple: false,
-   total:    1,
+   cities:   1,
    account:  '07777777777',
    code:     { bank: '002', city: '010' },
    checksum: 1,
@@ -113,8 +112,7 @@ type ClabeCheck = {
    tag:      string | null,  //bank short name, example: 'BANAMEX'
    bank:     string | null,  //bank long name, example: 'Banco Nacional'
    city:     string | null,  //branch or plaza name
-   multiple: boolean,        //more than one city share the same code
-   total:    number,         //number of cities
+   cities:   number,         //number of cities
    account:  string,         //11-digit zero-padded bank account number
    code:     { bank: string, city: string },  //3-digit codes
    checksum: number | null,  //control digit (0 to 9)

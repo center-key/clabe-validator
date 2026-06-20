@@ -258,15 +258,13 @@ describe('CLABE validator', () => {
          tag:      clabeCheck.tag,
          bank:     clabeCheck.bank,
          city:     clabeCheck.city,
-         multiple: clabeCheck.multiple,
-         total:    clabeCheck.total,
+         cities:   clabeCheck.cities,
          };
       const expected = {
          tag:      'BANAMEX',
          bank:     'Banco Nacional de México',
          city:     'Aguascalientes MX-AGU',
-         multiple: false,
-         total:    1,
+         cities:   1,
          };
       assertDeepStrictEqual(actual, expected);
       });
@@ -288,6 +286,7 @@ describe('CLABE validator', () => {
 
    it('correctly identifies a CLABE number that maps to multiple cities', () => {
       const actual = clabe.validate('032180000118359719');
+      delete actual.multiple; delete actual.total;  //DEPRECATED fields
       const expected = {
          ok:       true,
          formatOk: true,
@@ -297,8 +296,7 @@ describe('CLABE validator', () => {
          tag:     'IXE',
          bank:    'IXE Banco',
          city:    'Atizapan, Chalco, Ciudad de México MX-CMX, Coacalco, Cuautitlán Izcalli, Ecatepec, Huehuetoca, Huixquilucan, Ixtapaluca, Los Reyes la Paz, Naucalpan, Nezahualcóyotl, Tecamac, Teotihuacán, Texcoco, Tlalnepantla',
-         multiple: true,
-         total:    16,
+         cities:   16,
          account: '00011835971',
          code:     { bank: '032', city: '180' },
          checksum: 9,
@@ -308,6 +306,7 @@ describe('CLABE validator', () => {
 
    it('returns nulls for properly formatted CLABE number with invalid bank and city codes', () => {
       const actual = clabe.validate('000000077777777770');
+      delete actual.multiple;  delete actual.total;  //DEPRECATED fields
       const expected = {
          ok:       false,
          formatOk: true,
@@ -317,8 +316,7 @@ describe('CLABE validator', () => {
          tag:      null,
          bank:     null,
          city:     null,
-         multiple: false,
-         total:    0,
+         cities:   0,
          account:  '07777777777',
          code:     { bank: '000', city: '000' },
          checksum: 0,

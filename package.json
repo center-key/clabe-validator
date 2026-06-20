@@ -73,7 +73,7 @@
    "devDependencies": {
       "@eslint/js": "~10.0",
       "@fortawesome/fontawesome-free": "~7.2",
-      "@types/node": "~25.9",
+      "@types/node": "~26.0",
       "add-dist-header": "~1.6",
       "assert-deep-strict-equal": "~1.2",
       "copy-file-util": "~1.3",
