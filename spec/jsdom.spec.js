@@ -173,25 +173,25 @@ describe('CLABE validator', () => {
 
    it('rejects an invalid CLABE number', () => {
       const dataSet = [
-         { input: '12345678901234567',  expected: [false, 'invalid-length',     'Must be exactly 18 digits long'] },
-         { input: '00000000000000000a', expected: [false, 'invalid-characters', 'Must be only numeric digits (no letters)'] },
-         { input: '002010077777777779', expected: [false, 'invalid-checksum',   'Invalid checksum, last digit should be: 1'] },
-         { input: '000000000000000000', expected: [true,  'invalid-bank',       'Invalid bank code: 000'] },
-         { input: '002539016003269411', expected: [true,  'invalid-city',       'Invalid city code: 539'] },
+         { input: '12345678901234567',  expected: [{ format: false, bank: false, city: true },  'invalid-length',     'Must be exactly 18 digits long'] },
+         { input: '00000000000000000a', expected: [{ format: false, bank: false, city: false }, 'invalid-characters', 'Must be only numeric digits (no letters)'] },
+         { input: '002010077777777779', expected: [{ format: false, bank: true,  city: true },  'invalid-checksum',   'Invalid checksum, last digit should be: 1'] },
+         { input: '000000000000000000', expected: [{ format: true,  bank: false, city: false }, 'invalid-bank',       'Invalid bank code: 000'] },
+         { input: '002539016003269411', expected: [{ format: true,  bank: true,  city: false }, 'invalid-city',       'Invalid city code: 539'] },
          ];
       const evalData = (data) => {
          const result = clabe.validate(data.input);
          const actual = {
             clabe:   data.input,
             ok:      result.ok,
-            format:  result.formatOk,
+            valid:   result.valid,
             error:   result.error,
             message: result.message,
             };
          const expected = {
             clabe:   data.input,
             ok:      false,
-            format:  data.expected[0],
+            valid:   data.expected[0],
             error:   data.expected[1],
             message: data.expected[2],
             };
@@ -212,7 +212,7 @@ describe('CLABE validator', () => {
          const actual = {
             clabe:    data,
             ok:       result.ok,
-            format:   result.formatOk,
+            format:   result.valid.format,
             error:    result.error,
             msg:      result.message,
             checksum: result.checksum,
@@ -236,7 +236,7 @@ describe('CLABE validator', () => {
       const actual = {
          clabe:    data,
          ok:       result.ok,
-         format:   result.formatOk,
+         format:   result.valid.format,
          error:    result.error,
          msg:      result.message,
          checksum: result.checksum,
@@ -286,10 +286,10 @@ describe('CLABE validator', () => {
 
    it('correctly identifies a CLABE number that maps to multiple cities', () => {
       const actual = clabe.validate('032180000118359719');
-      delete actual.multiple; delete actual.total;  //DEPRECATED fields
+      delete actual.formatOk;  delete actual.multiple;  delete actual.total;  //DEPRECATED fields
       const expected = {
          ok:       true,
-         formatOk: true,
+         valid:    { format: true, bank: true, city: true },
          error:    null,
          message: 'Valid',
          clabe:   '032180000118359719',
@@ -306,10 +306,10 @@ describe('CLABE validator', () => {
 
    it('returns nulls for properly formatted CLABE number with invalid bank and city codes', () => {
       const actual = clabe.validate('000000077777777770');
-      delete actual.multiple;  delete actual.total;  //DEPRECATED fields
+      delete actual.formatOk;  delete actual.multiple;  delete actual.total;  //DEPRECATED fields
       const expected = {
          ok:       false,
-         formatOk: true,
+         valid:    { format: true, bank: false, city: false },
          error:    'invalid-bank',
          message:  'Invalid bank code: 000',
          clabe:    null,

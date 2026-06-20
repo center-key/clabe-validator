@@ -91,6 +91,7 @@
 
          validateInput(elem) {
             const clabeCheck =   clabe.validate(elem.value);
+            delete clabeCheck.formatOk;  delete clabeCheck.multiple;  delete clabeCheck.total;  //DEPRECATED fields
             const validMessage = clabeCheck.bank + ' (' + clabeCheck.city + ')';
             const message =      clabeCheck.ok ? validMessage : clabeCheck.message;
             const form =         elem.closest('form');

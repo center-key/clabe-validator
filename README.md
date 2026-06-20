@@ -53,7 +53,7 @@ console.info('Your bank: ' + clabeCheck.bank);
 ```javascript
 {
    ok:       true,
-   formatOk: true,
+   valid:    { format: true, bank: true, city: true },
    error:    null,
    message:  'Valid',
    clabe:    '002010077777777771',
@@ -71,12 +71,12 @@ console.info('Your bank: ' + clabeCheck.bank);
 ```javascript
 {
    ok:       false,
-   formatOk: true,
+   valid:    { format: true, bank: true, city: false },
    error:    'invalid-city',
    message:  'Invalid city code: 000',
 }
 ```
-The `formatOk` field indicates if the CLABE's length and checksum are both valid (even if the bank
+The `valid.format` field indicates if the CLABE's length and checksum are both valid (even if the bank
 code or city code are unknown).
 
 ### 4. Possible errors
@@ -104,19 +104,25 @@ See the TypeScript declarations at the top of the [clabe.ts](src/clabe.ts) file.
 The `clabe.validate(clabeNum: string)` function returns a `ClabeCheck` object:
 ```typescript
 type ClabeCheck = {
-   ok:       boolean,        //todo está bien
-   formatOk: boolean,        //valid length and checksum
-   error:    string | null,  //failure code, example: 'invalid-city'
-   message:  string,         //displayable status information
-   clabe:    string | null,  //full 18-digit number
-   tag:      string | null,  //bank short name, example: 'BANAMEX'
-   bank:     string | null,  //bank long name, example: 'Banco Nacional'
-   city:     string | null,  //branch or plaza name
-   cities:   number,         //number of cities
-   account:  string,         //11-digit zero-padded bank account number
-   code:     { bank: string, city: string },  //3-digit codes
-   checksum: number | null,  //control digit (0 to 9)
-   };
+   ok:        boolean,        //todo está bien
+   valid: {
+      format: boolean,        //correct length and checksum
+      bank:   boolean,        //known bank code
+      city:   boolean,        //known city code
+      },
+   error:     string | null,  //failure code, example: 'invalid-city'
+   message:   string,         //displayable status information
+   clabe:     string | null,  //full 18-digit number
+   tag:       string | null,  //bank short name, example: 'BANAMEX'
+   bank:      string | null,  //bank long name, example: 'Banco Nacional'
+   city:      string | null,  //branch or plaza name
+   cities:    number,         //number of cities
+   account:   string,         //11-digit zero-padded bank account number
+   code: {
+      bank:   string,         //3-digit bank code
+      city:   string,         //3-digit city code
+      },
+   checksum:  number | null,  //control digit (0 to 9)
 ```
 
 Example TypeScript usage with explicit types:
