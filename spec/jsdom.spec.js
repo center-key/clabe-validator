@@ -288,11 +288,11 @@ describe('CLABE validator', () => {
       const actual = clabe.validate('032180000118359719');
       delete actual.formatOk;  delete actual.multiple;  delete actual.total;  //DEPRECATED fields
       const expected = {
+         clabe:   '032180000118359719',
          ok:       true,
          valid:    { format: true, bank: true, city: true },
          error:    null,
          message: 'Valid',
-         clabe:   '032180000118359719',
          tag:     'IXE',
          bank:    'IXE Banco',
          city:    'Atizapan, Chalco, Ciudad de México MX-CMX, Coacalco, Cuautitlán Izcalli, Ecatepec, Huehuetoca, Huixquilucan, Ixtapaluca, Los Reyes la Paz, Naucalpan, Nezahualcóyotl, Tecamac, Teotihuacán, Texcoco, Tlalnepantla',
@@ -304,15 +304,15 @@ describe('CLABE validator', () => {
       assertDeepStrictEqual(actual, expected);
       });
 
-   it('returns nulls for properly formatted CLABE number with invalid bank and city codes', () => {
+   it('returns format valid for properly formatted CLABE number with invalid bank and city codes', () => {
       const actual = clabe.validate('000000077777777770');
       delete actual.formatOk;  delete actual.multiple;  delete actual.total;  //DEPRECATED fields
       const expected = {
+         clabe:    '000000077777777770',
          ok:       false,
          valid:    { format: true, bank: false, city: false },
          error:    'invalid-bank',
          message:  'Invalid bank code: 000',
-         clabe:    null,
          tag:      null,
          bank:     null,
          city:     null,

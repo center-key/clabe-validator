@@ -52,6 +52,7 @@ console.info('Your bank: ' + clabeCheck.bank);
 ### 2. Example JSON result for a valid CLABE number
 ```javascript
 {
+   clabe:     '002010077777777771',
    ok:        true,
    valid: {
       format: true,
@@ -60,7 +61,6 @@ console.info('Your bank: ' + clabeCheck.bank);
       },
    error:     null,
    message:   'Valid',
-   clabe:     '002010077777777771',
    tag:       'BANAMEX',
    bank:      'Banco Nacional de México',
    city:      'Aguascalientes MX-AGU',
@@ -77,6 +77,7 @@ console.info('Your bank: ' + clabeCheck.bank);
 ### 3. Example JSON result for an invalid CLABE number
 ```javascript
 {
+   clabe:     '002000077777777778',
    ok:        false,
    valid: {
       format: true,
@@ -115,6 +116,7 @@ See the TypeScript declarations at the top of the [clabe.ts](src/clabe.ts) file.
 The `clabe.validate(clabeNum: string)` function returns a `ClabeCheck` object:
 ```typescript
 type ClabeCheck = {
+   clabe:     string | null,  //full 18-digit number
    ok:        boolean,        //todo está bien
    valid: {
       format: boolean,        //correct length and checksum
@@ -123,7 +125,6 @@ type ClabeCheck = {
       },
    error:     string | null,  //failure code, example: 'invalid-city'
    message:   string,         //displayable status information
-   clabe:     string | null,  //full 18-digit number
    tag:       string | null,  //bank short name, example: 'BANAMEX'
    bank:      string | null,  //bank long name, example: 'Banco Nacional'
    city:      string | null,  //branch or plaza name
