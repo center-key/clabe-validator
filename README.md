@@ -26,7 +26,7 @@ Include in a web page:
 ```
 or from the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-validator):
 ```html
-<script src=https://cdn.jsdelivr.net/npm/clabe-validator@3.1/dist/clabe.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/clabe-validator@3.2/dist/clabe.min.js></script>
 ```
 ### Node.js server
 Install package for node:
@@ -52,41 +52,52 @@ console.info('Your bank: ' + clabeCheck.bank);
 ### 2. Example JSON result for a valid CLABE number
 ```javascript
 {
-   ok:       true,
-   valid:    { format: true, bank: true, city: true },
-   error:    null,
-   message:  'Valid',
-   clabe:    '002010077777777771',
-   tag:      'BANAMEX',
-   bank:     'Banco Nacional de México',
-   city:     'Aguascalientes MX-AGU',
-   cities:   1,
-   account:  '07777777777',
-   code:     { bank: '002', city: '010' },
-   checksum: 1,
+   ok:        true,
+   valid: {
+      format: true,
+      bank:   true,
+      city:   true,
+      },
+   error:     null,
+   message:   'Valid',
+   clabe:     '002010077777777771',
+   tag:       'BANAMEX',
+   bank:      'Banco Nacional de México',
+   city:      'Aguascalientes MX-AGU',
+   cities:    1,
+   account:   '07777777777',
+   code: {
+      bank:   '002',
+      city:   '010',
+      },
+   checksum:  1,
 }
 ```
 
 ### 3. Example JSON result for an invalid CLABE number
 ```javascript
 {
-   ok:       false,
-   valid:    { format: true, bank: true, city: false },
-   error:    'invalid-city',
-   message:  'Invalid city code: 000',
+   ok:        false,
+   valid: {
+      format: true,
+      bank:   true,
+      city:   false,
+      },
+   error:     'invalid-city',
+   message:   'Invalid city code: 000',
 }
 ```
 The `valid.format` field indicates if the CLABE's length and checksum are both valid (even if the bank
 code or city code are unknown).
 
 ### 4. Possible errors
-| Error code           | Error message                                   | Format Ok |
-| -------------------- | ----------------------------------------------- | ----------|
-| `invalid-length`     | Must be exactly 18 digits long                  | `false`   |
-| `invalid-characters` | Must be only numeric digits (no letters)        | `false`   |
-| `invalid-checksum`   | Invalid checksum, last digit should be: [DIGIT] | `false`   |
-| `invalid-bank`       | Invalid bank code: [CODE]                       | `true`    |
-| `invalid-city`       | Invalid city code: [CODE]                       | `true`    |
+| Error code           | Error message                                   | Valid Format |
+| -------------------- | ----------------------------------------------- | ------------ |
+| `invalid-length`     | Must be exactly 18 digits long                  | `false`      |
+| `invalid-characters` | Must be only numeric digits (no letters)        | `false`      |
+| `invalid-checksum`   | Invalid checksum, last digit should be: [DIGIT] | `false`      |
+| `invalid-bank`       | Invalid bank code: [CODE]                       | `true`       |
+| `invalid-city`       | Invalid city code: [CODE]                       | `true`       |
 
 ## D) Calculator Usage
 Pass the bank code, city code, and account number into
