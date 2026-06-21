@@ -10,6 +10,9 @@ import { assertDeepStrictEqual } from 'assert-deep-strict-equal';
 import { clabe } from '../dist/clabe.js';
 import fs from 'node:fs';
 
+const removeDeprecatedFields = (results) =>
+   [...results.deprecated, 'deprecated'].forEach(key => delete results[key]);  //DEPRECATED
+
 ////////////////////////////////////////////////////////////////////////////////
 describe('The "dist" folder', () => {
 
@@ -118,7 +121,7 @@ describe('Newly added or modified banks and cities', () => {
          const pad =      (code) => code.toString().padStart(3, '0');
          const clabeNum = clabe.calculate(bank.code, city.code, mockAcct);
          const actual =   clabe.validate(clabeNum);
-         delete actual.formatOk;  delete actual.multiple;  delete actual.total;  //DEPRECATED fields
+         removeDeprecatedFields(actual);  //DEPRECATED
          const expected = {
             ok:       true,
             valid:    { format: true, bank: true, city: true },

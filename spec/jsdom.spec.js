@@ -18,6 +18,8 @@ const scripts =    [mode.file];
 const loadScript = (file) => dom.window.eval(fs.readFileSync(file, 'utf-8'));
 scripts.forEach(loadScript);
 const { clabe } =  dom.window;
+const removeDeprecatedFields = (results) =>
+   [...results.deprecated, 'deprecated'].forEach(key => delete results[key]);  //DEPRECATED
 
 // Specification suite
 describe(`Specifications: ${filename} - ${mode.type} (${mode.file})`, () => {
@@ -50,15 +52,15 @@ describe('List of CLABE banks', () => {
       });
 
    it('contains no duplicate tags', () => {
-      const allowedDuplicateTags = ['SKANDIA', 'STP'];  //list of permitted exceptions
-      const tags =                 bankCodes.map(bankCode => clabe.banksMap[bankCode].tag);
-      const duplicateTags =        tags.sort().filter((v, i, a) => i > 0 && v === a[i - 1]);
-      const problemTags =          duplicateTags.filter(tag => !allowedDuplicateTags.includes(tag));
-      const makeCodeBankPair =     code => [code, clabe.banksMap[code]];
-      const tagIsDuplicate =       pair => problemTags.includes(pair[1].tag);
-      const problemBanks =         bankCodes.map(makeCodeBankPair).filter(tagIsDuplicate);
-      const actual =   { duplicates: duplicateTags,        tags: problemTags, banks: problemBanks };
-      const expected = { duplicates: allowedDuplicateTags, tags: [],          banks: [] };
+      const allowedDups =      ['SKANDIA', 'STP'];  //list of permitted tag exceptions
+      const tags =             bankCodes.map(bankCode => clabe.banksMap[bankCode].tag);
+      const dups =             tags.sort().filter((tag, i, list) => i > 0 && tag === list[i - 1]);
+      const problemTags =      dups.filter(tag => !allowedDups.includes(tag));
+      const makeCodeBankPair = code => [code, clabe.banksMap[code]];  //example: ['32', { tag: 'IXE', name: 'IXE Banco' }]
+      const tagIsDuplicate =   pair => problemTags.includes(pair[1].tag);
+      const problemBanks =     bankCodes.map(makeCodeBankPair).filter(tagIsDuplicate);
+      const actual =           { duplicates: dups,        tags: problemTags, banks: problemBanks };
+      const expected =         { duplicates: allowedDups, tags: [],          banks: [] };
       assertDeepStrictEqual(actual, expected);
       });
 
@@ -286,7 +288,7 @@ describe('CLABE validator', () => {
 
    it('correctly identifies a CLABE number that maps to multiple cities', () => {
       const actual = clabe.validate('032180000118359719');
-      delete actual.formatOk;  delete actual.multiple;  delete actual.total;  //DEPRECATED fields
+      removeDeprecatedFields(actual);  //DEPRECATED
       const expected = {
          ok:       true,
          valid:    { format: true, bank: true, city: true },
@@ -306,7 +308,7 @@ describe('CLABE validator', () => {
 
    it('returns format valid for properly formatted CLABE number with invalid bank and city codes', () => {
       const actual = clabe.validate('000000077777777770');
-      delete actual.formatOk;  delete actual.multiple;  delete actual.total;  //DEPRECATED fields
+      removeDeprecatedFields(actual);  //DEPRECATED
       const expected = {
          ok:       false,
          valid:    { format: true, bank: false, city: false },

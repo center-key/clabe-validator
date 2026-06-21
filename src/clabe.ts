@@ -24,15 +24,13 @@ export type ClabeCheck = {
       city:   string,         //3-digit city code
       },
    checksum:  number | null,  //control digit (0 to 9)
-   formatOk:  boolean,        //DEPRECATED
-   multiple:  boolean,        //DEPRECATED
-   total:     number,         //DEPRECATED
+   deprecated: string[], formatOk: boolean, multiple: boolean, total: number,  //DEPRECATED fields
    };
-export type ClabeMxState = 'MX-AGU' | 'MX-BCN' | 'MX-BCS' | 'MX-CAM' | 'MX-CHH' | 'MX-CHP' |
-   'MX-CMX' | 'MX-COA' | 'MX-COL' | 'MX-DUR' | 'MX-GRO' | 'MX-GUA' | 'MX-HID' | 'MX-JAL' |
-   'MX-MEX' | 'MX-MIC' | 'MX-MOR' | 'MX-NAY' | 'MX-NLE' | 'MX-OAX' | 'MX-PUE' | 'MX-QUE' |
-   'MX-ROO' | 'MX-SIN' | 'MX-SLP' | 'MX-SON' | 'MX-TAB' | 'MX-TAM' | 'MX-TLA' | 'MX-VER' |
-   'MX-YUC' | 'MX-ZAC';
+export type ClabeMxState =
+   'MX-AGU' | 'MX-BCN' | 'MX-BCS' | 'MX-CAM' | 'MX-CHH' | 'MX-CHP' | 'MX-CMX' | 'MX-COA' |
+   'MX-COL' | 'MX-DUR' | 'MX-GRO' | 'MX-GUA' | 'MX-HID' | 'MX-JAL' | 'MX-MEX' | 'MX-MIC' |
+   'MX-MOR' | 'MX-NAY' | 'MX-NLE' | 'MX-OAX' | 'MX-PUE' | 'MX-QUE' | 'MX-ROO' | 'MX-SIN' |
+   'MX-SLP' | 'MX-SON' | 'MX-TAB' | 'MX-TAM' | 'MX-TLA' | 'MX-VER' | 'MX-YUC' | 'MX-ZAC';
 
 const clabe = {
 
@@ -98,9 +96,7 @@ const clabe = {
          account:  account,
          code:     { bank: bankCode, city: cityCode },
          checksum: realChecksum,
-         formatOk: !validation || ['bank', 'city'].includes(validation.invalid),  //DEPRECATED
-         multiple: (cities?.length ?? 0) > 1,                                     //DEPRECATED
-         total:    cities?.length ?? 0,                                           //DEPRECATED
+         deprecated: ['formatOk', 'multiple', 'total'], formatOk: !validation || ['bank', 'city'].includes(validation.invalid), multiple: (cities?.length ?? 0) > 1, total: cities?.length ?? 0,  //DEPRECATED
          };
       },
 
