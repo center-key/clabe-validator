@@ -27,6 +27,18 @@ describe('The "dist" folder', () => {
    });
 
 ////////////////////////////////////////////////////////////////////////////////
+describe('Library version number', () => {
+
+   it('follows semantic version formatting', () => {
+      const semVerPattern = /\d+[.]\d+[.]\d+/;
+      const actual =        { version: clabe.version, valid: semVerPattern.test(clabe.version) };
+      const expected =      { version: clabe.version, valid: true };
+      assertDeepStrictEqual(actual, expected);
+      });
+
+   });
+
+////////////////////////////////////////////////////////////////////////////////
 describe('Library module', () => {
 
    it('is an object', () => {

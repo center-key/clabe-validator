@@ -5,7 +5,6 @@ export type ClabeBanksMap =  { [bankCode: number]: ClabeBank };
 export type ClabeCityInfo =  [code: number, name: string, state?: ClabeMxState];  //example: [27, 'Tecate', 'MX-BCN']
 export type ClabeCitiesMap = { [cityCode: number]: ClabeCityInfo[] };
 export type ClabeCheck = {
-   clabe:     string | null,  //full 18-digit number
    ok:        boolean,        //todo está bien
    valid: {
       format: boolean,        //correct length and checksum
@@ -14,6 +13,7 @@ export type ClabeCheck = {
       },
    error:     string | null,  //failure code, example: 'invalid-city'
    message:   string,         //displayable status information
+   clabe:     string | null,  //full 18-digit number
    tag:       string | null,  //bank short name, example: 'BANAMEX'
    bank:      string | null,  //bank long name, example: 'Banco Nacional'
    city:      string | null,  //branch or plaza name
@@ -86,11 +86,11 @@ const clabe = {
       const validFormat = !validation || validation.format;
       const cityState = (city: ClabeCityInfo) => city[2] ? city[1] + ' ' + city[2] : city[1];  //example: 'Tecate MX-BCN'
       return {
-         clabe:    validFormat ? clabeNum : null,
          ok:       !validation,
          valid:    { format: validFormat, bank: !!bank.tag, city: !!cities },
          error:    validation ? 'invalid-' + validation.invalid : null,
          message:  validation ? errorMap[validation.invalid]! + String(validation.data) : 'Valid',
+         clabe:    validFormat ? clabeNum : null,
          tag:      bank.tag || null,
          bank:     bank.name || null,
          city:     cities ? cities.map(cityState).join(', ') : null,

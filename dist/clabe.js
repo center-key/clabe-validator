@@ -1,7 +1,7 @@
-//! clabe-validator v3.2.0 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v3.2.1 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '3.2.0',
+    version: '3.2.1',
     assertOk(ok, message) {
         if (!ok)
             throw new Error(`[clabe-validator] ${message}`);
@@ -38,13 +38,14 @@ const clabe = {
                     !bank.tag ? { format: true, invalid: 'bank', data: bankCode } :
                         !cities ? { format: true, invalid: 'city', data: cityCode } :
                             null;
+        const validFormat = !validation || validation.format;
         const cityState = (city) => city[2] ? city[1] + ' ' + city[2] : city[1];
         return {
             ok: !validation,
-            valid: { format: !validation || validation.format, bank: !!bank.tag, city: !!cities },
+            valid: { format: validFormat, bank: !!bank.tag, city: !!cities },
             error: validation ? 'invalid-' + validation.invalid : null,
             message: validation ? errorMap[validation.invalid] + String(validation.data) : 'Valid',
-            clabe: validation ? null : clabeNum,
+            clabe: validFormat ? clabeNum : null,
             tag: bank.tag || null,
             bank: bank.name || null,
             city: cities ? cities.map(cityState).join(', ') : null,

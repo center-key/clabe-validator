@@ -182,18 +182,18 @@ describe('CLABE validator', () => {
       const evalData = (data) => {
          const result = clabe.validate(data.input);
          const actual = {
-            clabe:   data.input,
             ok:      result.ok,
             valid:   result.valid,
             error:   result.error,
             message: result.message,
+            clabe:   data.input,
             };
          const expected = {
-            clabe:   data.input,
             ok:      false,
             valid:   data.expected[0],
             error:   data.expected[1],
             message: data.expected[2],
+            clabe:   data.input,
             };
          assertDeepStrictEqual(actual, expected);
          };
@@ -210,19 +210,19 @@ describe('CLABE validator', () => {
       const evalData = (data) => {
          const result = clabe.validate(data);
          const actual = {
-            clabe:    data,
             ok:       result.ok,
             format:   result.valid.format,
             error:    result.error,
-            msg:      result.message,
+            message:  result.message,
+            clabe:    data,
             checksum: result.checksum,
             };
          const expected = {
-            clabe:    data,
             ok:       true,
             format:   true,
             error:    null,
-            msg:      'Valid',
+            message:  'Valid',
+            clabe:    data,
             checksum: Number(data[17]),
             };
          assertDeepStrictEqual(actual, expected);
@@ -234,19 +234,19 @@ describe('CLABE validator', () => {
       const data = '002010777777777770';  //case where the last compute checksum modulus rolls over
       const result = clabe.validate(data);
       const actual = {
-         clabe:    data,
          ok:       result.ok,
          format:   result.valid.format,
          error:    result.error,
-         msg:      result.message,
+         message:  result.message,
+         clabe:    data,
          checksum: result.checksum,
          };
       const expected = {
-         clabe:    data,
          ok:       true,
          format:   true,
          error:    null,
-         msg:      'Valid',
+         message:  'Valid',
+         clabe:    data,
          checksum: 0,
          };
       assertDeepStrictEqual(actual, expected);
@@ -288,11 +288,11 @@ describe('CLABE validator', () => {
       const actual = clabe.validate('032180000118359719');
       delete actual.formatOk;  delete actual.multiple;  delete actual.total;  //DEPRECATED fields
       const expected = {
-         clabe:   '032180000118359719',
          ok:       true,
          valid:    { format: true, bank: true, city: true },
          error:    null,
          message: 'Valid',
+         clabe:   '032180000118359719',
          tag:     'IXE',
          bank:    'IXE Banco',
          city:    'Atizapan, Chalco, Ciudad de México MX-CMX, Coacalco, Cuautitlán Izcalli, Ecatepec, Huehuetoca, Huixquilucan, Ixtapaluca, Los Reyes la Paz, Naucalpan, Nezahualcóyotl, Tecamac, Teotihuacán, Texcoco, Tlalnepantla',
@@ -308,11 +308,11 @@ describe('CLABE validator', () => {
       const actual = clabe.validate('000000077777777770');
       delete actual.formatOk;  delete actual.multiple;  delete actual.total;  //DEPRECATED fields
       const expected = {
-         clabe:    '000000077777777770',
          ok:       false,
          valid:    { format: true, bank: false, city: false },
          error:    'invalid-bank',
          message:  'Invalid bank code: 000',
+         clabe:    '000000077777777770',
          tag:      null,
          bank:     null,
          city:     null,
