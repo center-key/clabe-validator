@@ -91,9 +91,9 @@
 
          validateInput(elem) {
             const clabeCheck =   clabe.validate(elem.value);
-            const removeDeprecatedFields = (results) =>
+            const removeDeprecatedFields = (results) =>                                    //DEPRECATED
                [...results.deprecated, 'deprecated'].forEach(key => delete results[key]);  //DEPRECATED
-            removeDeprecatedFields(clabeCheck);  //DEPRECATED
+            removeDeprecatedFields(clabeCheck);                                            //DEPRECATED
             const validMessage = clabeCheck.bank + ' (' + clabeCheck.city + ')';
             const message =      clabeCheck.ok ? validMessage : clabeCheck.message;
             const form =         elem.closest('form');

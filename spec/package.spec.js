@@ -33,9 +33,10 @@ describe('The "dist" folder', () => {
 describe('Library version number', () => {
 
    it('follows semantic version formatting', () => {
-      const semVerPattern = /\d+[.]\d+[.]\d+/;
-      const actual =        { version: clabe.version, valid: semVerPattern.test(clabe.version) };
-      const expected =      { version: clabe.version, valid: true };
+      const version =  clabe.version;
+      const semVer =   /\d+[.]\d+[.]\d+/;
+      const actual =   { version: version, valid: semVer.test(version) };
+      const expected = { version: version, valid: true };
       assertDeepStrictEqual(actual, expected);
       });
 
@@ -44,14 +45,15 @@ describe('Library version number', () => {
 ////////////////////////////////////////////////////////////////////////////////
 describe('Library module', () => {
 
-   it('is an object', () => {
-      const actual =   { constructor: clabe.constructor.name };
-      const expected = { constructor: 'Object' };
+   const module = clabe;
+
+   it('is exported as an object', () => {
+      const actual =   { type: typeof module };
+      const expected = { type: 'object' };
       assertDeepStrictEqual(actual, expected);
       });
 
    it('has the correct properties', () => {
-      const module = clabe;
       const actual = Object.keys(module).sort().map(key => [key, typeof module[key]]);
       const expected = [
          ['assertOk',        'function'],

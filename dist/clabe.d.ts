@@ -1,4 +1,4 @@
-//! clabe-validator v3.2.1 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v3.2.2 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 export type ClabeBank = {
     tag?: string;
@@ -31,6 +31,7 @@ export type ClabeCheck = {
         city: string;
     };
     checksum: number | null;
+    deprecated: string[];
     formatOk: boolean;
     multiple: boolean;
     total: number;

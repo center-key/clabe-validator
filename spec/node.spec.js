@@ -22,9 +22,10 @@ describe(`Specifications: ${filename} - ${mode.type} (${mode.file})`, () => {
 describe('Library version number', () => {
 
    it('follows semantic version formatting', () => {
-      const semVerPattern = /\d+[.]\d+[.]\d+/;
-      const actual =   { version: clabe.version, valid: semVerPattern.test(clabe.version) };
-      const expected = { version: clabe.version, valid: true };
+      const version =  clabe.version;
+      const semVer =   /\d+[.]\d+[.]\d+/;
+      const actual =   { version: version, valid: semVer.test(version) };
+      const expected = { version: version, valid: true };
       assertDeepStrictEqual(actual, expected);
       });
 

@@ -1,7 +1,7 @@
-//! clabe-validator v3.2.1 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
+//! clabe-validator v3.2.2 ~~ https://github.com/center-key/clabe-validator ~~ MIT License
 
 const clabe = {
-    version: '3.2.1',
+    version: '3.2.2',
     assertOk(ok, message) {
         if (!ok)
             throw new Error(`[clabe-validator] ${message}`);
@@ -53,9 +53,7 @@ const clabe = {
             account: account,
             code: { bank: bankCode, city: cityCode },
             checksum: realChecksum,
-            formatOk: !validation || ['bank', 'city'].includes(validation.invalid),
-            multiple: (cities?.length ?? 0) > 1,
-            total: cities?.length ?? 0,
+            deprecated: ['formatOk', 'multiple', 'total'], formatOk: !validation || ['bank', 'city'].includes(validation.invalid), multiple: (cities?.length ?? 0) > 1, total: cities?.length ?? 0,
         };
     },
     calculate(bankCode, cityCode, accountNumber) {
