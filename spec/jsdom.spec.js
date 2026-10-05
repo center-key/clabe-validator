@@ -44,7 +44,7 @@ describe('List of CLABE banks', () => {
 
    it('contains only uppercase bank tags', () => {
       const checkTagCase = (bankCode) => {  //example: 21: { tag: 'HSBC', name: 'HSBC México' },
-         const bank = clabe.banksMap[bankCode];
+         const bank =     clabe.banksMap[bankCode];
          const actual =   { code: bankCode, tag: bank.tag,               name: bank.name };
          const expected = { code: bankCode, tag: bank.tag.toUpperCase(), name: bank.name };
          assertDeepStrictEqual(actual, expected);
@@ -234,7 +234,7 @@ describe('CLABE validator', () => {
       });
 
    it('accepts a valid CLABE number that has a checksum of 0', () => {
-      const data = '002010777777777770';  //case where the last compute checksum modulus rolls over
+      const data =   '002010777777777770';  //case where the last compute checksum modulus rolls over
       const result = clabe.validate(data);
       const actual = {
          ok:       result.ok,
@@ -257,7 +257,7 @@ describe('CLABE validator', () => {
 
    it('extracts the bank tag, bank name, and city', () => {
       const clabeCheck = clabe.validate('002010077777777771');
-      const actual =   {
+      const actual = {
          tag:      clabeCheck.tag,
          bank:     clabeCheck.bank,
          city:     clabeCheck.city,
@@ -274,7 +274,7 @@ describe('CLABE validator', () => {
 
    it('extracts the bank code, city code, and account number', () => {
       const clabeCheck = clabe.validate('002010077777777771');
-      const actual =   {
+      const actual = {
          bank:    clabeCheck.code.bank,
          city:    clabeCheck.code.city,
          account: clabeCheck.account,
