@@ -19,7 +19,7 @@ Try it out:<br>
 [https://centerkey.com/clabe](https://centerkey.com/clabe/)
 
 ## B) Setup
-### Web browser
+### Web Browser
 Include in a web page:
 ```html
 <script src=clabe.min.js></script>
@@ -28,7 +28,7 @@ or from the [jsdelivr.com CDN](https://www.jsdelivr.com/package/npm/clabe-valida
 ```html
 <script src=https://cdn.jsdelivr.net/npm/clabe-validator@3.2/dist/clabe.min.js></script>
 ```
-### Node.js server
+### Node.js Server
 Install package for node:
 ```shell
 $ npm install clabe-validator
@@ -41,7 +41,7 @@ import { clabe } from 'clabe-validator';
 ## C) Validator Usage
 Pass the CLABE number as an 18-character string into `clabe.validate(clabeNum)`.
 
-### 1. Example JavaScript code
+### 1. Example JavaScript Code
 ```javascript
 const clabeNum =   '002010077777777771';
 const clabeCheck = clabe.validate(clabeNum);
@@ -50,7 +50,7 @@ console.info(clabeCheck.ok ? '¡Que bueno!' : '¡Muy mal!');  //"¡Que bueno!"
 console.info('Tu banco:', clabeCheck.bank);  //"Tu banco: Banco Nacional de México"
 ```
 
-### 2. Example JSON result for a valid CLABE number
+### 2. Example JSON Result for Valid CLABE
 ```javascript
 {
    ok:        true,
@@ -75,7 +75,7 @@ console.info('Tu banco:', clabeCheck.bank);  //"Tu banco: Banco Nacional de Méx
 }
 ```
 
-### 3. Example JSON result for an invalid CLABE number
+### 3. Example JSON result for Invalid CLABE
 ```javascript
 {
    ok:        false,
@@ -92,7 +92,7 @@ console.info('Tu banco:', clabeCheck.bank);  //"Tu banco: Banco Nacional de Méx
 The `valid.format` field indicates if the CLABE's length and checksum are both valid (even if the bank
 code or city code are unknown).
 
-### 4. Possible errors
+### 4. Possible Errors
 | Error code           | Error message                                   | Valid Format |
 | -------------------- | ----------------------------------------------- | ------------ |
 | `invalid-length`     | Must be exactly 18 digits long                  | `false`      |
